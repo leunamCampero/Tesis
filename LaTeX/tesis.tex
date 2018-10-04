@@ -1,0 +1,144 @@
+\documentclass[12pt]{book}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{amssymb,latexsym}
+\usepackage{graphicx}
+
+%\usepackage[spanish,mexico,es-nolayout]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+%\usepackage{amssymb}
+\usepackage{amsthm}
+%\usepackage{graphicx}
+\usepackage{color}
+\usepackage{tikz}
+\usepackage{tkz-berge}
+\usepackage{makeidx}
+\usepackage{url}
+\usepackage{xspace}
+\usepackage{tocbibind}
+% ver http://gilmation.com/articles/latex-margins-for-book-binding/
+% y http://tex.stackexchange.com/questions/50258/margins-of-book-class
+\usepackage[margin=3.5cm]{geometry}
+\geometry{bindingoffset=1cm}
+
+%\usepackage{babelbib}
+
+\usetikzlibrary{positioning,shapes,fit,arrows,decorations.pathmorphing}
+\definecolor{myblue}{RGB}{56,94,141}
+
+
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{corollary}[theorem]{Corolario}
+\newtheorem{proposition}[theorem]{Proposición}
+
+\theoremstyle{definition}
+
+\newtheorem{definition}[theorem]{Definición}
+\newtheorem{notation}[theorem]{Notación}
+\newtheorem{example}[theorem]{Ejemplo}
+\newtheorem{lemma}[theorem]{Lema}
+
+\newcounter{in}
+\newcounter{ini}
+
+\DeclareMathOperator{\Cay}{Cay}
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\Stab}{Stab}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\orb}{Orb}
+
+\newcommand{\GAP}{\textsf{GAP}\xspace}
+\newcommand{\GRAPE}{\textsf{GRAPE}\xspace}
+
+\makeindex
+
+\newcommand{\elespacio}{1.4cm}
+
+\begin{document}
+\mainmatter 
+\begin{titlepage}
+  \begin{center}
+    \null
+    \vspace*{\fill}
+
+    \includegraphics[scale=1.2,bb=55 20 0 0]{escudouaeh.pdf}
+
+    \vspace*{\elespacio}
+
+    \textsc{Universidad Autónoma del Estado de Hidalgo}
+
+    \textsc{Instituto de Ciencias Básicas e Ingeniería}
+
+    \textsc{Área Académica de Matemáticas y Física}
+
+    \vspace*{\elespacio}
+
+    {\Huge\bfseries Título\par}
+
+    \vspace*{\elespacio}
+
+    {\large Tesis que para obtener el título de}
+
+    \vspace*{\elespacio}
+
+    {\Large\textsc{Licenciada en Matemáticas Aplicadas}}
+
+    \vspace*{\elespacio}
+
+    {\large presenta}
+
+    \vspace*{\elespacio}
+
+    {\Huge Alumna}
+
+    \vspace*{\elespacio}
+
+    {\large bajo la dirección de}
+
+    \bigskip
+
+    {\Large Dr.~Rafael Villarroel Flores}
+
+    \bigskip
+
+    {Pachuca, Hidalgo. Junio de 2013.}
+
+    \vspace*{\fill}
+
+  \end{center}
+\end{titlepage}
+
+\thispagestyle{empty}
+\begin{flushleft}
+  {\bfseries\Large Resumen}
+\end{flushleft}
+
+En esta tesis se hace blah blah blah blah blah blah blah blah blah
+blah blah blah blah blah blah blah blah blah.
+
+\vspace{2cm}
+
+\begin{flushleft}
+  {\bfseries\Large Abstract}
+\end{flushleft}
+
+In this thesis blah blah blah blah blah blah blah blah blah
+blah blah blah blah blah blah blah blah blah.
+
+
+
+ \newpage \thispagestyle{empty}
+
+\chapter{Representaciones de grupos}
+\label{cha:Representaciones de grupos}
+Sea $GL\left(n,\mathbb{C}\right)$ el grupo de todas las matrices no singulares de grado $n$ sobre el campo de los números complejos $\mathbb{C}$. Sea $G$ un grupo. Una representación  (matricial) de $G$ es, por definición, un homomorfismo de $G$ en  $GL\left(n,\mathbb{C}\right)$:\\
+$\mathbb(A):a\rightarrow A\left(a\right)$
+\backmatter
+
+\bibliographystyle{plain}
+\bibliography{labiblio}
+
+\printindex
+
+
+\end{document}

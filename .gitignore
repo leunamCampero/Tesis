@@ -1,0 +1,9 @@
+*.log
+*.log
+*.ind
+*.ilg
+*.idx
+*.blg
+*.bbl
+*.aux
+auto/

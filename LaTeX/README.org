@@ -1,0 +1,57 @@
+* Github
+
+- Sacar una cuenta en http://github.com. 
+- Seguir las instrucciones en https://help.github.com/articles/generating-ssh-keys
+
+* Emacs
+
+Ver las instrucciones en:
+
+https://launchpad.net/~cassou/+archive/emacs
+
+para instalar una versión reciente de Emacs (más reciente que la que
+está en los repositorios)
+
+Clonar mi configuración 
+
+#+BEGIN_SRC sh
+  git clone git@github.com:rvf0068/emacs.d.git .emacs.d
+#+END_SRC
+
+Antes de correr Emacs hay que instalar ~texinfo~ y compilar org-mode:
+
+#+BEGIN_SRC sh
+  cd .emacs.d/site-lisp/org-mode
+  make
+#+END_SRC
+
+* TeX Live 
+
+Bajar el archivo ~texlive2013.iso~.
+
+Correr
+
+#+begin_src sh
+sudo mount -t iso9660 -o ro,loop,noauto texlive2013.iso /mnt
+#+end_src
+
+luego
+
+#+begin_src sh
+/mnt$ sudo mkdir -p /usr/local/texlive
+/mnt$ sudo chown -R $USER /usr/local/texlive/
+#+end_src
+
+luego ~cd /mnt~ y luego  ~./install-tl~
+
+Añadir
+
+#+BEGIN_SRC sh
+  PATH=/usr/local/texlive/2013/bin/x86_64-linux:$PATH; export PATH
+  MANPATH=/usr/local/texlive/2013/texmf/doc/man:$MANPATH; export MANPATH
+  INFOPATH=/usr/local/texlive/2013/texmf/doc/info:$INFOPATH; export INFOPATH
+#+END_SRC
+
+al archivo ~.profile~ y reiniciar.
+
+* Comandos
