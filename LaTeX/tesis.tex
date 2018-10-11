@@ -73,7 +73,8 @@
 
     \vspace*{\elespacio}
 
-    {\Huge\bfseries Título\par}
+    {\Huge\bfseries Un enfoque computacional de representaciones de
+      grupos en homologías\par}
 
     \vspace*{\elespacio}
 
@@ -81,7 +82,7 @@
 
     \vspace*{\elespacio}
 
-    {\Large\textsc{Licenciada en Matemáticas Aplicadas}}
+    {\Large\textsc{Licenciado en Matemáticas Aplicadas}}
 
     \vspace*{\elespacio}
 
@@ -89,7 +90,7 @@
 
     \vspace*{\elespacio}
 
-    {\Huge Alumna}
+    {\Huge Manuel Campero Jurado}
 
     \vspace*{\elespacio}
 
@@ -101,7 +102,7 @@
 
     \bigskip
 
-    {Pachuca, Hidalgo. Junio de 2013.}
+    {Pachuca, Hidalgo. Octubre de 2018.}
 
     \vspace*{\fill}
 
@@ -125,8 +126,6 @@ blah blah blah blah blah blah blah blah blah.
 In this thesis blah blah blah blah blah blah blah blah blah
 blah blah blah blah blah blah blah blah blah.
 
-
-
  \newpage \thispagestyle{empty}
 
 \chapter{Representaciones de grupos}
@@ -136,16 +135,20 @@ Sea $GL\left(n,\mathbb{C}\right)$ el grupo de todas las matrices no
 singulares de grado $n$ sobre el campo de los números complejos
 $\mathbb{C}$. Sea $G$ un grupo. Una representación (matricial) de $G$
 es, por definición, un homomorfismo de $G$ en
-$GL\left(n,\mathbb{C}\right)$:
+$GL\left(n,\mathbb{C}\right)$: $\mathbb{A}\colon a\mapsto
+A\left(a\right)$, tal que:
+\begin{enumerate}
+\item $A\left(ab\right)\left(a\right)\left(b\right)$,
+\item $A\left(1\right)=\mathrm{I}$ (la matriz identidad),
+\item $A\left(a^{-1}\right)=A\left(a\right)^{-1}$.
+\end{enumerate}
+El número $n$ se llama el grado de la representación. Se dice que la
+representación es fiel, si $\mathbb{A}$ es biyectiva.
 
-$\mathbb(A):a\rightarrow A\left(a\right)$
-$\mathbb{A}:$ $a\rightarrow A\left(a\right)$, para todo $a\in G$\\
-con\\
-$\qquad A\left(ab\right)\left(a\right)\left(b\right)$,\\
-$\qquad A\left(1\right)=\mathrm{I}$ (la matriz identidad)\\
-$\qquad A\left(a^{-1}\right)=A\left(a\right)^{-1}$ \\
-y $n$ es el grado. Se dice que la representación es fiel, si $\mathbb{A}$ es biyectiva.\\~\\
-\textbf{Ejemplo 1.1.} El mapeo que a manda cada elemento de $G$ a $1 \in \mathbb{C}$ es una representación de grado 1. Ésta es llamada la representación unitaria de $G$, y es denotada por $1_{G}$.\\~\\
+\textbf{Ejemplo 1.1.} El mapeo que a manda cada elemento de $G$ a $1
+\in \mathbb{C}$ es una representación de grado 1. Ésta es llamada la
+representación unitaria de $G$, y es denotada por $1_{G}$.
+
 \textbf{Ejemplo 1.2.} Dada una representación $a \rightarrow A\left(a\right)$, el mapeo\\~\\
 $a \rightarrow P^{-1}A\left(a\right)P$, para todo $a \in G$\\~\\
 se convierte en una representación de $G$ para cualquier matriz $P$ no singular.\\~\\
