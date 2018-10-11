@@ -363,6 +363,226 @@ U_{1}(a^{-1}) & V(a^{-1}) \\
 \end{pmatrix}$.\\~\\
 \textbf{Lema 3.1.} (Lema de Schur) Sea $\mathbb{A}:$ $a\rightarrow A\left(a\right)$ y $\mathbb{B}:$ $a\rightarrow B\left(a\right)$ representaciones irreducibles de un grupo $G$ con grados $m$ y $n$ respectivamente. Sea $P$ una matriz de $m$x$n$ con la propierdad de que\\~\\
 $A(a)P=PB(a)$, para todo $a \in G$.
+entonces\\
+\begin{itemize}
+\item $P=0$
+\item $m=n$ y $P$ es no singular.
+\end{itemize}
+Asumimos $P \neq 0$. Y se quiere mostrar la segunda condición. Supongamos que $m \neq n$, o $m=n$ y $P$ es singular. Entonces existe $Q \in GL(m,\mathbb{C})$ y $\mathrm{R} \in GL(n,\mathbb{C})$, tal que\\~\\
+$\qquad
+QPR=
+\begin{pmatrix}
+\mathrm{I_{r}} & 0 \\ 
+0 & 0
+\end{pmatrix} \quad \mathrm{(I_{r},\ es\ la\ matriz\ identidad\ de\ grado\ r).\ }$.\\~\\
+con $r<$max$\left\{ m,n \right\}$. Como $QA(a)Q^{-1}(QPR) = QPR(R^{-1}B(a)R)$, y se obtiene\\~\\
+$\qquad
+\begin{pmatrix}
+A_{11} & 0 \\ 
+A_{21} & 0
+\end{pmatrix}
+=
+\begin{pmatrix}
+B_{11} & B_{12} \\ 
+0 & 0
+\end{pmatrix},$ \\~\\
+donde \\~\\
+$\qquad
+QA(a)A^{-1}=
+\begin{pmatrix}
+A_{11} & A_{12} \\ 
+A_{21} & A_{22}
+\end{pmatrix} \quad \mathrm{(A_{11},\ es\ una\ matriz\ cuadrada\ de\ grado\ r).\ }$\\~\\
+y \\~\\
+$\qquad
+R^{-1}B(a)R=
+\begin{pmatrix}
+B_{11} & B_{12} \\ 
+B_{21} & B_{22}
+\end{pmatrix} \mathrm{(B_{11},\ es\ una\ matriz\ cuadrada\ de\ grado\ r).\ }$\\~\\
+Por lo tanto $A_{21}=0$ si $r<m$ y $B_{12}$ si $r<n$. De cualquier manera $\mathbb{A}$ o $\mathbb{B}$ es reducible, lo cual es una contradicción.\\~\\
+\textbf{Teorema 3.2.} Sea $\mathbb{A}:$ $a\rightarrow A\left(a\right)$ una representación irreducible de un grupo $G$. Sea $P$ una matriz con la propiedad $A(a)P=PA(a)$ para todo $a \in G$. Entonces $P=\lambda \mathrm{I}$, para algún $\lambda \in \mathbb{C}$.\\~\\
+Sea $\lambda$ un eigenvalor de $P$. Entonces det$(\lambda \mathbb{I} - P)=0$, y además\\~\\
+$\qquad A(a)(\lambda \mathbb{I} - P)=(\lambda \mathbb{I} - P)A(a) \qquad \mathrm{(para\ todo\ a \in G.)}$\\~\\
+Entonces por el Lema de Schur,\\~\\
+$\qquad \lambda \mathrm{I}-P=0$.\\~\\
+\textbf{Teorema 3.2.} Sea $G$ un grupo abeliano. Entonces cada representación irreducible de $G$ es de grado 1.\\~\\
+Sea $\mathbb{A}:$ $a\rightarrow A\left(a\right)$ una representación irreducible de $G$. Como $A(a)$ conmuta con $A(b)$, el teorema pasado nos dice que $A(a)=\lambda(a) \mathrm{I}$ para algún $\lambda(a) \in \mathbb{C}$. Entonces $\mathbb{A}$ es irreducible, y el grado de $\mathbb{A}$ debe ser 1.\\~\\
+\textbf{(Relación ortogonal de carácteres).} Desde aquí en adelante, se asumirá que estamos trabajando con grupos finitos.\\~\\
+\textbf{Carácteres} Para una matriz cuadrada $A=\alpha_{ij}$ de grado $n$, $\mathrm{tr\ A}$ denota la traza de $A$, es decir\\~\\
+$\qquad \mathrm{tr\ A}=\alpha_{11}+\alpha_{22}+ \cdots \alpha_{nn}$\\~\\
+Cálculos directos muestran que\\~\\
+\textbf{Lema 4.1. }
+\begin{itemize}
+\item $\mathrm{tr\ AB}=\mathrm{tr\ BA}$
+\item $\mathrm{tr\ P^{-1}AP}=\mathrm{tr\ A}$ para alguna matriz no singular $P$.\\~\\
+\end{itemize}
+Para una representación $\mathbb{A}:$ $a\rightarrow A\left(a\right)$ de un grupo $G$, sea $\mathrm{tr\ A(a)}=\chi(a)$. Entonces $\chi(a)$ es una función que toma valores en $\mathbb{C}$  y es llamada el carácter de $\mathbb{A}$. Obviamente, $\chi(1)$ es igual al grado de $\mathbb{A}$. Carácteres de representaciones irreducibles son llamados carácteres irreducibles. Y por el lema 4.1(2), se tiene lo siguiente:\\~\\
+\textbf{LEMA 4.2. } Representaciones equivalentes de un grupo tienen el mismo carácter.\\~\\
+Como $A(x^{-1}ax)=A(x)^{-1}A(a)A(x)$, se sigue que\\~\\
+$\qquad \chi(x^{-1}ax)=\chi(a)$.\\~\\
+Así $\chi$ toma el mismo valor en una clase de conjugación de $G$. Tal función es llamada función de clase.\\~\\
+\textbf{La primera relación ortogonal de carácteres.} Sea $G$ un grupo de orden $g$. Sean $\mathbb{A}:$ $a\rightarrow A\left(a\right) = (\alpha_{ij}(a))$, y $\mathbb{B}:$ $a\rightarrow B\left(a\right) = (\alpha_{ij}(a))$ representaciones irreducibles de $G$ con grado $m,n$, respectivamente. Para una matriz arbitraria $U=(\gamma_{ij})$, de $m$x$n$, se tiene\\
+\begin{equation*}
+\begin{aligned}
+\qquad V=\sum_{x \in G} A(x)UB(x^{-1}).
+\end{aligned}
+\end{equation*}
+Entonces
+\begin{equation*}
+\begin{aligned}
+\qquad A(a)V &=\sum_{x \in G} A(ax)UB(x^{-1})\\
+&=\sum_{y \in G} A(y)UB(y^{-1}a) \qquad (y=ax)\\
+&=\sum_{y \in G} A(y)UB(y^{-1})B(a).\\
+\end{aligned}
+\end{equation*}
+Como $y$ varia sobre $G$ conforme $x$ lo hace, 	se tiene\\~\\
+$\qquad A(a)V=VB(a).$\\~\\
+Asuminos que $A$ y $B$ no son equivalentes. Entonces $V=0$ por el Lema de Schur. La $(ij)$ entrada de $V$ es
+\begin{equation*}
+\begin{aligned}
+\qquad \sum_{x \in G} \quad \sum_{u,v} \alpha_{iu}(x) \gamma_{uv} \beta_{vj}(x^{-1}) = 0.
+\end{aligned}
+\end{equation*}
+En particular, para algún par de $u$,$v$ sea $\gamma_{uv}=1$ y para cualquier otro caso $\gamma_{\rho \sigma}=0$. Lo cual conduce a\\~\\
+\begin{equation*}
+\begin{aligned}
+\sum_{x \in G} \alpha_{iu}(x) \beta_{vj}(x^{-1}) = 0.
+\end{aligned}
+\end{equation*}
+Ahora, asumimos que $\mathbb{A}=\mathbb{B}$. Entonces para algún $\lambda \in \mathbb{C}$, $V=\lambda\mathrm{I}$, y por el Teorema 3.2. La $(i,j)$ entrada de $V$ es
+\begin{equation*}
+\begin{aligned}
+\qquad \sum_{x \in G} \quad \sum_{u,v} \alpha_{iu}(x) \gamma_{uv} \beta_{vj}(x^{-1}) = \delta_{ij}\lambda,
+\end{aligned}
+\end{equation*}
+donde $\delta_{ii}=1$, $\delta_{ij}=0$ ($i \neq j$). Tomando la traza de
+\begin{equation*}
+\begin{aligned}
+\qquad \sum_{x \in G} A(x)UA(x^{-1}) = \lambda \mathrm{I}
+\end{aligned}
+\end{equation*}
+y se obtiene\\~\\
+$\qquad g(\gamma_{11}+\gamma_{22}+ \cdots +\gamma_{nn})$\\~\\
+donde $n$ es el grado de $\mathbb{A}$,y $g$ es la cardinalidad de $G$, de lo cual se sigue\\~\\
+$\lambda=\frac{g}{n}(\gamma_{11}+\gamma_{22}+ \cdots + \gamma_{nn})$.\\~\\
+Ahora, para algún par de $u$,$v$ sea $\gamma_{uv}=1$ y para cualquier otro caso $\gamma_{\rho \sigma}=0$. Entonces\\~\\
+\begin{equation*}
+\begin{aligned}
+\sum_{x \in G} \alpha_{iu}(x) \beta_{vj}(x^{-1}) = \delta_{ij} \delta_{uv}\frac{g}{n}.
+\end{aligned}
+\end{equation*}
+Lo cual nos conduce al siguiente teorema\\~\\
+\textbf{Teorema 4.3. } Sea $G$ un grupo de orden $g$.
+\begin{itemize}
+\item Sea $\mathbb{A}: a \rightarrow A(a)=(\alpha_{ij}(a))$ una representación irreducible de $G$ con grado $n$. Entonces
+\end{itemize}
+\begin{equation*}
+\begin{aligned}
+\sum_{x \in G} \alpha_{iu}(x) \alpha_{vj}(x^{-1}) = \delta_{ij} \delta_{uv}\frac{g}{n}.
+\end{aligned}
+\end{equation*}
+\begin{itemize}
+\item Sea $\mathbb{B}:b \rightarrow B(a)=(\beta_{ij}(a))$ una representación irreducible, la cual no es esquivalente a $\mathbb{A}$, entonces
+\end{itemize}
+\begin{equation*}
+\begin{aligned}
+\sum_{x \in G} \alpha_{iu}(x) \beta_{vj}(x^{-1}) = 0.
+\end{aligned}
+\end{equation*}
+Sean $\chi$, $\chi^{'}$ los carácteres de $\mathbb{A}$, $\mathbb{B}$. Por el teorema anterior, poniendo a $u=i$, $v=j$ y tomando la suma sobre $i$,$j$, se obtiene lo siguiente:\\~\\
+\textbf{Teorema 4.4. } (La primer relación de ortogonalidad de carácteres) Sea $G$ un grupo de orden $g$.
+\begin{itemize}
+\item Sea $\chi$ un caráter irreducible de $G$, entonces 
+\end{itemize}
+\begin{equation*}
+\begin{aligned}
+\sum_{x \in G} \chi(x) \chi(x^{-1}) = g.
+\end{aligned}
+\end{equation*}
+\begin{itemize}
+\item Sea $\chi$, $\chi^{'}$ carácteres de representaciones irreducibles no equivalentes de $G$, entonces 
+\end{itemize}
+\begin{equation*}
+\begin{aligned}
+\sum_{x \in G} \chi(x) \chi^{'}(x^{-1}) = 0.
+\end{aligned}
+\end{equation*}
+Se observa que $\chi(a^{-1})=\overline{\chi(a)}$ para todo $a \in G$, porque el Teorema 2.3 dice que $\mathbb{A}$ es equivalente a una representación unitaria $\mathbb{U}: a \rightarrow U(a)$, y se por lo tanto
+\begin{equation*}
+\begin{aligned}
+\chi(a^{-1})=trU(a^{-1})=trU(a)^{-1}=tr \overline{U(a)}^{t} = \overline{\chi(a)}  
+\end{aligned}
+\end{equation*} 
+Sean $\mathbb{F}_{1}$, $\mathbb{F}_{2}$,... representantes de las clases de equivalencia de las representaciones irreducibles de un grupo $G$ y sea $\chi_{1}$, $\chi_{2}$,... los carácteres de $\mathbb{F}_{1}$, $\mathbb{F}_{2}$,... .  Sea $C_{1}$, $C_{2}$,...,$C_{k}$ las clases de conjuación de $G$ con $|C_{\alpha}|=h_{\alpha}$ ($\alpha=1, 2, 3,...,k$) y sea $a_{1}$, $a_{2}$,...,$a_{k}$ los representantes de las clases de conjugación. Como los carácteres son funciones de clases, el Teorema 4.4 se reescribe como sigue\\~\\
+\textbf{Theorema 4.4'. }
+\begin{equation*}
+\begin{aligned} 
+\sum_{\alpha=1}^{k} h_{\alpha} \chi_{i}(a_{\alpha}) \overline{\chi_{j}(a_{\alpha})} = \delta_{ij}g.
+\end{aligned}
+\end{equation*}
+Para funciones $\varphi$, $\psi$ que toman valores en $\mathbb{C}$ en un grupo $G$ de orden $g$, se define el producto interno $(\varphi,\psi)_{G}$ de la siguiente manera
+\begin{equation*}
+\begin{aligned}
+(\varphi,\psi)_{G} = \frac{1}{g} \sum_{x \in G} \varphi(x) \psi(x^{-1})
+\end{aligned}
+\end{equation*}
+Cuando sea claro que se está hablando del grupo $G$, se escribirá $(\varphi,\psi)$ en lugar de $(\varphi,\psi)_{G}$. Claramente el producto interno cumple las siguientes propiedades
+\begin{equation*}
+\begin{aligned}
+(\varphi,\psi)=(\psi,\varphi),\\
+(\varphi_{1}+\varphi_{2},\psi)=(\varphi_{1},\psi)+(\varphi_{2},\psi),\\
+(\varphi,\psi_{1}+\psi_{2})=(\varphi,\psi_{1})+(\varphi,\psi_{2}),\\
+(\lambda \varphi,\psi)=(\psi,\lambda \varphi)=\lambda (\varphi,\psi).
+\end{aligned}
+\end{equation*}
+Con esta notación la primera relación de ortogonalidad de carácteres es expresada como sigue:\\~\\
+\textbf{Teorema 4.4''. } Sean $\chi_{1}$, $\chi_{2}$,... los carácteres de carácteres de representaciones no equivalentes de un grupo $G$. Entonces
+\begin{equation*}
+\begin{aligned}
+(\chi_{i},\chi_{j})=\delta_{ij}
+\end{aligned}
+\end{equation*} 
+Multiplicidad de representaciones irreducibles. Sea $\mathbb{A}$ una representación de un grupo $G$. Como $\mathbb{A}$ es completamente reducible, entonces por el Teorema 2.3, $\mathbb{A}$ es equivalente a 
+\begin{equation*}
+\begin{aligned}
+\begin{pmatrix}
+\mathbb{F}_{1} & & & & & & 0\\ 
+ & \ddots & & & & & \\
+ & & \mathbb{F}_{1} & & & & \\
+ & & & \mathbb{F}_{2} & & & \\
+ & & & & \ddots & & \\
+ & & & & & \mathbb{F}_{2} & \\
+0 & & & & & & \ddots
+\end{pmatrix},
+\end{aligned}
+\end{equation*}
+donde $\mathbb{F}_{1}$, $\mathbb{F}_{2}$,... son representaciones no equivalentes. El número $m_{i}$ es llamado la multiplicidad de $\mathbb{F}_{i}$ en $\mathbb{A}$ ($m_{i}=0$ si $\mathbb{F}_{i}$ no aparece) y se escribe 
+\begin{equation*}
+\begin{aligned}
+\mathbb{A} \sim m_{1} \mathbb{F}_{1}+m_{2} \mathbb{F}_{2}+ \cdots
+\end{aligned}
+\end{equation*}
+Sea $\chi$ el caráter de $\mathbb{A}$ y $\chi_{i}$ el carácter de $\mathbb{F}_{i}$ ($i = 1, 2, ...$). Entonces
+\begin{equation*}
+\begin{aligned}
+\chi =m_{1} \chi_{1}+ m_{2} \chi_{2}+ \cdots
+\end{aligned}
+\end{equation*}
+Si $m_{i} \neq 0$, $\mathbb{F}_{i}$ y $\chi_{i}$ son llamados componentes irreducibles de $\mathbb{A}$ y $\chi$ respectivamente.\\~\\
+\textbf{Teorema 4.5. } Sea $G$ un grupo y sea $\chi$ el caráter de una representación de $G$. Sea $m_{i}$ la multiplicidad de un carácter irreducible $\chi_{i}$ en $\chi$. Entonces
+\begin{equation*}
+\begin{aligned}
+m_{i} = (\chi,\chi_{i}) = \frac{1}{g} \sum_{x \in G} \chi(x) \overline{\chi_{i}(x)}
+\end{aligned}
+\end{equation*}
+Sea $$\chi=\sum_{j} m_{j} \chi_{j}$$ la suma de carácteres irreducibles con $m_{j}$ la multiplicidad de $\chi_{j}$. Entonces
+\begin{equation*}
+\begin{aligned}
+(\chi,\chi_{i}) = \sum_{j} m_{j} (\chi_{j},\chi_{i})
+\end{aligned}
+\end{equation*}
+
 \backmatter
 
 \bibliographystyle{plain}
