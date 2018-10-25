@@ -691,7 +691,7 @@ Se observa que $\chi(a^{-1})=\overline{\chi(a)}$ para todo $a \in G$,
 porque el Teorema 2.3 dice que $\mathbb{A}$ es equivalente a una
 representación unitaria $\mathbb{U}\colon a \mapsto U(a)$, y se por lo
 tanto
-\begin{equation*}
+\begin{equation*} \label{4.5}
 \chi(a^{-1})=trU(a^{-1})=trU(a)^{-1}=tr \overline{U(a)}^{t} = \overline{\chi(a)}  
 \end{equation*} 
 Sean $\mathbb{F}_{1}$, $\mathbb{F}_{2}$,... representantes de las
@@ -718,10 +718,12 @@ Cuando sea claro que se está hablando del grupo $G$, se escribirá
 $(\varphi,\psi)$ en lugar de $(\varphi,\psi)_{G}$. Claramente el
 producto interno cumple las siguientes propiedades
 \begin{equation*}
-(\varphi,\psi)=(\psi,\varphi),\\
-(\varphi_{1}+\varphi_{2},\psi)=(\varphi_{1},\psi)+(\varphi_{2},\psi),\\
-(\varphi,\psi_{1}+\psi_{2})=(\varphi,\psi_{1})+(\varphi,\psi_{2}),\\
-(\lambda \varphi,\psi)=(\psi,\lambda \varphi)=\lambda (\varphi,\psi).
+  \begin{aligned}
+    (\varphi,\psi) &= (\psi,\varphi), \\
+    (\varphi_{1}+\varphi_{2},\psi) &= (\varphi_{1},\psi)+(\varphi_{2},\psi), \\
+    (\varphi,\psi_{1}+\psi_{2}) &= (\varphi,\psi_{1})+(\varphi,\psi_{2}), \\
+    (\lambda \varphi,\psi) &= (\psi,\lambda \varphi)=\lambda (\varphi,\psi).
+    \end{aligned}
 \end{equation*}
 Con esta notación la primera relación de ortogonalidad de caracteres
 es expresada como sigue:
@@ -774,7 +776,245 @@ irreducibles con $m_{j}$ la multiplicidad de $\chi_{j}$. Entonces
 (\chi,\chi_{i}) = \sum_{j} m_{j} (\chi_{j},\chi_{i})
 \end{equation*}
 
+\textbf{Teorema 4.6. } Sean $\mathbb{A}$, $\mathbb{B}$
+representaciones de un grupo $G$, y sean $\chi$, $\chi^{'}$ los
+caracteres de $\mathbb{A}$, $\mathbb{B}$ respectivamente. Entonces
+$\mathbb{A}$, $\mathbb{B}$ son equivalentes si y sólo si
+$\chi=\chi^{'}$.
+
+\begin{proof}
+  Por el teorema pasado, las multiplicidades de $\mathbb{F}_{i}$ en
+  $\mathbb{A}$ y $\mathbb{B}$ son determinadas por los caracteres de
+  $\mathbb{A}$ y $\mathbb{B}$. Como cualquier representación de $G$ es
+  completamente reducible, $\mathbb{A}$ y $\mathbb{B}$ son
+  equivalentes si y sólo si cada representación $\mathbb{F}_{i}$ tiene
+  la misma multiplicidad en $\mathbb{A}$ y $\mathbb{B}$. Entonces
+  $\mathbb{A} \sim \mathbb{B}$ si y sólo si $\chi=\chi^{'}$.
+\end{proof}
+
+Sea $\pi$ el carácter de la representación regular derecha de un grupo
+$G$ de orden $g$. Se observa que
+
+\begin{equation*} \label{PR}
+         \pi(a) = \left\{
+	       \begin{array}{ll}
+		 g      & \mathrm{si\ } a = 1 \\
+		 0      & \mathrm{otro\ caso\ } 
+	       \end{array}
+	     \right.
+\end{equation*}
+
+Para el carácter $\chi_{i}$ de cada representación irreducible
+$\mathbb{F}_{i}$, se sigue que
+\begin{equation*}
+  \begin{aligned}
+    (\pi,\chi_{i}) & =\frac{1}{g} \sum_{x \in G} \pi(x) \overline{\chi_{i}(x)} \\
+    &=\frac{1}{g} \pi(1) \chi_{i}(1) \\
+    &=\chi_{i}(1) 
+  \end{aligned}
+\end{equation*}
+donde $\chi_{i}(1)$ es el grado de $\mathbb{F}_{i}$. Y por lo tanto se
+sigue el siguiente Teorema.
+
+\textbf{Teorema 4.7.} Sea $\pi$ el carácter de la representación
+regular derecha. Entonces cada representación irreducible
+$\mathbb{F}_{i}$ de $G$ tiene multiplicidad $f_{i}$, donde $f_{i}$ es
+el grado de $\mathbb{F}_{i}$. Asi que
+\begin{equation*}
+  \pi=\sum_{i} f_{i} \chi_{i},
+\end{equation*}
+
+donde la suma es sobre todos los caracteres irreducible $\chi_{i}$ de $G$.
+
+La representación regular derecha e izquierda son equivalentes, ya que
+el carácter $\pi^{'}$ de la representación regular satisface lo mimo
+que $\pi$ y por ello, $\pi = \pi^{'}$.
+
+\textbf{Teorema 4.8.} Sean $\chi_{1}, \chi_{2},...,\chi_{l} $ todos
+los caracteres irreducibles de un grupo $G$, que además son distintos
+entre sí. Sea $f_{i}$ el grado de $\chi_{i}$ ($i=1, 2,..., l$) y sea
+$g$ el orden de $G$. Entonces
+
+\begin{equation*}
+  g=f_{1}^{2}+f_{2}^{2}+ \cdots + f_{l}^{2},
+\end{equation*}
+y para $a \neq 1$,
+\begin{equation*}
+  f_{1} \chi_{1}(a)+f_{2} \chi_{2}(a)+ \cdots + f_{l} \chi_{l}(a) = 0.
+\end{equation*}
+
+\begin{proof}
+  Simplemente se debe evaluar
+  \begin{equation*}
+   \pi=\sum_{i} f_{i} \chi_{i},
+ \end{equation*}
+ recordando \ref{PR}
+\end{proof}
+
+\textbf{La segunda relación de ortogonalidad de caracteres.} Sea $G$
+un grupo y sean
+$\mathbb{C}_{1}=\left\{1 \right\}, \mathbb{C}_{2},...,\mathbb{C}_{k}$
+las clases de conjugación de $G$. Para una clase de conjugación
+$\mathbb{C}_{\alpha}$, se define la suma de los elementos de
+$\mathbb{C}_{\alpha}$ como:
+
+\begin{equation*}
+  \mathbb{C}_{\alpha}=a_{1}+a_{2}+ \cdots + a_{h_{\alpha}} \qquad (h_{\alpha}=|\mathbb{C}_{\alpha}|).
+\end{equation*}
+
+Y se define el producto de $\mathbb{C}_{\alpha}$ y $\mathbb{C}_{\beta}$ por
+\begin{equation*} \label{MULT}
+  \mathbb{C}_{\alpha} \mathbb{C}_{\beta} = \sum_{\gamma=1}^{k} t_{\alpha \beta \gamma} \mathbb{C}_{\gamma}
+\end{equation*}
+
+Sea $\mathbb{F} \colon a \mapsto F(a)$ una representación irreducible
+de $G$ y sea $f$ el grado de $\mathbb{F}$. Se define
+$\mathbb{F} (\mathbb{C}_{\alpha})$ por
+
+\begin{equation*}
+  \mathbb{F} (\mathbb{C}_{\alpha}) = \sum_{a \in C_{\alpha}} \mathbb{F}(a).
+\end{equation*}
+
+Entonces 
+\begin{equation*}
+  F(x)^{-1}F(\mathbb{C}_{\alpha})F(x)=\sum_{a \in C_{\alpha}}F(x^{-1}ax)=F(\mathbb{C}_{\alpha}),
+\end{equation*}
+
+ya que $x^{-1}ax$ varia sobre $C_{\alpha}$ mientras $a$ lo
+hace. Entonces la matriz $\mathbb{F} (\mathbb{C}_{\alpha})$ conmuta
+con cada $F(x)$, y por el Teorema 3.2, se llega a que,
+\begin{equation*}
+   \mathbb{F} (\mathbb{C}_{\alpha})=w_{\alpha}\mathrm{I}.
+\end{equation*}
+
+Y tomando la traza de la expresión anterior, se tiene
+\begin{equation*}
+  h_{\alpha}\chi(a_{\alpha})=w_{\alpha}f,
+\end{equation*}
+\begin{equation*} \label{4.13}
+  w_{\alpha}=h_{\alpha}\chi(a_{\alpha})/f,
+\end{equation*}
+
+donde $\chi$ es el carácter de $\mathbb{F}$ y
+$a_{\alpha} \in C_{\alpha}$, y por \ref{MULT}, se sigue
+\begin{equation*}
+  \mathbb{F} (\mathbb{C}_{\alpha})  \mathbb{F} (\mathbb{C}_{\beta}) = \sum_{\gamma}^{k} t_{\alpha \beta \gamma} \mathbb{F}(\mathbb{C}_{\gamma}),
+\end{equation*}
+
+\begin{equation*}
+  w_{\alpha}w_{\beta} = \sum_{\gamma}^{k} t_{\alpha \beta \gamma} w_{\gamma}.
+\end{equation*}
+
+Sustituyendo \ref{4.13} en la expresión de arriba se llega a
+
+\begin{equation*}
+  \frac{h_{\alpha} \chi(a_{\alpha})}{f} \frac{h_{\beta} \chi(a_{\beta})}{f} = \sum_{\gamma}^{k} t_{\alpha \beta \gamma} \frac{h_{\gamma} \chi(a_{\gamma})}{f},
+\end{equation*}
+
+\begin{equation*} \label{4.14}
+   \chi(a_{\alpha}) \chi(a_{\beta}) = \sum_{\gamma}^{k} t_{\alpha \beta \gamma} \frac{h_{\gamma}}{h_{\beta} h_{\alpha}} f \chi(a_{\gamma}).
+\end{equation*}
+
+Sean $\chi_{1}, \chi_{1},..., \chi_{l}$ caracteres distintos e
+irreducibles de $G$, y sea $f_{i}$ el grado de $\chi_{i}$. \ref{4.14}
+se es válida para cada $\chi_{i}$. Y tomando la suma sobre $i$, se
+llega a que
+
+\begin{equation*}
+  \begin{aligned}
+    \sum_{i=1}^{l} \chi_{i}(a_{\alpha}) \chi_{i}(a_{\beta}) &= \sum_{\gamma}^{k} t_{\alpha \beta \gamma} \frac{h_{\gamma}}{h_{\beta} h_{\alpha}} (\sum_{i} f_{i} \chi_{i}(a_{\gamma})) \\
+    &= t_{\alpha \beta \gamma} \frac{1}{h_{\beta} h_{\alpha}}g \\
+    &=  \left\{
+	       \begin{array}{ll}
+		 g/h_{\alpha}      & \mathrm{si\ } C_{B} = C_{\alpha^{'}} \\
+		 0      & \mathrm{otro\ caso\ } 
+	       \end{array}
+	     \right.
+    \end{aligned}
+\end{equation*}
+
+Y se llega a
+
+\begin{equation*}
+   \sum_{i=1}^{l} \chi_{i}(a_{\alpha}) \chi_{i}(a_{\beta})=\delta_{\alpha \beta} \frac{g}{h_{\alpha}}.
+\end{equation*}
+
+El número $g/h_{\alpha}$ es el orden de $\mathrm{N}(a)$, que es el
+centralizador de $a_{\alpha}$ en $G$. Ya que
+$\chi_{i}(a_{\beta^{'}})=\overline{\chi_{i} (a_{\beta})}$ por
+\ref{4.5}, se obtiene lo siguiente:
+
+\textbf{Teorema 4.9. } (La segunda relación de orgonalidad de
+caracteres) Sean $\left\{\chi_{i} \right\}$ el conjunto de los
+distintos caracteres irreducibles de $G$ y sea
+$\left\{a_{\alpha} \right\}$ el conjunto de los representantes de las
+clases de conjugación de $G$. Entonces
+
+\begin{equation*}
+  \sum_{i} \chi_{i}(a_{\alpha}) \overline{\chi_{i} (a_{\beta})} = \delta_{\alpha \beta} n_{\alpha}
+\end{equation*}
+
+donde $n_{\alpha}$ es el orden de $\mathrm{N}(a)$ y lla suma es sobre
+todos los caracteres irreducibles $\chi_{i}$ de $G$.
+
+\textbf{Teorema  4.10. } El número de caracteres distintos e irreducibles de $G$ es
+igual que el de las clases de conjugación de $G$.
+
+\begin{proof}
+  Se tiene que si $A_{mxn}$ y $B_{nxm}$ son matrices , entonces si el
+  determinante de la matri $AB_{mxm}$ es distinto de cero, se sigue que $m \leq n$.
+  Sean $\chi_{1}, \chi_{2},...,\chi_{l}$ los distintos caracteres irreducibles de $G$ y sean $a_{1},...,a_{k}$ los representantes de las clases de conjugación de $G$. Entonces por el Teorema 4.4.
+\begin{equation*}
+  \begin{pmatrix}
+    \chi_{1}(a_{1}) & . & \chi_{1}(a_{k}) \\ 
+    . & ... & . \\
+    \chi_{l}(a_{1}) & . & \chi_{l}(a_{k})
+  \end{pmatrix}
+  \begin{pmatrix}
+    h_{1} \overline{\chi_{1}(a_{1})} & . & h_{1} \overline{\chi_{l}(a_{1})} \\ 
+    . & ... & . \\
+    h_{k} \overline{\chi_{1}(a_{k})} & . & h_{k} \overline{\chi_{l}(a_{k})}  
+  \end{pmatrix},
+\end{equation*}
+\begin{equation*}
+  =
+  \begin{pmatrix}
+   g & & 0\\ 
+     & \ddots & \\
+     0 &  & g
+  \end{pmatrix}   
+  \end{equation*}.
+  Así que $l \leq k$. Por el Teorema 4.9,
+\begin{equation*}
+  \begin{pmatrix}
+    \chi_{1}(a_{1}) & . & \chi_{l}(a_{1}) \\ 
+    . & ... & . \\
+    \chi_{l}(a_{k}) & . & \chi_{l}(a_{k})
+  \end{pmatrix}
+  \begin{pmatrix}
+     \overline{\chi_{1}(a_{1})} & . &  \overline{\chi_{l}(a_{1})} \\ 
+    . & ... & . \\
+     \overline{\chi_{1}(a_{k})} & . &  \overline{\chi_{l}(a_{k})}  
+  \end{pmatrix},
+\end{equation*}
+
+\begin{equation*}
+  =
+  \begin{pmatrix}
+   n_{1} & & 0\\ 
+     & \ddots & \\
+     0 &  & n_{k}
+  \end{pmatrix}
+\end{equation*}.
+Por ello, $k \leq l$. Así que $k=l$.
+\end{proof}
+
+\textbf{Representaciones inducidas} 
+
+Sea $G$ un grupo de orden $g$ y $H$ un subgrupo de $G$ de orden $h$. Para una función $\psi$ en $G$, $\psi_{H}$ denota la restricción de $\psi$ a $H$.
+
 \backmatter
+
 
 \bibliographystyle{plain}
 \bibliography{labiblio}
