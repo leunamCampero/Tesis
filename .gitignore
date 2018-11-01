@@ -7,3 +7,5 @@
 *.bbl
 *.aux
 auto/
+/LaTeX/tesis.pdf
+/LaTeX/tesis.synctex.gz
