@@ -143,7 +143,7 @@ A\left(a\right)$, tal que:
 \item $A\left(a^{-1}\right)=A\left(a\right)^{-1}$.
 \end{enumerate}
 El número $n$ se llama el grado de la representación. Se dice que la
-representación es fiel, si $\mathbb{A}$ es biyectiva.
+representación es fiel, si $\mathbb{A}$ es inyectiva.
 
 \textbf{Ejemplo 1.1.} El mapeo que a manda cada elemento de $G$ a $1
 \in \mathbb{C}$ es una representación de grado 1. Ésta es llamada la
@@ -206,7 +206,7 @@ permutación
   \end{pmatrix} 
   \in S_{n}^{G}
 \end{equation*}
-es un homomorfismo biyectivo de $G$ a $S^{G}$. A la permutación
+es un homomorfismo inyectivo de $G$ a $S^{G}$. A la permutación
 anterior, se le asocia la matriz
 \begin{equation*}
   A(a)=\big(\alpha_{ij}(a)\big)
@@ -542,10 +542,10 @@ $A(a)P=PA(a)$ para todo $a \in G$. Entonces $P=\lambda \mathrm{I}$,
 para algún $\lambda \in \mathbb{C}$.
 
 Sea $\lambda$ un valor propio de $P$. Entonces
-det$(\lambda \mathbb{I} - P)=0$, y además
+det$(\lambda \mathrm{I} - P)=0$, y además
 
 \begin{equation*}
-  A(a)(\lambda \mathbb{I} - P)=(\lambda \mathbb{I} - P)A(a) \qquad \mathrm{(para\ todo\ a \in G.)}
+  A(a)(\lambda \mathrm{I} - P)=(\lambda \mathrm{I} - P)A(a) \qquad \mathrm{(para\ todo\ a \in G.)}
 \end{equation*}
 Entonces por el Lema de Schur,
 \begin{equation*}
@@ -569,6 +569,7 @@ $n$, $\mathrm{tr\ A}$ denota la traza de $A$, es decir
   \mathrm{tr\ A}=\alpha_{11}+\alpha_{22}+ \cdots \alpha_{nn}
 \end{equation*}
 Cálculos directos muestran que
+
 \textbf{Lema 4.1. }
 \begin{itemize}
 \item $\mathrm{tr\ AB}=\mathrm{tr\ BA}$
@@ -966,15 +967,15 @@ igual que el de las clases de conjugación de $G$.
   Sean $\chi_{1}, \chi_{2},...,\chi_{l}$ los distintos caracteres irreducibles de $G$ y sean $a_{1},...,a_{k}$ los representantes de las clases de conjugación de $G$. Entonces por el Teorema 4.4.
 \begin{equation*}
   \begin{pmatrix}
-    \chi_{1}(a_{1}) & . & \chi_{1}(a_{k}) \\ 
-    . & ... & . \\
-    \chi_{l}(a_{1}) & . & \chi_{l}(a_{k})
+    \chi_{1}(a_{1}) & \cdots & \chi_{1}(a_{k}) \\ 
+    \vdots &  & \vdots \\
+    \chi_{l}(a_{1}) & \cdots & \chi_{l}(a_{k})
   \end{pmatrix}
   \begin{pmatrix}
-    h_{1} \overline{\chi_{1}(a_{1})} & . & h_{1} \overline{\chi_{l}(a_{1})} \\ 
-    . & ... & . \\
-    h_{k} \overline{\chi_{1}(a_{k})} & . & h_{k} \overline{\chi_{l}(a_{k})}  
-  \end{pmatrix},
+    h_{1} \overline{\chi_{1}(a_{1})} & \cdots & h_{1} \overline{\chi_{l}(a_{1})} \\ 
+    \vdots &  & \vdots \\
+    h_{k} \overline{\chi_{1}(a_{k})} & \cdots & h_{k} \overline{\chi_{l}(a_{k})}  
+  \end{pmatrix}
 \end{equation*}
 \begin{equation*}
   =
@@ -987,14 +988,14 @@ igual que el de las clases de conjugación de $G$.
   Así que $l \leq k$. Por el Teorema 4.9,
 \begin{equation*}
   \begin{pmatrix}
-    \chi_{1}(a_{1}) & . & \chi_{l}(a_{1}) \\ 
-    . & ... & . \\
-    \chi_{l}(a_{k}) & . & \chi_{l}(a_{k})
+    \chi_{1}(a_{1}) & \cdots & \chi_{l}(a_{1}) \\ 
+    \vdots &  & \vdots \\
+    \chi_{l}(a_{k}) & \cdots & \chi_{l}(a_{k})
   \end{pmatrix}
   \begin{pmatrix}
-     \overline{\chi_{1}(a_{1})} & . &  \overline{\chi_{l}(a_{1})} \\ 
-    . & ... & . \\
-     \overline{\chi_{1}(a_{k})} & . &  \overline{\chi_{l}(a_{k})}  
+     \overline{\chi_{1}(a_{1})} & \cdots &  \overline{\chi_{l}(a_{1})} \\ 
+    \vdots &  & \vdots \\
+     \overline{\chi_{1}(a_{k})} & \cdots &  \overline{\chi_{l}(a_{k})}  
   \end{pmatrix},
 \end{equation*}
 
@@ -1013,7 +1014,222 @@ Por ello, $k \leq l$. Así que $k=l$.
 
 Sea $G$ un grupo de orden $g$ y $H$ un subgrupo de $G$ de orden
 $h$. Para una función $\psi$ en $G$, $\psi_{H}$ denota la restricción
-de $\psi$ a $H$.
+de $\psi$ a $H$. Si $\psi$ es una función de clase en $G$, entonces
+$\psi_{H}$ también es una función de clase en $H$. Si $\psi$ es el
+carácter de una representación de $G$ $\mathbb{A}$, se sigue que
+$\psi_{H}$ es el caráter de $\mathbb{A}_{H}$, la restricción de
+$\mathbb{A}$ a $H$.
+
+Para una función $\theta$ en $H$, se define la función $\theta^{G}$ de
+la siguiente manera
+
+\begin{equation*}
+  \theta^{G}=\frac{1}{h} \sum_ u{x \in G} \theta(x^{-1}ax)
+\end{equation*}
+donde $\theta(x^{-1}ax)=0$ si $x^{-1}ax$ no está en H. $\theta^{G}$ es
+una función de clase en $G$, aun si $\theta$ no es una función de
+clase en $H$. Si $a$ no es el conjungado de ningún elemento de $H$,
+entonces $\theta^{G}(a)=0$.
+
+\textbf{Lema 5.1. } Sea $\psi$ una función de clase de $G$, y sea
+$\theta$ una función de clase en un subgrupo $H$ de $G$. Entonces
+
+\begin{equation*}
+  (\theta^{G},\psi)_{G}= (\theta,\psi_{H})_{H} .
+\end{equation*}
+
+\begin{proof}
+  \begin{equation*}
+    \begin{aligned}
+      (\theta^{G},\psi)_{G} &= \frac{1}{g} \sum_{a \in G} \theta^{G}(a) \psi(a^{-1})\\
+      &= \frac{1}{gh} \sum_{a \in G} \sum_{x \in G} \theta(x^{-1}ax) \psi(a^{-1})
+    \end{aligned}
+  \end{equation*}  
+  Solamente los elementos $x^{-1}ax \in H$ aportan algo a la suma. Por
+  lo cual tomando $a=x \tilde{a} x^{-1}$ con $\tilde{a} \in H$, se
+  obtiene
+  \begin{equation*}
+    \begin{aligned}
+      (\theta^{G},\psi)_{G} &= \frac{1}{gh} \sum_{\tilde{a} \in H} \sum_{x \in G} \theta(\tilde{a}) \psi(x \tilde{a}^{-1} x^{-1})\\
+      &= \frac{1}{h} \sum_{\tilde{a} \in H} \theta^{G}(a) (\sum_{x \in G} \psi(x \tilde{a}^{-1}x^{-1})) \\
+      &= \frac{1}{h} \sum_{\tilde{a} \in H} \theta^{G}(a) \psi(\tilde{a}^{-1}) \\
+      &=  (\theta,\psi_{H})_{H}
+    \end{aligned}
+  \end{equation*}
+\end{proof}
+
+Si $\theta$ es el carácter de una representación de $H$, se dirá que
+$\theta^{G}$ es el carácter inducido de $G$ y que $\theta^{G}$ es
+inducido por $\theta$. Procederemos a demostrar que el carácter
+inducido es el carácter de alguna representación de $G$.
+
+Sea $\left\{ a_{1}, a_{2},\ldots,a_{r}\right\}$ el conjunto de los
+representantes de las clases laterales izquierdas de $H$ en $G$:
+
+\begin{equation*}
+  G = Ha_{1} \cup Ha_{2} \cup \cdots \cup Ha_{r}.
+\end{equation*}
+
+Para una representación de $H$
+$\mathbb{A} \colon \tilde{a} \mapsto A(\tilde{a})$ con
+$\tilde{a} \in H$, se define la matriz $A^{G}(a)$ de la siguiente
+manera
+\begin{equation*}
+  \begin{pmatrix}
+    A(a_{1} a a_{1}^{-1}) & A(a_{1} a a_{2}^{-1}) & \cdots &  A(a_{1} a a_{r}^{-1}) \\
+    A(a_{2} a a_{1}^{-1}) & A(a_{2} a a_{2}^{-1}) & \cdots &  A(a_{2} a a_{r}^{-1}) \\
+    \vdots &  & \vdots \\
+    A(a_{r} a a_{1}^{-1}) & A(a_{r} a a_{2}^{-1}) & \cdots &  A(a_{r} a a_{r}^{-1}) \\
+  \end{pmatrix},
+\end{equation*}
+
+donde $A(x)=0$ si $x$ no está en H. Lo anterior es una generalización
+de la representación regular derecha de $G$. Se desea mostrar que para
+toda $a \in G$
+
+\begin{equation*}
+  \mathbb{A}^{G} \colon a \mapsto A^{G}(a)
+\end{equation*}
+
+es una representaicón de $G$ y tiene grado $nr$, donde
+$r= \mid G : H \mid$ y $n$ es el grado de $\mathbb{A}$. Para ello sea
+$a_{k}^{-1}$ y $x \in G$, entonces
+$\left\{ a_{i} x a_{k}^{-1} \mid i = 1, 2, \ldots, r \right\}$ es el
+conjunto de representantes de las clases laterales izquierdas de $H$,
+y para $i = 1, 2, \ldots, r$ sólo hay una matríz
+$A(a_{i} a a_{k}^{-1})$ que es distinta de cero. Análogamente el
+conjunto
+$\left\{ a_{i} x a_{k}^{-1} \mid k = 1, 2, \ldots, r \right\}$ está
+formado por los representantes de las clases laterales derechas de
+$H$, y para $ k = 1, 2, \ldots, r$ únicamente una matriz
+$A(a_{i} a a_{k}^{-1})$ no es cero. Sea $C_{ik}$ el bloque $(i,k)$ de
+la matriz $A^{G}(a)A^{G}(b)$. Por lo tanto
+
+\begin{equation*}
+  C_{ik} = \sum_{j=1}^{r} A(a_{i} a a_{j}^{-1}) A(a_{j} b a_{k}^{-1}).
+\end{equation*}
+
+Nuestro objetivo es demostrar que $C_{ik}= A(a_{i} ab
+a_{k}^{-1})$. Solamente hay un $s \in \left\{1, 2, \ldots, r \right\}$
+tal que $a_{i} a a_{s}^{-1} \in H$, e igual, sólo hay un
+$t \in \left\{1, 2, \ldots, r \right\}$ tal que
+$a_{t} b a_{k}^{-1} \in H$. Si $s=t$, entonces
+$C_{ik}=A(a_{i} a a_{t}^{-1}) A(a_{t} b a_{k}^{-1})=A(a_{i} ab
+a_{k}^{-1})$. Si $s \neq t$, entonces $C_{ik}=0$ y
+$A(a_{i} ab a_{k}^{-1}) = 0$, ya que
+$a_{i} ab a_{k}^{-1} = a_{i} ab a_{t}^{-1} \cdot a_{t} b a_{k}^{-1}
+\notin H$ . Por lo cual, de cualquier forma
+$C_{ik} = A(a_{i} ab a_{k}^{-1})$, y ello implica que
+$A^{G}(a)A^{G}(b)=A^{G}(ab)$. Y ya que
+$A^{G}(a)A^{G}(a^{-1})=A^{G}(1)=\mathrm{I}$, se sigue que $A^{G}(a)$
+es invertible. Entonces es una representación de G.
+
+Sea $\theta$ el carácter de $\mathbb{A}$ y sea $\chi$ el carácter de
+$\mathbb{A}^{G}$. Entonces
+\begin{equation*}
+  \begin{aligned}
+    \chi(a) &= \sum_{i=1}^{r} \theta(a_{i} a a_{i}^{-1}) = \sum_{i=1}^{r} \frac{1}{h} \sum_{\tilde{b} \in H} \theta(\tilde{b} a_{i} a a_{i}^{-1} \tilde{b}^{-1})\\
+    &= \frac{1}{h} \sum_{x \in G} \theta(x a x^{-1}) \qquad (x=\tilde{b}a_{i})\\
+    &= \theta^{G}(a)
+  \end{aligned}
+\end{equation*}
+
+Entonces se obtiene que $\chi=\theta^{G}$. Se dirá que
+$\mathbb{A}^{G}$ es una representación inducida de $G$, y diremos que
+$\mathbb{A}^{G}$ es inducida por $\mathbb{A}$. Ésto, nos lleva a lo
+siguiente:
+
+\textbf{Teorema 5.2. } Sea $G$ un grupo y $H$ un subgrupo de $G$. Sea
+$\mathbb{A}$ una representación de $H$ con grado $n$ y sea $\theta$ el
+carácter de $\mathbb{A}$. Entonces la representación inducida
+$\mathbb{A}^{G}$ tiene grado $nr$ con $r=\mid G:H \mid$ y el carácter
+de $\mathbb{A}^{G}$ es
+
+\begin{equation*}
+  \theta^{G}(a)= \sum_{x \in G} \theta(x^{-1} a x)
+\end{equation*}
+donde $h= \mid H \mid$.
+
+\textbf{Teorema 5.3. (Reciprocidad de Frobenius) } Sea $H$ un subgrupo
+de $G$. Y sean $x_{1}, x_{2},\ldots,x_{r}$ lo caracteres irreducibles
+de $G$, y sean $\theta_{1},\theta_{2},\ldots,\theta_{s}$ los
+caracteres irreducibles de $H$. Entonces
+
+\begin{equation*}
+  (\chi_{i})_{H} = \sum_{j} r_{ij} \theta_{j} 
+\end{equation*}
+si y sólo si 
+\begin{equation*}
+  \theta_{j}^{G} = \sum_{i} r_{ij} \chi_{j}.
+\end{equation*}
+
+Es decir, dadas representaciones irreducibles $\mathbb{A}$ y
+$\mathbb{B}$ de $G$ y $H$ respectivamente, $\mathbb{B}$ es una
+componente irreducible de $\mathbb{A}_{H}$ con multiplicidad $r$ si y
+sólo si $\mathbb{A}$ es un componente irreducible de $\mathbb{B}^{G}$
+con multiplicidad $r$.
+
+\begin{proof}
+  Sea $(\chi_{i})_{H} = \sum_{l} r_{il} \theta_{l}$ y sea
+  $\theta_{j}^{G} = \sum_{k} s_{kj} \chi_{k}$. Por el lema 5.1, se
+  sigue que
+
+  \begin{equation*}
+    \begin{aligned}
+      r_{ij} &= ((\chi_{i})_{H},\theta_{j})_{H} \\
+      &= (\chi_{i},\theta_{j}^{G})_{G}\\
+      &= s_{IJ}
+    \end{aligned}
+  \end{equation*}
+\end{proof}
+
+
+\textbf{Producto de representaciones}
+
+Sean $A$ y $B$ matrices cuadradas de grado $n$, $m$ respectivamente y
+sea $A=(\alpha_{ik})$. Se define el producto de Kronecker
+$A \otimes B$ de $A$ y $B$ por
+
+\begin{equation*}
+  \begin{pmatrix}
+    \alpha_{11}B & \cdots & \alpha_{1n}B \\ 
+    \vdots &  & \vdots \\
+    \alpha_{n1}B & \cdots & \alpha_{nn}B
+  \end{pmatrix}
+\end{equation*}
+
+$A \otimes B$ es una matriz cuadrada de grado $mn$. Y sin gran
+dificultad se puede probar
+
+\textbf{Lema 6.1. }
+\begin{enumerate}
+\item  tr$(A \otimes B)$ = (tr$(A)$)(tr$(B)$)
+\item Sean $A$, $A^{'}$ con grado $n$, y sean $B$, $B^{'}$ de grado
+  $m$. Entonces $(A \otimes B)(A^{'} \otimes B^{'})$ =
+  $(AA^{'})(BB^{'})$.
+\end{enumerate}
+
+Sea $\mathbb{A}_{1} \colon a \mapsto A_{1}(a)$ y
+$\mathbb{A}_{2} \colon a \mapsto A_{2}(a)$ representaciones de un
+grupo $G$. Por el lema 6.1(2), el mapeo
+
+\begin{equation*}
+  a \mapsto A_{1}(a) \otimes A_{2}(a)
+\end{equation*}
+
+se transforma en una representación de $G$. A esta representación se le llama el producto de $\mathbb{A}_{1}$ y $\mathbb{A}_{2}$, y es denotado por $\mathbb{A}_{1} \otimes \mathbb{A}_{2}$. Sean $\chi_{1}, \chi_2, \chi$ los caracteres de $\mathbb{A}_{1}$, $\mathbb{A}_{2}$, $\mathbb{A}_{1} \otimes \mathbb{A}_{2}$ respectivamente. Por el lema 6.1(1),
+
+\begin{equation*}
+  \chi(a)=\chi_{1}(a) \chi_{2}(a)
+\end{equation*}
+\begin{equation*}
+  \chi = \chi_{1} \chi_{2}
+\end{equation*}
+
+Sea $\mathbb{F}_{1}, \mathbb{F}_{2}, \ldots, \mathbb{F}_{r}$ las representaciones irreducibles de $G$ y sea $\chi_{i}$ por el carácter de $\mathbb{F}_{i}$. EL mapeo $a \mapsto \overline{F_{i}(a)}$ también es una representación irreducible y su carácter es $\overline{\chi_{i}}$, donde $\overline{\chi_{i}}(a) = \overline{\chi_{i}(a)}$. Y lo denotaremos $\overline{\chi_{i}}=\chi_{i'}$
+
+\textbf{Teorema 6.2. }
+
 
 \backmatter
 
