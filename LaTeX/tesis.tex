@@ -282,7 +282,7 @@ grado $r$, $s$ con $r \geq 1$, $s \geq 1$, $r+s=n$. Observe que $B$ y
 $C$ son representación de $G$ de grado $r$, $s$
 respectivamente. Además se tiene que las representaciones
 \begin{equation*}
-  A^{'}\left(a\right)=
+  A_{1}\left(a\right)=
   \begin{pmatrix}
     B\left(a\right) & 0 \\
     D\left(a\right) & C\left(a\right)
@@ -290,14 +290,14 @@ respectivamente. Además se tiene que las representaciones
 \end{equation*}
 y
 \begin{equation*} 
-   A^{''}\left(a\right)=
+   A_{2}\left(a\right)=
   \begin{pmatrix}
     C\left(a\right) & D\left(a\right) \\
     0 & C\left(a\right)
   \end{pmatrix}
 \end{equation*}
 son equivalentes, porque
-$Q^{-1}A^{'}\left(a\right)Q=A^{''}\left(a\right)$, con
+$Q^{-1}A_{1}\left(a\right)Q=A_{2}\left(a\right)$, con
 \begin{equation*}
   Q=
   \begin{pmatrix}
@@ -308,14 +308,12 @@ $Q^{-1}A^{'}\left(a\right)Q=A^{''}\left(a\right)$, con
 donde $ \mathrm{I_{r}}$, $ \mathrm{I_{s}}$ son matrices identidad de
 grado $r$, $s$ respectivamente.
 
-Se dice que $\mathbb{A}$ es irreducible
-si no es reducible. En el ejemplo 1.3, el mapeo
-$a \mapsto B\left(a\right)$ y $a \mapsto C\left(a\right)$ convierten
-representaciones de grado $r,s$, respectivamente.
+Si $A$ no es reducible, se dice que $A$ es irreducible . En el ejemplo
+1.3, el mapeo $a \mapsto B\left(a\right)$ y
+$a \mapsto C\left(a\right)$ se convierten en representaciones de grado
+$r$, $s$, respectivamente.
 
-Dada una representación de $G$,
-$\mathbb{A} \colon a \mapsto A\left(a\right)$, y
-$\mathbb{B} \colon a \mapsto B\left(a\right)$, con grado $n$, $m$,
+Dada una representación de $G$, $A$, y $B$, con grado $n$, $m$,
 respectivamente, el mapeo.
 \begin{equation*}
   Q=
@@ -324,27 +322,28 @@ respectivamente, el mapeo.
     0 & B\left(a\right)
   \end{pmatrix}, \qquad \mathrm{para\ todo\ } a \in G
 \end{equation*}
-convierte en una representación de $G$ de grado $n+m$. Esta
-representación es llamada la suma directa de $\mathbb{A}$ y
-$\mathbb{B}$, y es denotada por $\mathbb{A}\oplus\mathbb{B}$.
+se convierte en una representación de $G$ de grado $n+m$. Esta
+representación es llamada la suma directa de $A$ y
+$B$, y es denotada por $A \oplus B$.
 
-Una representación $\mathbb{A}\colon a \mapsto A\left(a\right)$ de $G$
-se dice completamente reducible si $\mathbb{A}$ es equivalente a la
-suma directa de algunas representaciones irreducibles, es decir,
-existe una matriz no singular $P$, tal que
+Una representación $A\left(a\right)$ de $G$ se dice completamente
+reducible si $A$ es equivalente a la suma directa de algunas
+representaciones irreducibles, es decir, existe una matriz no singular
+$P$, tal que
+
 \begin{equation*}
  P^{-1}A\left(a\right)P=
  \begin{pmatrix}
-   \mathrm{F_{1}}\left(a\right) & & & & & 0\\
-   & \mathrm{F_{2}}\left(a\right) & & & & \\
+   F_{1} \left(a\right) & & & & & 0\\
+   & F_{2} \left(a\right) & & & & \\
    & & . & & & \\
    & & & . & & \\
    & & & & . & \\
-   0 & & & & & \mathrm{F_{r}}\left(a\right)
+   0 & & & & & F_{r} \left(a\right)
  \end{pmatrix}
 \end{equation*}
-donde cada $\mathbb{F}_{i}\colon a \mapsto F_{i}\left(a\right)$
-$\left(i=1,2,...,r\right)$ es una representación irreducible de $G$.
+donde cada $F_{i}\left(a\right)$ con $i=1,2,...,r$ es una
+representación irreducible de $G$.
 
 \subsubsection{Representación por matrices unitarias, y
   representaciones de completamente reducibles de grupos finitos}
