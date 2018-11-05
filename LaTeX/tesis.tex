@@ -268,21 +268,21 @@ $G$). Expresando la permutación $\phi\left(a\right)$ por la matriz
 $A\left(a\right)$ como en el ejemplo 1.3, se obtiene una
 representación matricial.
 
-Sea $\mathbb{A} \colon a \mapsto A\left(a\right)$ una representación
-de grado $n$. Se dice que $\mathbb{A}$ es reducible si existe una
-matriz no singular, tal que
+Sea $A$ una representación de grado $n$. Se dice que $A$ es reducible
+si hay una matriz no singular, tal que
 \begin{equation*}
   P^{-1}A\left(a\right)P=
   \begin{pmatrix}
     B\left(a\right) & 0 \\
     D\left(a\right) & C\left(a\right)
-  \end{pmatrix} 
+  \end{pmatrix}, 
 \end{equation*}  
 donde $B\left(a\right)$, $C\left(a\right)$ son matrices cuadradas de
-grado $r$, $s$ con $r \geq 1$, $s \geq 1$, $r+s=n$. Se observa que las
-representaciones
+grado $r$, $s$ con $r \geq 1$, $s \geq 1$, $r+s=n$. Observe que $B$ y
+$C$ son representación de $G$ de grado $r$, $s$
+respectivamente. Además se tiene que las representaciones
 \begin{equation*}
-  a \mapsto A^{'}\left(a\right)=
+  A^{'}\left(a\right)=
   \begin{pmatrix}
     B\left(a\right) & 0 \\
     D\left(a\right) & C\left(a\right)
@@ -290,7 +290,7 @@ representaciones
 \end{equation*}
 y
 \begin{equation*} 
-  a \mapsto A^{''}\left(a\right)=
+   A^{''}\left(a\right)=
   \begin{pmatrix}
     C\left(a\right) & D\left(a\right) \\
     0 & C\left(a\right)
@@ -301,14 +301,17 @@ $Q^{-1}A^{'}\left(a\right)Q=A^{''}\left(a\right)$, con
 \begin{equation*}
   Q=
   \begin{pmatrix}
-    0 & \mathrm{I_{R}} \\ 
-    \mathrm{I_{S}} & 0
-  \end{pmatrix} \qquad \mathrm{(I_{r},I_{s}\ son\ las\ matrices\ identidad\ de\ grado\ r,s).\ }
+    0 & I_{r} \\ 
+    I_{s} & 0
+  \end{pmatrix},
 \end{equation*}
-Se dice que $\mathbb{A}$ es irreducible si no es reducible. En el
-ejemplo 1.3, el mapeo $a \mapsto B\left(a\right)$ y
-$a \mapsto C\left(a\right)$ convierten representaciones de grado
-$r,s$, respectivamente.
+donde $ \mathrm{I_{r}}$, $ \mathrm{I_{s}}$ son matrices identidad de
+grado $r$, $s$ respectivamente.
+
+Se dice que $\mathbb{A}$ es irreducible
+si no es reducible. En el ejemplo 1.3, el mapeo
+$a \mapsto B\left(a\right)$ y $a \mapsto C\left(a\right)$ convierten
+representaciones de grado $r,s$, respectivamente.
 
 Dada una representación de $G$,
 $\mathbb{A} \colon a \mapsto A\left(a\right)$, y
