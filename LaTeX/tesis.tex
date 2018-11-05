@@ -151,22 +151,20 @@ representación es fiel, si $A$ es inyectiva.
 \in \mathbb{C}$ es una representación de grado 1. Ésta es llamada la
 representación unitaria de $G$, y es denotada por $1_{G}$.
 
-\textbf{Ejemplo 1.2.} Dada una representación $a \mapsto A\left(a\right)$, el mapeo
+\textbf{Ejemplo 1.2.} Dada una representación $A\left(a\right)$, el mapeo
 \begin{equation*}
   a \mapsto P^{-1}A\left(a\right)P
 \end{equation*}  
 se convierte en una representación de $G$ para cualquier matriz $P$ no singular.
 
-Sean $\mathbb{A} \colon a\mapsto A\left(a\right)$ y $\mathbb{B} \colon
-a\mapsto B\left(a\right)$ representaciones de $G$. Si existe una
-matriz no singular $P$ tal que
+Sean $A$ y $B$ representaciones de $G$. Si existe una
+matriz no singular $P$ tal que para todo $a \in G$:
 \begin{equation*}
   B\left(a\right)= P^{-1}A\left(a\right)P
 \end{equation*}
-diremos que $\mathbb{A}$ y $\mathbb{B}$ son
-equivalentes. Representaciones equivalentes son denotadas por
-$\mathbb{A} \sim \mathbb{B}$. La relación $\sim$ define una clase de
-equivalencia de representaciones de $G$.
+diremos que $A$ y $B$ son equivalentes. Representaciones equivalentes
+se denotan como $A \sim B$. La relación $\sim$
+define una clase de equivalencia de representaciones de $G$.
 
 \textbf{Ejemplo 1.3.} Sea $S_{n}$ el grupo simétrico de grado
 $n$. Para un elemento
@@ -179,11 +177,10 @@ $n$. Para un elemento
   \in S_{n}
 \end{equation*}  
 Sea $A\left(\sigma\right)$ la matriz cuyo $i$-ésimo renglón es
-$\left(0,...,0,1,0,...,0\right)$ con 1 en el $s_{i}$-ésimo lugar:
+$\left(0,...,0,1,0,...,0\right)$ con 1 en el $s_{i}$-ésimo lugar,
+entonces para $\left(i,j=1,2,...,n\right)$, se tiene:
 \begin{equation*}
 A\left(\sigma\right) = \left(\alpha_{ij}\left(\sigma\right)\right) 
-\qquad
-\left(i,j=1,2,...,n\right)
 \end{equation*}
 con
 \begin{equation*}
@@ -206,10 +203,10 @@ permutación
     a_{1} & a_{2} & \cdots  & a_{n}\\ 
     a_{1}a & a_{2}a & \cdots & a_{n}a
   \end{pmatrix} 
-  \in S_{n}^{G}
+  \in S_{n}^{G},
 \end{equation*}
-es un homomorfismo inyectivo de $G$ a $S^{G}$. A la permutación
-anterior, se le asocia la matriz
+el cual, es un homomorfismo inyectivo de $G$ a $S^{G}$. A la permutación
+anterior, se le asocia la siguiente matriz:
 \begin{equation*}
   A(a)=\big(\alpha_{ij}(a)\big)
 \end{equation*}
@@ -225,30 +222,31 @@ con
 como en el ejemplo 1.3. Entonces el mapeo
 $a \mapsto A\left(\sigma\right)$ convierte una representación fiel de
 $G$. Ésta representación es llamada representación regular derecha de
-$G$. Sea $\Delta\left(a\right)$
+$G$. Sea $\delta\left(a\right)$
 \begin{equation*}
          \alpha_{ij}\left(a\right) = \left\{
 	       \begin{array}{ll}
 		 1      & \mathrm{si\ } a = 1 \\
-		 0      & \mathrm{otro\ caso\ } 
+		 0      & \mathrm{otro\ caso.\ } 
 	       \end{array}
 	     \right.
 \end{equation*}
-entonces
+Entonces
 \begin{equation*}
   A\left(a\right) = 
   \begin{pmatrix}
     \delta\left(a_{1}aa_{1}^{-1}\right) & \delta\left(a_{1}aa_{2}^{-1}\right) & \cdots  & \delta\left(a_{1}aa_{n}^{-1}\right)\\
     \delta\left(a_{2}aa_{1}^{-1}\right) & \delta\left(a_{2}aa_{2}^{-1}\right) & \cdots  & \delta\left(a_{2}aa_{n}^{-1}\right)\\ 
-    \cdots & \cdots & \cdots & \cdots\\
+    \vdots & \vdots & \ddots & \vdots\\
     \delta\left(a_{n}aa_{1}^{-1}\right) & \delta\left(a_{n}aa_{2}^{-1}\right) & \cdots  & \delta\left(a_{n}aa_{n}^{-1}\right)
   \end{pmatrix} 
 \end{equation*}
 Si a $\neq$ 1, cada entrada sobre la diagonal es cero.
 
-La representación regular izquierda de $G$ es definida similarmente
-usando el homomorfismo
+La representación regular izquierda de $G$ se define análogamente
+usando el siguiente homomorfismo:
 \begin{equation*}
+  a \mapsto
   \begin{pmatrix}
     a_{1} & a_{2} & \cdots  & a_{n}\\ 
     aa_{1} & aa_{2} & \cdots & aa_{n}
@@ -260,15 +258,15 @@ concretamente
   \begin{pmatrix}
     \delta\left(a_{1}^{-1}aa_{1}\right) & \delta\left(a_{1}^{-1}aa_{2}\right) & \cdots  & \delta\left(a_{1}^{-1}aa_{n}\right)\\
     \delta\left(a_{2}^{-1}aa_{1}\right) & \delta\left(a_{2}^{-1}aa_{2}\right) & \cdots  & \delta\left(a_{2}^{-1}aa_{n}\right)\\ 
-    \cdots & \cdots & \cdots & \cdots\\
+    \vdots & \vdots & \ddots & \vdots\\
     \delta\left(a_{n}^{-1}aa_{1}\right) & \delta\left(a_{n}^{-1}aa_{2}\right) & \cdots  & \delta\left(a_{n}^{-1}aa_{n}\right)
   \end{pmatrix} 
 \end{equation*}
 Sea $\phi \colon a \mapsto \phi\left(a\right)$ un homomorfismo de $G$
-en $S_{n}$ (es decir, una permutación de de $G$). Expresando la
-permutación $\phi\left(a\right)$ por la matriz $A\left(a\right)$ como
-en el ejemplo 1.3, se obtiene una matriz representación
-$a \mapsto\rightarrow A\left(a\right)$.
+en $S_{n}$ (es decir, una representación permutación de
+$G$). Expresando la permutación $\phi\left(a\right)$ por la matriz
+$A\left(a\right)$ como en el ejemplo 1.3, se obtiene una
+representación matricial.
 
 Sea $\mathbb{A} \colon a \mapsto A\left(a\right)$ una representación
 de grado $n$. Se dice que $\mathbb{A}$ es reducible si existe una
