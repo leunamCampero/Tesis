@@ -369,33 +369,22 @@ es hermitiana y definida positiva.
 \textbf{Lema 2.2.} Para cualquier matriz hermitiana definida positiva
 $A$, existe una matriz triangular superior no singular $C$ tal que
 $\overline{C}^{t}AC=\mathrm{I}$.
-
-Lo anterior es cierto, ya que, sea
-\begin{equation*}
-  A\left(\alpha_{ij}\right) \mathrm{con\ }
-  \left(i,j=1,2,...,n\right).
-\end{equation*}  
-Entonces
-\begin{equation*}
-  \alpha_{ji}=\overline{\alpha_{ij}} \quad \mathrm{con\ }
-  \left(i,j=1,2,...,n\right),
-\end{equation*}
-y
-\begin{equation*}
-\left(\alpha_{ii}\right)>0 \quad \mathrm{para\ }
-\left(i=1,2,...,n\right).
-\end{equation*}
-Sea
+\begin{proof}
+  sea $A\left(\alpha_{ij}\right)$ para
+  $\left(i,j=1,2,...,n\right)$. Entonces
+  $\alpha_{ji}=\overline{\alpha_{ij}}$ y
+  $\left(\alpha_{ii}\right)>0 \quad \mathrm{para\ }$. Entonces $A$
+  tiene la forma
 \begin{equation*}
   A=
   \begin{pmatrix}
     \alpha & a \\ 
     \overline{a}^{t} & \mathrm{B}
-  \end{pmatrix}, \quad \left(\alpha=\alpha_{11}>0,
-    a=\left(\alpha_{12},\alpha_{13},...,\alpha_{1n}\right),
-    \mathrm{B}=\left(\alpha_{ij}\right) \quad \left(i,j=2,...,n\right) \right)
+  \end{pmatrix}
 \end{equation*}
-sea
+para $\alpha=\alpha_{11}>0$,
+$ a= \left(\alpha_{12},\alpha_{13},...,\alpha_{1n} \right) $,
+$ \mathrm{B}=\left(\alpha_{ij}\right)$, $ \left(i,j=2,...,n\right) $.
 \begin{equation*} 
   C_{1}=
   \begin{pmatrix}
@@ -414,6 +403,7 @@ entonces,
 y $-\frac{1}{\alpha}\overline{a}^{t}a+\mathrm{B}$ es una matriz
 hermitiana definida positiva. Y la prueba se sigue usando inducción el
 grado de $A$ veces.
+\end{proof}
 
 \textbf{Teorema 2.3.} Sea $G$ un grupo finito. Para una representación
 $\mathbb{B}: a\rightarrow F\left(a\right)$ de $G$, entonces existe una
