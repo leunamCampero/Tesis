@@ -479,23 +479,27 @@ Como $\overline{U(a)}^{t}=U(a)^{-1}=U(a^{-1})$, se obtiene
 \textbf{Lema 3.1.} (Lema de Schur) Sea $A$ y $B$ representaciones
 irreducibles de un grupo $G$ con grados $m$ y $n$ respectivamente. Sea
 $P$ una matriz de $m$x$n$ con la propiedad de que $A(a)P=PB(a)$, para
-todo $a \in G$.  entonces
-\begin{itemize}
+todo $a \in G$.  entonces:
+\begin{enumerate}
 \item $P=0$
 \item $m=n$ y $P$ es no singular.
-\end{itemize}
+\end{enumerate}
+
+\begin{proof}
 Asumimos $P \neq 0$. Y se quiere mostrar la segunda
 condición. Supongamos que $m \neq n$, o $m=n$ y $P$ es
-singular. Entonces existe $Q \in GL(m,\mathbb{C})$ y
-$\mathrm{R} \in GL(n,\mathbb{C})$, tal que
+singular. Entonces existe $Q \in \mathrm{GL}(m,\mathbb{C})$ y
+$R \in \mathrm{GL}(n,\mathbb{C})$, tal que
 \begin{equation*}
   QPR=
   \begin{pmatrix}
-    \mathrm{I_{r}} & 0 \\ 
+    I_{r} & 0 \\ 
     0 & 0
-  \end{pmatrix} \quad \mathrm{(I_{r},\ es\ la\ matriz\ identidad\ de\ grado\ r).\ }
-\end{equation*}  
-con $r<$max$\left\{ m,n \right\}$. Como $QA(a)Q^{-1}(QPR) = QPR(R^{-1}B(a)R)$, y se obtiene
+  \end{pmatrix} 
+\end{equation*}
+donde $I_{r}$ es la matriz identidad de grado $r$. con
+$r<$max$\left\{ m,n \right\}$. Como
+$QA(a)Q^{-1}(QPR) = QPR(R^{-1}B(a)R)$, y se obtiene
 \begin{equation*}
   \begin{pmatrix}
     A_{11} & 0 \\ 
@@ -513,19 +517,21 @@ donde
   \begin{pmatrix}
     A_{11} & A_{12} \\ 
     A_{21} & A_{22}
-  \end{pmatrix} \quad \mathrm{(A_{11},\ es\ una\ matriz\ cuadrada\ de\ grado\ r).\ }
+  \end{pmatrix} 
 \end{equation*}  
-y
+con $A_{11}$ una matriz cuadrada de grado $r$. Y
 \begin{equation*}
   R^{-1}B(a)R=
   \begin{pmatrix}
     B_{11} & B_{12} \\ 
     B_{21} & B_{22}
-  \end{pmatrix} \mathrm{(B_{11},\ es\ una\ matriz\ cuadrada\ de\ grado\ r).\ }
-\end{equation*}  
-Por lo tanto $A_{21}=0$ si $r<m$ y $B_{12}$ si $r<n$. De cualquier
-manera $\mathbb{A}$ o $\mathbb{B}$ es reducible, lo cual es una
+  \end{pmatrix}
+\end{equation*}
+con $B_{11}$ una matriz cuadrada de grado $r$. Por lo tanto
+$A_{21}=0$ si $r<m$ y $B_{12}$ si $r<n$. De cualquier manera
+$\mathbb{A}$ o $\mathbb{B}$ es reducible, lo cual es una
 contradicción.
+\end{proof}
 
 \textbf{Teorema 3.2.} Sea
 $\mathbb{A} \colon a \mapsto A\left(a\right)$ una representación
