@@ -529,7 +529,7 @@ con $A_{11}$ una matriz cuadrada de grado $r$. Y
 \end{equation*}
 con $B_{11}$ una matriz cuadrada de grado $r$. Por lo tanto
 $A_{21}=0$ si $r<m$ y $B_{12}$ si $r<n$. De cualquier manera
-$\mathbb{A}$ o $\mathbb{B}$ es reducible, lo cual es una
+$A$ o $A$ es reducible, lo cual es una
 contradicción.
 \end{proof}
 
@@ -651,24 +651,21 @@ Ahora, para algún par de $u$,$v$ sea $\gamma_{uv}=1$ y para cualquier otro caso
 Lo cual nos conduce al siguiente teorema.
 
 \textbf{Teorema 4.3. } Sea $G$ un grupo de orden $g$.
-\begin{itemize}
-\item Sea $\mathbb{A}: a \rightarrow A(a)=(\alpha_{ij}(a))$ una
-  representación irreducible de $G$ con grado $n$. Entonces
-\end{itemize}
-\begin{equation*}
-\sum_{x \in G} \alpha_{iu}(x) \alpha_{vj}(x^{-1}) = \delta_{ij} \delta_{uv}\frac{g}{n}.
-\end{equation*}
-\begin{itemize}
-\item Sea $\mathbb{B}:b \rightarrow B(a)=(\beta_{ij}(a))$ una
-  representación irreducible, la cual no es equivalente a
-  $\mathbb{A}$, entonces
-\end{itemize}
-\begin{equation*}
-\sum_{x \in G} \alpha_{iu}(x) \beta_{vj}(x^{-1}) = 0.
-\end{equation*}
-Sean $\chi$, $\chi^{'}$ los caracteres de $\mathbb{A}$,
-$\mathbb{B}$. Por el teorema anterior, poniendo a $u=i$, $v=j$ y
-tomando la suma sobre $i$,$j$, se obtiene lo siguiente:
+\begin{enumerate}
+\item Sea $A(a)=(\alpha_{ij}(a))$ una representación irreducible de
+  $G$ con grado $n$. Entonces
+  \begin{equation*}
+    \sum_{x \in G} \alpha_{iu}(x) \alpha_{vj}(x^{-1}) = \delta_{ij} \delta_{uv}\frac{g}{n}.
+  \end{equation*}
+\item Sea $ B(a)=(\beta_{ij}(a))$ una representación irreducible, la
+  cual no es equivalente a $A$, entonces
+  \begin{equation*}
+    \sum_{x \in G} \alpha_{iu}(x) \beta_{vj}(x^{-1}) = 0.
+  \end{equation*}
+\end{enumerate}
+Sean $\chi$, $\chi^{'}$ los caracteres de $A$, $B$. Por el teorema
+anterior, poniendo a $u=i$, $v=j$ y tomando la suma sobre $i$,$j$, se
+obtiene lo siguiente:
 
 \textbf{Teorema 4.4. } (La primer relación de ortogonalidad de
 caracteres) Sea $G$ un grupo de orden $g$.
