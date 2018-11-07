@@ -533,22 +533,22 @@ $\mathbb{A}$ o $\mathbb{B}$ es reducible, lo cual es una
 contradicción.
 \end{proof}
 
-\textbf{Teorema 3.2.} Sea
-$\mathbb{A} \colon a \mapsto A\left(a\right)$ una representación
-irreducible de un grupo $G$. Sea $P$ una matriz con la propiedad
-$A(a)P=PA(a)$ para todo $a \in G$. Entonces $P=\lambda \mathrm{I}$,
-para algún $\lambda \in \mathbb{C}$.
+\textbf{Teorema 3.2.} Sea $A$ una representación irreducible de un
+grupo $G$. Sea $P$ una matriz con la propiedad $A(a)P=PA(a)$ para todo
+$a \in G$. Entonces $P=\lambda I$, para algún
+$\lambda \in \mathbb{C}$.
+\begin{proof}
+  Sea $\lambda$ un valor propio de $P$. Entonces
+  det$(\lambda I - P)=0$, y además para todo $a \in G$
+  \begin{equation*}
+    A(a)(\lambda I - P)=(\lambda I - P)A(a)
+  \end{equation*}
+  Entonces por el Lema de Schur,
+  \begin{equation*}
+    \lambda I-P=0
+  \end{equation*}
+\end{proof}
 
-Sea $\lambda$ un valor propio de $P$. Entonces
-det$(\lambda \mathrm{I} - P)=0$, y además
-
-\begin{equation*}
-  A(a)(\lambda \mathrm{I} - P)=(\lambda \mathrm{I} - P)A(a) \qquad \mathrm{(para\ todo\ a \in G.)}
-\end{equation*}
-Entonces por el Lema de Schur,
-\begin{equation*}
-  \lambda \mathrm{I}-P=0
-\end{equation*}
 \textbf{Teorema 3.2.} Sea $G$ un grupo abeliano. Entonces cada
 representación irreducible de $G$ es de grado 1.
 
