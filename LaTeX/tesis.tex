@@ -6,7 +6,8 @@
 \usepackage[spanish,mexico,es-nolayout]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
-%\usepackage{amssymb}
+\DeclareMathOperator{\tr}{tr}
+% \usepackage{amssymb}
 \usepackage{amsthm}
 %\usepackage{graphicx}
 \usepackage{color}
@@ -539,7 +540,7 @@ $a \in G$. Entonces $P=\lambda I$, para algún
 $\lambda \in \mathbb{C}$.
 \begin{proof}
   Sea $\lambda$ un valor propio de $P$. Entonces
-  det$(\lambda I - P)=0$, y además para todo $a \in G$
+  $\det(\lambda I - P)=0$, y además para todo $a \in G$
   \begin{equation*}
     A(a)(\lambda I - P)=(\lambda I - P)A(a)
   \end{equation*}
@@ -563,10 +564,11 @@ representación irreducible de $G$ es de grado 1.
 se asumirá que estamos trabajando con grupos finitos.
 
 \textbf{Caracteres} Para una matriz cuadrada $A=\alpha_{ij}$ de grado
-$n$, tr$A$ denota la traza de $A$, es decir
+$n$, $\tr A$ denota la traza de $A$, es decir
 \begin{itemize}
-  \item tr$A= \alpha_{11}+ \alpha_{22} + \cdots + \alpha_{nn}$.
-\end{itemize}
+  \item $\tr A= \alpha_{11}+ \alpha_{22} + \cdots + \alpha_{nn}$.
+  \end{itemize}
+
 Cálculos directos muestran que
 
 \textbf{Lema 4.1. }
