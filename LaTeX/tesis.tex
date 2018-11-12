@@ -1232,9 +1232,26 @@ se transforma en una representación de $G$. A esta representación se le llama 
 Sea $\mathbb{F}_{1}, \mathbb{F}_{2}, \ldots, \mathbb{F}_{r}$ las representaciones irreducibles de $G$ y sea $\chi_{i}$ por el carácter de $\mathbb{F}_{i}$. EL mapeo $a \mapsto \overline{F_{i}(a)}$ también es una representación irreducible y su carácter es $\overline{\chi_{i}}$, donde $\overline{\chi_{i}}(a) = \overline{\chi_{i}(a)}$. Y lo denotaremos $\overline{\chi_{i}}=\chi_{i'}$
 
 \textbf{Teorema 6.2. }
-
-
-\backmatter
+\begin{equation*}
+  \chi_{i} \chi_{j} = \sum_{\upsilon} r_{ij \upsilon} \chi_{\upsilon}
+\end{equation*}
+si y sólo si
+\begin{equation*}
+  \chi_{i^{'}}\chi_{\upsilon} =  \sum_{j} r_{ij \upsilon} \chi_{j}.
+\end{equation*}
+\begin{proof}
+  \begin{equation}
+    \label{eq:5}
+    \begin{aligned}
+      (\chi_{i} \chi_{j}, \chi_{\upsilon}) &= \frac{1}{g} \sum_{a \in G} \overline{\chi_{i}(a) \chi_{j}(a)} \chi_{\upsilon}(a) \\
+      & = \frac{1}{g} \sum_{a \in G} \chi_{i^{'}}(a) \chi_{\upsilon}(a) \overline{\chi_{j}(a)} \\
+      & = (\chi_{i^{'}} \chi_{\upsilon},\chi_{j})
+    \end{aligned}
+  \end{equation}
+  Es por ello que la multiplicidad de $\chi_{\upsilon}$ en
+  $\chi_{i} \chi_{j}$ es igual que la de
+  $\chi_{i^{'}} \chi_{\upsilon}$.  \backmatter
+\end{proof}
 
 
 \bibliographystyle{plain}
