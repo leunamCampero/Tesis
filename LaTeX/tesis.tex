@@ -148,24 +148,30 @@ el cual por definición cumple
 El número $n$ se llama el grado de la representación. Se dice que la
 representación es fiel, si $A$ es inyectiva.
 
-\textbf{Ejemplo} \label{Ej1} El mapeo que manda cada elemento de $G$ a $1
-\in \mathbb{C}$ es una representación de grado 1. Ésta es llamada la
-representación unitaria de $G$, y es denotada por $1_{G}$.
+\begin{example}
+  \label{Ej6}
+  El mapeo que manda cada elemento de $G$ a $1
+  \in \mathbb{C}$ es una representación de grado 1. Ésta es llamada la
+  representación unitaria de $G$, y es denotada por $1_{G}$. 
+\end{example}
+ 
+\begin{example}
+  \label{Ej5}
+  Dada una representación $A\left(a\right)$, el mapeo
+  \begin{equation*}
+    a \mapsto P^{-1}A\left(a\right)P
+  \end{equation*}  
+  se convierte en una representación de $G$ para cualquier matriz $P$ no singular.
 
-\textbf{Ejemplo} \label{Ej2} Dada una representación $A\left(a\right)$, el mapeo
-\begin{equation*}
-  a \mapsto P^{-1}A\left(a\right)P
-\end{equation*}  
-se convierte en una representación de $G$ para cualquier matriz $P$ no singular.
-
-Sean $A$ y $B$ representaciones de $G$. Si existe una
-matriz no singular $P$ tal que para todo $a \in G$:
-\begin{equation*}
-  B\left(a\right)= P^{-1}A\left(a\right)P
-\end{equation*}
-diremos que $A$ y $B$ son equivalentes. Representaciones equivalentes
-se denotan como $A \sim B$. La relación $\sim$
-define una clase de equivalencia de representaciones de $G$.
+  Sean $A$ y $B$ representaciones de $G$. Si existe una
+  matriz no singular $P$ tal que para todo $a \in G$:
+  \begin{equation*}
+    B\left(a\right)= P^{-1}A\left(a\right)P
+  \end{equation*}
+  diremos que $A$ y $B$ son equivalentes. Representaciones equivalentes
+  se denotan como $A \sim B$. La relación $\sim$
+  define una clase de equivalencia de representaciones de $G$.
+\end{example}
 
 \begin{example}
   \label{Ej3}
@@ -320,7 +326,7 @@ donde $ \mathrm{I_{r}}$, $ \mathrm{I_{s}}$ son matrices identidad de
 grado $r$, $s$ respectivamente.
 
 Si $A$ no es reducible, se dice que $A$ es irreducible . En el ejemplo
-1.3, el mapeo $a \mapsto B\left(a\right)$ y
+\ref{Ej3}, el mapeo $a \mapsto B\left(a\right)$ y
 $a \mapsto C\left(a\right)$ se convierten en representaciones de grado
 $r$, $s$, respectivamente.
 
@@ -356,7 +362,7 @@ $P$, tal que
 donde cada $F_{i}\left(a\right)$ con $i=1,2,...,r$ es una
 representación irreducible de $G$.
 
-\subsubsection{Representación por matrices unitarias, y
+\section{Representación por matrices unitarias, y
   representaciones de completamente reducibles de grupos finitos}
 Una representación $A$ de $G$ se dice unitaria si $A\left(a\right)$ es
 una matriz unitaria para todo $a \in G$, lo cual significa que
@@ -372,11 +378,17 @@ Una matriz se dice hermitiana si $\overline{A^{t}}=A$, y positiva
 definida si $\overline{x}^{t}Ax>0$ para todo vector columna $x$
 (distinto de cero).
 
-\textbf{Lema 2.1.} Para cualquier matriz no singular $A$,
-$\overline{A\left(a\right)}^{t}A$ es una matriz hermitiana definida
-positiva. La suma de matrices hermitianas definidas positivas, también
-es hermitiana y definida positiva.
+\begin{lemma}
+  \label{l2_1}
+  Para cualquier matriz no singular $A$,
+  $\overline{A\left(a\right)}^{t}A$ es una matriz hermitiana definida
+  positiva. La suma de matrices hermitianas definidas positivas,
+  también es hermitiana y definida positiva.
 
+\end{lemma}
+\begin{lemma}
+  \label{l2_2}
+\end{lemma}
 \textbf{Lema 2.2.} Para cualquier matriz hermitiana definida positiva
 $A$, existe una matriz triangular superior no singular $C$ tal que
 $\overline{C}^{t}AC=\mathrm{I}$.
