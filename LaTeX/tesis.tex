@@ -474,44 +474,48 @@ grado de $A$ veces.
   \end{equation}
   y $C^{-1}F(a)C$ es una matriz unitaria.
 \end{proof}
-
-\textbf{Teorema 2.4.} Una representación de un grupo finito es
-completamente reducible.
-
-Sea $A$ una representación de un grupo finito de $G$ y sea $A(a)$
-descompuesta como
-\begin{equation*}
-  A(a)=
-  \begin{pmatrix}
-    A_{1}(a) & * \\ 
-    0 & A_{2}(a)
-  \end{pmatrix}.
-\end{equation*}
-
+\begin{theorem}
+  \label{t2_4}
+  Una representación de un grupo finito es
+  completamente reducible.
+\end{theorem}
 \begin{proof}
+  Sea $A$ una representación de un grupo finito de $G$ y sea $A(a)$
+  descompuesta como
+  \begin{equation}
+    \label{eq:13}
+        A(a)=
+    \begin{pmatrix}
+      A_{1}(a) & * \\ 
+      0 & A_{2}(a)
+    \end{pmatrix}.
+  \end{equation}
   Por el teorema anterior, existe una matriz triangular no superior
   $C$ tal que $C^{-1}A(a)C$ es una matriz unitaria. Sea
   $U(a)=C^{-1}A(a)C$. Como $C$ es una matriz triangular superior,
   $U(a)$ se descompone como
-\begin{equation*}
-  U(a)=
-  \begin{pmatrix}
-    U_{1}(a) & V(a) \\ 
-    0 & U_{2}(a)
-  \end{pmatrix}
-\end{equation*}  
-Como $\overline{U(a)}^{t}=U(a)^{-1}=U(a^{-1})$, se obtiene
-\begin{equation*}
-  \begin{pmatrix}
-    \overline{U_{1}(a)}^{t} & 0 \\ 
-    \overline{V(a)}^{t} & \overline{U_{2}(a)}^{t}
-  \end{pmatrix}
-  =
-  \begin{pmatrix}
-    U_{1}(a^{-1}) & V(a^{-1}) \\ 
-    0 & U_{2}(a^{-1})
-  \end{pmatrix}
-\end{equation*}
+  \begin{equation}
+    \label{eq:14}
+    U(a)=
+    \begin{pmatrix}
+      U_{1}(a) & V(a) \\ 
+      0 & U_{2}(a)
+    \end{pmatrix}
+  \end{equation}  
+  Como $\overline{U(a)}^{t}=U(a)^{-1}=U(a^{-1})$, se obtiene
+  \begin{equation}
+    \label{eq:15}
+    \begin{pmatrix}
+      \overline{U_{1}(a)}^{t} & 0 \\ 
+      \overline{V(a)}^{t} & \overline{U_{2}(a)}^{t}
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+      U_{1}(a^{-1}) & V(a^{-1}) \\ 
+      0 & U_{2}(a^{-1})
+    \end{pmatrix}
+  \end{equation}
+  y por ello $V(a)=0$.
 \end{proof}
 
 \textbf{Lema 3.1.} (Lema de Schur) Sea $A$ y $B$ representaciones
