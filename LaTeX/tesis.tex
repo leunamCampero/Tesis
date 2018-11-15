@@ -581,20 +581,25 @@ grado de $A$ veces.
   contradicción.
 \end{proof}
 
-\textbf{Teorema 3.2.} Sea $A$ una representación irreducible de un
-grupo $G$. Sea $P$ una matriz con la propiedad $A(a)P=PA(a)$ para todo
-$a \in G$. Entonces $P=\lambda I$, para algún
-$\lambda \in \mathbb{C}$.
+\begin{theorem}
+  \label{t3_2}
+  Sea $A$ una representación irreducible de un
+  grupo $G$. Sea $P$ una matriz con la propiedad $A(a)P=PA(a)$ para todo
+  $a \in G$. Entonces $P=\lambda I$, para algún
+  $\lambda \in \mathbb{C}$.
+\end{theorem}
 \begin{proof}
   Sea $\lambda$ un valor propio de $P$. Entonces
   $\det(\lambda I - P)=0$, y además para todo $a \in G$
-  \begin{equation*}
+  \begin{equation}
+    \label{eq:20}
     A(a)(\lambda I - P)=(\lambda I - P)A(a)
-  \end{equation*}
+  \end{equation}
   Entonces por el Lema de Schur,
-  \begin{equation*}
+  \begin{equation}
+    \label{eq:21}
     \lambda I-P=0
-  \end{equation*}
+  \end{equation}
 \end{proof}
 
 \textbf{Teorema 3.2.} Sea $G$ un grupo abeliano. Entonces cada
