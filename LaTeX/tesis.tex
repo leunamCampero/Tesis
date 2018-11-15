@@ -434,36 +434,45 @@ hermitiana definida positiva. Y la prueba se sigue usando inducción el
 grado de $A$ veces.
 \end{proof}
 
-\textbf{Teorema 2.3.} Sea $G$ un grupo finito. Para una representación
-$F$ de $G$, entonces existe una matriz triangular superior no singular $C$, tal que
-$C_{-1}F\left(a\right)C$ es una matriz unitaria para todo $a \in G$.
-\begin{proof}
-Sea
-\begin{equation*}
-A=\sum_{b \in G} \overline{F\left(b\right)}^{t}F\left(b\right)
-\end{equation*}
-Entonces $A$ es una matriz hermitiana definida positiva por el Lema
-2.1. Entonces existe una matriz triangular no singular $C$, tal que
+\begin{theorem}
+  \label{t2_3}
+  Sea $G$ un grupo finito. Para una representación $F$ de $G$,
+  entonces existe una matriz triangular superior no singular $C$,
+  tal que $C_{-1}F\left(a\right)C$ es una matriz unitaria para todo
+  $a \in G$.
+\end{theorem}
 
-\begin{equation*}
-  \overline{C}^{t}AC= I
-\end{equation*}
-\begin{equation*}
-  A=(\overline{C}^{t})^{-1}C^{-1}.
-\end{equation*}
-Ya que
-\begin{equation*}
-\overline{F\left(a\right)}^{t}AF\left(a\right)=\sum_{b \in G} \overline{F\left(ba\right)}^{t}F\left(ba\right)=A
-\end{equation*},
-se obtiene
-\begin{equation*}
-\overline{F\left(a\right)}^{t}(\overline{C}^{t})^{-1}C^{-1}F\left(a\right)=(\overline{C}^{t})^{-1}C^{-1}
-\end{equation*},
-es decir\\~\\
-\begin{equation*}
-\overline{(C^{-1}F(a)C)}^{t}(C^{-1}F(a)C)=I
-\end{equation*}
-y $C^{-1}F(a)C$ es una matriz unitaria.
+\begin{proof}
+  Sea
+  \begin{equation*}
+    A=\sum_{b \in G} \overline{F\left(b\right)}^{t}F\left(b\right)
+  \end{equation*}
+  Entonces $A$ es una matriz hermitiana definida positiva por el Lema
+  2.1. Entonces existe una matriz triangular no singular $C$, tal que
+  \begin{equation*}
+    \overline{C}^{t}AC= I
+  \end{equation*}
+  y por ello
+  \begin{equation}
+    \label{eq:9}
+    A=(\overline{C}^{t})^{-1}C^{-1}.
+  \end{equation}
+  Ya que
+  \begin{equation}
+    \label{eq:10}
+    \overline{F\left(a\right)}^{t}AF\left(a\right)=\sum_{b \in G} \overline{F\left(ba\right)}^{t}F\left(ba\right)=A,
+  \end{equation}
+  se obtiene
+  \begin{equation}
+    \label{eq:11}
+    \overline{F\left(a\right)}^{t}(\overline{C}^{t})^{-1}C^{-1}F\left(a\right)=(\overline{C}^{t})^{-1}C^{-1},
+  \end{equation}
+  es decir
+  \begin{equation}
+    \label{eq:12}
+    \overline{(C^{-1}F(a)C)}^{t}(C^{-1}F(a)C)=I
+  \end{equation}
+  y $C^{-1}F(a)C$ es una matriz unitaria.
 \end{proof}
 
 \textbf{Teorema 2.4.} Una representación de un grupo finito es
