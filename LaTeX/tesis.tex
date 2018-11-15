@@ -362,8 +362,7 @@ $P$, tal que
 donde cada $F_{i}\left(a\right)$ con $i=1,2,...,r$ es una
 representación irreducible de $G$.
 
-\section{Representación por matrices unitarias, y
-  representaciones de completamente reducibles de grupos finitos}
+\section{Representación por matrices unitarias}
 Una representación $A$ de $G$ se dice unitaria si $A\left(a\right)$ es
 una matriz unitaria para todo $a \in G$, lo cual significa que
 $\overline{A\left(a\right)}^{t}A\left(a\right)=I$. Aquí
@@ -518,61 +517,68 @@ grado de $A$ veces.
   y por ello $V(a)=0$.
 \end{proof}
 
-\textbf{Lema 3.1.} (Lema de Schur) Sea $A$ y $B$ representaciones
-irreducibles de un grupo $G$ con grados $m$ y $n$ respectivamente. Sea
-$P$ una matriz de $m$x$n$ con la propiedad de que $A(a)P=PB(a)$, para
-todo $a \in G$.  entonces:
-\begin{enumerate}
-\item $P=0$
-\item $m=n$ y $P$ es no singular.
-\end{enumerate}
+\begin{lemma}[Lema de Schur]
+  \label{l3_1}
+  Sea $A$ y $B$ representaciones
+  irreducibles de un grupo $G$ con grados $m$ y $n$ respectivamente. Sea
+  $P$ una matriz de $m$x$n$ con la propiedad de que $A(a)P=PB(a)$, para
+  todo $a \in G$.  entonces:
+  \begin{enumerate}
+  \item $P=0$
+  \item $m=n$ y $P$ es no singular.
+  \end{enumerate}
+\end{lemma}
 
 \begin{proof}
-Asumimos $P \neq 0$. Y se quiere mostrar la segunda
-condición. Supongamos que $m \neq n$, o $m=n$ y $P$ es
-singular. Entonces existe $Q \in \mathrm{GL}(m,\mathbb{C})$ y
-$R \in \mathrm{GL}(n,\mathbb{C})$, tal que
-\begin{equation*}
-  QPR=
-  \begin{pmatrix}
-    I_{r} & 0 \\ 
-    0 & 0
-  \end{pmatrix} 
-\end{equation*}
-donde $I_{r}$ es la matriz identidad de grado $r$. con
-$r<$max$\left\{ m,n \right\}$. Como
-$QA(a)Q^{-1}(QPR) = QPR(R^{-1}B(a)R)$, y se obtiene
-\begin{equation*}
-  \begin{pmatrix}
-    A_{11} & 0 \\ 
-    A_{21} & 0
-  \end{pmatrix}
-  =
-  \begin{pmatrix}
-    B_{11} & B_{12} \\ 
-    0 & 0
-  \end{pmatrix},
-\end{equation*}
-donde
-\begin{equation*}
-  QA(a)A^{-1}=
-  \begin{pmatrix}
-    A_{11} & A_{12} \\ 
-    A_{21} & A_{22}
-  \end{pmatrix} 
-\end{equation*}  
-con $A_{11}$ una matriz cuadrada de grado $r$. Y
-\begin{equation*}
-  R^{-1}B(a)R=
-  \begin{pmatrix}
-    B_{11} & B_{12} \\ 
-    B_{21} & B_{22}
-  \end{pmatrix}
-\end{equation*}
-con $B_{11}$ una matriz cuadrada de grado $r$. Por lo tanto
-$A_{21}=0$ si $r<m$ y $B_{12}$ si $r<n$. De cualquier manera
-$A$ o $A$ es reducible, lo cual es una
-contradicción.
+  Asumimos $P \neq 0$. Y se quiere mostrar la segunda
+  condición. Supongamos que $m \neq n$, o $m=n$ y $P$ es
+  singular. Entonces existe $Q \in \mathrm{GL}(m,\mathbb{C})$ y
+  $R \in \mathrm{GL}(n,\mathbb{C})$, tal que
+  \begin{equation}
+    \label{eq:16}
+    QPR=
+    \begin{pmatrix}
+      I_{r} & 0 \\ 
+      0 & 0
+    \end{pmatrix} 
+  \end{equation}
+  donde $I_{r}$ es la matriz identidad de grado $r$. con
+  $r<$max$\left\{ m,n \right\}$. Como
+  $QA(a)Q^{-1}(QPR) = QPR(R^{-1}B(a)R)$, y se obtiene
+  \begin{equation}
+    \label{eq:17}
+    \begin{pmatrix}
+      A_{11} & 0 \\ 
+      A_{21} & 0
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+      B_{11} & B_{12} \\ 
+      0 & 0
+    \end{pmatrix},
+  \end{equation}
+  donde
+  \begin{equation}
+    \label{eq:18}
+    QA(a)A^{-1}=
+    \begin{pmatrix}
+      A_{11} & A_{12} \\ 
+      A_{21} & A_{22}
+    \end{pmatrix} 
+  \end{equation}  
+  con $A_{11}$ una matriz cuadrada de grado $r$. Y
+  \begin{equation}
+    \label{eq:19}
+    R^{-1}B(a)R=
+    \begin{pmatrix}
+      B_{11} & B_{12} \\ 
+      B_{21} & B_{22}
+    \end{pmatrix}
+  \end{equation}
+  con $B_{11}$ una matriz cuadrada de grado $r$. Por lo tanto
+  $A_{21}=0$ si $r<m$ y $B_{12}$ si $r<n$. De cualquier manera
+  $A$ o $A$ es reducible, lo cual es una
+  contradicción.
 \end{proof}
 
 \textbf{Teorema 3.2.} Sea $A$ una representación irreducible de un
