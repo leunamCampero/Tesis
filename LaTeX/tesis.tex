@@ -132,8 +132,14 @@ blah blah blah blah blah blah blah blah blah.
 \chapter{Representaciones de grupos}
 \label{cha:Representaciones de grupos}
 
+En este capítulo veremos las definiciones básicas de representaciones
+de grupos.
+
+\section{Definiciones básicas}
+\label{sec:basicas}
+
 Sea $ \mathrm{GL}(n,\mathbb{C})$ el grupo de todas las matrices no
-singulares de grado $n$ sobre el campo de los números complejos
+singulares $n\times n$ sobre el campo de los números complejos
 $\mathbb{C}$. Sea $G$ un grupo. Una representación (matricial) de $G$
 se define como un homomorfismo:
 \begin{equation*}
@@ -142,26 +148,26 @@ se define como un homomorfismo:
 el cual por definición cumple
 \begin{enumerate}
 \item $A\left(ab\right)=A\left(a\right)A\left(b\right)$,
-\item $A\left(1\right)=\mathrm{I}$ (la matriz identidad),
+\item $A\left(1\right)=I_{n}$ (la matriz identidad $n\times n$),
 \item $A\left(a^{-1}\right)=A\left(a\right)^{-1}$.
 \end{enumerate}
 El número $n$ se llama el grado de la representación. Se dice que la
-representación es fiel, si $A$ es inyectiva.
+representación es fiel si $A$ es inyectiva.
 
 \begin{example}
   \label{Ej6}
-  El mapeo que manda cada elemento de $G$ a $1
+  La función que manda cada elemento de $G$ a $1
   \in \mathbb{C}$ es una representación de grado 1. Ésta es llamada la
   representación unitaria de $G$, y es denotada por $1_{G}$. 
 \end{example}
  
 \begin{example}
   \label{Ej5}
-  Dada una representación $A\left(a\right)$, el mapeo
+  Dadas una representación $A$ y una matriz no singular $P$, la regla:
   \begin{equation*}
     a \mapsto P^{-1}A\left(a\right)P
   \end{equation*}  
-  se convierte en una representación de $G$ para cualquier matriz $P$ no singular.
+  induce una representación de $G$.
 
   Sean $A$ y $B$ representaciones de $G$. Si existe una
   matriz no singular $P$ tal que para todo $a \in G$:
