@@ -803,52 +803,61 @@ $(\varphi,\psi)_{G}$ de la siguiente manera
 Cuando sea claro que se está hablando del grupo $G$, se escribirá
 $(\varphi,\psi)$ en lugar de $(\varphi,\psi)_{G}$. Claramente el
 producto interno cumple las siguientes propiedades
-\begin{equation*}
-  \begin{aligned}
+\begin{equation}
+  \label{eq:33}
+    \begin{aligned}
     (\varphi,\psi) &= (\psi,\varphi), \\
     (\varphi_{1}+\varphi_{2},\psi) &= (\varphi_{1},\psi)+(\varphi_{2},\psi), \\
     (\varphi,\psi_{1}+\psi_{2}) &= (\varphi,\psi_{1})+(\varphi,\psi_{2}), \\
     (\lambda \varphi,\psi) &= (\psi,\lambda \varphi)=\lambda (\varphi,\psi).
-    \end{aligned}
-\end{equation*}
+  \end{aligned}
+\end{equation}
 Con esta notación la primera relación de ortogonalidad de caracteres
 es expresada como sigue:
 
-\textbf{Teorema 4.4''. } Sean $\chi_{1}$, $\chi_{2}$,... los
-caracteres de caracteres de representaciones no equivalentes de un
-grupo $G$. Entonces
-\begin{equation*}
-(\chi_{i},\chi_{j})=\delta_{ij}
-\end{equation*} 
-Multiplicidad de representaciones irreducibles. Sea $\mathbb{A}$ una
-representación de un grupo $G$. Como $\mathbb{A}$ es completamente
-reducible, entonces por el Teorema 2.3, $\mathbb{A}$ es equivalente a
-\begin{equation*}
-\begin{aligned}
-\begin{pmatrix}
-\mathbb{F}_{1} & & & & & & 0\\ 
- & \ddots & & & & & \\
- & & \mathbb{F}_{1} & & & & \\
- & & & \mathbb{F}_{2} & & & \\
- & & & & \ddots & & \\
- & & & & & \mathbb{F}_{2} & \\
-0 & & & & & & \ddots
-\end{pmatrix},
-\end{aligned}
-\end{equation*}
-donde $\mathbb{F}_{1}$, $\mathbb{F}_{2}$,... son representaciones no
-equivalentes. El número $m_{i}$ es llamado la multiplicidad de
-$\mathbb{F}_{i}$ en $\mathbb{A}$ ($m_{i}=0$ si $\mathbb{F}_{i}$ no
-aparece) y se escribe
-\begin{equation*}
-\mathbb{A} \sim m_{1} \mathbb{F}_{1}+m_{2} \mathbb{F}_{2}+ \cdots
-\end{equation*}
-Sea $\chi$ el carácter de $\mathbb{A}$ y $\chi_{i}$ el carácter de $\mathbb{F}_{i}$ ($i = 1, 2, ...$). Entonces
-\begin{equation*}
-\chi =m_{1} \chi_{1}+ m_{2} \chi_{2}+ \cdots
-\end{equation*}
-Si $m_{i} \neq 0$, $\mathbb{F}_{i}$ y $\chi_{i}$ son llamados
-componentes irreducibles de $\mathbb{A}$ y $\chi$ respectivamente.
+\begin{theorem}
+  \label{t4_4pp}
+  Sean $\chi_{1}$, $\chi_{2}$,... los caracteres de caracteres de
+  representaciones no equivalentes de un grupo $G$. Entonces
+  \begin{equation*}
+    (\chi_{i},\chi_{j})=\delta_{ij}
+  \end{equation*} 
+\end{theorem}
+\subsection{Multiplicidad de representaciones irreducibles.}
+\label{subsec:mri}
+ Sea $A$ una representación de un grupo $G$. Como $A$ es completamente
+reducible, entonces por el Teorema \ref{t2_3}, $A$ es equivalente a
+\begin{equation}
+  \label{eq:35}
+  \begin{aligned}
+    \begin{pmatrix}
+      F_{1} & & & & & & 0\\ 
+      & \ddots & & & & & \\
+      & & F_{1} & & & & \\
+      & & & F_{2} & & & \\
+      & & & & \ddots & & \\
+      & & & & & F_{2} & \\
+      0 & & & & & & \ddots
+    \end{pmatrix},
+  \end{aligned}
+\end{equation}
+donde $F_{1}, F_{2}, \ldots$ son representaciones no equivalentes. Y
+$F_{i}$ se repite $m_{i}$-veces en \ref{eq:35}, a este número se le
+conoce como la multiplicidad de $F_{i}$ en $A$, si $m_{i}=0$ entonces
+$F_{i}$ no aparece, y se escribe
+\begin{equation}
+  \label{eq:36}
+  A \sim m_{1} F_{1}+ m_{2} F_{2}+ \cdots
+\end{equation}
+Sea $\chi$ el carácter de $A$ y $\chi_{i}$ el carácter de $F_{i}$
+($i = 1, 2, ...$). Entonces
+
+\begin{equation}
+  \label{eq:37}
+  \chi =m_{1} \chi_{1}+ m_{2} \chi_{2}+ \cdots
+\end{equation}
+Si $m_{i} \neq 0$, $F_{i}$ y $\chi_{i}$ son llamados componentes
+irreducibles de $A$ y $\chi$ respectivamente.
 
 \textbf{Teorema 4.5. } Sea $G$ un grupo y sea $\chi$ el carácter de una
 representación de $G$. Sea $m_{i}$ la multiplicidad de un carácter
