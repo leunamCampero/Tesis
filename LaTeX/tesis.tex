@@ -369,7 +369,9 @@ $P$, tal que
 donde cada $F_{i}\left(a\right)$ con $i=1,2,...,r$ es una
 representación irreducible de $G$.
 
-\section{Representación por matrices unitarias}
+\section{Representaciones por matrices unitarias}
+\label{sec:munitarias}
+
 Una representación $A$ de $G$ se dice unitaria si $A\left(a\right)$ es
 una matriz unitaria para todo $a \in G$, lo cual significa que
 $\overline{A\left(a\right)}^{t}A\left(a\right)=I$. Aquí
@@ -401,11 +403,10 @@ $\overline{C}^{t}AC=\mathrm{I}$.
 \end{lemma}
 
 \begin{proof}
-  sea $A\left(\alpha_{ij}\right)$ para
-  $\left(i,j=1,2,...,n\right)$. Entonces
-  $\alpha_{ji}=\overline{\alpha_{ij}}$ y
-  $\left(\alpha_{ii}\right)>0 \quad \mathrm{para\ }$. Entonces $A$
-  tiene la forma
+  Sea $A\left(\alpha_{ij}\right)=(\alpha_{ij})$, entonces para
+  $\left(i,j=1,2,...,n\right)$ se tiene que
+  $\alpha_{ji}=\overline{\alpha_{ij}}$ y además
+  $\left(\alpha_{ii}\right)>0$. Por ello $A$ tiene la forma:
   \begin{equation}
     \label{eq:2}
      A=
@@ -415,14 +416,15 @@ $\overline{C}^{t}AC=\mathrm{I}$.
   \end{pmatrix}
   \end{equation} 
 
-para $\alpha=\alpha_{11}>0$,
-$ a= \left(\alpha_{12},\alpha_{13},...,\alpha_{1n} \right) $,
-$ \mathrm{B}=\left(\alpha_{ij}\right)$, $ \left(i,j=2,...,n\right) $.
+  donde $\alpha=\alpha_{11}>0$,
+  $ a= \left(\alpha_{12},\alpha_{13},...,\alpha_{1n} \right) $,
+  $ \mathrm{B}=\left(\alpha_{ij}\right)$,
+  $ \left(i,j=2,...,n\right) $. Por otro lado, sea
 \begin{equation}
   \label{eq:3}
   C_{1}=
   \begin{pmatrix}
-    \frac{1}{\sqrt{\alpha}} & -\frac{1}{\alpha} \\ 
+    \frac{1}{\sqrt{\alpha}} & -\frac{a}{\alpha} \\ 
     0 & \mathrm{I}
   \end{pmatrix}
 \end{equation}
@@ -444,7 +446,7 @@ grado de $A$ veces.
   \label{t2_3}
   Sea $G$ un grupo finito. Para una representación $F$ de $G$,
   entonces existe una matriz triangular superior no singular $C$,
-  tal que $C_{-1}F\left(a\right)C$ es una matriz unitaria para todo
+  tal que $C^{-1}F\left(a\right)C$ es una matriz unitaria para todo
   $a \in G$.
 \end{theorem}
 
