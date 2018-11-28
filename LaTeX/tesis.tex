@@ -526,6 +526,9 @@ grado de $A$ veces.
   y por ello $V(a)=0$.
 \end{proof}
 
+\section{Lema de Schur}
+\label{sec:schur}
+
 \begin{lemma}[Lema de Schur]
   \label{l3_1}
   Sea $A$ y $B$ representaciones
@@ -638,9 +641,7 @@ $n$, $\tr A$ denota la traza de $A$, es decir
 Cálculos directos muestran el siguiente lema
 
 \begin{lemma}
-  
-  \label{l4_1}
-  
+   \label{l4_1}
   \begin{enumerate}
   \item $\tr (AB)=\tr (BA) $.
   \item $\tr (P^{-1}AP)=\tr A$, para alguna matriz no singular $P$.
@@ -654,13 +655,16 @@ es igual al grado de $A$. Caracteres de representaciones irreducibles
 son llamados caracteres irreducibles. Y por el lema 4.1(2), se tiene
 lo siguiente:
 
-\textbf{Lema 4.2. } Representaciones equivalentes de un grupo tienen
-el mismo carácter.
-
+\begin{lemma}
+  \label{l4_2}
+  Representaciones equivalentes de un grupo tienen el mismo carácter.
+\end{lemma}
+\begin{proof}
+  La prueba es inmediata de la segunda parte del lema \ref{l4_1} y la
+  definición de representación equivalente.
+\end{proof}
 Como $A(x^{-1}ax)=A(x)^{-1}A(a)A(x)$, se sigue que
-\begin{equation*}
-  \chi(x^{-1}ax)=\chi(a)
-\end{equation*}  
+ $ \chi(x^{-1}ax)=\chi(a)$
 Así $\chi$ toma el mismo valor en una clase de conjugación de $G$. Tal
 función es llamada función de clase.
 
