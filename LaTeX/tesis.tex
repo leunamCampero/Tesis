@@ -286,26 +286,27 @@ representación es fiel si $A$ es inyectiva.
     \end{pmatrix}
     .
   \end{equation}
-  Sea $\phi \colon a \mapsto \phi\left(a\right)$ un homomorfismo de $G$
-  en $S_{n}$ (es decir, una representación permutación de
-  $G$). Expresando la permutación $\phi\left(a\right)$ por la matriz
-  $A\left(a\right)$ como en el ejemplo \ref{Ej3}, se obtiene una
-  representación matricial.
 \end{example}
 
-Sea $A$ una representación de grado $n$. Se dice que $A$ es reducible
-si hay una matriz no singular, tal que
+Sea $\phi \colon a \mapsto \phi\left(a\right)$ un homomorfismo de $G$
+en $S_{n}$ (es decir, una representación permutación de
+$G$). Expresando la permutación $\phi\left(a\right)$ por la matriz
+$A\left(a\right)$ como en el ejemplo \ref{Ej3}, se obtiene una
+representación matricial.
+
+Ahora, sean $A$, $B$ y $C$ representaciones de grado $n$,
+$r \geq 1$ y $s \geq 1$ respectivamente, con $r+s=n$. Entonces se dice
+que $A$ es reducible si para todo $a \in G$ hay una matriz no
+singular, tal que
+
 \begin{equation*}
   P^{-1}A\left(a\right)P=
   \begin{pmatrix}
     B\left(a\right) & 0 \\
     D\left(a\right) & C\left(a\right)
-  \end{pmatrix}, 
+  \end{pmatrix}. 
 \end{equation*}  
-donde $B\left(a\right)$, $C\left(a\right)$ son matrices cuadradas de
-grado $r$, $s$ con $r \geq 1$, $s \geq 1$, $r+s=n$. Observe que $B$ y
-$C$ son representación de $G$ de grado $r$, $s$
-respectivamente. Además se tiene que las representaciones
+Se observa que las representaciones
 \begin{equation*}
   A_{1}\left(a\right)=
   \begin{pmatrix}
@@ -353,18 +354,16 @@ $B$, y es denotada por $A \oplus B$.
 
 Una representación $A\left(a\right)$ de $G$ se dice completamente
 reducible si $A$ es equivalente a la suma directa de algunas
-representaciones irreducibles, es decir, existe una matriz no singular
+representaciones irreducibles, es decir, si existe una matriz no singular
 $P$, tal que
 
 \begin{equation*}
  P^{-1}A\left(a\right)P=
  \begin{pmatrix}
-   F_{1} \left(a\right) & & & & & 0\\
-   & F_{2} \left(a\right) & & & & \\
-   & & . & & & \\
-   & & & . & & \\
-   & & & & . & \\
-   0 & & & & & F_{r} \left(a\right)
+   F_{1}(a) & & & 0\\
+   & F_{2}(a) & & \\
+   & & \ddots & \\
+   0 & & & F_{r}(a)
  \end{pmatrix}
 \end{equation*}
 donde cada $F_{i}\left(a\right)$ con $i=1,2,...,r$ es una
