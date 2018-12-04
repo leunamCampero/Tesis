@@ -901,7 +901,7 @@ $G$ de orden $g$. Se observa que
    \pi(a) = \left\{
      \begin{array}{ll}
        g      & \mathrm{si\ } a = 1 \\
-       0      & \mathrm{otro\ caso\ } 
+       0      & \mathrm{otro\ caso.\ } 
      \end{array}
    \right.
 \end{equation}
@@ -956,88 +956,120 @@ que $\pi$ y por ello, $\pi = \pi^{'}$.
   \end{equation}
  recordando \ref{eq:39}
 \end{proof}
+\subsection{La segunda relación de ortogonalidad de caracteres.}
+\label{subsec:sroc}
+Sea $G$ un grupo y sean $C_{1}=\left\{1 \right\},C_{2},...,C_{k}$ las
+clases de conjugación de $G$. Para una clase de conjugación
+$C_{\alpha}$, se define la suma de los elementos de $C_{\alpha}$ como:
 
-\textbf{La segunda relación de ortogonalidad de caracteres.} Sea $G$
-un grupo y sean
-$\mathbb{C}_{1}=\left\{1 \right\}, \mathbb{C}_{2},...,\mathbb{C}_{k}$
-las clases de conjugación de $G$. Para una clase de conjugación
-$\mathbb{C}_{\alpha}$, se define la suma de los elementos de
-$\mathbb{C}_{\alpha}$ como:
+\begin{equation}
+  \label{eq:42}
+  C_{\alpha}=a_{1}+a_{2}+ \cdots + a_{h_{\alpha}} \qquad (h_{\alpha}=|C_{\alpha}|).
+\end{equation}
 
-\begin{equation*}
-  \mathbb{C}_{\alpha}=a_{1}+a_{2}+ \cdots + a_{h_{\alpha}} \qquad (h_{\alpha}=|\mathbb{C}_{\alpha}|).
-\end{equation*}
+Y se define el producto de $C_{\alpha}$ y $C_{\beta}$ por
+\begin{equation}
+  \label{eq:43}
+  C_{\alpha} C_{\beta} = \sum_{\gamma=1}^{k} t_{\alpha \beta \gamma} C_{\gamma}
+\end{equation}
 
-Y se define el producto de $\mathbb{C}_{\alpha}$ y $\mathbb{C}_{\beta}$ por
-\begin{equation*} \label{MULT}
-  \mathbb{C}_{\alpha} \mathbb{C}_{\beta} = \sum_{\gamma=1}^{k} t_{\alpha \beta \gamma} \mathbb{C}_{\gamma}
-\end{equation*}
+donde $C_{\beta}=b_1+b_{2}+ \cdots + b_{h_{\beta}}$ y la suma es sobre
+$1 \leq i \leq h_{\alpha}$, $1 \leq j \leq h_{\beta}$. Para un
+elemento $c \in C_{\gamma}$, sea $t$ el número de parejas
+$(a,b) \in C_{\alpha} \times C_{\beta}$ tal que $ab=c$. Entonces para
+$c'=x^{-1}cx \in C_{\gamma}$, hay exactamente $t$ parejas
+$(a',b') \in C_{\alpha} \times C_{\beta}$ tal que $a'b'=c'$ porque
+$ab=c$ si y sólo si $a'b'=c'$ con $a'=x^{-1}ax$, $b'=x^{-1}bx$. Así
+que cada elemento de $C_{\gamma}$ aparece el mismo número de veces en
+el lado derecho de \ref{eq:43}, es decir
+\begin{equation}
+  \label{eq:44}
+  C_{\alpha} C_{\beta} = \sum_{\gamma=1}^{k} t_{\alpha \beta \gamma} C_{\gamma}.
+\end{equation}
+El conjunto de todos los elementos $a^{-1}$ con $a \in C_{\alpha}$ se
+convierte en una clase de conjugación. Denotamos esta clase de
+conjugación por $C_{\alpha '}$.
 
-Sea $\mathbb{F} \colon a \mapsto F(a)$ una representación irreducible
-de $G$ y sea $f$ el grado de $\mathbb{F}$. Se define
-$\mathbb{F} (\mathbb{C}_{\alpha})$ por
+\begin{equation}
+  \label{eq:46}
+   t_{\alpha \beta 1} = \left\{
+     \begin{array}{ll}
+       h_{\alpha}      & \mathrm{si\ } C_{\beta} = C_{\alpha '} \\
+       0      & \mathrm{otro\ caso.\ } 
+     \end{array}
+   \right.
+\end{equation}
 
-\begin{equation*}
-  \mathbb{F} (\mathbb{C}_{\alpha}) = \sum_{a \in C_{\alpha}} \mathbb{F}(a).
-\end{equation*}
+Sea $F$ una representación irreducible
+de $G$ y sea $f$ el grado de $F$. Se define
+$F (C_{\alpha})$ por
 
-Entonces 
-\begin{equation*}
-  F(x)^{-1}F(\mathbb{C}_{\alpha})F(x)=\sum_{a \in C_{\alpha}}F(x^{-1}ax)=F(\mathbb{C}_{\alpha}),
-\end{equation*}
+\begin{equation}
+  \label{eq:45}
+  F (C_{\alpha}) = \sum_{a \in C_{\alpha}} F(a).
+\end{equation}
+Entonces
+\begin{equation}
+  \label{eq:47}
+  F(x)^{-1}F(C_{\alpha})F(x)=\sum_{a \in C_{\alpha}}F(x^{-1}ax)=F(C_{\alpha}),
+\end{equation}
 
 ya que $x^{-1}ax$ varia sobre $C_{\alpha}$ mientras $a$ lo
-hace. Entonces la matriz $\mathbb{F} (\mathbb{C}_{\alpha})$ conmuta
-con cada $F(x)$, y por el Teorema 3.2, se llega a que,
-\begin{equation*}
+hace. Entonces la matriz $F (C_{\alpha})$ conmuta con cada $F(x)$, y
+por el Teorema \ref{t3_2}, se llega a que,
+\begin{equation}
+  \label{eq:48}
    \mathbb{F} (\mathbb{C}_{\alpha})=w_{\alpha}\mathrm{I}.
-\end{equation*}
+\end{equation}
 
 Y tomando la traza de la expresión anterior, se tiene
-\begin{equation*}
+\begin{equation}
+  \label{eq:49}
   h_{\alpha}\chi(a_{\alpha})=w_{\alpha}f,
-\end{equation*}
-\begin{equation*} \label{4.13}
+\end{equation}
+\begin{equation}
+  \label{eq:50}
   w_{\alpha}=h_{\alpha}\chi(a_{\alpha})/f,
-\end{equation*}
+\end{equation}
 
-donde $\chi$ es el carácter de $\mathbb{F}$ y
-$a_{\alpha} \in C_{\alpha}$, y por \ref{MULT}, se sigue
-\begin{equation*}
-  \mathbb{F} (\mathbb{C}_{\alpha})  \mathbb{F} (\mathbb{C}_{\beta}) = \sum_{\gamma}^{k} t_{\alpha \beta \gamma} \mathbb{F}(\mathbb{C}_{\gamma}),
-\end{equation*}
-
-\begin{equation*}
+donde $\chi$ es el carácter de $F$ y
+$a_{\alpha} \in C_{\alpha}$, y por \ref{eq:44}, se sigue
+\begin{equation}
+  \label{eq:51}
+  F (C_{\alpha})  F (C_{\beta}) = \sum_{\gamma}^{k} t_{\alpha \beta \gamma} F(C_{\gamma}),
+\end{equation}
+\begin{equation}
+  \label{eq:52}
   w_{\alpha}w_{\beta} = \sum_{\gamma}^{k} t_{\alpha \beta \gamma} w_{\gamma}.
-\end{equation*}
+\end{equation}
 
-Sustituyendo \ref{4.13} en la expresión de arriba se llega a
-
+Sustituyendo \ref{eq:49} en la expresión de arriba se llega a
 \begin{equation*}
   \frac{h_{\alpha} \chi(a_{\alpha})}{f} \frac{h_{\beta} \chi(a_{\beta})}{f} = \sum_{\gamma}^{k} t_{\alpha \beta \gamma} \frac{h_{\gamma} \chi(a_{\gamma})}{f},
 \end{equation*}
 
-\begin{equation*} \label{4.14}
+\begin{equation}
+  \label{eq:53}
    \chi(a_{\alpha}) \chi(a_{\beta}) = \sum_{\gamma}^{k} t_{\alpha \beta \gamma} \frac{h_{\gamma}}{h_{\beta} h_{\alpha}} f \chi(a_{\gamma}).
-\end{equation*}
+\end{equation}
 
 Sean $\chi_{1}, \chi_{1},..., \chi_{l}$ caracteres distintos e
-irreducibles de $G$, y sea $f_{i}$ el grado de $\chi_{i}$. \ref{4.14}
-se es válida para cada $\chi_{i}$. Y tomando la suma sobre $i$, se
+irreducibles de $G$, y sea $f_{i}$ el grado de $\chi_{i}$. \ref{eq:53}
+se es válida para cada $\chi_{i}$, y tomando la suma sobre $i$, se
 llega a que
-
-\begin{equation*}
+\begin{equation}
+  \label{eq:54}
   \begin{aligned}
     \sum_{i=1}^{l} \chi_{i}(a_{\alpha}) \chi_{i}(a_{\beta}) &= \sum_{\gamma}^{k} t_{\alpha \beta \gamma} \frac{h_{\gamma}}{h_{\beta} h_{\alpha}} (\sum_{i} f_{i} \chi_{i}(a_{\gamma})) \\
     &= t_{\alpha \beta \gamma} \frac{1}{h_{\beta} h_{\alpha}}g \\
     &=  \left\{
 	       \begin{array}{ll}
-		 g/h_{\alpha}      & \mathrm{si\ } C_{B} = C_{\alpha^{'}} \\
-		 0      & \mathrm{otro\ caso\ } 
+		 \frac{g}{h_{\alpha}}      & \mathrm{si\ } C_{B} = C_{\alpha^{'}} \\
+		 0      & \mathrm{otro\ caso.\ } 
 	       \end{array}
 	     \right.
     \end{aligned}
-\end{equation*}
+\end{equation}
 
 Y se llega a
 
