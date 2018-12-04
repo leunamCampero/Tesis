@@ -896,36 +896,39 @@ irreducibles de $A$ y $\chi$ respectivamente.
 Sea $\pi$ el carácter de la representación regular derecha de un grupo
 $G$ de orden $g$. Se observa que
 
-\begin{equation}\label{PR}
-         \pi(a) = \left\{
-	       \begin{array}{ll}
-		 g      & \mathrm{si\ } a = 1 \\
-		 0      & \mathrm{otro\ caso\ } 
-	       \end{array}
-	     \right.
+\begin{equation}
+  \label{eq:39}
+   \pi(a) = \left\{
+     \begin{array}{ll}
+       g      & \mathrm{si\ } a = 1 \\
+       0      & \mathrm{otro\ caso\ } 
+     \end{array}
+   \right.
 \end{equation}
 
 Para el carácter $\chi_{i}$ de cada representación irreducible
-$\mathbb{F}_{i}$, se sigue que
-\begin{equation*}
+$F_{i}$, se sigue que
+\begin{equation}
+  \label{eq:40}
   \begin{aligned}
     (\pi,\chi_{i}) & =\frac{1}{g} \sum_{x \in G} \pi(x) \overline{\chi_{i}(x)} \\
     &=\frac{1}{g} \pi(1) \chi_{i}(1) \\
     &=\chi_{i}(1) 
   \end{aligned}
-\end{equation*}
-donde $\chi_{i}(1)$ es el grado de $\mathbb{F}_{i}$. Y por lo tanto se
-sigue el siguiente Teorema.
+\end{equation}
 
-\textbf{Teorema 4.7.} Sea $\pi$ el carácter de la representación
-regular derecha. Entonces cada representación irreducible
-$\mathbb{F}_{i}$ de $G$ tiene multiplicidad $f_{i}$, donde $f_{i}$ es
-el grado de $\mathbb{F}_{i}$. Así que
-\begin{equation*}
-  \pi=\sum_{i} f_{i} \chi_{i},
-\end{equation*}
-
-donde la suma es sobre todos los caracteres irreducible $\chi_{i}$ de $G$.
+donde $\chi_{i}(1)$ es el grado de $F_{i}$. Y por lo tanto se sigue el
+siguiente Teorema.
+\begin{theorem}
+  \label{t4_7}
+  Sea $\pi$ el carácter de la representación regular derecha. Entonces
+  cada representación irreducible $F_{i}$ de $G$ tiene multiplicidad
+  $f_{i}$, donde $f_{i}$ es el grado de $F_{i}$.Así que
+  \begin{equation*}
+    \pi=\sum_{i} f_{i} \chi_{i},
+  \end{equation*}
+  donde la suma es sobre todos los caracteres irreducible $\chi_{i}$ de $G$.
+\end{theorem}
 
 La representación regular derecha e izquierda son equivalentes, ya que
 el carácter $\pi^{'}$ de la representación regular satisface lo mimo
