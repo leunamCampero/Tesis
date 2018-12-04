@@ -859,17 +859,25 @@ Sea $\chi$ el carácter de $A$ y $\chi_{i}$ el carácter de $F_{i}$
 Si $m_{i} \neq 0$, $F_{i}$ y $\chi_{i}$ son llamados componentes
 irreducibles de $A$ y $\chi$ respectivamente.
 
-\textbf{Teorema 4.5. } Sea $G$ un grupo y sea $\chi$ el carácter de una
-representación de $G$. Sea $m_{i}$ la multiplicidad de un carácter
-irreducible $\chi_{i}$ en $\chi$. Entonces
-\begin{equation*}
-m_{i} = (\chi,\chi_{i}) = \frac{1}{g} \sum_{x \in G} \chi(x) \overline{\chi_{i}(x)}
-\end{equation*}
-Sea $$\chi=\sum_{j} m_{j} \chi_{j}$$ la suma de caracteres
-irreducibles con $m_{j}$ la multiplicidad de $\chi_{j}$. Entonces
-\begin{equation*}
-(\chi,\chi_{i}) = \sum_{j} m_{j} (\chi_{j},\chi_{i})
-\end{equation*}
+\begin{theorem}
+  \label{t4_5}
+  Sea $G$ un grupo y sea $\chi$ el carácter de una
+  representación de $G$. Sea $m_{i}$ la multiplicidad de un carácter
+  irreducible $\chi_{i}$ en $\chi$. Entonces
+  \begin{equation*}
+    m_{i} = (\chi,\chi_{i}) = \frac{1}{g} \sum_{x \in G} \chi(x) \overline{\chi_{i}(x)}
+  \end{equation*}
+
+\end{theorem}
+\begin{proof}
+  Sea $$\chi=\sum_{j} m_{j} \chi_{j}$$ la suma de caracteres
+  irreducibles con $m_{j}$ la multiplicidad de $\chi_{j}$. Entonces
+  \begin{equation}
+    \label{eq:38}
+    (\chi,\chi_{i}) = \sum_{j} m_{j} (\chi_{j},\chi_{i})
+  \end{equation}
+\end{proof}
+
 
 \textbf{Teorema 4.6. } Sean $\mathbb{A}$, $\mathbb{B}$
 representaciones de un grupo $G$, y sean $\chi$, $\chi^{'}$ los
