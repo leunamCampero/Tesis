@@ -1274,7 +1274,8 @@ $A^{G}$. Entonces
 \begin{equation}
   \label{eq:64}
   \begin{aligned}
-    \chi(a) &= \sum_{i=1}^{r} \theta(a_{i} a a_{i}^{-1}) = \sum_{i=1}^{r} \frac{1}{h} \sum_{\tilde{b} \in H} \theta(\tilde{b} a_{i} a a_{i}^{-1} \tilde{b}^{-1})\\
+    \chi(a) &= \sum_{i=1}^{r} \theta(a_{i} a a_{i}^{-1}) \\
+    & = \sum_{i=1}^{r} \frac{1}{h} \sum_{\tilde{b} \in H} \theta(\tilde{b} a_{i} a a_{i}^{-1} \tilde{b}^{-1})\\
     &= \frac{1}{h} \sum_{x \in G} \theta(x a x^{-1}) \qquad (x=\tilde{b}a_{i})\\
     &= \theta^{G}(a)
   \end{aligned}
@@ -1284,16 +1285,18 @@ Entonces se obtiene que $\chi=\theta^{G}$. Se dirá que $A^{G}$ es una
 representación inducida de $G$, y diremos que $A^{G}$ es inducida por
 $A$. Ésto, nos lleva a lo siguiente:
 
-\textbf{Teorema 5.2. } Sea $G$ un grupo y $H$ un subgrupo de $G$. Sea
-$\mathbb{A}$ una representación de $H$ con grado $n$ y sea $\theta$ el
-carácter de $\mathbb{A}$. Entonces la representación inducida
-$\mathbb{A}^{G}$ tiene grado $nr$ con $r=\mid G:H \mid$ y el carácter
-de $\mathbb{A}^{G}$ es
+\begin{theorem}
+  \label{t5_2}
+  Sea $G$ un grupo y $H$ un subgrupo de $G$. Sea $\mathbb{A}$ una
+  representación de $H$ con grado $n$ y sea $\theta$ el carácter de
+  $A$. Entonces la representación inducida $A^{G}$ tiene grado $nr$
+  con $r=\mid G:H \mid$ y el carácter de $A^{G}$ es
+  \begin{equation*}
+    \theta^{G}(a)= \sum_{x \in G} \theta(x^{-1} a x)
+  \end{equation*}
+  donde $h= \mid H \mid$.
+\end{theorem}
 
-\begin{equation*}
-  \theta^{G}(a)= \sum_{x \in G} \theta(x^{-1} a x)
-\end{equation*}
-donde $h= \mid H \mid$.
 
 \textbf{Teorema 5.3. (Reciprocidad de Frobenius) } Sea $H$ un subgrupo
 de $G$. Y sean $x_{1}, x_{2},\ldots,x_{r}$ lo caracteres irreducibles
