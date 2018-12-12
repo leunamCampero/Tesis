@@ -1331,31 +1331,32 @@ $A$. Ésto, nos lleva a lo siguiente:
   \end{equation}
 \end{proof}
 
-
-\textbf{Producto de representaciones}
+\section{Producto de representaciones}
+\label{sec:pr}
 
 Sean $A$ y $B$ matrices cuadradas de grado $n$, $m$ respectivamente y
 sea $A=(\alpha_{ik})$. Se define el producto de Kronecker
 $A \otimes B$ de $A$ y $B$ por
-
-\begin{equation*}
-  \begin{pmatrix}
+\begin{equation}
+  \label{eq:65}
+    \begin{pmatrix}
     \alpha_{11}B & \cdots & \alpha_{1n}B \\ 
     \vdots &  & \vdots \\
     \alpha_{n1}B & \cdots & \alpha_{nn}B
   \end{pmatrix}
-\end{equation*}
+\end{equation}
 
 $A \otimes B$ es una matriz cuadrada de grado $mn$. Y sin gran
 dificultad se puede probar
-
-\textbf{Lema 6.1. }
-\begin{enumerate}
-\item  tr$(A \otimes B)$ = (tr$(A)$)(tr$(B)$)
-\item Sean $A$, $A^{'}$ con grado $n$, y sean $B$, $B^{'}$ de grado
-  $m$. Entonces $(A \otimes B)(A^{'} \otimes B^{'})$ =
-  $(AA^{'})(BB^{'})$.
-\end{enumerate}
+\begin{lemma}
+  \label{l6_1}
+  \begin{enumerate}
+  \item $ \tr(A \otimes B)$ = $(\tr A)(\tr B)$
+  \item Sean $A$, $A^{'}$ con grado $n$, y sean $B$, $B^{'}$ de grado
+    $m$. Entonces $(A \otimes B)(A^{'} \otimes B^{'})$ =
+    $(AA^{'})(BB^{'})$.
+  \end{enumerate}
+\end{lemma}
 
 Sea $\mathbb{A}_{1} \colon a \mapsto A_{1}(a)$ y
 $\mathbb{A}_{2} \colon a \mapsto A_{2}(a)$ representaciones de un
