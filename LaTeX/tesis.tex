@@ -1297,38 +1297,38 @@ $A$. Ésto, nos lleva a lo siguiente:
   donde $h= \mid H \mid$.
 \end{theorem}
 
-
-\textbf{Teorema 5.3. (Reciprocidad de Frobenius) } Sea $H$ un subgrupo
-de $G$. Y sean $x_{1}, x_{2},\ldots,x_{r}$ lo caracteres irreducibles
-de $G$, y sean $\theta_{1},\theta_{2},\ldots,\theta_{s}$ los
-caracteres irreducibles de $H$. Entonces
-
-\begin{equation*}
-  (\chi_{i})_{H} = \sum_{j} r_{ij} \theta_{j} 
-\end{equation*}
-si y sólo si 
-\begin{equation*}
-  \theta_{j}^{G} = \sum_{i} r_{ij} \chi_{j}.
-\end{equation*}
-
-Es decir, dadas representaciones irreducibles $\mathbb{A}$ y
-$\mathbb{B}$ de $G$ y $H$ respectivamente, $\mathbb{B}$ es una
-componente irreducible de $\mathbb{A}_{H}$ con multiplicidad $r$ si y
-sólo si $\mathbb{A}$ es un componente irreducible de $\mathbb{B}^{G}$
-con multiplicidad $r$.
-
-\begin{proof}
-  Sea $(\chi_{i})_{H} = \sum_{l} r_{il} \theta_{l}$ y sea
-  $\theta_{j}^{G} = \sum_{k} s_{kj} \chi_{k}$. Por el lema 5.1, se
-  sigue que
+\begin{theorem}[Reciprocidad de Frobenius]
+  \label{t5_3}
+  Sea $H$ un subgrupo
+  de $G$. Y sean $x_{1}, x_{2},\ldots,x_{r}$ lo caracteres irreducibles
+  de $G$, y sean $\theta_{1},\theta_{2},\ldots,\theta_{s}$ los
+  caracteres irreducibles de $H$. Entonces
 
   \begin{equation*}
+    (\chi_{i})_{H} = \sum_{j} r_{ij} \theta_{j} 
+  \end{equation*}
+  si y sólo si 
+  \begin{equation*}
+    \theta_{j}^{G} = \sum_{i} r_{ij} \chi_{j}.
+  \end{equation*}
+
+  Es decir, dadas representaciones irreducibles $A$ y $B$ de $G$ y $H$
+  respectivamente, $B$ es una componente irreducible de $A_{H}$ con
+  multiplicidad $r$ si y sólo si $A$ es un componente irreducible de
+  $B^{G}$ con multiplicidad $r$.
+\end{theorem}
+\begin{proof}
+  Sea $(\chi_{i})_{H} = \sum_{l} r_{il} \theta_{l}$ y sea
+  $\theta_{j}^{G} = \sum_{k} s_{kj} \chi_{k}$. Por el lema \ref{l5_1}, se
+  sigue que
+  \begin{equation}
+    \label{eq:66}
     \begin{aligned}
       r_{ij} &= ((\chi_{i})_{H},\theta_{j})_{H} \\
       &= (\chi_{i},\theta_{j}^{G})_{G}\\
       &= s_{IJ}
     \end{aligned}
-  \end{equation*}
+  \end{equation}
 \end{proof}
 
 
