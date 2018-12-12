@@ -1215,35 +1215,30 @@ inducido es el carácter de alguna representación de $G$.
 Sea $\left\{ a_{1}, a_{2},\ldots,a_{r}\right\}$ el conjunto de los
 representantes de las clases laterales izquierdas de $H$ en $G$:
 
-
-\begin{equation*}
+\begin{equation}
+  \label{eq:61}
   G = Ha_{1} \cup Ha_{2} \cup \cdots \cup Ha_{r}.
-\end{equation*}
+\end{equation}
 
-Para una representación de $H$
-$\mathbb{A} \colon \tilde{a} \mapsto A(\tilde{a})$ con
-$\tilde{a} \in H$, se define la matriz $A^{G}(a)$ de la siguiente
-manera
-\begin{equation*}
+Para una representación de $H$ $A(\tilde{a})$ con $\tilde{a} \in H$,
+se define la matriz $A^{G}(a)$ de la siguiente manera
+\begin{equation}
+  \label{eq:62}
   \begin{pmatrix}
     A(a_{1} a a_{1}^{-1}) & A(a_{1} a a_{2}^{-1}) & \cdots &  A(a_{1} a a_{r}^{-1}) \\
     A(a_{2} a a_{1}^{-1}) & A(a_{2} a a_{2}^{-1}) & \cdots &  A(a_{2} a a_{r}^{-1}) \\
     \vdots &  & \vdots \\
     A(a_{r} a a_{1}^{-1}) & A(a_{r} a a_{2}^{-1}) & \cdots &  A(a_{r} a a_{r}^{-1}) \\
-  \end{pmatrix},
-\end{equation*}
+  \end{pmatrix}
+  ,
+\end{equation}
 
 donde $A(x)=0$ si $x$ no está en H. Lo anterior es una generalización
-de la representación regular derecha de $G$. Se desea mostrar que para
-toda $a \in G$
-
-\begin{equation*}
-  \mathbb{A}^{G} \colon a \mapsto A^{G}(a)
-\end{equation*}
-
-es una representación de $G$ y tiene grado $nr$, donde
-$r= \mid G : H \mid$ y $n$ es el grado de $\mathbb{A}$. Para ello sea
-$a_{k}^{-1}$ y $x \in G$, entonces
+de la representación regular derecha de $G$. Se desea mostrar que la
+regla de correspondencia $a \mapsto A^{G}(a)$ para $a \in G$es una
+representación de $G$ y tiene grado $nr$, donde $r= \mid G : H \mid$ y
+$n$ es el grado de $A$. Para ello sea $a_{k}^{-1}$ y $x \in G$,
+entonces
 $\left\{ a_{i} x a_{k}^{-1} \mid i = 1, 2, \ldots, r \right\}$ es el
 conjunto de representantes de las clases laterales izquierdas de $H$,
 y para $i = 1, 2, \ldots, r$ sólo hay una matriz
@@ -1254,10 +1249,10 @@ formado por los representantes de las clases laterales derechas de
 $H$, y para $ k = 1, 2, \ldots, r$ únicamente una matriz
 $A(a_{i} a a_{k}^{-1})$ no es cero. Sea $C_{ik}$ el bloque $(i,k)$ de
 la matriz $A^{G}(a)A^{G}(b)$. Por lo tanto
-
-\begin{equation*}
+\begin{equation}
+  \label{eq:63}
   C_{ik} = \sum_{j=1}^{r} A(a_{i} a a_{j}^{-1}) A(a_{j} b a_{k}^{-1}).
-\end{equation*}
+\end{equation}
 
 Nuestro objetivo es demostrar que $C_{ik}= A(a_{i} ab
 a_{k}^{-1})$. Solamente hay un $s \in \left\{1, 2, \ldots, r \right\}$
@@ -1274,20 +1269,20 @@ $A^{G}(a)A^{G}(b)=A^{G}(ab)$. Y ya que
 $A^{G}(a)A^{G}(a^{-1})=A^{G}(1)=\mathrm{I}$, se sigue que $A^{G}(a)$
 es invertible. Entonces es una representación de G.
 
-Sea $\theta$ el carácter de $\mathbb{A}$ y sea $\chi$ el carácter de
-$\mathbb{A}^{G}$. Entonces
-\begin{equation*}
+Sea $\theta$ el carácter de $A$ y sea $\chi$ el carácter de
+$A^{G}$. Entonces
+\begin{equation}
+  \label{eq:64}
   \begin{aligned}
     \chi(a) &= \sum_{i=1}^{r} \theta(a_{i} a a_{i}^{-1}) = \sum_{i=1}^{r} \frac{1}{h} \sum_{\tilde{b} \in H} \theta(\tilde{b} a_{i} a a_{i}^{-1} \tilde{b}^{-1})\\
     &= \frac{1}{h} \sum_{x \in G} \theta(x a x^{-1}) \qquad (x=\tilde{b}a_{i})\\
     &= \theta^{G}(a)
   \end{aligned}
-\end{equation*}
+\end{equation}
 
-Entonces se obtiene que $\chi=\theta^{G}$. Se dirá que
-$\mathbb{A}^{G}$ es una representación inducida de $G$, y diremos que
-$\mathbb{A}^{G}$ es inducida por $\mathbb{A}$. Ésto, nos lleva a lo
-siguiente:
+Entonces se obtiene que $\chi=\theta^{G}$. Se dirá que $A^{G}$ es una
+representación inducida de $G$, y diremos que $A^{G}$ es inducida por
+$A$. Ésto, nos lleva a lo siguiente:
 
 \textbf{Teorema 5.2. } Sea $G$ un grupo y $H$ un subgrupo de $G$. Sea
 $\mathbb{A}$ una representación de $H$ con grado $n$ y sea $\theta$ el
