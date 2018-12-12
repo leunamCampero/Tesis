@@ -1077,34 +1077,36 @@ Y se llega a
    \sum_{i=1}^{l} \chi_{i}(a_{\alpha}) \chi_{i}(a_{\beta})=\delta_{\alpha \beta} \frac{g}{h_{\alpha}}.
 \end{equation*}
 
-El número $g/h_{\alpha}$ es el orden de $\mathrm{N}(a)$, que es el
+El número $g/h_{\alpha}$ es el orden de $N(a)$, que es el
 centralizador de $a_{\alpha}$ en $G$. Ya que
 $\chi_{i}(a_{\beta^{'}})=\overline{\chi_{i} (a_{\beta})}$ por
-\ref{4.5}, se obtiene lo siguiente:
+\ref{eq:34}, se obtiene lo siguiente:
 
 \begin{theorem}[Segunda relación de ortogonalidad]
-  \label{segunda}
-   Sean $\left\{\chi_{i} \right\}$ el conjunto de los
-distintos caracteres irreducibles de $G$ y sea
-$\left\{a_{\alpha} \right\}$ el conjunto de los representantes de las
-clases de conjugación de $G$. Entonces
+  \label{t4_9}
+  Sean $\left\{\chi_{i} \right\}$ el conjunto de los distintos
+  caracteres irreducibles de $G$ y sea $\left\{a_{\alpha} \right\}$ el
+  conjunto de los representantes de las clases de conjugación de
+  $G$. Entonces
 
 \begin{equation*}
   \sum_{i} \chi_{i}(a_{\alpha}) \overline{\chi_{i} (a_{\beta})} = \delta_{\alpha \beta} n_{\alpha}
 \end{equation*}
 
-donde $n_{\alpha}$ es el orden de $\mathrm{N}(a)$ y la suma es sobre
+donde $n_{\alpha}$ es el orden de $N(a_{\alpha})$ y la suma es sobre
 todos los caracteres irreducibles $\chi_{i}$ de $G$.
 \end{theorem}
 
 
-\textbf{Teorema  4.10. } El número de caracteres distintos e irreducibles de $G$ es
-igual que el de las clases de conjugación de $G$.
-
+\begin{theorem}
+  \label{t4_10}
+  El número de caracteres distintos e irreducibles de $G$ es
+  igual que el de las clases de conjugación de $G$.
+\end{theorem}
 \begin{proof}
   Se tiene que si $A_{m\times n}$ y $B_{n\times m}$ son matrices , entonces si el
   determinante de la matriz $AB_{m\times m}$ es distinto de cero, se sigue que $m \leq n$.
-  Sean $\chi_{1}, \chi_{2},...,\chi_{l}$ los distintos caracteres irreducibles de $G$ y sean $a_{1},...,a_{k}$ los representantes de las clases de conjugación de $G$. Entonces por el Teorema 4.4.
+  Sean $\chi_{1}, \chi_{2},...,\chi_{l}$ los distintos caracteres irreducibles de $G$ y sean $a_{1},...,a_{k}$ los representantes de las clases de conjugación de $G$. Entonces por el Teorema \ref{t4_4p}.
 \begin{equation*}
   \begin{pmatrix}
     \chi_{1}(a_{1}) & \cdots & \chi_{1}(a_{k}) \\ 
@@ -1123,9 +1125,10 @@ igual que el de las clases de conjugación de $G$.
    g & & 0\\ 
      & \ddots & \\
      0 &  & g
-  \end{pmatrix}   
-  \end{equation*}.
-  Así que $l \leq k$. Por el Teorema 4.9,
+   \end{pmatrix}
+   .
+  \end{equation*}
+  Así que $l \leq k$. Por el Teorema \ref{t4_9},
 \begin{equation*}
   \begin{pmatrix}
     \chi_{1}(a_{1}) & \cdots & \chi_{l}(a_{1}) \\ 
@@ -1144,12 +1147,18 @@ igual que el de las clases de conjugación de $G$.
   \begin{pmatrix}
    n_{1} & & 0\\ 
      & \ddots & \\
+
      0 &  & n_{k}
-  \end{pmatrix}
-\end{equation*}.
+   \end{pmatrix}
+   .
+\end{equation*}
 Por ello, $k \leq l$. Así que $k=l$.
 \end{proof}
 
+\section{Definiciones básicas}
+\label{sec:basicas}
+
+  
 \textbf{Representaciones inducidas} 
 
 Sea $G$ un grupo de orden $g$ y $H$ un subgrupo de $G$ de orden
