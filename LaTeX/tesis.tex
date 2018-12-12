@@ -1358,32 +1358,36 @@ dificultad se puede probar
   \end{enumerate}
 \end{lemma}
 
-Sea $\mathbb{A}_{1} \colon a \mapsto A_{1}(a)$ y
-$\mathbb{A}_{2} \colon a \mapsto A_{2}(a)$ representaciones de un
-grupo $G$. Por el lema 6.1(2), el mapeo
+Sea $A_{1}(a)$ y $A_{2}(a)$ representaciones de un grupo $G$. Por el lema
+\ref{l6_1}(2), la regla de correspondencia
 
 \begin{equation*}
   a \mapsto A_{1}(a) \otimes A_{2}(a)
 \end{equation*}
 
-se transforma en una representación de $G$. A esta representación se le llama el producto de $\mathbb{A}_{1}$ y $\mathbb{A}_{2}$, y es denotado por $\mathbb{A}_{1} \otimes \mathbb{A}_{2}$. Sean $\chi_{1}, \chi_2, \chi$ los caracteres de $\mathbb{A}_{1}$, $\mathbb{A}_{2}$, $\mathbb{A}_{1} \otimes \mathbb{A}_{2}$ respectivamente. Por el lema 6.1(1),
-
+se transforma en una representación de $G$. A esta representación se
+le llama el producto de $A_{1}$ y $A_{2}$, y es denotado por
+$A_{1} \otimes A_{2}$. Sean $\chi_{1}, \chi_2, \chi$ los caracteres de
+$A_{1}$, $A_{2}$, $A_{1} \otimes A_{2}$ respectivamente. Por el lema
+\ref{l6_1}(1),
 \begin{equation*}
   \chi(a)=\chi_{1}(a) \chi_{2}(a)
 \end{equation*}
-\begin{equation*}
+\begin{equation}
+  \label{eq:67}
   \chi = \chi_{1} \chi_{2}
-\end{equation*}
+\end{equation}
 
-Sea $\mathbb{F}_{1}, \mathbb{F}_{2}, \ldots, \mathbb{F}_{r}$ las
-representaciones irreducibles de $G$ y sea $\chi_{i}$ por el carácter
-de $\mathbb{F}_{i}$. EL mapeo $a \mapsto \overline{F_{i}(a)}$ también
-es una representación irreducible y su carácter es
-$\overline{\chi_{i}}$, donde
+Sea $F_{1}, F_{2}, \ldots, F_{r}$ las representaciones irreducibles de
+$G$ y sea $\chi_{i}$ por el carácter de $F_{i}$. EL mapeo
+$a \mapsto \overline{F_{i}(a)}$ también es una representación
+irreducible y su carácter es $\overline{\chi_{i}}$, donde
 $\overline{\chi_{i}}(a) = \overline{\chi_{i}(a)}$. Y lo denotaremos
 $\overline{\chi_{i}}=\chi_{i'}$
 
-\textbf{Teorema 6.2. }
+\begin{theorem}
+  \label{t6_2}
+  
 \begin{equation*}
   \chi_{i} \chi_{j} = \sum_{\upsilon} r_{ij \upsilon} \chi_{\upsilon}
 \end{equation*}
@@ -1391,6 +1395,7 @@ si y sólo si
 \begin{equation*}
   \chi_{i^{'}}\chi_{\upsilon} =  \sum_{j} r_{ij \upsilon} \chi_{j}.
 \end{equation*}
+\end{theorem}
 \begin{proof}
   \begin{equation}
     \label{eq:5}
@@ -1402,9 +1407,11 @@ si y sólo si
   \end{equation}
   Es por ello que la multiplicidad de $\chi_{\upsilon}$ en
   $\chi_{i} \chi_{j}$ es igual que la de
-  $\chi_{i^{'}} \chi_{\upsilon}$.  \backmatter
+  $\chi_{i^{'}} \chi_{\upsilon}$.  
 \end{proof}
-
+\begin{theorem}
+  \label{t6_3}
+\end{theorem}
 \textbf{Teorema 6.3} Sea $A$ una representación fiel de un grupo $G$ y
 sea $\chi$ el carácter de $A$. Sea $m$ el número de los distintos
 valores de $\chi$ en $G$.
@@ -1416,6 +1423,7 @@ $m = \arrowvert \left\{ \chi(a) \arrowvert a \in G \right\}
 \end{equation*}
 para algunos $r \in \left\{ 0, 1, \ldots m-1 \right\}$
 
+\backmatter
 
 \bibliographystyle{plain}
 \bibliography{labiblio}
