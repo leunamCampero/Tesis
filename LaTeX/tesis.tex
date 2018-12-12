@@ -1073,9 +1073,10 @@ llega a que
 
 Y se llega a
 
-\begin{equation*}
+\begin{equation}
+  \label{eq:55}
    \sum_{i=1}^{l} \chi_{i}(a_{\alpha}) \chi_{i}(a_{\beta})=\delta_{\alpha \beta} \frac{g}{h_{\alpha}}.
-\end{equation*}
+\end{equation}
 
 El número $g/h_{\alpha}$ es el orden de $N(a)$, que es el
 centralizador de $a_{\alpha}$ en $G$. Ya que
@@ -1107,8 +1108,9 @@ todos los caracteres irreducibles $\chi_{i}$ de $G$.
   Se tiene que si $A_{m\times n}$ y $B_{n\times m}$ son matrices , entonces si el
   determinante de la matriz $AB_{m\times m}$ es distinto de cero, se sigue que $m \leq n$.
   Sean $\chi_{1}, \chi_{2},...,\chi_{l}$ los distintos caracteres irreducibles de $G$ y sean $a_{1},...,a_{k}$ los representantes de las clases de conjugación de $G$. Entonces por el Teorema \ref{t4_4p}.
-\begin{equation*}
-  \begin{pmatrix}
+  \begin{equation}
+    \label{eq:56}
+    \begin{pmatrix}
     \chi_{1}(a_{1}) & \cdots & \chi_{1}(a_{k}) \\ 
     \vdots &  & \vdots \\
     \chi_{l}(a_{1}) & \cdots & \chi_{l}(a_{k})
@@ -1118,8 +1120,6 @@ todos los caracteres irreducibles $\chi_{i}$ de $G$.
     \vdots &  & \vdots \\
     h_{k} \overline{\chi_{1}(a_{k})} & \cdots & h_{k} \overline{\chi_{l}(a_{k})}  
   \end{pmatrix}
-\end{equation*}
-\begin{equation*}
   =
   \begin{pmatrix}
    g & & 0\\ 
@@ -1127,10 +1127,11 @@ todos los caracteres irreducibles $\chi_{i}$ de $G$.
      0 &  & g
    \end{pmatrix}
    .
-  \end{equation*}
+  \end{equation}
   Así que $l \leq k$. Por el Teorema \ref{t4_9},
-\begin{equation*}
-  \begin{pmatrix}
+  \begin{equation}
+    \label{eq:57}
+    \begin{pmatrix}
     \chi_{1}(a_{1}) & \cdots & \chi_{l}(a_{1}) \\ 
     \vdots &  & \vdots \\
     \chi_{l}(a_{k}) & \cdots & \chi_{l}(a_{k})
@@ -1139,11 +1140,8 @@ todos los caracteres irreducibles $\chi_{i}$ de $G$.
      \overline{\chi_{1}(a_{1})} & \cdots &  \overline{\chi_{l}(a_{1})} \\ 
     \vdots &  & \vdots \\
      \overline{\chi_{1}(a_{k})} & \cdots &  \overline{\chi_{l}(a_{k})}  
-  \end{pmatrix},
-\end{equation*}
-
-\begin{equation*}
-  =
+   \end{pmatrix}
+   =
   \begin{pmatrix}
    n_{1} & & 0\\ 
      & \ddots & \\
@@ -1151,23 +1149,20 @@ todos los caracteres irreducibles $\chi_{i}$ de $G$.
      0 &  & n_{k}
    \end{pmatrix}
    .
-\end{equation*}
+  \end{equation}
+
 Por ello, $k \leq l$. Así que $k=l$.
 \end{proof}
 
-\section{Definiciones básicas}
-\label{sec:basicas}
-
-  
-\textbf{Representaciones inducidas} 
+\section{Representaciones inducidas}
+\label{sec:ri}
 
 Sea $G$ un grupo de orden $g$ y $H$ un subgrupo de $G$ de orden
 $h$. Para una función $\psi$ en $G$, $\psi_{H}$ denota la restricción
 de $\psi$ a $H$. Si $\psi$ es una función de clase en $G$, entonces
 $\psi_{H}$ también es una función de clase en $H$. Si $\psi$ es el
-carácter de una representación de $G$ $\mathbb{A}$, se sigue que
-$\psi_{H}$ es el carácter de $\mathbb{A}_{H}$, la restricción de
-$\mathbb{A}$ a $H$.
+carácter de una representación de $G$ $A$, se sigue que $\psi_{H}$ es
+el carácter de $A_{H}$, la restricción de $A$ a $H$.
 
 Para una función $\theta$ en $H$, se define la función $\theta^{G}$ de
 la siguiente manera
