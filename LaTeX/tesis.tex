@@ -1167,39 +1167,44 @@ el carácter de $A_{H}$, la restricción de $A$ a $H$.
 Para una función $\theta$ en $H$, se define la función $\theta^{G}$ de
 la siguiente manera
 
-\begin{equation*}
+\begin{equation}
+  \label{eq:58}
   \theta^{G}=\frac{1}{h} \sum_ u{x \in G} \theta(x^{-1}ax)
-\end{equation*}
+\end{equation}
 donde $\theta(x^{-1}ax)=0$ si $x^{-1}ax$ no está en H. $\theta^{G}$ es
 una función de clase en $G$, aun si $\theta$ no es una función de
 clase en $H$. Si $a$ no es el conjugado de ningún elemento de $H$,
 entonces $\theta^{G}(a)=0$.
 
-\textbf{Lema 5.1. } Sea $\psi$ una función de clase de $G$, y sea
-$\theta$ una función de clase en un subgrupo $H$ de $G$. Entonces
-
-\begin{equation*}
-  (\theta^{G},\psi)_{G}= (\theta,\psi_{H})_{H} .
-\end{equation*}
+\begin{lemma}
+  \label{l5_1}
+  Sea $\psi$ una función de clase de $G$, y sea $\theta$ una función
+  de clase en un subgrupo $H$ de $G$. Entonces
+  \begin{equation*}
+    (\theta^{G},\psi)_{G}= (\theta,\psi_{H})_{H} .
+  \end{equation*}
+\end{lemma} 
 
 \begin{proof}
-  \begin{equation*}
+  \begin{equation}
+    \label{eq:59}
     \begin{aligned}
       (\theta^{G},\psi)_{G} &= \frac{1}{g} \sum_{a \in G} \theta^{G}(a) \psi(a^{-1})\\
       &= \frac{1}{gh} \sum_{a \in G} \sum_{x \in G} \theta(x^{-1}ax) \psi(a^{-1})
     \end{aligned}
-  \end{equation*}  
+  \end{equation}  
   Solamente los elementos $x^{-1}ax \in H$ aportan algo a la suma. Por
   lo cual tomando $a=x \tilde{a} x^{-1}$ con $\tilde{a} \in H$, se
   obtiene
-  \begin{equation*}
+  \begin{equation}
+    \label{eq:60}
     \begin{aligned}
       (\theta^{G},\psi)_{G} &= \frac{1}{gh} \sum_{\tilde{a} \in H} \sum_{x \in G} \theta(\tilde{a}) \psi(x \tilde{a}^{-1} x^{-1})\\
       &= \frac{1}{h} \sum_{\tilde{a} \in H} \theta^{G}(a) (\sum_{x \in G} \psi(x \tilde{a}^{-1}x^{-1})) \\
       &= \frac{1}{h} \sum_{\tilde{a} \in H} \theta^{G}(a) \psi(\tilde{a}^{-1}) \\
       &=  (\theta,\psi_{H})_{H}
     \end{aligned}
-  \end{equation*}
+  \end{equation}
 \end{proof}
 
 Si $\theta$ es el carácter de una representación de $H$, se dirá que
@@ -1209,6 +1214,7 @@ inducido es el carácter de alguna representación de $G$.
 
 Sea $\left\{ a_{1}, a_{2},\ldots,a_{r}\right\}$ el conjunto de los
 representantes de las clases laterales izquierdas de $H$ en $G$:
+
 
 \begin{equation*}
   G = Ha_{1} \cup Ha_{2} \cup \cdots \cup Ha_{r}.
