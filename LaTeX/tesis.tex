@@ -1290,11 +1290,11 @@ $A$. Ésto, nos lleva a lo siguiente:
   Sea $G$ un grupo y $H$ un subgrupo de $G$. Sea $\mathbb{A}$ una
   representación de $H$ con grado $n$ y sea $\theta$ el carácter de
   $A$. Entonces la representación inducida $A^{G}$ tiene grado $nr$
-  con $r=\mid G:H \mid$ y el carácter de $A^{G}$ es
+  con $r=[G:H]$ y el carácter de $A^{G}$ es
   \begin{equation*}
     \theta^{G}(a)= \sum_{x \in G} \theta(x^{-1} a x)
   \end{equation*}
-  donde $h= \mid H \mid$.
+  donde $h= |H|$.
 \end{theorem}
 
 \begin{theorem}[Reciprocidad de Frobenius]
@@ -1334,37 +1334,35 @@ $A$. Ésto, nos lleva a lo siguiente:
 \section{Producto de representaciones}
 \label{sec:pr}
 
-Sean $A$ y $B$ matrices cuadradas de grado $n$, $m$ respectivamente y
-sea $A=(\alpha_{ik})$. Se define el producto de Kronecker
-$A \otimes B$ de $A$ y $B$ por
+Supongamos que $A$ y $B$ son matrices cuadradas de grado $n$, $m$
+respectivamente, y sea $A=(\alpha_{ik})$. Se define el \emph{producto
+  de Kronecker} $A \otimes B$ de $A$ y~$B$ por
 \begin{equation}
   \label{eq:65}
     \begin{pmatrix}
     \alpha_{11}B & \cdots & \alpha_{1n}B \\ 
     \vdots &  & \vdots \\
     \alpha_{n1}B & \cdots & \alpha_{nn}B
-  \end{pmatrix}
+  \end{pmatrix}.
 \end{equation}
 
-$A \otimes B$ es una matriz cuadrada de grado $mn$. Y sin gran
-dificultad se puede probar
+Se obtiene que $A \otimes B$ es una matriz cuadrada de grado $mn$, y se
+puede demostrar lo siguiente:
 \begin{lemma}
   \label{l6_1}
+  Sean $A$, $A^{'}$ representaciones de grado $n$, y sean $B$, $B^{'}$
+  representaciones de grado $m$. Entonces:
   \begin{enumerate}
-  \item $ \tr(A \otimes B)$ = $(\tr A)(\tr B)$
-  \item Sean $A$, $A^{'}$ con grado $n$, y sean $B$, $B^{'}$ de grado
-    $m$. Entonces $(A \otimes B)(A^{'} \otimes B^{'})$ =
-    $(AA^{'})(BB^{'})$.
+  \item $\tr(A \otimes B)$ = $(\tr A)(\tr B)$.
+  \item $(A \otimes B)(A^{'} \otimes B^{'}) = (AA^{'})(BB^{'})$. \qed
   \end{enumerate}
 \end{lemma}
 
-Sea $A_{1}(a)$ y $A_{2}(a)$ representaciones de un grupo $G$. Por el lema
+Sean $A_{1}(a)$ y $A_{2}(a)$ representaciones de un grupo $G$. Por el lema
 \ref{l6_1}(2), la regla de correspondencia
-
 \begin{equation*}
   a \mapsto A_{1}(a) \otimes A_{2}(a)
 \end{equation*}
-
 se transforma en una representación de $G$. A esta representación se
 le llama el producto de $A_{1}$ y $A_{2}$, y es denotado por
 $A_{1} \otimes A_{2}$. Sean $\chi_{1}, \chi_2, \chi$ los caracteres de
