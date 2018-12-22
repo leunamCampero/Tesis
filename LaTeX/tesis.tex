@@ -333,13 +333,13 @@ grado $r$ y $s$ respectivamente y para $Q$ de la siguiente manera:
 \end{equation*}
 se tiene que $Q^{-1}A_{1}\left(a\right)Q=A_{2}\left(a\right)$.
 
-Si $A$ no es reducible, se dice que $A$ es irreducible. En el ejemplo
-\ref{Ej3}, el mapeo $a \mapsto B\left(a\right)$ y
+Si $A$ no es reducible, se dice que $A$ es \emph{irreducible}. En el ejemplo
+\ref{Ej3}, las reglas de correspondencia $a \mapsto B\left(a\right)$ y
 $a \mapsto C\left(a\right)$ se convierten en representaciones de
 grado~$r$,~$s$, respectivamente.
 
-Dadas las representaciones de $G$, $A$, y $B$, con grados $n$, $m$,
-respectivamente, la funcion $Q\colon G\to M_{m+n}(\mathbb{C})$ dada por.
+Sean $A$ y $B$ representaciones de $G$, con grados $n$, $m$,
+respectivamente, la función dada por:
 \begin{equation*}
   a\mapsto
   \begin{pmatrix}
@@ -351,8 +351,8 @@ se convierte en una representación de $G$ de grado $n+m$. Esta
 representación es llamada la \emph{suma directa} de $A$ y
 $B$, y es denotada por $A \oplus B$.
 
-Una representación $A\left(a\right)$ de $G$ se dice completamente
-reducible si $A$ es equivalente a la suma directa de algunas
+Una representación $A\left(a\right)$ de $G$ se dice \emph{completamente
+reducible} si $A$ es equivalente a la suma directa de algunas
 representaciones irreducibles, es decir, si existe una matriz no singular
 $P$, tal que
 
@@ -373,24 +373,21 @@ representación irreducible de $G$.
 
 Una representación $A$ de $G$ se dice unitaria si $A\left(a\right)$ es
 una matriz unitaria para todo $a \in G$, lo cual significa que
-$\overline{A\left(a\right)}^{t}A\left(a\right)=I$. Aquí
-$\overline{A\left(a\right)}^{t}$ denota la transpuesta de
+$A^{*}A\left(a\right)=I$. Aquí $A^{*}$ denota la transpuesta de
 $\overline{A}=\left(\alpha_{ij}\right)$, donde
 $A=\left(\alpha_{ij}\right)$, y $\overline{\left(\alpha_{ij}\right)}$
 es el complejo conjugado de $\left(\alpha_{ij}\right)$. Se pretende
 mostrar que cada representación de un grupo finito es equivalente a
 una representación unitaria y es completamente reducible.
 
-Una matriz se dice hermitiana si $\overline{A^{t}}=A$, y positiva
-definida si $\overline{x}^{t}Ax>0$ para todo vector columna $x$
-(distinto de cero).
+Una matriz se dice hermitiana si $A^{*}=A$, y positiva definida si
+$x^{*}Ax>0$ para todo vector columna $x$ (distinto de cero).
 
 \begin{lemma}
   \label{l2_1}
-  Para cualquier matriz no singular $A$,
-  $\overline{A\left(a\right)}^{t}A$ es una matriz hermitiana definida
-  positiva. La suma de matrices hermitianas definidas positivas,
-  también es hermitiana y definida positiva.
+  Para cualquier matriz no singular $A$, $A^{*}A$ es una matriz
+  hermitiana definida positiva. La suma de matrices hermitianas
+  definidas positivas, también es hermitiana y definida positiva.
 
 \end{lemma}
 
@@ -398,7 +395,7 @@ definida si $\overline{x}^{t}Ax>0$ para todo vector columna $x$
   \label{l2_2}
    Para cualquier matriz hermitiana definida positiva
 $A$, existe una matriz triangular superior no singular $C$ tal que
-$\overline{C}^{t}AC=\mathrm{I}$.
+$C^{*}AC=\mathrm{I}$.
 \end{lemma}
 
 \begin{proof}
@@ -411,7 +408,7 @@ $\overline{C}^{t}AC=\mathrm{I}$.
      A=
      \begin{pmatrix}
     \alpha & a \\ 
-    \overline{a}^{t} & \mathrm{B}
+    a^{*} & \mathrm{B}
   \end{pmatrix}
   \end{equation} 
 
@@ -430,15 +427,15 @@ $\overline{C}^{t}AC=\mathrm{I}$.
 entonces, 
 \begin{equation}
    \label{eq:4}
-  \overline{C_{1}}^{t}AC_{1} =
+  C_{1}^{*}AC_{1} =
   \begin{pmatrix}
     1 & 0 \\ 
-    0 & -\frac{1}{\alpha}\overline{a}^{t}a+\mathrm{B}
+    0 & -\frac{1}{\alpha}a^{*}a+\mathrm{B}
   \end{pmatrix}
 \end{equation}  
-y $-\frac{1}{\alpha}\overline{a}^{t}a+\mathrm{B}$ es una matriz
-hermitiana definida positiva. Y la prueba se sigue usando inducción el
-grado de $A$ veces.
+y $-\frac{1}{\alpha}a^{*}a+\mathrm{B}$ es una matriz hermitiana
+definida positiva. Y la prueba se sigue usando inducción el grado de
+$A$ veces.
 \end{proof}
 
 \begin{theorem}
