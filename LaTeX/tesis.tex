@@ -449,32 +449,32 @@ $A$ veces.
 \begin{proof}
   Sea
   \begin{equation*}
-    A=\sum_{b \in G} \overline{F\left(b\right)}^{t}F\left(b\right)
+    A=\sum_{b \in G} F \left(b\right)^{*}F\left(b\right)
   \end{equation*}
   Entonces $A$ es una matriz hermitiana definida positiva por el Lema
   2.1. Entonces existe una matriz triangular no singular $C$, tal que
   \begin{equation*}
-    \overline{C}^{t}AC= I
+    C^{*}AC= I
   \end{equation*}
   y por ello
   \begin{equation}
     \label{eq:9}
-    A=(\overline{C}^{t})^{-1}C^{-1}.
+    A=(C^{*})^{-1}C^{-1}.
   \end{equation}
   Ya que
   \begin{equation}
     \label{eq:10}
-    \overline{F\left(a\right)}^{t}AF\left(a\right)=\sum_{b \in G} \overline{F\left(ba\right)}^{t}F\left(ba\right)=A,
+    F^{*}\left(a\right)AF\left(a\right)=\sum_{b \in G} F^{*}\left(ba\right)F\left(ba\right)=A,
   \end{equation}
   se obtiene
   \begin{equation}
     \label{eq:11}
-    \overline{F\left(a\right)}^{t}(\overline{C}^{t})^{-1}C^{-1}F\left(a\right)=(\overline{C}^{t})^{-1}C^{-1},
+    F^{*}\left(a\right)(C^{*})^{-1}C^{-1}F\left(a\right)=(C^{*})^{-1}C^{-1},
   \end{equation}
   es decir
   \begin{equation}
     \label{eq:12}
-    \overline{(C^{-1}F(a)C)}^{t}(C^{-1}F(a)C)=I
+    (C^{-1}F(a)C)^{*}(C^{-1}F(a)C)=I
   \end{equation}
   y $C^{-1}F(a)C$ es una matriz unitaria.
 \end{proof}
