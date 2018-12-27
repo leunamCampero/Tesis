@@ -527,9 +527,9 @@ $A$ veces.
 
 \begin{lemma}[Lema de Schur]
   \label{l3_1}
-  Sea $A$ y $B$ representaciones
+  Sean $A$ y $B$ representaciones
   irreducibles de un grupo $G$ con grados $m$ y $n$ respectivamente. Sea
-  $P$ una matriz de $m$x$n$ con la propiedad de que $A(a)P=PB(a)$, para
+  $P$ una matriz de $m \times n$ con la propiedad de que $A(a)P=PB(a)$, para
   todo $a \in G$.  entonces:
   \begin{enumerate}
   \item $P=0$
@@ -585,7 +585,7 @@ $A$ veces.
   \end{equation}
   con $B_{11}$ una matriz cuadrada de grado $r$. Por lo tanto
   $A_{21}=0$ si $r<m$ y $B_{12}$ si $r<n$. De cualquier manera
-  $A$ o $A$ es reducible, lo cual es una
+  $A$ o $B$ es reducible, lo cual es una
   contradicción.
 \end{proof}
 
@@ -618,7 +618,7 @@ representación irreducible de $G$ es de grado 1.
 
 \begin{proof}
   Sea $A$ una representación irreducible de $G$. Como $A(a)$ conmuta
-  con $A(b)$, el teorema pasado nos dice que $A(a)=\lambda(a) I$ para
+  con $A(b)$, el teorema \ref{t3_2} nos dice que $A(a)=\lambda(a) I$ para
   algún $\lambda(a) \in \mathbb{C}$. Entonces $A$ es irreducible, y su
   grado debe ser $1$.
 \end{proof}
@@ -628,7 +628,8 @@ representación irreducible de $G$ es de grado 1.
 Desde aquí en adelante, se asumirá que estamos trabajando con grupos
 finitos.
 
-\textbf{Caracteres} Para una matriz cuadrada $A=\alpha_{ij}$ de grado
+\textbf{Caracteres}\\
+Para una matriz cuadrada $A=\alpha_{ij}$ de grado
 $n$, $\tr A$ denota la traza de $A$, es decir
 \begin{itemize}
   \item $\tr A= \alpha_{11}+ \alpha_{22} + \cdots + \alpha_{nn}$.
@@ -638,14 +639,14 @@ Cálculos directos muestran el siguiente lema
 
 \begin{lemma}
    \label{l4_1}
-  \begin{enumerate}
+  \begin{enumerate} Para alguna matriz no singular $P$, se sigue que:
   \item $\tr (AB)=\tr (BA) $.
-  \item $\tr (P^{-1}AP)=\tr A$, para alguna matriz no singular $P$.
+  \item $\tr (P^{-1}AP)=\tr A$.
   \end{enumerate}
 \end{lemma}
 
 Para una representación $A$ de un grupo $G$, sea
-tr$A(a)=\chi(a)$. Entonces $\chi(a)$ es una función que toma valores
+$\tr A(a)=\chi(a)$. Entonces $\chi(a)$ es una función que toma valores
 en $\mathbb{C}$ y es llamada el carácter de $A$. Obviamente, $\chi(1)$
 es igual al grado de $A$. Caracteres de representaciones irreducibles
 son llamados caracteres irreducibles. Y por el lema 4.1(2), se tiene
@@ -656,7 +657,7 @@ lo siguiente:
   Representaciones equivalentes de un grupo tienen el mismo carácter.
 \end{lemma}
 \begin{proof}
-  La prueba es inmediata de la segunda parte del lema \ref{l4_1} y la
+  La prueba se sigue de la segunda parte del lema \ref{l4_1} y la
   definición de representación equivalente.
 \end{proof}
 Como $A(x^{-1}ax)=A(x)^{-1}A(a)A(x)$, se sigue que
