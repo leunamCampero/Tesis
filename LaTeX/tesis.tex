@@ -646,8 +646,8 @@ Cálculos directos muestran el siguiente lema
 \end{lemma}
 
 Para una representación $A$ de un grupo $G$, sea
-$\tr A(a)=\chi(a)$. Entonces $\chi(a)$ es una función que toma valores
-en $\mathbb{C}$ y es llamada el carácter de $A$. Obviamente, $\chi(1)$
+$\tr A(a)=\chi(a)$. Entonces~$\chi(a)$ es una función que toma valores
+en $\mathbb{C}$ y es llamada el carácter de~$A$. Obviamente, $\chi(1)$
 es igual al grado de $A$. Caracteres de representaciones irreducibles
 son llamados caracteres irreducibles. Y por el lema 4.1(2), se tiene
 lo siguiente:
@@ -661,7 +661,7 @@ lo siguiente:
   definición de representación equivalente.
 \end{proof}
 Como $A(x^{-1}ax)=A(x)^{-1}A(a)A(x)$, se sigue que
-$ \chi(x^{-1}ax)=\chi(a)$. Así $\chi$ toma el mismo valor en una clase
+$ \chi(x^{-1}ax)=\chi(a)$. Así~$\chi$ toma el mismo valor en una clase
 de conjugación de $G$. Tal función es llamada función de clase.
 
 \subsection{La primera relación ortogonal de caracteres.}
@@ -669,7 +669,7 @@ de conjugación de $G$. Tal función es llamada función de clase.
 Sea $G$ un grupo de orden $g$. Sean $A=(\alpha_{ij}(a))$ y
 $B=(\beta_{ij}(a))$ representaciones irreducibles de $G$ con grado
 $m,n$, respectivamente. Para una matriz arbitraria $U=(\gamma_{ij})$,
-de $m$x$n$, se tiene
+de $m \times n$, se tiene
 
 \begin{equation}
   \label{eq:22}
@@ -696,13 +696,13 @@ de Schur. La entrada $(i,j)$ de $V$ es:
   \sum_{x \in G} \sum_{u,v} \alpha_{iu}(x) \gamma_{uv} \beta_{vj}(x^{-1}) = 0.
 \end{equation}
 En particular, para algún par de $u$,$v$ sea $\gamma_{uv}=1$ y para
-cualquier otro caso $\gamma_{\rho \sigma}=0$. Lo cual conduce a
+cualquier otro caso~$\gamma_{\rho \sigma}=0$. Lo cual conduce a
 \begin{equation}
   \label{eq:26}
   \sum_{x \in G} \alpha_{iu}(x) \beta_{vj}(x^{-1}) = 0.
 \end{equation}
 Ahora, asumimos que $A=B$. Entonces para algún
-$\lambda \in \mathbb{C}$, $V=\lambda I$, y por el Teorema 3.2. La
+$\lambda \in \mathbb{C}$, $V=\lambda I$ por el teorema \ref{t3_2}. La
 entrada $(i,j)$ de $V$ es:
 \begin{equation}
   \label{eq:27}
@@ -716,7 +716,7 @@ donde $\delta_{ii}=1$, $\delta_{ij}=0$ ($i \neq j$). Tomando la traza de
 y se obtiene
 \begin{equation}
   \label{eq:29}
-  g(\gamma_{11}+\gamma_{22}+ \cdots +\gamma_{nn})
+  g(\gamma_{11}+\gamma_{22}+ \cdots +\gamma_{nn})=n \lambda
 \end{equation}
 donde $n$ es el grado de $A$, y $g$ es la cardinalidad de $G$, de lo cual se sigue:
 \begin{equation}
@@ -724,7 +724,7 @@ donde $n$ es el grado de $A$, y $g$ es la cardinalidad de $G$, de lo cual se sig
   \lambda=\frac{g}{n}(\gamma_{11}+\gamma_{22}+ \cdots + \gamma_{nn}).
 \end{equation}
 
-Ahora, para algún par de $u$,$v$ sea $\gamma_{uv}=1$ y para cualquier otro caso $\gamma_{\rho \sigma}=0$. Entonces
+Ahora, para algún par de $u$,$v$ sea $\gamma_{uv}=1$ y en otro caso~$\gamma_{\rho \sigma}=0$. Entonces
 \begin{equation}
   \label{eq:31}
   \sum_{x \in G} \alpha_{iu}(x) \beta_{vj}(x^{-1}) = \delta_{ij} \delta_{uv}\frac{g}{n}.
@@ -749,7 +749,7 @@ Lo cual nos conduce al siguiente teorema.
     \end{enumerate}
 \end{theorem}
 Sean $\chi$, $\chi^{'}$ los caracteres de $A$, $B$. Por el teorema
-anterior, poniendo a $u=i$, $v=j$ y tomando la suma sobre $i$,$j$, se
+anterior, poniendo a~$u=i$, $v=j$ y tomando la suma sobre $i$,$j$, se
 obtiene lo siguiente:
 
 \begin{theorem}[La primera relación de ortogonalidad de caracteres]
@@ -768,20 +768,20 @@ obtiene lo siguiente:
   \end{enumerate}
 \end{theorem}
 Se observa que $\chi(a^{-1})=\overline{\chi(a)}$ para todo $a \in G$,
-porque el Teorema \ref{t2_3} dice que $A$ es equivalente a una
+porque el teorema \ref{t2_3} dice que $A$ es equivalente a una
 representación unitaria $U$, y por lo tanto
 \begin{equation}
   \label{eq:34}
-  \chi(a^{-1})=trU(a^{-1})=trU(a)^{-1}=tr \overline{U(a)}^{t} = \overline{\chi(a)}  
+  \chi(a^{-1})=\tr U(a^{-1})=\tr U(a)^{-1}=\tr U(a)^{*} = \overline{\chi(a)}  
 \end{equation}
 Sean $F_{1}, F_{2}, \ldots$ representantes de las clases de
 equivalencia de las representaciones irreducibles de un grupo $G$ y
-sea $\chi_{1}, \chi_{2}, \ldots $ los caracteres de
-$F_{1}, F_{2}, \ldots$.  Sea $C_{1}$, $C_{2}$,...,$C_{k}$ las clases
-de conjugación de $G$ con $|C_{\alpha}|=h_{\alpha}$
-($\alpha=1, 2, 3,...,k$) y sea $a_{1}$, $a_{2}$,\ldots,$a_{k}$ los
+para $i=1,2, \ldots$ sea $\chi_{i}$ el correspondiente carácter
+de $F_{i}$.  Sean $C_{1}$, $C_{2}$,...,$C_{k}$ las
+clases de conjugación de $G$ con~$|C_{\alpha}|=h_{\alpha}$
+para $\alpha=1, 2, 3,...,k$ y sean $a_{1}$, $a_{2}$,\ldots,$a_{k}$ los
 representantes de las clases de conjugación. Como los caracteres son
-funciones de clases, el Teorema \ref{t4_4} se reescribe como sigue
+funciones de clases, el teorema \ref{t4_4} se reescribe como sigue
 
 
 \begin{theorem}
