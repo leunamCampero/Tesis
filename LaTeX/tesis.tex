@@ -957,23 +957,24 @@ que $\pi$ y por ello se tiene que $\pi = \pi^{'}$.
 \label{subsec:sroc}
 Sea $G$ un grupo y sean $C_{1}=\left\{1 \right\},C_{2},...,C_{k}$ las
 clases de conjugación de $G$. Para una clase de conjugación
-$C_{\alpha}$, se define la suma de los elementos de $C_{\alpha}$ como:
+$C_{\alpha}$, y sea $h_{\alpha}=|C_{\alpha}|$, entonces se define la
+suma de los elementos de $C_{\alpha}$ como:
 
 \begin{equation}
   \label{eq:42}
-  C_{\alpha}=a_{1}+a_{2}+ \cdots + a_{h_{\alpha}} \qquad (h_{\alpha}=|C_{\alpha}|).
+  C_{\alpha}=a_{1}+a_{2}+ \cdots + a_{h_{\alpha}}.
 \end{equation}
 
 Y se define el producto de $C_{\alpha}$ y $C_{\beta}$ por
 \begin{equation}
   \label{eq:43}
-  C_{\alpha} C_{\beta} = \sum_{\gamma=1}^{k} t_{\alpha \beta \gamma} C_{\gamma}
+  C_{\alpha} C_{\beta} = \sum_{\gamma=1}^{k} t_{\alpha \beta \gamma} C_{\gamma},
 \end{equation}
 
 donde $C_{\beta}=b_1+b_{2}+ \cdots + b_{h_{\beta}}$ y la suma es sobre
 $1 \leq i \leq h_{\alpha}$, $1 \leq j \leq h_{\beta}$. Para un
 elemento $c \in C_{\gamma}$, sea $t$ el número de parejas
-$(a,b) \in C_{\alpha} \times C_{\beta}$ tal que $ab=c$. Entonces para
+$(a,b) \in C_{\alpha} \times C_{\beta}$ para los cuales se cumple que $ab=c$. Entonces para
 $c'=x^{-1}cx \in C_{\gamma}$, hay exactamente $t$
 parejas~$(a',b') \in C_{\alpha} \times C_{\beta}$ tal que $a'b'=c'$
 porque $ab=c$ si y sólo si $a'b'=c'$ con $a'=x^{-1}ax$,
@@ -991,7 +992,7 @@ conjugación por $C_{\alpha '}$.
   \label{eq:46}
    t_{\alpha \beta 1} = \left\{
      \begin{array}{ll}
-       h_{\alpha}      & \mathrm{si\ } C_{\beta} = C_{\alpha '} \\
+       h_{\alpha}      & \mathrm{si\ } C_{\beta} = C_{\alpha '}, \\
        0      & \mathrm{otro\ caso.\ } 
      \end{array}
    \right.
@@ -1012,8 +1013,8 @@ Entonces
 \end{equation}
 
 ya que $x^{-1}ax$ varia sobre $C_{\alpha}$ mientras $a$ lo
-hace. Entonces la matriz $F (C_{\alpha})$ conmuta con cada $F(x)$, y
-por el Teorema \ref{t3_2}, se llega a que,
+hace. Entonces se tiene que la matriz $F (C_{\alpha})$ conmuta con cada $F(x)$, y
+por el Teorema \ref{t3_2}, y tenemos que,
 \begin{equation}
   \label{eq:48}
    \mathbb{F} (\mathbb{C}_{\alpha})=w_{\alpha}\mathrm{I}.
@@ -1030,7 +1031,7 @@ Y tomando la traza de la expresión anterior, se tiene
 \end{equation}
 
 donde $\chi$ es el carácter de $F$ y
-$a_{\alpha} \in C_{\alpha}$, y por \ref{eq:44}, se sigue
+$a_{\alpha} \in C_{\alpha}$, y por \ref{eq:44}, se sigue que:
 \begin{equation}
   \label{eq:51}
   F (C_{\alpha})  F (C_{\beta}) = \sum_{\gamma}^{k} t_{\alpha \beta \gamma} F(C_{\gamma}),
@@ -1051,9 +1052,9 @@ Sustituyendo \ref{eq:49} en la expresión de arriba se llega a
 \end{equation}
 
 Sean $\chi_{1}, \chi_{1},..., \chi_{l}$ caracteres distintos e
-irreducibles de $G$, y sea $f_{i}$ el grado de $\chi_{i}$. \ref{eq:53}
-se es válida para cada $\chi_{i}$, y tomando la suma sobre $i$, se
-llega a que
+irreducibles de $G$, y sea $f_{i}$ el grado de $\chi_{i}$. Y además
+\ref{eq:53} es válida para cada $\chi_{i}$, y tomando la suma sobre
+$i$, se llega a que
 \begin{equation}
   \label{eq:54}
   \begin{aligned}
@@ -1068,7 +1069,7 @@ llega a que
     \end{aligned}
 \end{equation}
 
-Y se llega a
+Y al igual tenemos lo siguiente:
 
 \begin{equation}
   \label{eq:55}
