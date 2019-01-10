@@ -1160,19 +1160,18 @@ $h$. Para una función $\psi$ en $G$, $\psi_{H}$ denota la restricción
 de $\psi$ a $H$. Si $\psi$ es una función de clase en $G$, entonces
 $\psi_{H}$ también es una función de clase en $H$. Si $\psi$ es el
 carácter de una representación de $G$ $A$, se sigue que $\psi_{H}$ es
-el carácter de $A_{H}$, la restricción de $A$ a $H$.
+el carácter de~$A_{H}$, la restricción de $A$ a $H$.
 
-Para una función $\theta$ en $H$, se define la función $\theta^{G}$ de
-la siguiente manera
+Para una función $\theta$ en $H$, y $\theta(x^{-1}ax)=0$ si $x^{-1}ax$
+no está en H, se define la función $\theta^{G}$ de la siguiente manera
 
 \begin{equation}
   \label{eq:58}
-  \theta^{G}=\frac{1}{h} \sum_ u{x \in G} \theta(x^{-1}ax)
+  \theta^{G}=\frac{1}{h} \sum_ u{x \in G} \theta(x^{-1}ax),
 \end{equation}
-donde $\theta(x^{-1}ax)=0$ si $x^{-1}ax$ no está en H. $\theta^{G}$ es
-una función de clase en $G$, aun si $\theta$ no es una función de
-clase en $H$. Si $a$ no es el conjugado de ningún elemento de $H$,
-entonces $\theta^{G}(a)=0$.
+tenemos que $\theta^{G}$ es una función de clase en $G$, aun si
+$\theta$ no es una función de clase en $H$. Si $a$ no es el conjugado
+de ningún elemento de $H$, entonces~$\theta^{G}(a)=0$.
 
 \begin{lemma}
   \label{l5_1}
@@ -1225,7 +1224,7 @@ se define la matriz $A^{G}(a)$ de la siguiente manera
   \begin{pmatrix}
     A(a_{1} a a_{1}^{-1}) & A(a_{1} a a_{2}^{-1}) & \cdots &  A(a_{1} a a_{r}^{-1}) \\
     A(a_{2} a a_{1}^{-1}) & A(a_{2} a a_{2}^{-1}) & \cdots &  A(a_{2} a a_{r}^{-1}) \\
-    \vdots &  & \vdots \\
+    \vdots & \vdots &  & \vdots \\ 
     A(a_{r} a a_{1}^{-1}) & A(a_{r} a a_{2}^{-1}) & \cdots &  A(a_{r} a a_{r}^{-1}) \\
   \end{pmatrix}
   ,
@@ -1233,9 +1232,9 @@ se define la matriz $A^{G}(a)$ de la siguiente manera
 
 donde $A(x)=0$ si $x$ no está en H. Lo anterior es una generalización
 de la representación regular derecha de $G$. Se desea mostrar que la
-regla de correspondencia $a \mapsto A^{G}(a)$ para $a \in G$es una
+regla de correspondencia $a \mapsto A^{G}(a)$ para $a \in G$ es una
 representación de $G$ y tiene grado $nr$, donde $r= \mid G : H \mid$ y
-$n$ es el grado de $A$. Para ello sea $a_{k}^{-1}$ y $x \in G$,
+$n$ es el grado de $A$. Para ello sea~$a_{k}^{-1}$ y $x \in G$,
 entonces
 $\left\{ a_{i} x a_{k}^{-1} \mid i = 1, 2, \ldots, r \right\}$ es el
 conjunto de representantes de las clases laterales izquierdas de $H$,
@@ -1244,20 +1243,19 @@ $A(a_{i} a a_{k}^{-1})$ que es distinta de cero. Análogamente el
 conjunto
 $\left\{ a_{i} x a_{k}^{-1} \mid k = 1, 2, \ldots, r \right\}$ está
 formado por los representantes de las clases laterales derechas de
-$H$, y para $ k = 1, 2, \ldots, r$ únicamente una matriz
-$A(a_{i} a a_{k}^{-1})$ no es cero. Sea $C_{ik}$ el bloque $(i,k)$ de
-la matriz $A^{G}(a)A^{G}(b)$. Por lo tanto
+$H$, y para $ k = 1, 2, \ldots, r$ únicamente una
+matriz~$A(a_{i} a a_{k}^{-1})$ no es cero. Sea $C_{ik}$ el bloque
+$(i,k)$ de la matriz $A^{G}(a)A^{G}(b)$. Por lo tanto
 \begin{equation}
   \label{eq:63}
   C_{ik} = \sum_{j=1}^{r} A(a_{i} a a_{j}^{-1}) A(a_{j} b a_{k}^{-1}).
 \end{equation}
 
 Nuestro objetivo es demostrar que $C_{ik}= A(a_{i} ab
-a_{k}^{-1})$. Solamente hay un $s \in \left\{1, 2, \ldots, r \right\}$
+a_{k}^{-1})$. Solamente hay un~$s \in \left\{1, 2, \ldots, r \right\}$
 tal que $a_{i} a a_{s}^{-1} \in H$, e igual, sólo hay un
 $t \in \left\{1, 2, \ldots, r \right\}$ tal que
-$a_{t} b a_{k}^{-1} \in H$. Si $s=t$, entonces
-$C_{ik}=A(a_{i} a a_{t}^{-1}) A(a_{t} b a_{k}^{-1})=A(a_{i} ab
+$a_{t} b a_{k}^{-1} \in H$. Si $s=t$, entonces~$C_{ik}=A(a_{i} a a_{t}^{-1}) A(a_{t} b a_{k}^{-1})=A(a_{i} ab
 a_{k}^{-1})$. Si $s \neq t$, entonces $C_{ik}=0$ y
 $A(a_{i} ab a_{k}^{-1}) = 0$, ya que
 $a_{i} ab a_{k}^{-1} = a_{i} ab a_{t}^{-1} \cdot a_{t} b a_{k}^{-1}
