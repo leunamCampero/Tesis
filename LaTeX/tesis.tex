@@ -1417,6 +1417,55 @@ si y sólo si
   \end{equation*}
   para algunos $r \in \left\{ 0, 1, \ldots m-1 \right\}$, donde $A^{0}=1_{G}$.
 \end{theorem}
+\begin{proof}
+  Supongamos que una representación irreducible $F_{i}$ no aparece en
+  $A^{r}$ con $r=0,1,\ldots,m-1$. Sean $\chi$ y $\chi_{i}$ los
+  caracteres de $A$ y $F_{i}$ respectivamente. Por ello:
+  \begin{equation}
+    \label{eq:68}
+    (\chi^{r},\chi_{i}) = \frac{1}{g} \sum_{a} \chi(a)^{r} \overline{\chi_{i}(a)}=0
+  \end{equation}
+  para $r=0,1, \ldots, m-1$. Sean
+  $\lambda_{1}, \lambda_{2}, \ldots, \lambda_{m}$ los distintos valores
+  de $\chi$ en $G$. Sea
+  $M_{\alpha}=\left\{ a \in G | \chi(a)=\lambda_{\alpha} \right\}$ y
+  $\phi_{\alpha}= \sum_{a \in M_{\alpha}} \overline{\chi_{i}(a)}$. Y por \ref{eq:68}:
+  \begin{equation}
+    \label{eq:70}
+    \sum_{\alpha=1}^{m} \lambda_{\alpha}^{r} \phi_{\alpha} =0,
+  \end{equation}
+  para $r=0,1, \ldots,m-1$. Viendo a \ref{eq:70} como un sistema de
+  ecuaciones lineales para $\phi_{1}, \ldots, \phi_{m}$. Ya que
+  $\det (\lambda_{\alpha}^{r}) = \prod_{i<j} (\lambda_{i}-\lambda_{j})
+  \neq 0$, el sistema de ecuaciones lineales tiene la solución
+  $\phi_{1}= \cdots= \phi_{m}=0$.  Sea $n$ el grado de $A$, es decir
+  $n=\chi(1)$. Asumimos que $\lambda_{1}=n$. Se desea mostrar que
+  $M_{1}=\left\{ 1 \right\}$. Supongamos que $a \in M_{1}$, es decir,
+  $\chi(a)=n$. Sea $H$ el grupo cíclico generado por $a$. Y por el
+  teorema \ref{t3_3}, $A_{H}$ es equivalente a la suma directa de
+  representaciones de grado 1. Entonces para alguna matriz no singular
+  $P$:
+  \begin{equation}
+    \label{eq:72}
+    P^{-1}A(a)P=
+    \begin{pmatrix}
+      \epsilon_{1} & & & 0 \\ 
+      & \epsilon_{2} & & \\
+      & & \ddots & \\
+      0 & & & \epsilon_{n}\\
+    \end{pmatrix}
+    .
+  \end{equation}
+  Sea $h$ el orden de $a$. Entonces $\epsilon_{i}^{h}=1$. Tomando la
+  traza de \ref{eq:72},
+  $\chi(a) = \epsilon_{1} + \epsilon_{2} + \cdots +
+  \epsilon_{n}=n$. Lo cual implica que
+  $\epsilon_{1}=\epsilon_{2}= \cdots \epsilon_{n}=1$. Así $A(a)=I$. Y
+  como $A$ es fiel, se tiene que $a=1$. Por lo tanto
+  $M_{1}=\left\{ 1 \right\}$ y $\phi_{1}= \chi_{i}(1) \neq 0$, lo cual
+  es una contradicción.
+\end{proof}
+
 \backmatter
 
 \bibliographystyle{plain}
