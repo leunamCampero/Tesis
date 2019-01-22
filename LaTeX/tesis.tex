@@ -1251,13 +1251,15 @@ $(i,k)$ de la matriz $A^{G}(a)A^{G}(b)$. Por lo tanto
   C_{ik} = \sum_{j=1}^{r} A(a_{i} a a_{j}^{-1}) A(a_{j} b a_{k}^{-1}).
 \end{equation}
 
-Nuestro objetivo es demostrar que $C_{ik}= A(a_{i} ab
-a_{k}^{-1})$. Solamente hay un~$s \in \left\{1, 2, \ldots, r \right\}$
-tal que $a_{i} a a_{s}^{-1} \in H$, e igual, sólo hay un
+El objetivo es demostrar que $C_{ik}= A(a_{i} ab
+a_{k}^{-1})$. Solamente existe un elemento
+$s \in \left\{1, 2, \ldots, r \right\}$ tal que
+$a_{i} a a_{s}^{-1} \in H$, análogamente, sólo hay un elemento
 $t \in \left\{1, 2, \ldots, r \right\}$ tal que
-$a_{t} b a_{k}^{-1} \in H$. Si $s=t$, entonces~$C_{ik}=A(a_{i} a a_{t}^{-1}) A(a_{t} b a_{k}^{-1})=A(a_{i} ab
-a_{k}^{-1})$. Si $s \neq t$, entonces $C_{ik}=0$ y
-$A(a_{i} ab a_{k}^{-1}) = 0$, ya que
+$a_{t} b a_{k}^{-1} \in H$. Si $s=t$, y por ello se tiene que
+$C_{ik}=A(a_{i} a a_{t}^{-1}) A(a_{t} b a_{k}^{-1})=A(a_{i} ab
+a_{k}^{-1})$. Si $s \neq t$, entonces $C_{ik}=0$
+y~$A(a_{i} ab a_{k}^{-1}) = 0$, ya que
 $a_{i} ab a_{k}^{-1} = a_{i} ab a_{t}^{-1} \cdot a_{t} b a_{k}^{-1}
 \notin H$ . Por lo cual, de cualquier forma
 $C_{ik} = A(a_{i} ab a_{k}^{-1})$, y ello implica que
@@ -1405,11 +1407,10 @@ si y sólo si
 \end{proof}
 \begin{theorem}
   \label{t6_3}
-  Sea $A$ una representación fiel de un grupo $G$ y
-  sea $\chi$ el carácter de $A$. Sea $m$ el número de los distintos
-  valores de $\chi$ en $G$.
-  $m = \arrowvert \left\{ \chi(a) \arrowvert a \in G \right\}
-  \arrowvert$
+  Sea $A$ una representación fiel de un grupo $G$ y sea $\chi$ el
+  carácter de $A$. Sea $m$ el número de los distintos valores de
+  $\chi$ en $G$, es decir,~$m = | \left\{ \chi(a) \arrowvert a \in G \right\}
+  |$. Entonces cualquier representación irreducible de $G$ aparece en:
 
   \begin{equation*}
     A^{r}=  \overbrace{A \otimes \cdots \otimes A}^{r}
