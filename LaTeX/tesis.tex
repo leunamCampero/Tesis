@@ -1488,6 +1488,20 @@ $\mathbb{F}_{2}$ de $G$ son similares si tienen el mismo espacio
 vectorial subyacente $V$ y si existe una transformación lineal no
 singular $S$ de $V$ tal que
 $\mathbb{F}_{1}(g)=S^{-1} \mathbb{F}_{2}(g)S$ para todo $g \in G$.
+ 
+Si $G$ es un grupo y $F$es un campo, entonces el álgebra de grupos
+$F(G)$ de $G$ sobre $F$ es el anillo formado por todos los elementos
+de la forma $\sum_{g \in G} a(g)g$, donde para todo $g \in G$ se tiene
+que $a(g) \in F$ y donde la suma y la multiplicación son definidas de
+la siguiente manera:
+\begin{equation}
+  \label{eq:69}
+  \sum_{g \in G} a(g)g + \sum_{g \in G} b(g)g = \sum_{g \in G} \left\{ a(g) + b(g) \right\} g
+\end{equation}
+\begin{equation}
+  \label{eq:71}
+  \left\{ \sum_{g \in G} a(g)g \right\} \left\{ \sum_{h \in G} b(h)h \right\} = \sum_{g,h \in G} a(g)b(h)gh = \sum_{g \in G} \left\{ \sum_{h \in G} a(gh^{-1})b(h) \right\} g
+\end{equation}
 
 \backmatter
 
