@@ -8,7 +8,7 @@ class MatrixRepresentation:
         self.degree = n
 
 
-def _characteristic_function(G, g, i, j):
+def _char_f(G, g, i, j):
     elems = list(G.elements)
     if g*elems[i] == elems[j]:
         return 1
@@ -21,7 +21,7 @@ def regular_representation(G):
     n = len(elems)
     mydict = {}
     for g in elems:
-        mydict[g] = sp.Matrix(n, n,
-                              lambda i, j:
-                              _characteristic_function(G, g, i, j))
+        mydict[g] = sp.ImmutableMatrix(sp.Matrix(n, n,
+                                                 lambda i, j:
+                                                 _char_f(G, g, i, j)))
     return MatrixRepresentation(mydict, G, n)
