@@ -1251,13 +1251,15 @@ $(i,k)$ de la matriz $A^{G}(a)A^{G}(b)$. Por lo tanto
   C_{ik} = \sum_{j=1}^{r} A(a_{i} a a_{j}^{-1}) A(a_{j} b a_{k}^{-1}).
 \end{equation}
 
-Nuestro objetivo es demostrar que $C_{ik}= A(a_{i} ab
-a_{k}^{-1})$. Solamente hay un~$s \in \left\{1, 2, \ldots, r \right\}$
-tal que $a_{i} a a_{s}^{-1} \in H$, e igual, sólo hay un
+El objetivo es demostrar que $C_{ik}= A(a_{i} ab
+a_{k}^{-1})$. Solamente existe un elemento
+$s \in \left\{1, 2, \ldots, r \right\}$ tal que
+$a_{i} a a_{s}^{-1} \in H$, análogamente, sólo hay un elemento
 $t \in \left\{1, 2, \ldots, r \right\}$ tal que
-$a_{t} b a_{k}^{-1} \in H$. Si $s=t$, entonces~$C_{ik}=A(a_{i} a a_{t}^{-1}) A(a_{t} b a_{k}^{-1})=A(a_{i} ab
-a_{k}^{-1})$. Si $s \neq t$, entonces $C_{ik}=0$ y
-$A(a_{i} ab a_{k}^{-1}) = 0$, ya que
+$a_{t} b a_{k}^{-1} \in H$. Si $s=t$, y por ello se tiene que
+$C_{ik}=A(a_{i} a a_{t}^{-1}) A(a_{t} b a_{k}^{-1})=A(a_{i} ab
+a_{k}^{-1})$. Si $s \neq t$, entonces $C_{ik}=0$
+y~$A(a_{i} ab a_{k}^{-1}) = 0$, ya que
 $a_{i} ab a_{k}^{-1} = a_{i} ab a_{t}^{-1} \cdot a_{t} b a_{k}^{-1}
 \notin H$ . Por lo cual, de cualquier forma
 $C_{ik} = A(a_{i} ab a_{k}^{-1})$, y ello implica que
@@ -1405,15 +1407,124 @@ si y sólo si
 \end{proof}
 \begin{theorem}
   \label{t6_3}
-  Sea $A$ una representación fiel de un grupo $G$ y
-  sea $\chi$ el carácter de $A$. Sea $m$ el número de los distintos
-  valores de $\chi$ en $G$, es decir:~$m = |\{ \chi(a) \mid a \in G \}|$
+  Sea $A$ una representación fiel de un grupo $G$ y sea $\chi$ el
+  carácter de $A$. Sea $m$ el número de los distintos valores de
+  $\chi$ en $G$, es decir,~$m = | \left\{ \chi(a) \arrowvert a \in G \right\}
+  |$. Entonces cualquier representación irreducible de $G$ aparece en:
 
   \begin{equation*}
     A^{r}=  \overbrace{A \otimes \cdots \otimes A}^{r}
   \end{equation*}
   para algunos $r \in \left\{ 0, 1, \ldots m-1 \right\}$, donde $A^{0}=1_{G}$.
 \end{theorem}
+\begin{proof}
+  Supongamos que una representación irreducible $F_{i}$ no aparece en
+  $A^{r}$ con $r=0,1,\ldots,m-1$. Sean $\chi$ y $\chi_{i}$ los
+  caracteres de $A$ y $F_{i}$ respectivamente. Por ello:
+  \begin{equation}
+    \label{eq:68}
+    (\chi^{r},\chi_{i}) = \frac{1}{g} \sum_{a} \chi(a)^{r} \overline{\chi_{i}(a)}=0
+  \end{equation}
+  para $r=0,1, \ldots, m-1$. Sean
+  $\lambda_{1}, \lambda_{2}, \ldots, \lambda_{m}$ los distintos valores
+  de $\chi$ en $G$. Sea
+  $M_{\alpha}=\left\{ a \in G | \chi(a)=\lambda_{\alpha} \right\}$ y
+  $\phi_{\alpha}= \sum_{a \in M_{\alpha}} \overline{\chi_{i}(a)}$. Y por \ref{eq:68}:
+  \begin{equation}
+    \label{eq:70}
+    \sum_{\alpha=1}^{m} \lambda_{\alpha}^{r} \phi_{\alpha} =0,
+  \end{equation}
+  para $r=0,1, \ldots,m-1$. Viendo a \ref{eq:70} como un sistema de
+  ecuaciones lineales para $\phi_{1}, \ldots, \phi_{m}$. Ya que
+  $\det (\lambda_{\alpha}^{r}) = \prod_{i<j} (\lambda_{i}-\lambda_{j})
+  \neq 0$, el sistema de ecuaciones lineales tiene la solución
+  $\phi_{1}= \cdots= \phi_{m}=0$.  Sea $n$ el grado de $A$, es decir
+  $n=\chi(1)$. Asumimos que $\lambda_{1}=n$. Se desea mostrar que
+  $M_{1}=\left\{ 1 \right\}$. Supongamos que $a \in M_{1}$, es decir,
+  $\chi(a)=n$. Sea $H$ el grupo cíclico generado por $a$. Y por el
+  teorema \ref{t3_3}, $A_{H}$ es equivalente a la suma directa de
+  representaciones de grado 1. Entonces para alguna matriz no singular
+  $P$:
+  \begin{equation}
+    \label{eq:72}
+    P^{-1}A(a)P=
+    \begin{pmatrix}
+      \epsilon_{1} & & & 0 \\ 
+      & \epsilon_{2} & & \\
+      & & \ddots & \\
+      0 & & & \epsilon_{n}\\
+    \end{pmatrix}
+    .
+  \end{equation}
+  Sea $h$ el orden de $a$. Entonces $\epsilon_{i}^{h}=1$. Tomando la
+  traza de \ref{eq:72},
+  $\chi(a) = \epsilon_{1} + \epsilon_{2} + \cdots +
+  \epsilon_{n}=n$. Lo cual implica que
+  $\epsilon_{1}=\epsilon_{2}= \cdots \epsilon_{n}=1$. Así $A(a)=I$. Y
+  como $A$ es fiel, se tiene que $a=1$. Por lo tanto
+  $M_{1}=\left\{ 1 \right\}$ y $\phi_{1}= \chi_{i}(1) \neq 0$, lo cual
+  es una contradicción.
+\end{proof}
+
+\chapter{Representaciones}
+\label{cha:Representaciones}
+
+El contenido presentado a continuación es una base del método de
+reducción de una representación unitaria reducible.
+
+\section{Preliminares}
+\label{sec:preliminares}
+Sea $G$ y $F$ un campo. Llamaremos a $\digamma$ una
+$F$-representacióna de $G$ si $\digamma$ es un homomorfismo de $G$
+en el grupo de transformaciones lineales no singulares de algún
+espacio vectorial finito $V$ sobre el campo $F$ (a $V$ se le llamará
+el espacio subyacente de $\digamma$). Además la dimensión de $V$
+será el grado de $\digamma$.
+
+Análogo a lo visto en el cápitulo \ref{cha:Representaciones de
+  grupos}, una $F$-representación será llamada fiel, si es un
+isomorfismo. Dos $F$-representaciones $\digamma_{1}$,
+$\digamma_{2}$ de $G$ son similares si tienen el mismo espacio
+vectorial subyacente $V$ y si existe una transformación lineal no
+singular $S$ de $V$ tal que
+$\digamma_{1}(g)=S^{-1} \digamma_{2}(g)S$ para todo $g \in G$.
+ 
+Si $G$ es un grupo y $F$es un campo, entonces el álgebra de grupos
+$F(G)$ de $G$ sobre $F$ es el anillo formado por todos los elementos
+de la forma $\sum_{g \in G} a(g)g$, donde para todo $g \in G$ se tiene
+que $a(g) \in F$ y donde la suma y la multiplicación son definidas de
+la siguiente manera:
+\begin{equation}
+  \label{eq:69}
+  \sum_{g \in G} a(g)g + \sum_{g \in G} b(g)g = \sum_{g \in G} \left\{ a(g) + b(g) \right\} g
+\end{equation}
+\begin{equation}
+  \label{eq:71}
+  \left\{ \sum_{g \in G} a(g)g \right\} \left\{ \sum_{h \in G} b(h)h \right\} = \sum_{g,h \in G} a(g)b(h)gh = \sum_{g \in G} \left\{ \sum_{h \in G} a(gh^{-1})b(h) \right\} g
+\end{equation}
+
+Si $\digamma$ es una $F$-representación de $G$ con $V$ el espacio
+vectorial subyacente, entonces $\digamma$ puede ser extendido al
+homomorfismo de anillos de $F(G)$ en el anillo de transformaciones
+lineales de $V$ definiendo
+$\digamma \left\{ \sum_{g \in G} a(g)g \right\} = \sum_{g \in G}
+a(g) \digamma(g) $. De ésta manera $V$ tiene un $F(G)$-módulo
+impuesta, y el $F(G)$-módulo contiene un neutro
+multiplicativo. Reciprocamente, un $F(G)$-módulo finito generado que
+también contiene un nuetro multiplicativo da origen a una únicamente
+determinada $F$-representación de $G$. Así el estudio de
+$F$-representaciones de $G$ es equivalente a estudiar $F(G)$-módulos
+finitos generados.  Si $V$ es un $n$-dimensional espacio vectorial
+sobre el campo $F$, entonces el grupo de transformaciones lienales no
+singulares de $V$ se isomorfo al grupo de matrices $n \times n$ no
+singulares cuyas entradas toman valores en $F$. Entonces una
+$F$-representación de grado $n$ de $G$ también podría definirse como
+un homomorfismo de $G$ en el grupo de matrices $n \times n$ no
+sigulares con coeficientes en $F$. Y en muchas ocasiones será
+conveniente pensarla de esa manera.
+
+Sea $F$ cualquier campo. Si $\digamma_{1}$ y $\digamma_{2}$ son $F$-representaciones de $G$ con espacio vectorial subyacente $V$ y $W$ respectivamente. Entonces $\digamma_{1} \oplus \digamma_{2}$,  $\digamma_{1} \otimes \digamma_{2}$ son $F$-representaciones de $G$ con espacios vectoriales subyacentes $V \oplus W$, $V \otimes W$ respectivamente.
+
 \backmatter
 
 \bibliographystyle{plain}
