@@ -7,6 +7,8 @@ class MatrixRepresentation:
         self.group = G
         self.degree = n
 
+    def character(self):
+        return dict([(g, self.map[g].trace()) for g in self.group.elements])
 
 def _char_f(G, g, i, j):
     elems = list(G.elements)
