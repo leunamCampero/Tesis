@@ -2,6 +2,9 @@ import sympy as sp
 
 
 class MatrixRepresentation:
+    """
+    A class of matricial representation of a group.
+    """
     def __init__(self, d, G, n):
         self.map = d
         self.group = G
