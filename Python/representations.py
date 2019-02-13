@@ -10,6 +10,14 @@ class MatrixRepresentation:
     def character(self):
         return dict([(g, self.map[g].trace()) for g in self.group.elements])
 
+    def is_unitary(self):
+        for g in self.group.elements:
+            if sp.expand(self.map[g].H*self.map[g]) != sp.eye(self.degree):
+                return False
+        else:
+            return True
+
+
 def _char_f(G, g, i, j):
     elems = list(G.elements)
     if g*elems[i] == elems[j]:
