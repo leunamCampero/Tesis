@@ -41,6 +41,22 @@ class MatrixRepresentation:
         d = dict([(g, P.inv()*self.map[g]*P) for g in self.group.elements])
         return MatrixRepresentation(d, self.group, self.degree)
 
+    def unitary_equivalent(self):
+        """An equivalent unitary representation.
+
+        This implements Theorem 2.3 from Bannai-Ito (1994)
+
+        """
+        n = self.degree
+        A = sp.zeros(n, n)
+        D = self.map
+        for g in D:
+            J = D[g].H*D[g]
+            J.expand().applyfunc(sp.radsimp)
+            A = J+A
+        C = _UTforHermitian(A)
+        return self.equivalent_by(C)
+
 
 def _char_f(G, g, i, j):
     elems = list(G.elements)
@@ -48,6 +64,29 @@ def _char_f(G, g, i, j):
         return 1
     else:
         return 0
+
+
+def _UTforHermitian(A):
+    """Implements Lemma 2.2. from Bannai-Ito (1984)
+
+    Given a Hermitian positive definite matrix, returns a nonsingular
+    upper triangular matrix C such that C.H*A*C is the identity
+    matrix.
+
+    """
+    A1 = A
+    n = A.shape[0]
+    V = sp.eye(n)
+    for i in range(0, n):
+        C = sp.eye(n)
+        C[i, i] = sp.S(1)/sp.sqrt(A1[i, i])
+        for j in range(i+1, n):
+            C[i, j] = -(sp.S(1)/A1[i, i])*A1[i, j]
+        V = V*C
+        V.expand().applyfunc(sp.radsimp)
+        A1 = C.H*A1*C
+        A1.expand().applyfunc(sp.radsimp)
+    return V
 
 
 def regular_representation(G):
