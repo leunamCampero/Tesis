@@ -20,6 +20,16 @@ class MatrixRepresentation:
         else:
             return True
 
+    def is_irreducible(self):
+        prod = sum([self.character()[g]*sp.conjugate(self.character()[g]) for
+                    g in self.group.elements])
+        return prod == self.degree
+
+    def equivalent_by(self, P):
+        """Equivalent representation, by conjugation with the matrix P."""
+        d = dict([(g, P.inv()*self.map[g]*P) for g in self.group.elements])
+        return MatrixRepresentation(d, self.group, self.degree)
+
 
 def _char_f(G, g, i, j):
     elems = list(G.elements)
