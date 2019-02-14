@@ -6,6 +6,17 @@ class MatrixRepresentation:
     A class of matricial representation of a group.
     """
     def __init__(self, d, G, n):
+        """
+        Parameters
+        ----------
+        d : dict
+            Mapping of group elements to matrices
+        G : sympy.combinatorics.perm_groups.PermutationGroup
+            Group being represented
+        n : int
+            Degree of the representation
+        """
+
         self.map = d
         self.group = G
         self.degree = n
