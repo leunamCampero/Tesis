@@ -47,9 +47,8 @@ class MatrixRepresentation:
         This implements Theorem 2.3 from Bannai-Ito (1994)
 
         """
-        n = self.degree
+        n, D = self.degree, self.map
         A = sp.zeros(n, n)
-        D = self.map
         for g in D:
             J = D[g].H*D[g]
             J.expand().applyfunc(sp.radsimp)
@@ -74,8 +73,7 @@ def _UTforHermitian(A):
     matrix.
 
     """
-    A1 = A
-    n = A.shape[0]
+    A1, n = A, A.shape[0]
     V = sp.eye(n)
     for i in range(0, n):
         C = sp.eye(n)
@@ -91,8 +89,7 @@ def _UTforHermitian(A):
 
 def regular_representation(G):
     elems = list(G.elements)
-    n = len(elems)
-    mydict = {}
+    n, mydict = len(elems), {}
     for g in elems:
         mydict[g] = sp.ImmutableMatrix(sp.Matrix(n, n,
                                                  lambda i, j:
