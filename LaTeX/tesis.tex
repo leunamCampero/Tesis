@@ -1550,7 +1550,10 @@ $F$-irreducible subespacio invariante de $V$. Además se tiene que
 $F$-reducible, $F$-irreducible y completamente reducible se convservan
 si $\mathcal{F}$ es replazado por una $F$-representación similar.
 
-Como se vio en \ref{sec:basicas}, en terminos de matrices, puede ser verificado que la $F$-representación $\mathcal{F}$ de $G$ es $F$-reducible si y sólo si existe una matriz no singular $S$ con entradas en $F$ tal que para todo $g \in G$ se cumple:
+Como se vio en \ref{sec:basicas}, en terminos de matrices, puede ser
+verificado que la $F$-representación $\mathcal{F}$ de $G$ es
+$F$-reducible si y sólo si existe una matriz no singular $S$ con
+entradas en $F$ tal que para todo $g \in G$ se cumple:
 \begin{equation*}
   S^{-1}\mathcal{F}(g)S=
   \begin{pmatrix}
@@ -1675,8 +1678,27 @@ Por ello:
 Para todo $g \in G$. Aplicando inducción sobre $N$ y $B$ se llega a
 que también son completamente reducible y por lo tanto lo es
 $\mathcal{F}$.
-
-
+\begin{lemma}[Schur]
+  \label{shf}
+  Sean $\mathcal{F}_{1}$ y $\mathcal{F}_{2}$ $F$-irreducibles
+  $F$-representaciones de $G$ para algún campo $F$. Supongamos que $S$
+  es una matriz distinta de la matriz cero que toma sus entradas en
+  $F$ y tal que $\mathcal{F}_{1}(g)S=S\mathcal{F}_{2}(g)$ para todo
+  $g \in G$. Entonces $S$ no es singular y $\mathcal{F}_{1}$ es
+  similar a $\mathcal{F}_{2}$.
+\end{lemma}
+\begin{proof}
+  Sean $V$, $W$ los espacios vectoriales subyacentes de
+  $\mathcal{F}_{1}$, $\mathcal{F}_{2}$ respectivamente. Como $S$ es
+  una transformación lineal que manda $V$ en $W$. Sea $V_{0}$ el
+  kernel de $S$ y sea $W_{0} =VS$. Como
+  $v\mathcal{F}_{1}(g)S=vS\mathcal{F}_{2}(g)$ para $v \in V$,
+  $g 'in G$ se sigue que $V_{0}$, $W_{0}$ es un subespacio invariante
+  de $V,W$ respectivamente. Como $S \neq 0$ por hipótesis tenemos que
+  $V_{0} \neq V$ y $W_{0} \neq 0$. Por lo tanto $V_{0}=0$ y $W_{0}=W$
+  porque $V$ y $W$ son irreducibles. Entonces $S$ no es sigular. Por
+  ello $S^{-1}\mathcal{F}_{1}(g)S=\mathcal{F}_{2}(g)$ para $g \in G$.
+\end{proof}
 
 
 \backmatter
