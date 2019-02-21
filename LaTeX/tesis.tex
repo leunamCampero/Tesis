@@ -1565,6 +1565,117 @@ Se observa que $B, D$ son elementos de $\mathcal{F}$.
   campo no divide al orden del grupo. Entonces cada $F$-representación
   de $G$ es completamente reducible.
 \end{theorem}
+\begin{proof}
+  Sea $\mathcal{F}$ una $F$-representación de $G$ de grado $n$. Para
+  la prueba se procedera por inducción sobre $n$. Si $n=1$, entonces
+  $\mathcal{F}$ es $F$-irreducible. Entonces, supongamos que $n >
+  1$. Si $\mathcal{F}$ es $F$-irreducible ya se ha terminado la
+  prueba. Por ello se asumirá que para todo $g \in G$:
+  \begin{equation*}
+  \mathcal{F}(g)=
+  \begin{pmatrix}
+    N(g) & C(g) \\
+    0 & B(g)
+  \end{pmatrix}. 
+\end{equation*}
+\end{proof}
+Ya que $\mathcal{F}$ es una $F$-representación, se debe cumplir que
+$\mathcal{F}(gh) = \mathcal{F}(g)\mathcal{F}(h)$, es decir:
+  \begin{equation}
+    \label{eq:73}
+    \begin{aligned}
+  \mathcal{F}(gh) &=
+  \begin{pmatrix}
+    N(gh) & C(gh) \\
+    0 & B(gh)
+  \end{pmatrix}
+  =
+    \begin{pmatrix}
+    N(g) & C(g) \\
+    0 & B(g)
+  \end{pmatrix}
+    \begin{pmatrix}
+    N(h) & C(h) \\
+    0 & B(h)
+  \end{pmatrix} \\
+  & =
+    \begin{pmatrix}
+    N(g)N(h) & N(g)C(h)+C(g)B(h) \\
+    0 & B(g)B(h)
+  \end{pmatrix}.
+\end{aligned}
+\end{equation}
+Observando los bloques superiores derechos de \ref{eq:63} tenemos que
+para todo $g,h \in G$:
+\begin{equation}
+  \label{eq:74}
+  C(gh)=N(g)C(h)+C(g)B(h). 
+\end{equation}
+Ahora, multiplicando \ref{eq:74} por $B(h^{-1})$ desde la derecha,
+obtenemos que:
+\begin{equation}
+  \label{eq:75}
+  \begin{aligned}
+C(gh)B((gh)^{-1})B(g) &= C(gh)B(h^{-1}) \\
+&= N(g)C(h)B(h^{-1})+C(g)
+    \end{aligned}
+\end{equation}
+
+A continuación se definirá $M$ como la expresión que se obtiene al
+sumar sobre todos los $h \in G$ y dividiendo por el orden del grupo
+$G$.
+\begin{equation}
+  \label{eq:76}
+  M=\frac{1}{|G|} \sum_{h \in G} C(h)B(h^{-1}).
+\end{equation}
+Ahora, se puede mostrar que $MB(g)=N(g)+C(g)$ para todo $g \in G$. Y sea:
+\begin{equation}
+  \label{eq:77}
+   S =
+    \begin{pmatrix}
+    I & M \\
+    0 & I
+  \end{pmatrix}.
+\end{equation}
+Por ello para todo $g \in G$ se tiene que:
+\begin{equation}
+  \label{eq:78}
+    \begin{aligned}
+  \mathcal{F}(g)S &=
+  \begin{pmatrix}
+    N(g) & N(g)M+C(g) \\
+    0 & B(g)
+  \end{pmatrix}
+  =
+    \begin{pmatrix}
+    N(g) & MB(g) \\
+    0 & B(g)
+  \end{pmatrix}
+  =
+    \begin{pmatrix}
+    N(g) & MB(g) \\
+    0 & B(g)
+  \end{pmatrix} \\
+  & = S
+    \begin{pmatrix}
+    N(g) & 0 \\
+    0 & B(g)
+  \end{pmatrix}.
+\end{aligned}
+\end{equation}
+Por ello:
+\begin{equation}
+  \label{eq:79}
+  S^{-1}\mathcal{F}S=
+    \begin{pmatrix}
+    N(g) & 0 \\
+    0 & B(g)
+  \end{pmatrix}.
+\end{equation}
+Para todo $g \in G$. Aplicando inducción sobre $N$ y $B$ se llega a
+que también son completamente reducible y por lo tanto lo es
+$\mathcal{F}$.
+
 
 
 
