@@ -1550,6 +1550,23 @@ $F$-irreducible subespacio invariante de $V$. Además se tiene que
 $F$-reducible, $F$-irreducible y completamente reducible se convservan
 si $\mathcal{F}$ es replazado por una $F$-representación similar.
 
+Como se vio en \ref{sec:basicas}, en terminos de matrices, puede ser verificado que la $F$-representación $\mathcal{F}$ de $G$ es $F$-reducible si y sólo si existe una matriz no singular $S$ con entradas en $F$ tal que para todo $g \in G$ se cumple:
+\begin{equation*}
+  S^{-1}\mathcal{F}(g)S=
+  \begin{pmatrix}
+    B\left(a\right) & D\left(a\right) \\
+    0 & C\left(a\right)
+  \end{pmatrix}. 
+\end{equation*}  
+Se observa que $B, D$ son elementos de $\mathcal{F}$.
+\begin{theorem}[Machke]
+  \label{tma}
+  Sea $G$ un grupo y sea $F$ un campo tal que la característica del
+  campo no divide al orden del grupo. Entonces cada $F$-representación
+  de $G$ es completamente reducible.
+\end{theorem}
+
+
 
 \backmatter
 
