@@ -2,6 +2,10 @@ import sympy as sp
 sp.init_printing()
 
 
+def simplifier_function(x):
+    return sp.expand(sp.radsimp(x))
+
+
 class MatrixRepresentation:
     """
     A class of matricial representation of a group.
@@ -22,12 +26,25 @@ class MatrixRepresentation:
         self.group = G
         self.degree = n
 
+    def _test(self):
+        D = self.map
+        for g in self.group.elements:
+            for h in self.group.elements:
+                A = D[g]*D[h]
+                A = A.applyfunc(simplifier_function)
+                if A != D[g*h]:
+                    return (g, h)
+        else:
+            return True
+
     def character(self):
         return dict([(g, self.map[g].trace()) for g in self.group.elements])
 
     def is_unitary(self):
         for g in self.group.elements:
-            if sp.expand(self.map[g].H*self.map[g]) != sp.eye(self.degree):
+            A = self.map[g].H*self.map[g]
+            A = A.applyfunc(simplifier_function)
+            if A != sp.eye(self.degree):
                 return False
         else:
             return True
@@ -39,7 +56,13 @@ class MatrixRepresentation:
 
     def equivalent_by(self, P):
         """Equivalent representation, by conjugation with the matrix P."""
-        d = dict([(g, P.inv()*self.map[g]*P) for g in self.group.elements])
+        d = {}
+        Pinv = P.inv()
+        Pinv = Pinv.applyfunc(simplifier_function)
+        for g in self.group.elements:
+            A = Pinv*self.map[g]*P
+            A = A.applyfunc(simplifier_function)
+            d[g] = A
         return MatrixRepresentation(d, self.group, self.degree)
 
     def unitary_equivalent(self):
@@ -52,15 +75,28 @@ class MatrixRepresentation:
         A = sp.zeros(n, n)
         for g in D:
             J = D[g].H*D[g]
-            J.expand().applyfunc(sp.radsimp)
+            J = J.applyfunc(simplifier_function)
             A = J+A
         C = _UTforHermitian(A)
         return self.equivalent_by(C)
 
+    def _matrix_to_reduce(self, r, s):
+        """A function that can be used to reduce a reducible matrix
+        representation, when it returns a non escalar matrix.
+
+        """
+        n = self.degree
+        M = sp.zeros(n)
+        for g in self.map:
+            M = M + self.map[g].H*_hermitian_rs(n, r, s)*self.map[g]
+        M = (sp.S(1)/n)*M
+        M = M.applyfunc(simplifier_function)
+        return M
+
 
 def _char_f(G, g, i, j):
     elems = list(G.elements)
-    if g*elems[i] == elems[j]:
+    if elems[i]*g == elems[j]:
         return 1
     else:
         return 0
@@ -82,78 +118,33 @@ def _UTforHermitian(A):
         for j in range(i+1, n):
             C[i, j] = -(sp.S(1)/A1[i, i])*A1[i, j]
         V = V*C
-        V.expand().applyfunc(sp.radsimp)
+        V = V.applyfunc(simplifier_function)
         A1 = C.H*A1*C
-        A1.expand().applyfunc(sp.radsimp)
+        A1 = A1.applyfunc(simplifier_function)
     return V
+
+
+def _matrix_rs(n, r, s):
+    Ers = sp.zeros(n, n)
+    Ers[r, s] = 1
+    return Ers
+
+
+def _hermitian_rs(n, r, s):
+    if r == s:
+        return _matrix_rs(n, r, r)
+    elif r > s:
+        return _matrix_rs(n, r, s) + _matrix_rs(n, s, r)
+    else:
+        return sp.I*(_matrix_rs(n, r, s) - _matrix_rs(n, s, r))
 
 
 def regular_representation(G):
     elems = list(G.elements)
     n, mydict = len(elems), {}
     for g in elems:
-        mydict[g] = sp.ImmutableMatrix(sp.Matrix(n, n,
-                                                 lambda i, j:
-                                                 _char_f(G, g, i, j)))
+        mydict[g] = sp.Matrix(n, n, lambda i, j: _char_f(G, g, i, j))
     return MatrixRepresentation(mydict, G, n)
-
-
-def unitary_representation(G, d):
-    """
-    A function that given a matrix representation become it
-    in a unitary matrix representation.
-    """
-    n = d.degree
-    A = sp.zeros(n, n)
-    for g in d.map:
-        J = (d.map[g].H)*d.map[g]
-        J = sp.expand(J)
-        A = J+A
-    A1 = A
-    V = sp.eye(n)
-    for i in range(0, n):
-        C = sp.eye(n)
-        C[i, i] = sp.S(1)/sp.sqrt(A1[i, i])
-        for j in range(i+1, n):
-            C[i, j] = -(1/A1[i, i])*A1[i, j]
-        V = V*C
-        V = sp.expand(V)
-        A1 = (C.H)*A1*C
-        A1 = sp.expand(A1)
-    M = {}
-    for g in list(G.elements):
-        M[g] = sp.ImmutableMatrix((V.inv())*d.map[g]*V)
-    return MatrixRepresentation(M, G, n)
-
-
-def is_irreducible(G, d):
-    """A function that determine if a matrix representation is irreducible,
-    if is reducible, return a matrix non escalar that reduce the
-    matrix representation in otherwise return True"""
-    n = d.degree
-    N = sp.eye(n)
-    for r in range(0, n):
-        for s in range(0, n):
-            H = sp.zeros(n)
-            if (n-1-r == n-1-s):
-                H[n-1-r, n-1-r] = 1
-            else:
-                if (n-1-r > n-1-s):
-                    H[n-1-r, n-1-s] = 1
-                    H[n-1-s, n-1-r] = 1
-                else:
-                    H[n-1-r, n-1-s] = 1*sp.I
-                    H[n-1-s, n-1-r] = -1*sp.I
-            M = sp.zeros(n, n)
-            R = unitary_representation(G, d)
-            for g in R.map:
-                M = M+(R.map[g].H*H*R.map[g])
-            M = (sp.S(1)/n)*M
-            M = sp.expand(M)
-            if (M != M[0, 0]*N):
-                return M
-    else:
-        return True
 
 
 def block(M):
@@ -198,30 +189,30 @@ def blockI(M, n, i):
     return N
 
 
-def reduce(G, d):
-    """This function give a matrix that reduce the matrix representation"""
-    M = is_irreducible(G, d)
-    b = d.degree
-    if M is True:
-        return(sp.eye(b))
-    else:
-        (P, J) = M.jordan_form()
-        P = sp.expand(P)
-        w = []
-        for g in d.map:
-            w.append(block(P.inv()*d.map[g]*P))
-        lon = len(w[0])
-        au = w[0]
-        for g in w:
-            if (len(g) < lon):
-                lon = len(g)
-                au = g
-        e = 0
-        U = P
-        for a in au:
-            d1 = {}
-            for g in list(G.elements):
-                d1[g] = sp.ImmutableMatrix((P.inv()*d.map[g]*P)[e:a+1, e:a+1])
-            U = U*blockI(reduce(G, MatrixRepresentation(d1, G, (a+1-e))), b, e)
-            e = a+1
-        return U
+# def reduce(G, d):
+#     """This function give a matrix that reduce the matrix representation"""
+#     M = is_irreducible(G, d)
+#     b = d.degree
+#     if M is True:
+#         return(sp.eye(b))
+#     else:
+#         (P, J) = M.jordan_form()
+#         P = sp.expand(P)
+#         w = []
+#         for g in d.map:
+#             w.append(block(P.inv()*d.map[g]*P))
+#         lon = len(w[0])
+#         au = w[0]
+#         for g in w:
+#             if (len(g) < lon):
+#                 lon = len(g)
+#                 au = g
+#         e = 0
+#         U = P
+#         for a in au:
+#             d1 = {}
+#             for g in list(G.elements):
+#                 d1[g] = sp.ImmutableMatrix((P.inv()*d.map[g]*P)[e:a+1, e:a+1])
+#             U = U*blockI(reduce(G, MatrixRepresentation(d1, G, (a+1-e))), b, e)
+#             e = a+1
+#         return U
