@@ -168,3 +168,17 @@ def reduce(G, d):
             U = U*blockI(reduce(G, MatrixRepresentation(d1, G, (a+1-e))), b, e)
             e = a+1
         return U
+
+    def delta(G):
+    D={}
+    L=list(G.elements)
+    n=len(L)
+    for g in L:
+        N=Matrix([])
+        M=eye(n)
+        for i in range(0,n):
+            for j in range(0,n):
+                if (L[i]*g==L[j]):
+                        N=Matrix([N,M.row(j)])
+        D[g]=N
+    return D
