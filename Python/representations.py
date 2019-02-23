@@ -169,7 +169,8 @@ def reduce(G, d):
             e = a+1
         return U
 
-    def delta(G):
+    
+def delta(G):
     D={}
     L=list(G.elements)
     n=len(L)
@@ -182,3 +183,16 @@ def reduce(G, d):
                         N=Matrix([N,M.row(j)])
         D[g]=N
     return D
+
+def es_representacion(D,G):
+    for g in list(G.elements):
+        for h in list(G.elements):
+            if (D[g*h]!=D[g]*D[h]):
+                return False
+            if (g*h == G.identity()):
+                if (D[h] != D[g].inv()):
+                    return False
+    if (D[G.identity()]!=eye(D[G[0]].shape[0])):
+        return False
+    else:
+        return True
