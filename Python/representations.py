@@ -191,7 +191,7 @@ def delta(G):
 def is_representation(G,d):
     for g in list(G.elements):
         for h in list(G.elements):
-            if (d.map[g*h]!=d.map[g]*d.map[h]):
+            if (d.map[h*g]!=d.map[g]*d.map[h]):
                 return False
             if (g*h == G.identity()):
                 if (d.map[h] != d.map[g].inv()):
