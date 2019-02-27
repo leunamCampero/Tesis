@@ -171,7 +171,7 @@ def reduce(G, d):
 
     
 def delta(G):
-    D={}
+    d={}
     L=list(G.elements)
     n=len(L)
     for g in L:
@@ -181,8 +181,8 @@ def delta(G):
             for j in range(0,n):
                 if (L[i]*g==L[j]):
                         N=Matrix([N,M.row(j)])
-        D[g]=N
-    return D
+        d[g]=N
+    return MatrixRepresentation(d, G, n)
 
 def es_representacion(D,G):
     for g in list(G.elements):
