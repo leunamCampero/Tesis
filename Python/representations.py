@@ -184,15 +184,15 @@ def delta(G):
         d[g]=N
     return MatrixRepresentation(d, G, n)
 
-def es_representacion(D,G):
+def es_representacion(G,d):
     for g in list(G.elements):
         for h in list(G.elements):
-            if (D[g*h]!=D[g]*D[h]):
+            if (d.map[g*h]!=d.map[g]*d.map[h]):
                 return False
             if (g*h == G.identity()):
-                if (D[h] != D[g].inv()):
+                if (d.map[h] != d.map[g].inv()):
                     return False
-    if (D[G.identity()]!=eye(D[G[0]].shape[0])):
+    if (d.map[G.identity()]!=eye(d.map[G[0]].shape[0])):
         return False
     else:
         return True
