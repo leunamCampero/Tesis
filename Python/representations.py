@@ -165,7 +165,10 @@ def reduce(G, d):
             d1 = {}
             for g in list(G.elements):
                 d1[g] = sp.ImmutableMatrix((P.inv()*d.map[g]*P)[e:a+1, e:a+1])
-            U = U*blockI(reduce(G, MatrixRepresentation(d1, G, (a+1-e))), b, e)
+            if (is_representation(G,MatrixRepresentation(d1, G, (a+1-e)))==True):
+                U = U*blockI(reduce(G, MatrixRepresentation(d1, G, (a+1-e))), b, e)
+            else:
+                display("Map d1 does not meet the requirements to be a representation.")
             e = a+1
         return U
 
@@ -184,7 +187,8 @@ def delta(G):
         d[g]=N
     return MatrixRepresentation(d, G, n)
 
-def es_representacion(G,d):
+
+def is_representation(G,d):
     for g in list(G.elements):
         for h in list(G.elements):
             if (d.map[g*h]!=d.map[g]*d.map[h]):
