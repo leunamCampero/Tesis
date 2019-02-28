@@ -116,19 +116,18 @@ def block(M):
             c1 = c1+1
             i = c1
         else:
-            bloques = False
-            while not bloques:
-                bloques = True
-                for j in range(c1, c1+c+1):
-                    for k in range(c1+c+1, n):
-                        if (M[j, k] != 0 or M[k, j] != 0):
-                            if (sp.Abs(i-k) > c):
-                                c = sp.Abs(i-k)
+            bloques=False
+            while (bloques==False):
+                bloques=True
+                for j in range(c1,c1+c+1):
+                    for k in range(c1+c+1,n):
+                        if (M[j,k]!=0 or M[k,j]!=0):
+                            bloques=False
+                            c=Abs(i-k)
             v.append(c1+c)
-            c1 = c1+c+1
-            i = c1
+            c1=c1+c+1
+            i=c1
     return v
-
 
 def blockI(M, n, i):
     """A function that given a matrix, put it since the entry (i,i) of a
@@ -191,7 +190,7 @@ def delta(G):
 def is_representation(G,d):
     for g in list(G.elements):
         for h in list(G.elements):
-            if (d.map[h*g]!=d.map[g]*d.map[h]):
+            if (d.map[h*g]!=expand(d.map[g]*d.map[h])):
                 return False
             if (g*h == G.identity()):
                 if (d.map[h] != d.map[g].inv()):
