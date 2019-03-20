@@ -212,6 +212,44 @@ class SimplicialComplex:
             return three_s
         else:
             return three_s
+    def simplex(self):
+        sim = {}
+        sim[0] = self.zero_simplex()
+        sim[1] = self.one_simplex()
+        sim[2] = self.two_simplex()
+        sim[3] = self.three_simplex()
+        return sim
+    def p_homology_group_dimention(self, k):
+        vk = self.simplex()[k]
+        vkf = self.n_faces(k-1)
+        M = zeros(len(vkf),len(vk.dic))
+        j=0
+        for u in list(vk.dic.keys()):
+            d={u: vk.dic[u]}
+            for a in list((boundary_op(d).dic).keys()):
+                i=0
+                for w in list(vkf):
+                    if (a == w):
+                        M[i,j]=(boundary_op(d).dic)[w]
+                    i=i+1
+            j=j+1
+        dimKe = len(M.rref()[1])
+        vk1 = self.simplex()[k+1]
+        vkf1 = self.n_faces(k)
+        N = zeros(len(vkf1),len(vk1.dic))
+        j=0
+        for u in list(vk1.dic.keys()):
+            d={u: vk1.dic[u]}
+            for a in list((boundary_op(d).dic).keys()):
+                i=0
+                for w in list(vkf1):
+                    if (a == w):
+                        N[i,j]=(boundary_op(d).dic)[w]
+                    i=i+1
+            j=j+1
+        dimIm = len((N.T).rref()[1])
+        dimH = dimKe - dimIm
+        return dimKe, dimIm, dimH
 
 def _char_f(G, g, i, j):
     elems = list(G.elements)
