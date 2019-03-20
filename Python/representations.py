@@ -141,7 +141,31 @@ class Group_p_chains:
         return self.dic == other.dic 
     def __ne__(self, other):
         return not self.__eq__(other)
-    
+
+class SimplicialComplex:
+    def __init__(self, G):
+        self.G = G
+        self.vertices = []
+        for x in self.G.nodes():
+            self.vertices.append(x)
+    def faces(self):
+        self.simplices = []
+        self.simplices = self.vertices
+        faceset = set()
+        n = len(self.simplices)
+        for k in range(n, 0, -1):
+            for face in list(combinations(self.simplices,k)):
+                if face not in faceset:
+                    faceset.add(face)
+#Aquí tengo problemas con la longitud de enteros
+#        for simplex in self.simplices:
+#            n = len(simplex)
+#            for k in range(n-1, 0, -1):
+#                for face in combinations(simplex,k):
+#                    if sorted(face) not in faceset:
+#                        faceset.append(sorted(face))
+        return faceset
+
 def _char_f(G, g, i, j):
     elems = list(G.elements)
     if g*elems[i] == elems[j]:
