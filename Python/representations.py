@@ -114,6 +114,33 @@ class YoungTableaux:
         for j in He:
             s = s + (-1)**(j)
         return s
+class Group_p_chains:
+    def __init__(self, ke, unos):
+        self.ke = ke
+        self.unos = unos
+        self.dic = {}
+        c = 0
+        for x in self.ke:
+            self.dic[x] = self.unos[c]
+            c = c+1
+    def __add__(self, other):
+        for y in other.ke:
+            if y not in self.dic:
+                self.dic[y] = other.dic[y]
+            else:
+                self.dic[y] = self.dic[y] + other.dic[y]
+        return Group_p_chains(list(self.dic.keys()),list(self.dic.values()))    
+    def __sub__(self, other):
+        for y in other.ke:
+            if y not in self.dic:
+                self.dic[y] = -other.dic[y]
+            else:
+                self.dic[y] = self.dic[y] - other.dic[y]
+        return Group_p_chains(list(self.dic.keys()),list(self.dic.values()))    
+    def __eq__(self, other):
+        return self.dic == other.dic 
+    def __ne__(self, other):
+        return not self.__eq__(other)
     
 def _char_f(G, g, i, j):
     elems = list(G.elements)
