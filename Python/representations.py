@@ -107,6 +107,13 @@ class YoungTableaux:
                 he.append(c-1)
             He.append(sum(he))
         return He
+
+    def CMNR(self):
+        He = self.Heights()
+        s=0
+        for j in He:
+            s = s + (-1)**(j)
+        return s
     
 def _char_f(G, g, i, j):
     elems = list(G.elements)
