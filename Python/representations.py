@@ -250,6 +250,22 @@ class SimplicialComplex:
         dimIm = len((N.T).rref()[1])
         dimH = dimKe - dimIm
         return dimKe, dimIm, dimH
+def boundary_op(d):
+    s = Group_p_chains([],1)
+    for u in d.keys():
+        c = 0
+        for i in u:  
+            w = set()
+            for j in u:
+                if (i != j):
+                    w.add(j)
+            s1 = Group_p_chains([tuple(w)],[1])
+            if (d[u]*(-1)**c == -1):
+                s = s - s1
+            else:
+                s = s + s1
+            c = c+1
+    return s
 
 def _char_f(G, g, i, j):
     elems = list(G.elements)
