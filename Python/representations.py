@@ -30,6 +30,40 @@ class MatrixRepresentation:
                 return False
         else:
             return True
+class YoungTableaux:
+    def __init__(self, lamb, rho):
+        self.lamb = lamb
+        self.rho = rho
+    def tableaux(self, v):
+        for i in v:
+            for j in range(0,len(i)-1):
+                if (i[j]>i[j+1]):
+                    return False
+        for i in range(1,len(v)):
+            for j in range(0,len(v[i])):
+                if (v[i][j]<v[i-1][j]):
+                    return False
+        for i in range(0,len(v)):
+            for j in range(0,len(v[i])):
+                c=0
+                if (j != 0):
+                    if (v[i][j] == v[i][j-1]):
+                        c=1
+                if (j != (len(v[i])-1)):
+                    if (v[i][j] == v[i][j+1]):
+                        c=1
+                if (i != 0):
+                    if (v[i][j] == v[i-1][j]):
+                        c=1
+                if (i != (len(v)-1)):
+    #            if (len(v[i+1]) <= len(v[i])):
+                    if (j < len(v[i+1])):
+                        if (v[i][j] == v[i+1][j]):
+                            c=1
+                if ((c == 0) and (self.rho[v[i][j]-1]>1)):
+                    return False
+        else:
+            return True
 
 
 def _char_f(G, g, i, j):
