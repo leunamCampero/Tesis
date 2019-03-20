@@ -166,6 +166,53 @@ class SimplicialComplex:
 #                        faceset.append(sorted(face))
         return faceset
 
+    def n_faces(self, n):
+        return list(filter(lambda face: (len(face) == n+1) , self.faces())) 
+    def zero_simplex(self):
+        zero_s = Group_p_chains([], [1])
+        if (list(self.G.nodes()) != []):
+            for x in range(0, len(list(self.G.nodes()))):
+                zero_s = zero_s + Group_p_chains([list(self.G.nodes())[x]], [1])
+        return zero_s
+    def one_simplex(self):
+        one_s = Group_p_chains([], [1])
+        if (list(self.G.edges()) != []):
+            for x in range(0, len(list(self.G.edges()))):
+                one_s = one_s + Group_p_chains([list(self.G.edges())[x]], [1])
+        return one_s
+    def two_simplex(self):
+        two_s = Group_p_chains([], [1])
+        if (len(self.G.edges()) >= 3):
+            comb = combinations(list(self.G.nodes()), 3) 
+            for g in list(comb):
+                test=True
+                for w in g:
+                    for k in g:
+                        if (k != w):
+                            if (w not in [n for n in self.G.neighbors(k)]):
+                                test=False
+                if (test==True):
+                    two_s = two_s + Group_p_chains([g], [1])
+            return two_s
+        else:
+            return two_s
+    def three_simplex(self):
+        three_s = Group_p_chains([], [1])
+        if (len(self.G.edges()) >= 4):
+            comb = combinations(list(self.G.nodes()), 4) 
+            for g in list(comb):
+                test=True
+                for w in g:
+                    for k in g:
+                        if (k != w):
+                            if (w not in [n for n in self.G.neighbors(k)]):
+                                test=False
+                if (test==True):
+                    three_s = three_s + Group_p_chains([g], [1])
+            return three_s
+        else:
+            return three_s
+
 def _char_f(G, g, i, j):
     elems = list(G.elements)
     if g*elems[i] == elems[j]:
