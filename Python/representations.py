@@ -65,35 +65,49 @@ class YoungTableaux:
         else:
             return True
 
-        def MNR(self):
-            p=[]
-            i=1
-            for h in self.rho:
-                for j in range(0,h):
-                    p.append(i)
-                i=i+1
-            perm = permutations(p)
-            D=[]
-            for i in list(perm):
-                v=[]   
-                for g in i:
-                    v.append(g)
-                c=0
-                w=[]
-                for p in self.lamb:
-                    u=[]
-                    for i in range(c,c+p):
-                        u.append(v[i])
-                    w.append(u)
-                    c=c+p
-                if (self.tableaux(w) == True):
-                    D.append(w)
-            D1=[D[0]]
-            for k1 in D:
-                if k1 not in D1:
-                    D1.append(k1)
-            return(D1)
-
+    def MNR(self):
+        p=[]
+        i=1
+        for h in self.rho:
+            for j in range(0,h):
+                p.append(i)
+            i=i+1
+        perm = permutations(p)
+        D=[]
+        for i in list(perm):
+            v=[]   
+            for g in i:
+                v.append(g)
+            c=0
+            w=[]
+            for p in self.lamb:
+                u=[]
+                for i in range(c,c+p):
+                    u.append(v[i])
+                w.append(u)
+                c=c+p
+            if (self.tableaux(w) == True):
+                D.append(w)
+        D1=[D[0]]
+        for k1 in D:
+            if k1 not in D1:
+                D1.append(k1)
+        return(D1)
+    
+    def Heights(self):
+        H = self.MNR()
+        He = []
+        for h in H:
+            he=[]
+            for i in range(0,len(self.rho)):
+                c = 0
+                for g in h:
+                    if ((i+1) in g):
+                        c = c+1
+                he.append(c-1)
+            He.append(sum(he))
+        return He
+    
 def _char_f(G, g, i, j):
     elems = list(G.elements)
     if g*elems[i] == elems[j]:
