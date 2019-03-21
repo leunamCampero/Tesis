@@ -9,3 +9,5 @@
 auto/
 /LaTeX/tesis.pdf
 /LaTeX/tesis.synctex.gz
+Python/*.ipynb
+Python/.ipynb_checkpoints/
