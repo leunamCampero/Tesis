@@ -147,6 +147,28 @@ def regular_representation(G):
     return MatrixRepresentation(mydict, G, n)
 
 
+def _check_candidate(A, c):
+    n = A.shape[0]
+    for i in range(c, n):
+        for j in range(c):
+            if A[i, j] != 0 or A[j, i] != 0:
+                return False
+    else:
+        return True
+
+
+def _detect_block(A):
+    n = A.shape[0]
+    i = 0
+    while i < n:
+        j = i
+        while j < n:
+            if A[i, j] == 0 and A[j, i] == 0:
+                j = j+1
+            else:
+                pass
+
+
 def block(M):
     """A function that return where end the blocks of a matrix."""
     v = []
