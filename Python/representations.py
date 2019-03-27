@@ -327,6 +327,19 @@ def orientation_function(a,b):
                     v[j] = i
         P = Permutation(v)
         return P.is_even
+def grafica_de_emparejamiento(n):
+    k_n = nx.complete_graph(n)
+    G = nx.Graph()
+    for i in k_n.edges():
+        G.add_node(i)
+    w = []
+    for i in k_n.edges():
+        for j in k_n.edges():
+            if ((j[0] not in i) and (j[1] not in i) and ((i,j) not in w) and ((j,i) not in w)): 
+                w.append((i,j))
+                G.add_edge(i,j)
+    return G
+
 def boundary_op(d):
     s = Group_p_chains([],1)
     for u in d.keys():
