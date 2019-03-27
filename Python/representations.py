@@ -34,6 +34,7 @@ class YoungTableaux:
     def __init__(self, lamb, rho):
         self.lamb = lamb
         self.rho = rho
+
     def tableaux(self, v):
         for i in v:
             for j in range(0,len(i)-1):
@@ -46,12 +47,15 @@ class YoungTableaux:
         for i in range(0,len(v)):
             for j in range(0,len(v[i])):
                 c=0
+                c1 = 0
                 if (j != 0):
                     if (v[i][j] == v[i][j-1]):
                         c=1
+                        c1 = c1 + 1
                 if (j != (len(v[i])-1)):
                     if (v[i][j] == v[i][j+1]):
                         c=1
+                        c1 = c1 + 1
                 if (i != 0):
                     if (v[i][j] == v[i-1][j]):
                         c=1
@@ -60,7 +64,13 @@ class YoungTableaux:
                     if (j < len(v[i+1])):
                         if (v[i][j] == v[i+1][j]):
                             c=1
+                            c1 = c1 + 1
+                    if (j < (len(v[i+1]) - 1)):
+                        if (v[i][j] == v[i+1][j+1]):
+                            c1 = c1 + 1
                 if ((c == 0) and (self.rho[v[i][j]-1]>1)):
+                    return False
+                if (c1 == 3):
                     return False
         else:
             return True
