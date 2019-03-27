@@ -316,6 +316,17 @@ def eq_elements(a, b):
                 return False
         else:
             return True
+def orientation_function(a,b):
+    if (isinstance(a[0], int) == True):
+        return True
+    else: 
+        v = np.zeros((len(a),), dtype = int)
+        for i in range(len(a)):
+            for j in range(len(b)):
+                if (eq_elements(a[i],b[j]) == True):
+                    v[j] = i
+        P = Permutation(v)
+        return P.is_even
 def boundary_op(d):
     s = Group_p_chains([],1)
     for u in d.keys():
