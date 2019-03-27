@@ -273,8 +273,8 @@ class SimplicialComplex:
                                 w[j] = P(i[j])
                         v2.append(tuple(w))  
                 for g in v:
-                    if (eq_elements(g,v2) == True):
-                        if (orientation_function(g,v2) == True):
+                    if (eq_elementsCLANS(g,v2) == True):
+                        if (orientation_functionCLANS(g,v2) == True):
                             v1 = v1 + Group_p_chains([tuple(v2)],[1])
                         else:
                             v1 = v1 - Group_p_chains([tuple(v2)],[1])
@@ -290,8 +290,8 @@ class SimplicialComplex:
                         v2.append(tuple(w))  
                     v3.append(tuple(v2))
                 for g in v:
-                    if (eq_elements(g,tuple(v3)) == True):
-                        if (orientation_function(g,tuple(v3)) == True):
+                    if (eq_elementsCLANS(g,tuple(v3)) == True):
+                        if (orientation_functionCLANS(g,tuple(v3)) == True):
                             v1 = v1 + Group_p_chains([tuple(v3)],[1])
                         else:
                             v1 = v1 - Group_p_chains([tuple(v3)],[1])
@@ -326,9 +326,22 @@ class SimplicialComplex:
                         else:
                             v1 = v1 - Group_p_chains([tuple(w)],[1])
         return v1
+    def matrix_simmetric_representateCLANS(self, P, K):
+        v = self.simplex()[k]
+        v1 = self.representate_in_simplex(P, K)
+        M = zeros(len(v.dic.keys()),len(v1.dic.keys()))
+        i = 0
+        for u1 in v:
+            j = 0
+            for u2 in v1.dic.keys():
+                if (eq_elementsCLANS(u1,u2) == True):
+                    M[i,j] = (v1.dic)[u2]
+                j = j + 1
+            i = i + 1
+        return M
     def matrix_simmetric_representate(self, P, k):
         v = self.simplex()[k]
-        v1 = self.representate_in_simplex(P,k)
+        v1 = self.representate_in_simplex(P, k)
         M = zeros(len(v.dic.keys()),len(v1.dic.keys()))
         i = 0
         for u1 in v.dic.keys():
@@ -354,7 +367,7 @@ def eq_elementsCLANS(a, b):
         for i in range(len(a)):
             test = False 
             for j in range(len(b)):
-                if (eq_elements(a[i],b[j])):
+                if (eq_elementsCLANS(a[i],b[j])):
                     test = True
             if (test == False):
                 return False
@@ -373,14 +386,14 @@ def eq_elements(a, b):
                 return False
         else:
             return True
-def orientation_function(a,b):
+def orientation_functionCLANS(a,b):
     if (isinstance(a[0][0], int) == True):
         return True
     else: 
         v = np.zeros((len(a),), dtype = int)
         for i in range(len(a)):
             for j in range(len(b)):
-                if (eq_elements(a[i],b[j]) == True):
+                if (eq_elementsCLANS(a[i],b[j]) == True):
                     v[j] = i
         P = Permutation(v)
         return P.is_even
