@@ -290,6 +290,19 @@ class SimplicialComplex:
                         else:
                             v1 = v1 - Group_p_chains([tuple(w)],[1])
         return v1
+    def matrix_simmetric_representate(self, P, k):
+        v = self.simplex()[k]
+        v1 = self.representate_in_simplex(P,k)
+        M = zeros(len(v.dic.keys()),len(v1.dic.keys()))
+        i = 0
+        for u1 in v.dic.keys():
+            j = 0
+            for u2 in v1.dic.keys():
+                if (eq_elements(u1,u2) == True):
+                    M[i,j] = (v1.dic)[u2]
+                j = j + 1
+            i = i + 1
+        return M
 def boundary_op(d):
     s = Group_p_chains([],1)
     for u in d.keys():
