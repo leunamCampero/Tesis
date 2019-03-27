@@ -260,6 +260,36 @@ class SimplicialComplex:
         dimIm = len((N.T).rref()[1])
         dimH = dimKe - dimIm
         return dimKe, dimIm, dimH
+    def representate_in_simplex(self, P, k):
+        v = list((self.simplex()[k]).dic.keys())
+        v1 = Group_p_chains([],[1])
+        for u in v:
+            if (isinstance(u[0], int) == False):
+                v2 = []
+                for i in u:
+                    w = list(i).copy()
+                    for j in range(len(i)):
+                        if (i[j] in P):
+                            w[j] = P(i[j])
+                    v2.append(tuple(w))
+                for g in v:
+                    if (eq_elements(g,v2) == True):
+                        if (orientation_function(g,v2) == True):
+                            v1 = v1 + Group_p_chains([tuple(v2)],[1])
+                        else:
+                            v1 = v1 - Group_p_chains([tuple(v2)],[1])
+            else:
+                w = list(u).copy()
+                for j in range(len(u)):
+                    if (u[j] in P):
+                        w[j] = P(u[j])
+                for g in v:
+                    if (eq_elements(g,tuple(w)) == True):
+                        if (orientation_function(g,tuple(w)) == True):
+                            v1 = v1 + Group_p_chains([tuple(w)],[1])
+                        else:
+                            v1 = v1 - Group_p_chains([tuple(w)],[1])
+        return v1
 def boundary_op(d):
     s = Group_p_chains([],1)
     for u in d.keys():
