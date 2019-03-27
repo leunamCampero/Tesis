@@ -374,6 +374,17 @@ def eq_elements(a, b):
         else:
             return True
 def orientation_function(a,b):
+    if (isinstance(a[0][0], int) == True):
+        return True
+    else: 
+        v = np.zeros((len(a),), dtype = int)
+        for i in range(len(a)):
+            for j in range(len(b)):
+                if (eq_elements(a[i],b[j]) == True):
+                    v[j] = i
+        P = Permutation(v)
+        return P.is_even
+def orientation_function(a,b):
     if (isinstance(a[0], int) == True):
         return True
     else: 
