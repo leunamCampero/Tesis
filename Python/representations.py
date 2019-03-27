@@ -339,6 +339,27 @@ class SimplicialComplex:
                 j = j + 1
             i = i + 1
         return M
+def eq_elementsCLANS(a, b):
+    if (isinstance(a[0][0], int) == True):
+        for i in range(len(a)):
+            test = False 
+            for j in range(len(b)):
+                if (set() == set(a[i]).difference(b[j])):
+                    test = True
+            if (test == False):
+                return False
+        else:
+            return True
+    else:      
+        for i in range(len(a)):
+            test = False 
+            for j in range(len(b)):
+                if (eq_elements(a[i],b[j])):
+                    test = True
+            if (test == False):
+                return False
+        else:
+            return True
 def eq_elements(a, b):
     if (isinstance(a[0], int) == True):
         return (set() == set(a).difference(set(b)))
