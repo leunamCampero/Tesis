@@ -303,6 +303,19 @@ class SimplicialComplex:
                 j = j + 1
             i = i + 1
         return M
+def eq_elements(a, b):
+    if (isinstance(a[0], int) == True):
+        return (set() == set(a).difference(set(b)))
+    else:      
+        for i in range(len(a)):
+            test = False 
+            for j in range(len(b)):
+                if (set() == set(a[i]).difference(b[j])):
+                    test = True
+            if (test == False):
+                return False
+        else:
+            return True
 def boundary_op(d):
     s = Group_p_chains([],1)
     for u in d.keys():
