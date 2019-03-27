@@ -260,6 +260,42 @@ class SimplicialComplex:
         dimIm = len((N.T).rref()[1])
         dimH = dimKe - dimIm
         return dimKe, dimIm, dimH
+    def representate_in_simplexCLANS(self, P, k):
+        v = list((self.simplex()[k]).dic.keys())
+        v1 = Group_p_chains([],[1])
+        for u in v:
+            if (isinstance(u[0][0], int) == True): 
+                v2 = []
+                for i in u:
+                        w = list(i).copy()
+                        for j in range(len(i)):
+                            if (i[j] in P):
+                                w[j] = P(i[j])
+                        v2.append(tuple(w))  
+                for g in v:
+                    if (eq_elements(g,v2) == True):
+                        if (orientation_function(g,v2) == True):
+                            v1 = v1 + Group_p_chains([tuple(v2)],[1])
+                        else:
+                            v1 = v1 - Group_p_chains([tuple(v2)],[1])
+            else:
+                v3 = []
+                for a in u:
+                    v2 = []
+                    for i in a:
+                        w = list(i).copy()
+                        for j in range(len(i)):
+                            if (i[j] in P):
+                                w[j] = P(i[j])
+                        v2.append(tuple(w))  
+                    v3.append(tuple(v2))
+                for g in v:
+                    if (eq_elements(g,tuple(v3)) == True):
+                        if (orientation_function(g,tuple(v3)) == True):
+                            v1 = v1 + Group_p_chains([tuple(v3)],[1])
+                        else:
+                            v1 = v1 - Group_p_chains([tuple(v3)],[1])
+        return v1
     def representate_in_simplex(self, P, k):
         v = list((self.simplex()[k]).dic.keys())
         v1 = Group_p_chains([],[1])
