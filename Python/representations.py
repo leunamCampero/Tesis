@@ -151,7 +151,7 @@ class Group_p_chains:
         return self.dic == other.dic 
     def __ne__(self, other):
         return not self.__eq__(other)
-
+    
 class SimplicialComplex:
     def __init__(self, G):
         self.G = G
@@ -159,76 +159,47 @@ class SimplicialComplex:
         for x in self.G.nodes():
             self.vertices.append(x)
     def faces(self):
-        self.simplices = []
-        self.simplices = self.vertices
-        faceset = set()
-        n = len(self.simplices)
-        for k in range(n, 0, -1):
-            for face in list(combinations(self.simplices,k)):
-                if face not in faceset:
-                    faceset.add(face)
-#Aquí tengo problemas con la longitud de enteros
-#        for simplex in self.simplices:
-#            n = len(simplex)
-#            for k in range(n-1, 0, -1):
-#                for face in combinations(simplex,k):
-#                    if sorted(face) not in faceset:
-#                        faceset.append(sorted(face))
+        faceset = []
+        for face in list(nx.enumerate_all_cliques(self.G)):
+            faceset.append(tuple(face))
         return faceset
-
     def n_faces(self, n):
-        return list(filter(lambda face: (len(face) == n+1) , self.faces())) 
-    def zero_simplex(self):
-        zero_s = Group_p_chains([], [1])
-        if (list(self.G.nodes()) != []):
-            for x in range(0, len(list(self.G.nodes()))):
-                zero_s = zero_s + Group_p_chains([list(self.G.nodes())[x]], [1])
-        return zero_s
-    def one_simplex(self):
-        one_s = Group_p_chains([], [1])
-        if (list(self.G.edges()) != []):
-            for x in range(0, len(list(self.G.edges()))):
-                one_s = one_s + Group_p_chains([list(self.G.edges())[x]], [1])
-        return one_s
-    def two_simplex(self):
-        two_s = Group_p_chains([], [1])
-        if (len(self.G.edges()) >= 3):
-            comb = combinations(list(self.G.nodes()), 3) 
-            for g in list(comb):
-                test=True
-                for w in g:
-                    for k in g:
-                        if (k != w):
-                            if (w not in [n for n in self.G.neighbors(k)]):
-                                test=False
-                if (test==True):
-                    two_s = two_s + Group_p_chains([g], [1])
-            return two_s
+        return list(filter(lambda face: (len(face) == n+1) , self.faces()))
+    def dimension(self):
+        a = 0
+        for x in self.faces():
+            if (len(x) > a):
+                a = len(x) 
+        return a-1
+    def p_simplex(self, k):
+        p_simplex = []
+        for x in self.n_faces(k):
+            p_simplex.append(x)
+        return p_simplex
+    def elementary_chain(self, simplicie):
+        ec = Group_p_chains([], [1])
+        for x in set_oriented_p_simplices(simplicie):
+            if (orientation_function(simplicie, x) == True):
+                ec = ec + Group_p_chains([x], [1])
+            else:
+                ec = ec - Group_p_chains([x], [1])
+        return ec
+    def group_of_oriented_p_chains(self, k):
+        if ((k<0) or (k>self.dimension())):
+            return 0
         else:
-            return two_s
-    def three_simplex(self):
-        three_s = Group_p_chains([], [1])
-        if (len(self.G.edges()) >= 4):
-            comb = combinations(list(self.G.nodes()), 4) 
-            for g in list(comb):
-                test=True
-                for w in g:
-                    for k in g:
-                        if (k != w):
-                            if (w not in [n for n in self.G.neighbors(k)]):
-                                test=False
-                if (test==True):
-                    three_s = three_s + Group_p_chains([g], [1])
-            return three_s
+            c_p = Group_p_chains([], [1])
+            for x in self.p_simplex(k):
+                c_p = c_p + self.elementary_chain(x)
+            return c_p
+    def group_of_oriented_p_chains_op(self, k):
+        if ((k<0) or (k>self.dimension())):
+            return 0
         else:
-            return three_s
-    def simplex(self):
-        sim = {}
-        sim[0] = self.zero_simplex()
-        sim[1] = self.one_simplex()
-        sim[2] = self.two_simplex()
-        sim[3] = self.three_simplex()
-        return sim
+            c_p = Group_p_chains([], [1])
+            for x in self.p_simplex(k):
+                c_p = c_p + Group_p_chains([x], [1])
+            return c_p
     def p_homology_group_dimention(self, k):
         vk = self.simplex()[k]
         vkf = self.n_faces(k-1)
@@ -260,8 +231,8 @@ class SimplicialComplex:
         dimIm = len((N.T).rref()[1])
         dimH = dimKe - dimIm
         return dimKe, dimIm, dimH
-    def representate_in_simplexCLANS(self, P, k):
-        v = list((self.simplex()[k]).dic.keys())
+    def representate_in_simplex(self, P, v):
+#        v = list((self.simplex()[k]).dic.keys())
         v1 = Group_p_chains([],[1])
         for u in v:
             if (isinstance(u[0][0], int) == True): 
@@ -273,8 +244,8 @@ class SimplicialComplex:
                                 w[j] = P(i[j])
                         v2.append(tuple(w))  
                 for g in v:
-                    if (eq_elementsCLANS(g,v2) == True):
-                        if (orientation_functionCLANS(g,v2) == True):
+                    if (eq_elements(g,v2) == True):
+                        if (orientation_function(g,v2) == True):
                             v1 = v1 + Group_p_chains([tuple(v2)],[1])
                         else:
                             v1 = v1 - Group_p_chains([tuple(v2)],[1])
@@ -290,61 +261,17 @@ class SimplicialComplex:
                         v2.append(tuple(w))  
                     v3.append(tuple(v2))
                 for g in v:
-                    if (eq_elementsCLANS(g,tuple(v3)) == True):
-                        if (orientation_functionCLANS(g,tuple(v3)) == True):
+                    if (eq_elements(g,tuple(v3)) == True):
+                        if (orientation_function(g,tuple(v3)) == True):
                             v1 = v1 + Group_p_chains([tuple(v3)],[1])
                         else:
                             v1 = v1 - Group_p_chains([tuple(v3)],[1])
         return v1
-    def representate_in_simplex(self, P, k):
-        v = list((self.simplex()[k]).dic.keys())
-        v1 = Group_p_chains([],[1])
-        for u in v:
-            if (isinstance(u[0], int) == False):
-                v2 = []
-                for i in u:
-                    w = list(i).copy()
-                    for j in range(len(i)):
-                        if (i[j] in P):
-                            w[j] = P(i[j])
-                    v2.append(tuple(w))
-                for g in v:
-                    if (eq_elements(g,v2) == True):
-                        if (orientation_function(g,v2) == True):
-                            v1 = v1 + Group_p_chains([tuple(v2)],[1])
-                        else:
-                            v1 = v1 - Group_p_chains([tuple(v2)],[1])
-            else:
-                w = list(u).copy()
-                for j in range(len(u)):
-                    if (u[j] in P):
-                        w[j] = P(u[j])
-                for g in v:
-                    if (eq_elements(g,tuple(w)) == True):
-                        if (orientation_function(g,tuple(w)) == True):
-                            v1 = v1 + Group_p_chains([tuple(w)],[1])
-                        else:
-                            v1 = v1 - Group_p_chains([tuple(w)],[1])
-        return v1
-    def matrix_simmetric_representateCLANS(self, P, K):
-        v = self.simplex()[k]
-        v1 = self.representate_in_simplex(P, K)
-        M = zeros(len(v.dic.keys()),len(v1.dic.keys()))
+    def matrix_simmetric_representate(self, P, v):
+        v1 = self.representate_in_simplex(P,v)
+        M = zeros(len(v),len(v))
         i = 0
         for u1 in v:
-            j = 0
-            for u2 in v1.dic.keys():
-                if (eq_elementsCLANS(u1,u2) == True):
-                    M[i,j] = (v1.dic)[u2]
-                j = j + 1
-            i = i + 1
-        return M
-    def matrix_simmetric_representate(self, P, k):
-        v = self.simplex()[k]
-        v1 = self.representate_in_simplex(P, k)
-        M = zeros(len(v.dic.keys()),len(v1.dic.keys()))
-        i = 0
-        for u1 in v.dic.keys():
             j = 0
             for u2 in v1.dic.keys():
                 if (eq_elements(u1,u2) == True):
@@ -352,27 +279,37 @@ class SimplicialComplex:
                 j = j + 1
             i = i + 1
         return M
-def eq_elementsCLANS(a, b):
-    if (isinstance(a[0][0], int) == True):
-        for i in range(len(a)):
-            test = False 
-            for j in range(len(b)):
-                if (set() == set(a[i]).difference(b[j])):
-                    test = True
-            if (test == False):
-                return False
-        else:
-            return True
-    else:      
-        for i in range(len(a)):
-            test = False 
-            for j in range(len(b)):
-                if (eq_elementsCLANS(a[i],b[j])):
-                    test = True
-            if (test == False):
-                return False
-        else:
-            return True
+def boundary_op(v, G):
+    sc = SimplicialComplex(G)
+    k = len(list(v.dic.keys())[0]) - 1
+    ve = sc.group_of_oriented_p_chains_op(k)
+    s = Group_p_chains([],[])
+    for u in v.dic.keys():
+        for k in ve.dic.keys():
+            if (eq_elements(k,u) == True):
+                if (orientation_function(k,u) == True):
+                    c = 0
+                    for i in k:  
+                        w = list(k).copy()
+                        w.remove(i)
+                        s1 = Group_p_chains([tuple(w)],[abs(v.dic[u])])
+                        if (np.sign((v.dic[u])*(-1)**c) < 0):
+                            s = s - s1
+                        else:
+                            s = s + s1
+                        c = c+1
+                else:
+                    c = 0
+                    for i in k:  
+                        w = list(k).copy()
+                        w.remove(i)
+                        s1 = Group_p_chains([tuple(w)],[abs(v.dic[u])])
+                        if (np.sign((v.dic[u])*(-1)**(c+1)) < 0):
+                            s = s - s1
+                        else:
+                            s = s + s1
+                        c = c+1
+    return s
 def eq_elements(a, b):
     if (isinstance(a[0], int) == True):
         return (set() == set(a).difference(set(b)))
@@ -386,17 +323,6 @@ def eq_elements(a, b):
                 return False
         else:
             return True
-def orientation_functionCLANS(a,b):
-    if (isinstance(a[0][0], int) == True):
-        return True
-    else: 
-        v = np.zeros((len(a),), dtype = int)
-        for i in range(len(a)):
-            for j in range(len(b)):
-                if (eq_elementsCLANS(a[i],b[j]) == True):
-                    v[j] = i
-        P = Permutation(v)
-        return P.is_even
 def orientation_function(a,b):
     if (isinstance(a[0], int) == True):
         return True
@@ -420,24 +346,17 @@ def grafica_de_emparejamiento(n):
                 w.append((i,j))
                 G.add_edge(i,j)
     return G
-
-def boundary_op(d):
-    s = Group_p_chains([],1)
-    for u in d.keys():
-        c = 0
-        for i in u:  
-            w = set()
-            for j in u:
-                if (i != j):
-                    w.add(j)
-            s1 = Group_p_chains([tuple(w)],[1])
-            if (d[u]*(-1)**c == -1):
-                s = s - s1
-            else:
-                s = s + s1
-            c = c+1
-    return s
-
+def set_oriented_p_simplices(simplicie):
+        return list(permutations(simplicie))
+def elementary_chain_f(simplicie):
+    ec = Group_p_chains([], [1])
+    for x in set_oriented_p_simplices(simplicie):
+        if (orientation_function(simplicie, x) == True):
+            ec = ec + Group_p_chains([x], [1])
+        else:
+            ec = ec - Group_p_chains([x], [1])
+    return ec
+    
 def _char_f(G, g, i, j):
     elems = list(G.elements)
     if g*elems[i] == elems[j]:
