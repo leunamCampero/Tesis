@@ -1486,7 +1486,7 @@ class SimplicialComplex:
             v = []
             for h in w:
                 u.append(self.character_matrix_permutation(make_permutation(h), k))
-                v.append(size_conjugacy_class(h))
+                v.append(size_conjugacy_class(h,n))
             for i in range(M.shape[0]):
                 Ip = 0
                 for j in range(M.shape[1]):
@@ -1831,7 +1831,7 @@ def permutation_in_simplex_es(vec, P):
         return s
     else:
         return s
-def size_conjugacy_class(partition):
+def size_conjugacy_class(partition,n):
     aux1=1
     c=0
     aux=partition[0]

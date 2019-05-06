@@ -1699,7 +1699,39 @@ $\mathcal{F}$.
   porque $V$ y $W$ son irreducibles. Entonces $S$ no es sigular. Por
   ello $S^{-1}\mathcal{F}_{1}(g)S=\mathcal{F}_{2}(g)$ para $g \in G$.
 \end{proof}
-Si $\mathcal{F}$ es una $F$-representación de $G$ se define $C_{F}(\mathcal{F})=\left\mathcal{F}$
+
+\chapter{Gráficas de clanes}
+\label{cha:Graficas_clanes}
+
+Se desea presentar las nocines básicas de gráficas, así como definir
+la gráfica de clanes. El contenido presentado puede consultarse en
+Referencias...
+
+\section{Gráficas}
+\label{sec:graficas}
+
+Una \emph{gráfica} es un par ordenado de conjuntos $G = (V(G), E(G))$,
+tal que
+$E(G) \subseteq \left\{ \left\{ u,v \right\} \colon u,v \in V(G), u
+  \neq v \right\}$. Donde $V(G) = V$ es un conjunto no vacío que
+consiste de $p$ \emph{vértices}, mientras que a los $q$ elementos de
+$E(V) = E$ se les llama aristas de $G$. Si
+$e = \left\{ u,v \right\} \in E$, se dice que $\left\{ u,v \right\}$
+son vértices adyacentes o vecinos y se escribe $u \sim u$.  Sea $u \in V$ y $e \in E$, si
+$u \in e$ se dirá que $u$ y $e$ son indicentes.
+
+\begin{definition}
+  \label{sub_graph}
+  Una gráfica $H$ es una subgráfica de $G$ si $V(H) \subseteq V(G)$ y
+  $E(H) \subseteq E(G)$.
+\end{definition}
+
+\begin{definition}
+  \label{complete_graph}
+  La gráfica $G$ donde cada par de sus $p$ vértices son adyacentes se
+  dice \emph{completa}, y se denota como $K_{p}$.
+\end{definition}
+
 
 
 \backmatter
