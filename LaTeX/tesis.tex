@@ -1703,9 +1703,9 @@ $\mathcal{F}$.
 \chapter{Gráficas de clanes}
 \label{cha:Graficas_clanes}
 
-Se desea presentar las nocines básicas de gráficas, así como definir
+Se desea presentar las nociones básicas de gráficas, así como definir
 la gráfica de clanes. El contenido presentado puede consultarse en
-Referencias...
+referencias...
 
 \section{Gráficas}
 \label{sec:graficas}
@@ -1722,7 +1722,7 @@ $u \in e$ se dirá que $u$ y $e$ son indicentes.
 
 \begin{definition}
   \label{sub_graph}
-  Una gráfica $H$ es una subgráfica de $G$ si $V(H) \subseteq V(G)$ y
+  Una gráfica $H$ es una \emph{subgráfica} de $G$ si $V(H) \subseteq V(G)$ y
   $E(H) \subseteq E(G)$.
 \end{definition}
 
@@ -1732,6 +1732,29 @@ $u \in e$ se dirá que $u$ y $e$ son indicentes.
   dice \emph{completa}, y se denota como $K_{p}$.
 \end{definition}
 
+
+\begin{definition}
+  \label{intersection_graph}
+  Sea $S$ un conjunto y $F = \left\{ S_{1}, \ldots, S_{p} \right\}$
+  una familia de subconjuntos distintos no vacíos de $S$ cuya unión es
+  $S$. La \emph{gráfica de intersección} de $F$ es $\Omega(F)$ y está
+  definida por $V(\Omega(F)) = F$, con $S_{i}$ y $S_{j}$ adyacentes si
+  $i \neq j$ y $S_{i} \cap S_{j} \neq \emptyset$.
+\end{definition}
+
+\begin{definition}
+  \label{clique}
+  Un \emph{clan} de una gráfica es una subgráfica completa maximal, lo
+  cual significa que no está contenida en ningua otra subgráfica
+  completa.
+\end{definition}
+
+
+\begin{definition}
+  \label{clique_graph}
+  La \emph{gráfica de clanes} de $G$, es la gráfica de intersección de
+  la familia de clanes de $G$. Y se donotará como $K(G)$.
+\end{definition}
 
 
 \backmatter
