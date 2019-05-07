@@ -1700,6 +1700,57 @@ $\mathcal{F}$.
   ello $S^{-1}\mathcal{F}_{1}(g)S=\mathcal{F}_{2}(g)$ para $g \in G$.
 \end{proof}
 
+\chapter{Homología de complejos simpliciales}
+\label{hsc}
+En este capítulo ...
+
+\section{Complejos simpliciales abstractos}
+\label{asc}
+
+\begin{definition}
+  \label{dasc}
+  Un \textbf{complejo simplicial abstracto} es una colección
+  finita $\Delta$ de conjuntos no vacíos, tal que si $A$ es un
+  elemento de $\Delta$, entonces cada subconjunto no vacío de $A$
+  también pertenece a $\Delta$.
+\end{definition}
+
+El elemento $A$ de $\Delta$ es llamado un \textbf{simplejo}
+de $\Delta$. Su \textbf{dimensión} es uno menos que el número
+de sus elementos, es decir, si $A$ tiene $p+1$ elementos, se dice que
+$A$ es un \textbf{p-simplejo}. Cada subconjunto no vacío de
+$A$ es llamado \textbf{cara} de $A$.  La dimensión de $\Delta$
+  es la mayor dimensión que alguno de sus simplejos pueda tener. El
+  conjunto de \textbf{vértices} $V$ de $\Delta$ es la unión
+  de los elementos de un punto de $\Delta$. No se hará distinción
+  entre los vértices $v \in V$ y los $0$-simplejos
+  $\left\{ v \right\} \in \Delta$. Una subcolección de $\Delta$ que es
+  en sí un complejo es llamado \textbf{subcomplejo} de
+    $\Delta$.
+
+\begin{definition}
+  \label{psk}
+  Un subcomplejo de $\Delta$ que es la colección de todos los
+  simplejos de $\Delta$ de dimensión a los más $p$, se le dice
+  \textbf{p-esqueleto} de $\Delta$ y se denota por
+  $\Delta^{(p)}$. Los puntos de la colección $\Delta^{(0)}$ son los
+  vértices de $\Delta$, y el $1$-esqueleto $\Delta^{(1)}$ de cualquier
+  complejo simplicial es una gráfica.
+\end{definition}
+
+Dos complejos abstractos $\Delta_{1}$ y $\Delta_{2}$ se dicen
+\textbf{isomorfos} si existe una correspondincia biyectiva
+$f$ mapeando el conjunto de vértices de $\Delta_{1}$ al conjunto de
+vértices de $\Delta_{2}$ tal que
+$\left\{ a_{0}, \ldots, a_{n} \right\} \in \Delta_{1}$ si y sólo si
+$\left\{ f(a_{0}), \ldots, f(a_{n}) \right\} \in \Delta_{2}$.
+
+
+
+\begin{definition}
+  \label{v_s}
+  
+\end{definition}
 \chapter{Gráficas de clanes}
 \label{cha:Graficas_clanes}
 
@@ -1710,26 +1761,27 @@ referencias...
 \section{Gráficas}
 \label{sec:graficas}
 
-Una \emph{gráfica} es un par ordenado de conjuntos $G = (V(G), E(G))$,
-tal que
+Una \textbf{gráfica} es un par ordenado de conjuntos
+$G = (V(G), E(G))$, tal que
 $E(G) \subseteq \left\{ \left\{ u,v \right\} \colon u,v \in V(G), u
   \neq v \right\}$. Donde $V(G) = V$ es un conjunto no vacío que
-consiste de $p$ \emph{vértices}, mientras que a los $q$ elementos de
+consiste de $p$ \textbf{vértices}, mientras que a los $q$ elementos de
 $E(V) = E$ se les llama aristas de $G$. Si
 $e = \left\{ u,v \right\} \in E$, se dice que $\left\{ u,v \right\}$
-son vértices adyacentes o vecinos y se escribe $u \sim u$.  Sea $u \in V$ y $e \in E$, si
-$u \in e$ se dirá que $u$ y $e$ son indicentes.
+son vértices adyacentes o vecinos y se escribirá $u \sim u$.  Sea
+$u \in V$ y $e \in E$, si $u \in e$ se dirá que $u$ y $e$ son
+indicentes.
 
 \begin{definition}
   \label{sub_graph}
-  Una gráfica $H$ es una \emph{subgráfica} de $G$ si $V(H) \subseteq V(G)$ y
-  $E(H) \subseteq E(G)$.
+  Una gráfica $H$ es una \textbf{subgráfica} de $G$ si
+  $V(H) \subseteq V(G)$ y $E(H) \subseteq E(G)$.
 \end{definition}
 
 \begin{definition}
   \label{complete_graph}
   La gráfica $G$ donde cada par de sus $p$ vértices son adyacentes se
-  dice \emph{completa}, y se denota como $K_{p}$.
+  dice \textbf{completa}, y se denota como $K_{p}$.
 \end{definition}
 
 
@@ -1737,24 +1789,33 @@ $u \in e$ se dirá que $u$ y $e$ son indicentes.
   \label{intersection_graph}
   Sea $S$ un conjunto y $F = \left\{ S_{1}, \ldots, S_{p} \right\}$
   una familia de subconjuntos distintos no vacíos de $S$ cuya unión es
-  $S$. La \emph{gráfica de intersección} de $F$ es $\Omega(F)$ y está
-  definida por $V(\Omega(F)) = F$, con $S_{i}$ y $S_{j}$ adyacentes si
-  $i \neq j$ y $S_{i} \cap S_{j} \neq \emptyset$.
+  $S$. La \textbf{gráfica de intersección} de $F$ es $\Omega(F)$ y
+  está definida por $V(\Omega(F)) = F$, con $S_{i}$ y $S_{j}$
+  adyacentes si $i \neq j$ y $S_{i} \cap S_{j} \neq \emptyset$.
 \end{definition}
 
 \begin{definition}
   \label{clique}
-  Un \emph{clan} de una gráfica es una subgráfica completa maximal, lo
-  cual significa que no está contenida en ningua otra subgráfica
+  Un \textbf{clan} de una gráfica es una subgráfica completa maximal,
+  lo cual significa que no está contenida en ningua otra subgráfica
   completa.
 \end{definition}
 
 
 \begin{definition}
   \label{clique_graph}
-  La \emph{gráfica de clanes} de $G$, es la gráfica de intersección de
-  la familia de clanes de $G$. Y se donotará como $K(G)$.
+  La \textbf{gráfica de clanes} de $G$, es la gráfica de intersección
+  de la familia de clanes de $G$. Y se donotará como $K(G)$.
 \end{definition}
+
+A cada gráfica $G$ finita se le asocia un espacio topológico por medio
+del complejo simplicial $\Delta(G)$ cuyos simplejos son las
+subgráficas completas. Entonces a $G$ le podemos asociar conceptos
+topológicos por medio de $\Delta(G)$. Se escribirá
+$G_{1} \simeq G_{2}$ si se tiene que
+$\Delta(G_{1}) \simeq \Delta(G_{2})$.  Además si $G$ tiene una acción
+del grupo simétrico $S_{n}$, entonces las homologías de $G$ son
+representaciones de $S_{n}$.
 
 
 \backmatter
