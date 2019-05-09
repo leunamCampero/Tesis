@@ -55,6 +55,8 @@
 
 \newcommand{\elespacio}{1.4cm}
 
+\newcommand{\rep}{A}
+
 \begin{document}
 \mainmatter 
 \begin{titlepage}
@@ -1474,20 +1476,20 @@ reducción de una representación unitaria reducible.
 
 \section{Preliminares}
 \label{sec:preliminares}
-Sea $G$ y $F$ un campo. Llamaremos a $\mathcal{F}$ una
-$F$-representacióna de $G$ si $\mathcal{F}$ es un homomorfismo de $G$
+Sea $G$ y $F$ un campo. Llamaremos a $\rep$ una
+$F$-representacióna de $G$ si $\rep$ es un homomorfismo de $G$
 en el grupo de transformaciones lineales no singulares de algún
 espacio vectorial finito $V$ sobre el campo $F$ (a $V$ se le llamará
-el espacio subyacente de $\mathcal{F}$). Además la dimensión de $V$
-será el grado de $\mathcal{F}$.
+el espacio subyacente de $\rep$). Además la dimensión de $V$
+será el grado de $\rep$.
 
 Análogo a lo visto en el cápitulo \ref{cha:Representaciones de
   grupos}, una $F$-representación será llamada fiel, si es un
-isomorfismo. Dos $F$-representaciones $\mathcal{F}_{1}$,
-$\mathcal{F}_{2}$ de $G$ son similares si tienen el mismo espacio
+isomorfismo. Dos $F$-representaciones $\rep_{1}$,
+$\rep_{2}$ de $G$ son similares si tienen el mismo espacio
 vectorial subyacente $V$ y si existe una transformación lineal no
 singular $S$ de $V$ tal que
-$\mathcal{F}_{1}(g)=S^{-1} \mathcal{F}_{2}(g)S$ para todo $g \in G$.
+$\rep_{1}(g)=S^{-1} \rep_{2}(g)S$ para todo $g \in G$.
  
 Si $G$ es un grupo y $F$es un campo, entonces el álgebra de grupos
 $F(G)$ de $G$ sobre $F$ es el anillo formado por todos los elementos
@@ -1503,12 +1505,12 @@ la siguiente manera:
   \left\{ \sum_{g \in G} a(g)g \right\} \left\{ \sum_{h \in G} b(h)h \right\} = \sum_{g,h \in G} a(g)b(h)gh = \sum_{g \in G} \left\{ \sum_{h \in G} a(gh^{-1})b(h) \right\} g
 \end{equation}
 
-Si $\mathcal{F}$ es una $F$-representación de $G$ con $V$ el espacio
-vectorial subyacente, entonces $\mathcal{F}$ puede ser extendido al
+Si $\rep$ es una $F$-representación de $G$ con $V$ el espacio
+vectorial subyacente, entonces $\rep$ puede ser extendido al
 homomorfismo de anillos de $F(G)$ en el anillo de transformaciones
 lineales de $V$ definiendo
-$\mathcal{F} \left\{ \sum_{g \in G} a(g)g \right\} = \sum_{g \in G}
-a(g) \mathcal{F}(g) $. De ésta manera $V$ tiene un $F(G)$-módulo
+$\rep \left\{ \sum_{g \in G} a(g)g \right\} = \sum_{g \in G}
+a(g) \rep(g) $. De ésta manera $V$ tiene un $F(G)$-módulo
 impuesta, y el $F(G)$-módulo contiene un neutro
 multiplicativo. Reciprocamente, un $F(G)$-módulo finito generado que
 también contiene un nuetro multiplicativo da origen a una únicamente
@@ -1523,45 +1525,45 @@ un homomorfismo de $G$ en el grupo de matrices $n \times n$ no
 sigulares con coeficientes en $F$. Y en muchas ocasiones será
 conveniente pensarla de esa manera.
 
-Sea $F$ cualquier campo. Si $\mathcal{F}_{1}$ y $\mathcal{F}_{2}$ son
+Sea $F$ cualquier campo. Si $\rep_{1}$ y $\rep_{2}$ son
 $F$-representaciones de $G$ con espacio vectorial subyacente $V$ y $W$
-respectivamente. Entonces $\mathcal{F}_{1} \oplus \mathcal{F}_{2}$,
-$\mathcal{F}_{1} \otimes \mathcal{F}_{2}$ son $F$-representaciones de
+respectivamente. Entonces $\rep_{1} \oplus \rep_{2}$,
+$\rep_{1} \otimes \rep_{2}$ son $F$-representaciones de
 $G$ con espacios vectoriales subyacentes $V \oplus W$, $V \otimes W$
 respectivamente.
 
-Si $\mathcal{F}$ es una $F$-representación de $\mathcal{F}^{*}$ de
-$\mathcal{F}$ por $\mathcal{F}^{*}(g)=\mathcal{F}(g^{-1})'$ para
+Si $\rep$ es una $F$-representación de $\rep^{*}$ de
+$\rep$ por $\rep^{*}(g)=\rep(g^{-1})'$ para
 $g \in G$, donde la prima denota transpuesta conjugada.
 
 Sea $V$ el espacio vectorial subyacente de una $F$-representación
-$\mathcal{F}$ de $G$. Un \emph{subespacio invariante} de $V$ es un
-subespacio $W$ tal que $W \mathcal{F}(g) \subseteq W $ para todo
+$\rep$ de $G$. Un \emph{subespacio invariante} de $V$ es un
+subespacio $W$ tal que $W \rep(g) \subseteq W $ para todo
 $g \in G$. Si $W$ es un subespacio in variante de $V$, entonces
-$\mathcal{F}$ define $F$-representaciones de $G$ con espacios
+$\rep$ define $F$-representaciones de $G$ con espacios
 vectoriales subyacentes $W$ y $V \setminus W$. Estas representaciones
-son llamadas elementos de $\mathcal{F}$. Una $F$-representación
-$\mathcal{F}$ de $G$ o su subespacio vectorial $V$ es $F$-irreducible
+son llamadas elementos de $\rep$. Una $F$-representación
+$\rep$ de $G$ o su subespacio vectorial $V$ es $F$-irreducible
 si $0$, $V$ son los únicos subespacios invariantes de
-$V$. $\mathcal{F}$ o $V$ es $F$-reducible si no es
-$F$-irreducible. $\mathcal{F}$ o $V$ es completamente reudible si
+$V$. $\rep$ o $V$ es $F$-reducible si no es
+$F$-irreducible. $\rep$ o $V$ es completamente reudible si
 $V = V_{1} \oplus \cdots \oplus V_{n}$, donde cada $V_{i}$ es un
 $F$-irreducible subespacio invariante de $V$. Además se tiene que
 $F$-reducible, $F$-irreducible y completamente reducible se convservan
-si $\mathcal{F}$ es replazado por una $F$-representación similar.
+si $\rep$ es replazado por una $F$-representación similar.
 
 Como se vio en \ref{sec:basicas}, en terminos de matrices, puede ser
-verificado que la $F$-representación $\mathcal{F}$ de $G$ es
+verificado que la $F$-representación $\rep$ de $G$ es
 $F$-reducible si y sólo si existe una matriz no singular $S$ con
 entradas en $F$ tal que para todo $g \in G$ se cumple:
 \begin{equation*}
-  S^{-1}\mathcal{F}(g)S=
+  S^{-1}\rep(g)S=
   \begin{pmatrix}
     B\left(a\right) & D\left(a\right) \\
     0 & C\left(a\right)
   \end{pmatrix}. 
 \end{equation*}  
-Se observa que $B, D$ son elementos de $\mathcal{F}$.
+Se observa que $B, D$ son elementos de $\rep$.
 \begin{theorem}[Machke]
   \label{tma}
   Sea $G$ un grupo y sea $F$ un campo tal que la característica del
@@ -1569,25 +1571,25 @@ Se observa que $B, D$ son elementos de $\mathcal{F}$.
   de $G$ es completamente reducible.
 \end{theorem}
 \begin{proof}
-  Sea $\mathcal{F}$ una $F$-representación de $G$ de grado $n$. Para
+  Sea $\rep$ una $F$-representación de $G$ de grado $n$. Para
   la prueba se procedera por inducción sobre $n$. Si $n=1$, entonces
-  $\mathcal{F}$ es $F$-irreducible. Entonces, supongamos que $n >
-  1$. Si $\mathcal{F}$ es $F$-irreducible ya se ha terminado la
+  $\rep$ es $F$-irreducible. Entonces, supongamos que $n >
+  1$. Si $\rep$ es $F$-irreducible ya se ha terminado la
   prueba. Por ello se asumirá que para todo $g \in G$:
   \begin{equation*}
-  \mathcal{F}(g)=
+  \rep(g)=
   \begin{pmatrix}
     N(g) & C(g) \\
     0 & B(g)
   \end{pmatrix}. 
 \end{equation*}
 \end{proof}
-Ya que $\mathcal{F}$ es una $F$-representación, se debe cumplir que
-$\mathcal{F}(gh) = \mathcal{F}(g)\mathcal{F}(h)$, es decir:
+Ya que $\rep$ es una $F$-representación, se debe cumplir que
+$\rep(gh) = \rep(g)\rep(h)$, es decir:
   \begin{equation}
     \label{eq:73}
     \begin{aligned}
-  \mathcal{F}(gh) &=
+  \rep(gh) &=
   \begin{pmatrix}
     N(gh) & C(gh) \\
     0 & B(gh)
@@ -1644,7 +1646,7 @@ Por ello para todo $g \in G$ se tiene que:
 \begin{equation}
   \label{eq:78}
     \begin{aligned}
-  \mathcal{F}(g)S &=
+  \rep(g)S &=
   \begin{pmatrix}
     N(g) & N(g)M+C(g) \\
     0 & B(g)
@@ -1669,7 +1671,7 @@ Por ello para todo $g \in G$ se tiene que:
 Por ello:
 \begin{equation}
   \label{eq:79}
-  S^{-1}\mathcal{F}S=
+  S^{-1}\rep(g)S=
     \begin{pmatrix}
     N(g) & 0 \\
     0 & B(g)
@@ -1677,27 +1679,27 @@ Por ello:
 \end{equation}
 Para todo $g \in G$. Aplicando inducción sobre $N$ y $B$ se llega a
 que también son completamente reducible y por lo tanto lo es
-$\mathcal{F}$.
+$\rep$.
 \begin{lemma}[Schur]
   \label{shf}
-  Sean $\mathcal{F}_{1}$ y $\mathcal{F}_{2}$ $F$-irreducibles
+  Sean $\rep_{1}$ y $\rep_{2}$ $F$-irreducibles
   $F$-representaciones de $G$ para algún campo $F$. Supongamos que $S$
   es una matriz distinta de la matriz cero que toma sus entradas en
-  $F$ y tal que $\mathcal{F}_{1}(g)S=S\mathcal{F}_{2}(g)$ para todo
-  $g \in G$. Entonces $S$ no es singular y $\mathcal{F}_{1}$ es
-  similar a $\mathcal{F}_{2}$.
+  $F$ y tal que $\rep_{1}(g)S=S\rep_{2}(g)$ para todo
+  $g \in G$. Entonces $S$ no es singular y $\rep_{1}$ es
+  similar a $\rep_{2}$.
 \end{lemma}
 \begin{proof}
   Sean $V$, $W$ los espacios vectoriales subyacentes de
-  $\mathcal{F}_{1}$, $\mathcal{F}_{2}$ respectivamente. Como $S$ es
+  $\rep_{1}$, $\rep_{2}$ respectivamente. Como $S$ es
   una transformación lineal que manda $V$ en $W$. Sea $V_{0}$ el
   kernel de $S$ y sea $W_{0} =VS$. Como
-  $v\mathcal{F}_{1}(g)S=vS\mathcal{F}_{2}(g)$ para $v \in V$,
+  $v\rep_{1}(g)S=vS\rep_{2}(g)$ para $v \in V$,
   $g 'in G$ se sigue que $V_{0}$, $W_{0}$ es un subespacio invariante
   de $V,W$ respectivamente. Como $S \neq 0$ por hipótesis tenemos que
   $V_{0} \neq V$ y $W_{0} \neq 0$. Por lo tanto $V_{0}=0$ y $W_{0}=W$
   porque $V$ y $W$ son irreducibles. Entonces $S$ no es sigular. Por
-  ello $S^{-1}\mathcal{F}_{1}(g)S=\mathcal{F}_{2}(g)$ para $g \in G$.
+  ello $S^{-1}\rep_{1}(g)S=\rep_{2}(g)$ para $g \in G$.
 \end{proof}
 
 \chapter{Homología de complejos simpliciales}
