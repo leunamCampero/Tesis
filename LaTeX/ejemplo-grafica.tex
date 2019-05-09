@@ -1,0 +1,20 @@
+\documentclass{article}
+
+\usepackage{tikz}
+\usepackage{tkz-graph}
+\usepackage{tkz-berge}
+
+\begin{document}
+\begin{center}
+  \begin{tikzpicture}
+    \grEmptyCycle[RA=1,rotation=-90]{5}
+    \grEmptyCycle[RA=3,prefix=w,rotation=-90]{5}
+    \grCycle[RA=5,prefix=z,rotation=90]{5}
+    \EdgeInGraphMod{a}{5}{2}
+    \EdgeMod{a}{w}{5}{1}
+    \EdgeMod{a}{w}{5}{-1}
+    \EdgeMod{w}{z}{5}{2}
+    \EdgeMod{w}{z}{5}{-2}    
+  \end{tikzpicture}
+\end{center}
+\end{document}
