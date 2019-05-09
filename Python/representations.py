@@ -102,7 +102,7 @@ class P_chains:
             values (list): A list with the coefficient for every element in the p-chain.
         
         Raises:
-            IndexError: If the number of p-simplexs is not equal to the number of coefficients. 
+            IndexError: If the number of p-simplices is not equal to the number of coefficients.
             TypeError: If the p-simplex given is not immutable data types like a tuple.
         
         Examples:
