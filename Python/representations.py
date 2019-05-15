@@ -2166,7 +2166,24 @@ def regular_representation(G):
                                                  _char_f(G, g, i, j)))
     return MatrixRepresentation(mydict, G, n)
 def MTS(A):
-    """Calcula una matriz triangular superior"""
+    """Compute a non-singular upper triangular matrix given a positive hermitian matrix
+    
+    Args:
+        A (matrix): A positive hermitian matrix.
+        
+    Returns:
+        __main__.MatrixRepresentation: The matrix regular representation.
+        
+    Examples:
+        To create the regular representation, you must have a symmetric group
+        and use ``regular representation(G)``.
+        
+        >>> G=SymmetricGroup(3)
+        >>> rr=regular_representation(G)
+        >>> display(rr.map)
+    
+
+    """
     A1=A
     n=A.shape[0]
     V=eye(n)
