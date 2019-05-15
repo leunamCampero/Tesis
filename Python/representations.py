@@ -25,64 +25,85 @@ import math
 import copy
 import unittest
 
+
 class MatrixRepresentation:
-    """
-    A class of matricial representation of a group.
+    """A class of matricial representation of a group.
+
+    ...
+    Attributes:
+    ----------
+        d (dict): A dict that must contains the map of a group into the group
+            of nonsingular linear transformations of some finite dimensional
+            vector space.
+        G (sympy.combinatorics.perm_groups.PermutationGroup): The group. 
+            ..Note:: For our purposes we will work with this class of groups.
+        n (int): The degree of the group.
+        
     """
     def __init__(self, d, G, n):
+        '''Define a matrix representation.
+        
+        Args:
+            d (dict): A dict that must contains the map of a group into the group
+                of nonsingular linear transformations of some finite dimensional
+                vector space.
+            G (sympy.combinatorics.perm_groups.PermutationGroup): The group. 
+        
+            n (int): The degree of the group.
+            
+        '''
         self.map = d
         self.group = G
         self.degree = n
 
     def character(self):
+        """Returns the character of a representation for every element in the group.
+        
+        Returns
+            dict: A dictionary with the character of the matrix representation
+            for every element in the group.
+        
+        Examples:
+            To calculate the character of a matrix representation
+            use ``MatrixRepresentation.character()``, in this case
+            we will help us of the ``regular representation(G)``.
+            
+            >>> G=SymmetricGroup(3)
+            >>> rr=regular_representation(G)
+            >>> rr.character()
+            {Permutation(0, 2, 1): 0, 
+             Permutation(1, 2): 0, 
+             Permutation(0, 1, 2): 0, 
+             Permutation(0, 2): 0, 
+             Permutation(2)(0, 1): 0, 
+             Permutation(2): 6}
+        
+        """
         return dict([(g, self.map[g].trace()) for g in self.group.elements])
 
     def is_unitary(self):
+        """Returns if the matrix representation is unitary.
+        
+        Returns
+            bool: True if the matrix representation is unitary, False otherwise.
+        
+        Examples:
+            To see if the representation is unitary use 
+            ``MatrixRepresentation.is_unitary()``, in this case
+            we will help us of the ``regular representation(G)``.
+            
+            >>> G=SymmetricGroup(3)
+            >>> rr=regular_representation(G)
+            >>> rr.is_unitary()
+            True
+        
+        """
         for g in self.group.elements:
             if sp.expand(self.map[g].H*self.map[g]) != sp.eye(self.degree):
                 return False
         else:
             return True
-
-class Vec2D:
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-    def __add__(self, other):
-        return Vec2D(self.x + other.x, self.y + other.y)
-from sympy import *
-init_printing(use_unicode=True)
-#import sympy 
-from sympy import sympify
-from sympy import solve
-from sympy.abc import x
-import networkx as nx
-import numpy as np
-from itertools import combinations
-from scipy.sparse import dok_matrix
-from operator import add
-import sys
-import matplotlib.pyplot as plt
-#from sympy import Matrix
-from sympy.matrices import Matrix, zeros
-from sympy.solvers.solveset import linsolve
-from sympy.combinatorics.named_groups import SymmetricGroup
-from sympy.combinatorics import Permutation
-import itertools as itert 
-from itertools import permutations 
-from sympy import Identity, eye
-from itertools import combinations_with_replacement
-from sympy.combinatorics.partitions import IntegerPartition
-import math
-import copy
-import unittest
-import timeit
-#class Vec2D:
-#    def __init__(self, x, y):
-#        self.x = x
-#        self.y = y
-#    def __add__(self, other):
-#        return Vec2D(self.x + other.x, self.y + other.y)
+        
 class P_chains:
     """A class used to do and operate p-chains.
 
