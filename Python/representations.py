@@ -123,7 +123,7 @@ class P_chains:
             values (list): A list with the coefficient for every element in the p-chain.
         
         Raises:
-            IndexError: If the number of p-simplices is not equal to the number of coefficients.
+            IndexError: If the number of p-simplexs is not equal to the number of coefficients. 
             TypeError: If the p-simplex given is not immutable data types like a tuple.
         
         Examples:
@@ -131,12 +131,12 @@ class P_chains:
             constructed by providing a list1 of p-simplex and a list2 with 
             their coefficients, i.e.
             
-            >>> P = P_chains([(0,1,2,3)],[1])
-            >>> Q = P_chains([(0,1,2),(0,1,3)],[-1,2])
-            >>> display(P.dic)
-            >>> display(Q.dic)
-            {(0, 1, 2, 3): 1}
-            {(0, 1, 2): -1, (0, 1, 3): 2}
+                >>> P = P_chains([(0,1,2,3)],[1])
+                >>> Q = P_chains([(0,1,2),(0,1,3)],[-1,2])
+                >>> P.dic
+                {(0, 1, 2, 3): 1}
+                >>> Q.dic
+                {(0, 1, 2): -1, (0, 1, 3): 2}
             
             One important thing to note about P_chains is that the p-simplex must be 
             a immutable data types like a tuple, and to see the P-chains, you need 
@@ -152,7 +152,7 @@ class P_chains:
             c = c+1
             
     def __add__(self, other):
-        """Sum two p-chains.
+        """Sums two p-chains.
         
         Args:
             other ( __main__.P_chains): Other p-chain.
@@ -163,15 +163,15 @@ class P_chains:
         Examples:
             To sum two p-chains, use ``+``.
             
-            >>> P = P_chains([(0,1,2)],[2])
-            >>> Q = P_chains([(0,1,3)],[5])
-            >>> T = P_chains([(0,1,2)],[-2])
-            >>> R = P + Q
-            >>> L = P + T
-            >>> display(R.dic)
-            >>> display(L.dic)
-            {(0, 1, 2): 2, (0, 1, 3): 5}
-            {(0, 1, 2): 0}
+                >>> P = P_chains([(0,1,2)],[2])
+                >>> Q = P_chains([(0,1,3)],[5])
+                >>> T = P_chains([(0,1,2)],[-2])
+                >>> R = P + Q
+                >>> L = P + T
+                >>> R.dic
+                {(0, 1, 2): 2, (0, 1, 3): 5}
+                >>> L.dic
+                {(0, 1, 2): 0}
             
             Note that the coefficient of L is zero because the P and T have the
             same simplex, then P + T is the sum of their respective coefficients.
@@ -193,7 +193,7 @@ class P_chains:
         return P_chains(w1,w2)    
     
     def __sub__(self, other):
-        """Subtract two p-chains.
+        """Subtracts two p-chains.
         
         Args:
             other ( __main__.P_chains): Other p-chain.
@@ -204,15 +204,15 @@ class P_chains:
         Examples:
             To subtract two p-chains, use ``-``.
             
-            >>> P = P_chains([(3,4,5)],[3])
-            >>> Q = P_chains([(1,8,9)],[1])
-            >>> T = P_chains([(0,1,2,3)],[-7])
-            >>> R = P - Q
-            >>> L = P - T
-            >>> display(R.dic)
-            >>> display(L.dic)
-            {(3, 4, 5): 3, (1, 8, 9): -1}
-            {(3, 4, 5): 3, (0, 1, 2, 3): 7}
+                >>> P = P_chains([(3,4,5)],[3])
+                >>> Q = P_chains([(1,8,9)],[1])
+                >>> T = P_chains([(0,1,2,3)],[-7])
+                >>> R = P - Q
+                >>> L = P - T
+                >>> R.dic
+                {(3, 4, 5): 3, (1, 8, 9): -1}
+                >>> L.dic
+                {(3, 4, 5): 3, (0, 1, 2, 3): 7}
            
         """
         D = {}
@@ -231,7 +231,7 @@ class P_chains:
         return P_chains(w1,w2)       
     
     def __eq__(self, other):
-        '''Return if the two P_chains are equal
+        '''Returns if the two P_chains are equal
         
         Args:
             other ( __main__.P_chains): Other p-chain.
@@ -242,15 +242,15 @@ class P_chains:
         Examples:
             To know if two P_chains are equal use ``==``.
             
-            >>> P = P_chains([(0,1,2),(3,4,5)],[1,1])
-            >>> Q = P_chains([(3,4,5),(0,1,2)],[1,1])
-            >>> R = P_chains([(0,1,2)],[1])
-            >>> L = P_chains([(1,0,2)],[1])
-            >>> display(P == Q)
-            >>> display(R == L)
-            True
-            False
-            
+                >>> P = P_chains([(0,1,2),(3,4,5)],[1,1])
+                >>> Q = P_chains([(3,4,5),(0,1,2)],[1,1])
+                >>> R = P_chains([(0,1,2)],[1])
+                >>> L = P_chains([(1,0,2)],[1])
+                >>> P == Q
+                True
+                >>> R == L
+                False
+                
             ..Note:: R and L are not equal even though they only are 
             distint in orientation, moreover, in this class the 
             orientation is not defined yet.
@@ -259,7 +259,7 @@ class P_chains:
         return self.dic == other.dic
     
     def __ne__(self, other):
-        '''Return if the two P_chains are not equal
+        '''Returns if the two P_chains are not equal
         
         Args:
             other ( __main__.P_chains): Other p-chain.
@@ -270,20 +270,20 @@ class P_chains:
         Examples:
             To know if two P_chains are equal use ``!=``.
             
-            >>> P = P_chains([(0,1,2,4)],[1])
-            >>> Q = P_chains([(0,1,4,2)],[-2])
-            >>> R = P_chains([(5,6,7)],[1])
-            >>> L = P_chains([(5,6,7)],[1])
-            >>> display(P != Q)
-            >>> display(R != L)
-            True
-            False
+                >>> P = P_chains([(0,1,2,4)],[1])
+                >>> Q = P_chains([(0,1,4,2)],[-2])
+                >>> R = P_chains([(5,6,7)],[1])
+                >>> L = P_chains([(5,6,7)],[1])
+                >>> P != Q
+                True
+                >>> R != L
+                False
             
         '''
         return not self.__eq__(other)
     
     def mul_esc(self, esc):
-        '''Return if the two P_chains are not equal
+        '''Returns if the two P_chains are not equal
         
         Args:
             other ( __main__.P_chains): Other p-chain.
@@ -294,12 +294,12 @@ class P_chains:
         Examples:
             To know if two P_chains are equal use ``!=``.
             
-            >>> P = P_chains([(7,8,9),(10,11,12)],[3,2])
-            >>> Q = P_chains([(0,1,4,2,6)],[-5])
-            >>> display(P.mul_esc(3).dic)
-            >>> display(Q.mul_esc(-1).dic)
-            {(7, 8, 9): 9, (10, 11, 12): 6}
-            {(0, 1, 4, 2, 6): 5}
+                >>> P = P_chains([(7,8,9),(10,11,12)],[3,2])
+                >>> Q = P_chains([(0,1,4,2,6)],[-5])
+                >>> P.mul_esc(3).dic
+                {(7, 8, 9): 9, (10, 11, 12): 6}
+                >>> Q.mul_esc(-1).dic
+                {(0, 1, 4, 2, 6): 5}
         
         '''
         aux = P_chains([],[])
@@ -319,7 +319,7 @@ class SimplicialComplex:
     """
 
     def __init__(self, G):
-        '''Save the graph and their nodes.
+        '''Saves the graph and their nodes.
         
         Args:
             G (networkx.classes.graph.Graph): A graph used to build a simplicial complex.
@@ -331,13 +331,12 @@ class SimplicialComplex:
             To make a simplicial complex asociated with a graph, 
             use the ``SimplicialComplex`` class. We need a graph G.
             
-            >>> G = nx.complete_graph(5)
-            >>> sc = SimplicialComplex(G)
-            >>> display(sc.G)
-            >>> display(sc.vertices)
-            
-            <networkx.classes.graph.Graph at 0x1859105d400>
-               [0, 1, 2, 3, 4]
+                >>> G = nx.complete_graph(5)
+                >>> sc = SimplicialComplex(G)
+                >>> sc.G
+                <networkx.classes.graph.Graph at 0x1859105d400>
+                >>> sc.vertices
+                   [0, 1, 2, 3, 4]
  
         
         '''
@@ -357,12 +356,17 @@ class SimplicialComplex:
             list: A list of the faces of a simplex.
 
         Examples:
-            To create the faces of a simplical complex use, ``SimplicialComplex.faces()``.
+            To create the faces of a simplical complex use, 
+            ``SimplicialComplex.faces()``.
             
-            >>> G = nx.complete_graph(4)
-            >>> sc = SimplicialComplex(G)
-            >>> display(sc.faces())
-            [(0,), (1,), (2,), (3,), (0, 1), (0, 2), (0, 3), (1, 2), (1, 3), (2, 3), (0, 1, 2), (0, 1, 3), (0, 2, 3), (1, 2, 3), (0, 1, 2, 3)]
+                >>> G = nx.complete_graph(4)
+                >>> sc = SimplicialComplex(G)
+                >>> sc.faces()
+                [(0,), (1,), (2,), (3,), 
+                 (0, 1), (0, 2), (0, 3), 
+                 (1, 2), (1, 3), (2, 3), 
+                 (0, 1, 2), (0, 1, 3), (0, 2, 3), 
+                 (1, 2, 3), (0, 1, 2, 3)]
         
             .. Note:: The faces are sorted by their dimension.
             
@@ -373,38 +377,43 @@ class SimplicialComplex:
             faceset.append(tuple(face))
         return faceset
     
-    def p_simplex(self, n):
-        """Create a list of the faces of a simplex with dimension n.
+    def p_simplex(self, p):
+        """Creates a list of the faces of a simplex with dimension p.
         
         Args:
-            n (int): The dimension of the faces.
+            p (int): The dimension of the faces.
 
         Returns:
-            list: A list of the faces of a simplex with dimension n.
+            list: A list of the faces of a simplex with dimension p.
             
         Examples:
-            >>> G = nx.complete_graph(3)
-            >>> sc = SimplicialComplex(G)
-            >>> display(sc.faces())
-            >>> display(sc.p_simplex(0))
-            >>> display(sc.p_simplex(2))
-            >>> display(sc.p_simplex(1))
-            >>> display(sc.p_simplex(5))
-            [(0,), (1,), (2,), (0, 1), (0, 2), (1, 2), (0, 1, 2)]
-            [(0,), (1,), (2,)]
-            [(0, 1, 2)]
-            [(0, 1), (0, 2), (1, 2)]
-            []
+            The p-simplices are done with 
+            "SimplicialComplex.p_simplex(p)".
             
-            Note that if there are not faces of dimension n, the method return
-            a empty list.
+                >>> G = nx.complete_graph(3)
+                >>> sc = SimplicialComplex(G)
+                >>> sc.faces()
+                [(0,), (1,), (2,), (0, 1), (0, 2), (1, 2), 
+                 (0, 1, 2)]
+                >>> sc.p_simplex(0)
+                [(0,), (1,), (2,)]
+                >>> sc.p_simplex(2)
+                [(0, 1, 2)]
+                >>> sc.p_simplex(1)
+                [(0, 1), (0, 2), (1, 2)]
+                >>> sc.p_simplex(5)
+                []
+            
+            .. Note:: If there are not faces of dimension p, 
+            the method return a empty list like in  
+            ``sc.p_simplex(5)``.
             
         """
         
-        return list(filter(lambda face: (len(face) == n+1) , self.faces()))
+        return list(filter(lambda face: (len(face) == p+1) , self.faces()))
     
     def dimension(self):
-        """Give the dimension of a simplicial complex.
+        """Gives the dimension of a simplicial complex.
 
         Returns:
             a - 1 (int): The dimension of the simplicial complex.
@@ -415,10 +424,11 @@ class SimplicialComplex:
         Examples:
             To use the method dimension write 
             ``SimplicialComplex.dimension()``.
-            >>> G = nx.petersen_graph()
-            >>> sc = SimplicialComplex(G)
-            >>> display(sc.dimension())
-            1
+            
+                >>> G = nx.petersen_graph()
+                >>> sc = SimplicialComplex(G)
+                >>> sc.dimension()
+                1
         
         """
         a = 0
@@ -459,7 +469,7 @@ class SimplicialComplex:
 #                c_p = c_p + self.elementary_chain(tuple_sorted(x))
 #            return c_p
     def basis_group_oriented_p_chains(self, p):
-        """Give a basis for the group of oriented p-chains.
+        """Gives a basis for the group of oriented p-chains.
 
         Args:
             p (int): Indicated the dimension of the p-simplex.
@@ -479,18 +489,18 @@ class SimplicialComplex:
             To create a basis for the group of oriented p-chains, use 
             ``SimplicialComplex.basis_group_oriented_p_chains(p)``.
             
-            >>> G = matching_graph(4)
-            >>> display(sc.basis_group_oriented_p_chains(0).dic)
-            >>> display(sc.basis_group_oriented_p_chains(1).dic) 
-            {((0, 1),): 1, 
-             ((0, 2),): 1, 
-             ((0, 3),): 1, 
-             ((1, 2),): 1, 
-             ((1, 3),): 1, 
-             ((2, 3),): 1}
-             {((0, 1), (2, 3)): 1, 
-              ((0, 2), (1, 3)): 1, 
-              ((0, 3), (1, 2)): 1}
+                >>> G = matching_graph(4)
+                >>> sc.basis_group_oriented_p_chains(0).dic
+                {((0, 1),): 1, 
+                 ((0, 2),): 1, 
+                 ((0, 3),): 1, 
+                 ((1, 2),): 1, 
+                 ((1, 3),): 1, 
+                 ((2, 3),): 1}
+                >>> sc.basis_group_oriented_p_chains(1).dic 
+                {((0, 1), (2, 3)): 1, 
+                 ((0, 2), (1, 3)): 1, 
+                 ((0, 3), (1, 2)): 1}
              
              .. Note:: We use the function ``matching_graph`` which
              will be explain after.
@@ -554,7 +564,50 @@ class SimplicialComplex:
             return s
         else:
             return s
+    """
+        Before see the documentation of the next methods, you must
+        see the documentation of the functions.
+    """
     def matrix_simmetric_representate(self, p):
+        """Give the matrix associated to the boundary operator.
+
+        Args:
+            p (int): Determine with basis of the p-simplex will be used.
+        Returns:
+            A matrix if p is bigger than -1, and lower than the dimension
+            of the simplicial complex, return False otherwise.
+                
+        Examples:
+            To compute the matrix associated to the boundary operator, use
+            ``SimplicialComplex.matrix_simmetric_representate(p)``.
+            
+            >>> n=5
+            >>> G = matching_graph(n)
+            >>> sc = SimplicialComplex(G)
+            >>> sc.matrix_simmetric_representate(1)
+            ⎡-1  -1  -1  0   0   0   0   0   0   0   0   0   0   0   0 ⎤
+            ⎢                                                          ⎥
+            ⎢0   0   0   -1  -1  -1  0   0   0   0   0   0   0   0   0 ⎥
+            ⎢                                                          ⎥
+            ⎢0   0   0   0   0   0   -1  -1  -1  0   0   0   0   0   0 ⎥
+            ⎢                                                          ⎥
+            ⎢0   0   0   0   0   0   0   0   0   -1  -1  -1  0   0   0 ⎥
+            ⎢                                                          ⎥
+            ⎢0   0   0   0   0   0   1   0   0   1   0   0   -1  0   0 ⎥
+            ⎢                                                          ⎥
+            ⎢0   0   0   1   0   0   0   0   0   0   1   0   0   -1  0 ⎥
+            ⎢                                                          ⎥
+            ⎢0   0   0   0   1   0   0   1   0   0   0   0   0   0   -1⎥
+            ⎢                                                          ⎥
+            ⎢1   0   0   0   0   0   0   0   0   0   0   1   0   0   1 ⎥
+            ⎢                                                          ⎥
+            ⎢0   1   0   0   0   0   0   0   1   0   0   0   0   1   0 ⎥
+            ⎢                                                          ⎥
+            ⎣0   0   1   0   0   1   0   0   0   0   0   0   1   0   0 ⎦
+            
+            .. Note:: This matrix will be so useful to our purposes.
+        
+        """
         if (p >0 and (p <= self.dimension()) ):
             v = self.basis_group_oriented_p_chains(p)
             p = p - 1
@@ -622,6 +675,31 @@ class SimplicialComplex:
         else:
             return False
     def character_kernel(self, p, P):
+        """Gives character of a basis of the kernel under a Permutation.
+
+        Args:
+            p (int): Indicated the dimension of the p-simplex.
+            P (sympy.combinatorics.permutations.Permutation): The permutation.
+            
+        Returns:
+            int: The character of a basis of the kernel under a Permutation,
+            in our case, we are interest in representates of the conjugacy 
+            class of the symmetric group.
+        
+        Examples:
+            To get the character of a permutation acting on a basis
+            of the kernel, use ``SimplicialComplex.character_kernel(p,Permutation)``.
+            
+            n=4
+            G1 = matching_graph(n)
+            G = clique_graph(G1)
+            sc = SimplicialComplex(G)
+            >>> sc.character_kernel(1,Permutation(0,1))
+            0
+            >>> sc.character_kernel(1,Permutation(0,1,2,3))
+            0
+            
+        """
         A=self.matrix_simmetric_representate(p)
         if (p>0 and (p <= self.dimension())):
             M = []
@@ -676,7 +754,33 @@ class SimplicialComplex:
             N = Matrix(w1)
 #            display(N.T)
             return np.trace(N.T)
+        
     def character_image(self, p, P):
+        """Gives character of a basis of the image under a Permutation.
+
+        Args:
+            p (int): Indicated the dimension of the p-simplex.
+            P (sympy.combinatorics.permutations.Permutation): The permutation.
+            
+        Returns:
+            int: The character of a basis of the image under a Permutation,
+            in our case, we are interest in representates of the conjugacy 
+            class of the symmetric group.
+        
+        Examples:
+            To get the character of a permutation acting on a basis
+            of the image, use ``SimplicialComplex.character_image(p,Permutation)``.
+            
+            n=4
+            G1 = matching_graph(n)
+            G = clique_graph(G1)
+            sc = SimplicialComplex(G)
+            >>> sc.character_kernel(1,Permutation(0,1))
+            0
+            >>> sc.character_kernel(1,Permutation(0,1,2,3))
+            0
+            
+        """
         if (p>0 and (p <= self.dimension())):
             A=self.matrix_simmetric_representate(p)
             w1=[]
@@ -718,8 +822,94 @@ class SimplicialComplex:
         else:
             return 0
     def character_p_homology(self, p, P):
+        """Gives character of the pth homology.
+        
+        Args:
+            p (int): Indicated the dimension of the p-simplex.
+            P (sympy.combinatorics.permutations.Permutation): The permutation.
+            
+        Returns:
+            int: The character of the pth homology.
+        
+        Examples:
+            To get the character of the pth homology use 
+            ``SimplicialComplex.character_p_homology(p, Permutation)``.
+            
+            >>> n=6
+            >>> G1 = matching_graph(n)
+            >>> G = clique_graph(G1)
+            >>> sc = SimplicialComplex(G)
+            >>> sc.character_p_homology(1,Permutation(0,1))
+            0
+            >>> sc.character_p_homology(1,Permutation())
+            16
+            
+            ..Note:: The funcion only is the subtract of the
+                character of the kernel (dimension p) and the 
+                character of the image (dimension p-1).
+        
+        """
         return self.character_kernel(p, P) - self.character_image(p + 1, P)
+   
     def specific_function(self, n):
+        """Returns a dictionary showing the descomposition into irreducibles.
+        
+        Args:
+            n (int): Indicated what symmetric group act on the p-simplex.
+           
+        Returns:
+            dict: A dictionary that contains show the descomposition
+            into irreducibles, i.e the reduce homologies of the 
+            simplicial complex determinated by a graph.
+        
+        Examples:
+            To get the reduce homologies of the simplicial complex by a 
+            graph, use ``SimplicialComplex.specific_function(n)``.
+            
+            >>> n=5
+            >>> G1 = matching_graph(n)
+            >>> G = clique_graph(G1)
+            >>> sc1 = SimplicialComplex(G)
+            >>> sc1.specific_function(n)
+            {0: {(5,): 1, 
+                 (1, 1, 1, 1, 1): 0, 
+                 (2, 1, 1, 1): 0, 
+                 (2, 2, 1): 0, 
+                 (3, 1, 1): 0, 
+                 (3, 2): 0, 
+                 (4, 1): 0}, 
+             1: {(5,): 0, 
+                 (1, 1, 1, 1, 1): 0, 
+                 (2, 1, 1, 1): 0, 
+                 (2, 2, 1): 0, 
+                 (3, 1, 1): 1, 
+                 (3, 2): 0, 
+                 (4, 1): 0}}
+            >>> sc2 = SimplicialComplex(G)
+            >>> sc2.specific_function(n)
+            {0: {(5,): 1, 
+                 (1, 1, 1, 1, 1): 0, 
+                 (2, 1, 1, 1): 0, 
+                 (2, 2, 1): 0, 
+                 (3, 1, 1): 0, 
+                 (3, 2): 0, 
+                 (4, 1): 0}, 
+             1: {(5,): 0, 
+                 (1, 1, 1, 1, 1): 0, 
+                 (2, 1, 1, 1): 0, 
+                 (2, 2, 1): 0, 
+                 (3, 1, 1): 1, 
+                 (3, 2): 0, 
+                 (4, 1): 0}, 
+             2: {(5,): 0, 
+                 (1, 1, 1, 1, 1): 0, 
+                 (2, 1, 1, 1): 0, 
+                 (2, 2, 1): 0, 
+                 (3, 1, 1): 0, 
+                 (3, 2): 0, 
+                 (4, 1): 0}}
+        
+        """
         w = partitions_list(n)
         M = form_matrix_yt(w)
         card = math.factorial(n)
@@ -730,7 +920,7 @@ class SimplicialComplex:
             v = []
             for h in w:
                 u.append(self.character_p_homology(k, make_permutation(h)))
-                v.append(size_conjugacy_class(h))
+                v.append(size_conjugacy_class(h,n))
             for i in range(M.shape[0]):
                 Ip = 0
                 for j in range(M.shape[1]):
@@ -777,15 +967,26 @@ class YoungTableaux:
             To see if a list given is a border-strip tableaux, you must 
             use ``YoungTableaux.choose_tableaux(list)``.
             
-            >>> YT = YoungTableaux([2,1],[1,1,1])
-            >>> display(YT.choose_tableaux([[1,1,1],[1,2]]))
-            >>> display(YT.choose_tableaux([[1,1,1],[2,1]]))
-            >>> display(YT.choose_tableaux([[1,1,1],[1,1]]))
-            True
-            False
-            False
+                >>> YT = YoungTableaux([2,1],[1,1,1])
+                >>> YT.choose_tableaux([[1,1,1],[1,2]])
+                True
+                >>> YT.choose_tableaux([[1,1,1],[2,1]])
+                False
+                >>> YT.choose_tableaux([[1,1,1],[1,1]])
+                False
             
-            .. Note:: In the two first examples we use two partitions of 3, 
+            .. Note:: The examples given must be interpreted 
+           like:
+            Tableaux 1:    
+                        ⎡ 1 ⎡ 1 ⎡ 1 ⎡
+                        ⎡ 1 ⎡ 2 ⎡
+            Tableaux 2: 
+                        ⎡ 1 ⎡ 1 ⎡ 1 ⎡
+                        ⎡ 1 ⎡ 2 ⎡
+            Tableaux 1: 
+                        ⎡ 1 ⎡ 1 ⎡ 1 ⎡
+                        ⎡ 1 ⎡ 1 ⎡
+            In the two first examples we use two partitions of 3, 
             and the third example is done even though the second partition 
             is a partition of 2, for our purposes that mistake is not done, 
             because we give the correct partitions.
@@ -842,12 +1043,12 @@ class YoungTableaux:
             >>> YT1 = YoungTableaux([2,2,2,1],[3,3,1])
             >>> YT2 = YoungTableaux([4,1],[3,2])
             >>> YT3 = YoungTableaux([2,2,1,1],[6])
-            >>> print(YT1.MNR())
-            >>> print(YT2.MNR())
-            >>> print(YT3.MNR())
+            >>> YT1.MNR()
             [[[1, 1], [1, 2], [2, 2], [3]], 
              [[1, 2], [1, 2], [1, 2], [3]]]
+            >>> YT2.MNR()
             [[[1, 1, 2, 2], [1]]]
+            >>> YT3.MNR()
             []
             .. Note:: In the two first example the method found two list 
             that are border-strip tableaux, the which could be interpreted 
@@ -910,14 +1111,14 @@ class YoungTableaux:
             use ``heights.MNR()``.
             
             >>> YT1 = YoungTableaux([5,2,1],[3,3,1,1])
-            >>> print(YT1.MNR())
-            >>> print(YT1.heights())
+            >>> YT1.MNR()
             [[[1, 1, 1, 3, 4], [2, 2], [2]], 
              [[1, 1, 2, 2, 2], [1, 3], [4]], 
              [[1, 1, 2, 2, 2], [1, 4], [3]], 
              [[1, 2, 2, 2, 3], [1, 4], [1]], 
              [[1, 2, 2, 2, 4], [1, 3], [1]], 
              [[1, 2, 2, 3, 4], [1, 2], [1]]]
+            >>> YT1.heights()
             [1, 1, 1, 2, 2, 3]
             .. Note:: The border-strip tableauxs could be interpreted 
             like:   
@@ -984,9 +1185,9 @@ class YoungTableaux:
             the same example that in the method ``heights``. 
             
             >>> YT1 = YoungTableaux([5,2,1],[3,3,1,1])
-            >>> print(YT1.heights())
-            >>> print(YT1.CMNR())
+            >>> YT1.heights()
             [1, 1, 1, 2, 2, 3]
+            >>> YT1.CMNR()
             -2
             .. Note:: In the method ``heights`` we saw that for the partitions of 6 given
             there are six such border-strip tableaux, and their heights are:
@@ -1039,7 +1240,7 @@ def boundary_op(v, G):
     else:
         return s
 def boundary_op_n(v):
-    """Return the action of the boundary operator on p-chains.
+    """Returns the action of the boundary operator on p-chains.
 
     Args:
         v ( __main__.P_chains): The p-chain of 
@@ -1053,11 +1254,11 @@ def boundary_op_n(v):
         >>> w = P_chains([(0,),(1,),(2,),(3,)],[1,1,1,1])
         >>> v = P_chains([(0,1,2),(0,1,3),(0,2,3),(1,2,3)],[1,1,1,1])
         >>> u = boundary_op_n(v)
-        >>> print(boundary_op_n(w).dic)
-        >>> print(u.dic)
-        >>> print(boundary_op_n(u).dic)
+        >>> boundary_op_n(w).dic)
         {}
+        >>> u.dic
         {(1, 2): 2, (0, 2): 0, (0, 1): 2, (1, 3): 0, (0, 3): -2, (2, 3): 2}
+        >>> boundary_op_n(u).dic
         {(2,): 0, (1,): 0, (0,): 0, (3,): 0}
         
         .. Note:: Above w, v are the 0-simplex, 2-simplex of the tetrahedron respectively,
@@ -1094,7 +1295,7 @@ def boundary_op_n(v):
         return s
 
 def partitions_list(n):
-    """Return a list of the partitions of n.
+    """Returns a list of the partitions of n.
 
     Args:
         n (int): A integer that determine the partitions.
@@ -1109,11 +1310,12 @@ def partitions_list(n):
         To form all the partitions for the integer ``n``, use 
         ``list_partitions``.
         
-        v = partitions_list(3)
-        u = partitions_list(5)
-        display(u)
-        display(v)
-        [[5], [1, 1, 1, 1, 1], [2, 1, 1, 1], [2, 2, 1], [3, 1, 1], [3, 2], [4, 1]]
+        >>> v = partitions_list(3)
+        >>> u = partitions_list(5)
+        >>> u
+        [[5], [1, 1, 1, 1, 1], [2, 1, 1, 1], 
+         [2, 2, 1], [3, 1, 1], [3, 2], [4, 1]]
+        >>> v
         [[3], [1, 1, 1], [2, 1]]
     
     """
@@ -1125,7 +1327,7 @@ def partitions_list(n):
     return w
 
 def form_matrix_yt(w):
-    """Return the a matrix that represent the character table of the symmetric group.
+    """Returns the a matrix that represent the character table of the symmetric group.
 
     Args:
         w (list): A list with the partitions for certain symmetric group.
@@ -1140,13 +1342,13 @@ def form_matrix_yt(w):
         
         >>> v = partitions_list(3)
         >>> u = partitions_list(6)
-        >>> display(form_matrix_yt(v))
-        >>> display(form_matrix_yt(u))
+        >>> form_matrix_yt(v)
         ⎡1   1  1 ⎤
         ⎢         ⎥
         ⎢1   1  -1⎥
         ⎢         ⎥
         ⎣-1  2  0 ⎦
+        >>> form_matrix_yt(u)
         ⎡1   1   1   1   1   1   1   1   1   1   1 ⎤
         ⎢                                          ⎥
         ⎢-1  1   -1  1   -1  1   -1  1   -1  1   1 ⎥
@@ -1203,9 +1405,9 @@ def eq_elements(a, b):
         >>> b1 = ((0,3),(2,1),(5,6)) 
         >>> a2 = ((0,1),(2,3),(5,6)) 
         >>> b2 = ((6,5),(1,0),(3,2)) 
-        >>> display(eq_elements(a1,b1))
-        >>> display(eq_elements(a2,b2))
+        >>> eq_elements(a1,b1)
         False
+        >>> eq_elements(a2,b2)
         True
 
     """
@@ -1223,35 +1425,37 @@ def eq_elements(a, b):
                 return False
         else:
             return True
+
 def orientation_function(a,b,p):
-    """A function that determine the orientation of ``b`` taken the orientation of ``a`` like positive.
+    """Determines the orientation of ``b`` taken the orientation of ``a`` positive.
 
     Args:
         a (tuple): The first tuple.
         b (tuple): The second tuple.
-        p (tuple):
-    Returns:
-        bool: True if the tuples are equal except by orientation, 
-        False otherwise.
+        p (tuple): The dimension of the simplex.
     
-    Raises: 
-        TypeError: If the tuples don't have the same structure, for 
-        example: 
-        a = ((0,1),(2,3),(5,6)) 
-        b = ((1,0))
-        
+    Returns:
+        ValueError: If the tuples are not equal under the
+        function ``eq_elements``.
+            
     Examples:
         To see if two tuples are equal use ``eq_elements``.
         
-        >>> a1 = ((0,1),(2,3),(5,6)) 
-        >>> b1 = ((0,3),(2,1),(5,6)) 
+        >>> a1 = (((0,1),(2,3),(4,6)),((0,1),(2,4),(3,5))) 
+        >>> b1 = (((4,2),(1,0),(5,3)),((2,3),(1,0),(6,4))) 
         >>> a2 = ((0,1),(2,3),(5,6)) 
         >>> b2 = ((6,5),(1,0),(3,2)) 
-        >>> display(eq_elements(a1,b1))
-        >>> display(eq_elements(a2,b2))
+        orientation_function(a1,b1,1)
         False
+        orientation_function(a2,b2,2)
         True
 
+        .. Note:: For ``a1`` and ``b1`` the function receive
+        the integer ``1``, and in the case of ``a2`` and ``b2`` 
+        receive ``2`` to indentify the dimension of the
+        p-simplex, in the practice the class determine this
+        number.
+        
     """
     if (p == 0):
         return True
@@ -1263,7 +1467,32 @@ def orientation_function(a,b,p):
                     v[j] = i
         P = Permutation(v)
         return P.is_even
+    
 def tuple_sorted(a):
+    """Sorted tuples of tuples.
+    Args:
+        a (tuple): A tuple the which will be sorted.
+        
+    Returns:
+        (tuple): The tuple sorted. 
+            
+    Examples:
+        The function ``sorted`` don't sort tuples of tuples, but
+        this function can do it, below is showing examples of 
+        both functions:
+        
+        a1 = ((6,5),(1,0),(3,2)) 
+        a2 = (((4,2),(1,0),(5,3)),((2,3),(1,0),(6,4))) 
+        >>> sorted(a1)
+        [(1, 0), (3, 2), (6, 5)]
+        >>> tuple_sorted(a1)
+        ((0, 1), (2, 3), (5, 6))
+        >>> sorted(a2)
+        [((2, 3), (1, 0), (6, 4)), ((4, 2), (1, 0), (5, 3))]
+        >>> tuple_sorted(a2)
+        (((0, 1), (2, 3), (4, 6)), ((0, 1), (2, 4), (3, 5))) 
+        
+    """
     if (isinstance(a, int) == True):
         return a
     if (isinstance(a[0], int) == True):
@@ -1274,6 +1503,34 @@ def tuple_sorted(a):
             w.append(tuple(tuple_sorted(b)))
         return tuple(sorted(tuple(w)))
 def tuple_permutation(v,P):
+    """Determines the orientation of ``b`` taken the orientation of ``a`` positive.
+
+    Args:
+        a (tuple): The tuple which will under the Permunation ``p``.
+        p (<class 'sympy.combinatorics.permutations.Permutation'>): The Permutation.
+    Returns:
+        (tuple): The tuple with their elements permutated under
+        the permutation ``p``.
+            
+    Examples:
+        To do act the Permutation on the tuple use 
+        ``tuple_permutation(tuple)``.
+        
+        >>> a1 = (0,1,2,3,4)
+        >>> a2 = ((2,4),(1,5),(3,0))
+        >>> a3 = (((0,1),(2,4),(3,5)),((0,5),(1,3),(2,4)))
+        >>> tuple_permutation(a1,Permutation(0,1,2))
+        (1, 2, 0, 3, 4)
+        >>> tuple_permutation(a2,Permutation(1,3))
+        ((2, 4), (3, 5), (1, 0))
+        >>> tuple_permutation(a3,Permutation(0,1)(2,3))
+        (((1, 0), (3, 4), (2, 5)), ((1, 5), (0, 2), (3, 4)))
+
+        .. Note:: The function return other tuple that represent
+        how the Permutation is acting in a natural way in the origin 
+        tuple.
+    
+    """
     u = []
     w = list(v).copy()
     test = True
@@ -1288,6 +1545,7 @@ def tuple_permutation(v,P):
         return tuple(w)
     else:
         return tuple(u)
+
 def matching_graph(n):
     """Makes a matching graph since a complete graph.
     
@@ -1375,33 +1633,154 @@ def clique_graph(g, cmax=math.inf):
             G1.add_edge(*e)
     return G1
 
-def convert_to_int(v,k):
-    w=[]
-    for i in v:
-        u=[]
-        for j in i:
-            if (sympify(j*k).is_integer == False):
-                return convert_to_int(v,int(solve(x*j + np.sign(j)*(-1))[0]))
-            else:
-                u.append(j*k)
-        w.append(u) 
-    return w
+#def convert_to_int(v,k):
+#    """From a list return other list where all the entries are integer.
+#
+#    Args:
+#        v (list): The tuple which will under the Permunation ``p``.
+#        k (floar): The reciprocal number to convert all the entries to integer.
+#    
+#    Returns:
+#        w (list): A tuple where all the entries are integers.
+#            
+#    Examples:
+#        To do act the Permutation on the tuple use 
+#        ``tuple_permutation(tuple)``.
+#        
+#        >>> a1 = (0,1,2,3,4)
+#        >>> a2 = ((2,4),(1,5),(3,0))
+#        >>> a3 = (((0,1),(2,4),(3,5)),((0,5),(1,3),(2,4)))
+#        >>> tuple_permutation(a1,Permutation(0,1,2))
+#        (1, 2, 0, 3, 4)
+#        >>> tuple_permutation(a2,Permutation(1,3))
+#        ((2, 4), (3, 5), (1, 0))
+#        >>> tuple_permutation(a3,Permutation(0,1)(2,3))
+#        (((1, 0), (3, 4), (2, 5)), ((1, 5), (0, 2), (3, 4)))
+#
+#        .. Note:: The function return other tuple that represent
+#        how the Permutation is acting in a natural way in the origin 
+#        tuple.
+#    
+#    """
+##    k = int(k)
+#    w=[]
+#    for i in v:
+#        u=[]
+#        for j in i:
+#            u.append(j*k)
+#        w.append(u) 
+#    print(w)
+#    c=1
+#    for i in w:
+#        for j in i:
+#            c=c*j
+#            if (j%1 != 0):
+##                if ((j*k).is_integer() == False):
+##                print(type(j),type(k),type(j*k))
+#                print(j,solve(x*j*c + np.sign(j)*(-1))[0])
+#                return convert_to_int(w,solve(x*j*c + np.sign(j)*(-1))[0])
+#    return w
 def nullspace(A):
+    """Returns a  ``list`` of column vectors that span the nullspace of the matrix.
+    Args:
+        A (Matrix): The matrix which we will find the nullspace.
+        p (<class 'sympy.combinatorics.permutations.Permutation'>): The Permutation.
+    
+    Returns:
+        (list): A list of list with the generators of the kernel.
+            
+    Examples:
+        To find the nullspace of a matrix, use ``nullspace(A)``. 
+        
+        >>> M1 = Matrix([[2, 4, 6, 6], [8, 20, 0, 1], [5, 0, 3, 2]])
+        >>> M2 = Matrix([[1,0,0],[0,1,0],[0,0,1],[0,0,-1],[0,-1,0],[-1,0,0]])
+        >>> M1
+        ⎡2  4   6  6⎤
+        ⎢           ⎥
+        ⎢8  20  0  1⎥
+        ⎢           ⎥
+        ⎣5  0   3  2⎦
+        >>> nullspace(M1)
+        [[3/16, -1/8, -47/48, 1]]
+        >>> M2
+        ⎡1   0   0 ⎤
+        ⎢          ⎥
+        ⎢0   1   0 ⎥
+        ⎢          ⎥
+        ⎢0   0   1 ⎥
+        ⎢          ⎥
+        ⎢0   0   -1⎥
+        ⎢          ⎥
+        ⎢0   -1  0 ⎥
+        ⎢          ⎥
+        ⎣-1  0   0 ⎦
+        >>> nullspace(M2)
+        [array([0, 0, 0])]
+
+        .. Note:: Essentially the function only obtain the nullspace
+        with the function ``A.nullspace()`` and returns the trivial kernel
+        if ``A.nullspace()`` is a emtpy list.
+    
+    """
     u = A.nullspace()
     w= []
     for g in u:
         v=[]
         for i in g:
-#            i = sympify(i)
-#            display(type(i))
             v.append(i)
         w.append(v)
-    w = convert_to_int(w,1)
     if (w == []):
         return [np.zeros((A.shape[1],), dtype = int)]
     else:
         return w
+    
 def columnspace(A):
+    """Returns a ``list`` of column vectors that span the columnspace of the matrix.
+    
+    Args:
+        A (Matrix): The matrix which we will find the columnspace.
+        p (<class 'sympy.combinatorics.permutations.Permutation'>): The Permutation.
+    
+    Returns:
+        (list): A list of list with the generators of the columnspace (image).
+            
+    Examples:
+        To find the columnspace of a matrix, use ``columnspace(A)``.
+        
+        >>> M1 = Matrix([[0, 0, 0], [0, 0, 0], [0, 0, 0]])
+        >>> M2 = Matrix([[1,0,0],[0,1,0],[0,0,1],[0,0,-1],[0,-1,0],[-1,0,0]])
+        >>> M1
+        ⎡0  0  0⎤
+        ⎢       ⎥
+        ⎢0  0  0⎥
+        ⎢       ⎥
+        ⎣0  0  0⎦
+        >>> columnspace(M1)
+        [array([0, 0, 0])]
+        >>> M2
+        ⎡1   0   0 ⎤
+        ⎢          ⎥
+        ⎢0   1   0 ⎥
+        ⎢          ⎥
+        ⎢0   0   1 ⎥
+        ⎢          ⎥
+        ⎢0   0   -1⎥
+        ⎢          ⎥
+        ⎢0   -1  0 ⎥
+        ⎢          ⎥
+        ⎣-1  0   0 ⎦
+        >>> nullspace(M2)
+        [array([0, 0, 0])]
+        >>> columnspace(M2)
+        [[1, 0, 0, 0, 0, -1], [0, 1, 0, 0, -1, 0], [0, 0, 1, -1, 0, 0]]
+
+        .. Note:: Essentially the function only obtain the columnspace
+        with the function ``A.columnspace()`` and returns the trivial image
+        if ``A.columnspace()`` is a emtpy list. In the example ``M2`` is noted
+        that is right that:
+        ``dimension(nullspace(A))``+``dimension(columnspace(A))`` = ``number of columns``.
+    
+    """
     u = A.columnspace()
     w= []
     for g in u:
@@ -1409,12 +1788,101 @@ def columnspace(A):
         for i in g:
             v.append(i)
         w.append(v)
-    w = convert_to_int(w,1)
     if (w == []):
         return [np.zeros((A.shape[0],), dtype = int)]
     else:
         return w
+    
 def permutation_in_simplex_test(vec, P):
+    """Returns a simplex under a permutation.
+    
+    Args:
+        vec ( __main__.P_chains): A p-chain which the permutation will act.
+        P ( sympy.combinatorics.permutations.Permutation): The permutation.
+    
+    Returns:
+        (__main__.P_chains): A new p-chain that is the result of the
+        permutation acting on the original p-chain ``vec``.
+            
+    Examples:
+        To see how a permutation act on a p-simplex, use 
+        ``permutation_in_simplex_test(SimplicialComplex, Permuation)``.
+        Also we must check that the boundary operator on a p-simplex
+        (\partial_{p}) is well-defined and that (if ``p-simplex`` := \sigma)
+        \partial_{p}(-\sigma) = - \partial_{p}(\sigma). For this purpose, it
+        suffices to show that the right-hand side of:
+            
+            \partial_{p}(\sigma) = 
+                                 = \partial_{p}([v_{0},...,v_{p}]) =
+                                 = \sum_{i=0}^{p}(-1)^{i}[v_{0},...,v_{i},...v_{p}].
+               
+                (where v_{i} means that the vertex v_{i} is to be deleted
+                from the array)
+        
+        changes sign if we exchange two adjacent vertices in the array
+        [v_{0},...,v_{p}] (important step will be explain according with the 
+        theory):
+        
+        >>> u1 = P_chains([(0,1,2,3)],[1])
+        >>> u2 = P_chains([(0,2,1,3)],[1])
+        ..Note:: The p-simplex in u1 and u2 differ by a sign.
+        
+        >>> bu1 = boundary_op_n(u1).dic
+        >>> bu2 = boundary_op_n(u2).dic
+        >>> bu1
+        {(1, 2, 3): 1, (0, 2, 3): -1, (0, 1, 3): 1, (0, 1, 2): -1}
+        >>> bu2
+        {(1, 2, 3): -1, (0, 1, 3): -1, (0, 2, 3): 1, (0, 1, 2): 1}
+        ..Note:: We could see that the result changes sign, like is wanted.
+        
+        Now se must check that \partial_{p}(\rho(\sigma)) = \rho(\partial_{p}(\sigma))
+        (where \rho = Permutation ``P``). For this we will use some p-simplices
+        associated with a graph.
+        
+        >>> n=5
+        >>> G = nx.complete_graph(n)
+        >>> sc = SimplicialComplex(G)
+        >>> sigma = sc.basis_group_oriented_p_chains(1)
+        >>> sigma.dic
+        {(0, 1): 1, 
+         (0, 2): 1, 
+         (0, 3): 1, 
+         (0, 4): 1, 
+         (1, 2): 1, 
+         (1, 3): 1, 
+         (1, 4): 1, 
+         (2, 3): 1, 
+         (2, 4): 1, 
+         (3, 4): 1}
+        >>> bo_sigma=boundary_op_n(sigma)
+        >>> rho_bo_sigma=permutation_in_simplex_test(bo_sigma,Permutation(0,1))
+        >>> rho_bo_sigma.dic
+        {(0,): -2, (1,): -4, (2,): 0, (3,): 2, (4,): 4}
+        >>> rho_sigma=permutation_in_simplex_test(sigma,Permutation(0,1))
+        >>> bo_rho_sigma=boundary_op_n(rho_sigma)
+        >>> bo_rho_sigma.dic
+        {(1,): -4, (0,): -2, (2,): 0, (3,): 2, (4,): 4}
+        >>> rho_bo_sigma == bo_rho_sigma
+        True 
+        ..Note:: Then for this example the result is the same.
+        
+        And for the second propertie:
+        
+        >>> sigma1 = P_chains([(0,1,2)],[1])
+        >>> sigma2 = P_chains([(0,1,2)],[-1])
+        ..Note:: The simplices differ by the sign.
+        >>> w1 = boundary_op_n(sigma1)
+        >>> w2 = boundary_op_n(sigma2)
+        >>> w1.dic
+        {(1, 2): 1, (0, 2): -1, (0, 1): 1}
+        >>> w2.dic
+        {(1, 2): -1, (0, 2): 1, (0, 1): -1}
+        >>> w1 == w2.mul_esc(-1) #Multiply by -1.
+        True 
+        ..Note:: For this example is true that \partial_{p}(-\sigma) = - \partial_{p}(\sigma)
+            like is wanted, and for all our cases the previous is true.
+        
+    """
     s = P_chains([],[])
     if (vec.dic != {}):
         v = list(vec.dic.keys())
@@ -1477,7 +1945,37 @@ def permutation_in_simplex_es(vec, P):
         return s
     else:
         return s
-def size_conjugacy_class(partition):
+def size_conjugacy_class(partition,n):
+    """Returns the number of elements of a conjugacy class.
+
+    Args:
+        partition (list): Represents the partitions of a symmetric group (n).
+        n (int): A integer to identify which the symmetric group.
+    
+    Returns:
+        int: The number of elements of the conjugacy class.
+        
+    Examples:
+        For find the number of elements of the conjugacy class of a
+        symmetric group use ``size_conjugacy_class(partition,n)``.
+        
+        n = 4
+        >>> size_conjugacy_class([4],n)
+        6
+        >>> size_conjugacy_class([1,1,1,1],n)
+        1
+        >>> size_conjugacy_class([2,1,1],n)
+        6
+        >>> size_conjugacy_class([2,2],n)
+        3
+        >>> size_conjugacy_class([3,1],n)
+        8
+        
+        .. Note:: The examples showed are all the partition for the case
+        4, and the sum of the results is 24 that is the cardinality of the 
+        simmetric group of 4.
+        
+    """
     aux1=1
     c=0
     aux=partition[0]
@@ -1499,7 +1997,38 @@ def size_conjugacy_class(partition):
         aux1 = aux1*(partition[j]**c)*(math.factorial(c))
     card = (math.factorial(n))/aux1
     return int(card)
+
 def make_permutation(partition):
+    """Given a partition returns the a representate of a conjugacy class.
+
+    Args:
+        partition (list): Represents the partitions of a symmetric group (n).
+    
+    Returns:
+        sympy.combinatorics.permutations.Permutation: A representate of the conjugacy class.
+        
+    Examples:
+        For find a representate of a conjugacy class of s simmetric group
+        use ``make_permutation(partition)``.
+        
+        >>> n=5
+        >>> w = partitions_list(n)
+        >>> make_permutation([5])
+        (0 1 2 3 4)
+        >>> make_permutation([1,1,1,1,1])
+        ()
+        >>> make_permutation([2,1,1,1])
+        (4)(0 1)
+        >>> make_permutation([2,2,1])
+        (4)(0 1)(2 3)
+        >>> make_permutation([3,1,1])
+        (4)(0 1 2)
+        >>> make_permutation([3,2])
+        (0 1 2)(3 4)
+        >>> make_permutation([4,1])
+        (4)(0 1 2 3)
+        
+    """
     P = Permutation()
     c = 0
     for j in range(len(partition)):
@@ -1514,7 +2043,77 @@ def make_permutation(partition):
             P1 = Permutation([a])
         P = P*P1
     return P
-def Reduce(M):
+
+def Reduce(N):
+    """Returns a row reduced form of a matrix and a matrix that save the operations.
+
+    Args:
+        N (Matrix): The matrix which will be operated.
+    
+    Returns:
+        tuple: The first element is the matrix which to be multiplied
+        by the right to the original matrix, return the row reduced form
+        and the other object is the row reduced form of the origin matrix.
+        
+    Examples:
+        To use this functio use ``Reduce(Matrix)``. We will use the help of the 
+        function ``rref`` to verify that the result is right.
+        
+        >>> M=Matrix([[-1, -1, -1, -1, 0, 0, 0, 0], 
+                  [ 1, 0, 0, 0, -1, -1, 0, 0], 
+                  [ 0, 1, 0, 0, 1, 0, -1, -1],
+                  [ 0, 0, 1, 0, 0, 1, 1, 0],
+                  [ 0, 0, 0, 1, 0, 0, 0, 1]])
+        >>> M
+        ⎡-1  -1  -1  -1  0   0   0   0 ⎤
+        ⎢                              ⎥
+        ⎢1   0   0   0   -1  -1  0   0 ⎥
+        ⎢                              ⎥
+        ⎢0   1   0   0   1   0   -1  -1⎥
+        ⎢                              ⎥
+        ⎢0   0   1   0   0   1   1   0 ⎥
+        ⎢                              ⎥
+        ⎣0   0   0   1   0   0   0   1 ⎦
+        >>> M.rref()
+        ⎛⎡1  0  0  0  -1  -1  0   0 ⎤              ⎞
+        ⎜⎢                          ⎥              ⎟
+        ⎜⎢0  1  0  0  1   0   -1  -1⎥              ⎟
+        ⎜⎢                          ⎥              ⎟
+        ⎜⎢0  0  1  0  0   1   1   0 ⎥, (0, 1, 2, 3)⎟
+        ⎜⎢                          ⎥              ⎟
+        ⎜⎢0  0  0  1  0   0   0   1 ⎥              ⎟
+        ⎜⎢                          ⎥              ⎟
+        ⎝⎣0  0  0  0  0   0   0   0 ⎦              ⎠
+        >>> P=Reduce(M)
+        >>> P    
+        ⎛⎡0   1   0   0   0⎤  ⎡1  0  0  0  -1  -1  0   0 ⎤⎞
+        ⎜⎢                 ⎥  ⎢                          ⎥⎟
+        ⎜⎢0   0   1   0   0⎥  ⎢0  1  0  0  1   0   -1  -1⎥⎟
+        ⎜⎢                 ⎥  ⎢                          ⎥⎟
+        ⎜⎢0   0   0   1   0⎥, ⎢0  0  1  0  0   1   1   0 ⎥⎟
+        ⎜⎢                 ⎥  ⎢                          ⎥⎟
+        ⎜⎢-1  -1  -1  -1  0⎥  ⎢0  0  0  1  0   0   0   1 ⎥⎟
+        ⎜⎢                 ⎥  ⎢                          ⎥⎟
+        ⎝⎣1   1   1   1   1⎦  ⎣0  0  0  0  0   0   0   0 ⎦⎠
+        ..Note:: The first matrix is the row reduced form, and the second
+            is a matrix which if is multiplied the left size to the 
+            origin matrix, then we obtain the row reduced form.
+        
+        >>> P[0]*M
+        ⎡1  0  0  0  -1  -1  0   0 ⎤
+        ⎢                          ⎥
+        ⎢0  1  0  0  1   0   -1  -1⎥
+        ⎢                          ⎥
+        ⎢0  0  1  0  0   1   1   0 ⎥
+        ⎢                          ⎥
+        ⎢0  0  0  1  0   0   0   1 ⎥
+        ⎢                          ⎥
+        ⎣0  0  0  0  0   0   0   0 ⎦
+        ..Note:: And the result is the same that using the function ``reff``.
+        
+        
+    """
+    M = N.copy()
     lead = 0
     rowCount = M.shape[0]
     columnCount = M.shape[1]
@@ -1553,6 +2152,142 @@ def Reduce(M):
         lead = lead + 1
         A=B1*A
     return A,M
+
+def _char_f(G, g, i, j):
+    elems = list(G.elements)
+    if elems[i]*g == elems[j]:
+        return 1
+    else:
+        return 0
+
+
+def regular_representation(G):
+    """Builds the regular representation.
+    
+    Args:
+        G (sympy.combinatorics.perm_groups.PermutationGroup): A symmetric group. 
+        
+    Returns:
+        __main__.MatrixRepresentation: The matrix regular representation.
+        
+    Examples:
+        To create the regular representation, you must have a symmetric group
+        and use ``regular representation(G)``.
+        
+        >>> G=SymmetricGroup(3)
+        >>> rr=regular_representation(G)
+        >>> display(rr.map)
+        ⎧     ⎡1  0  0  0  0  0⎤         ⎡0  0  0  0  1  0⎤            ⎡0  1  0  0  0  0⎤ 
+        ⎪     ⎢                ⎥         ⎢                ⎥            ⎢                |
+        ⎪     ⎢0  1  0  0  0  0⎥         ⎢0  0  0  0  0  1⎥            ⎢1  0  0  0  0  0|
+        ⎪     ⎢                ⎥         ⎢                ⎥            ⎢                |
+        ⎪     ⎢0  0  1  0  0  0⎥         ⎢0  0  0  1  0  0⎥            ⎢0  0  0  0  0  1|
+        ⎨(2): ⎢                ⎥, (1 2): ⎢                ⎥, (2)(0 1): ⎢                |,
+        ⎪     ⎢0  0  0  1  0  0⎥         ⎢0  0  1  0  0  0⎥            ⎢0  0  0  0  1  0|
+        ⎪     ⎢                ⎥         ⎢                ⎥            ⎢                |
+        ⎪     ⎢0  0  0  0  1  0⎥         ⎢1  0  0  0  0  0⎥            ⎢0  0  0  1  0  0|
+        ⎪     ⎢                ⎥         ⎢                ⎥            ⎢                |
+        ⎩     ⎣0  0  0  0  0  1⎦         ⎣0  1  0  0  0  0⎦            ⎣0  0  1  0  0  0⎦
+        
+                 ⎡0  0  0  1  0  0⎤           ⎡0  0  0  0  0  1⎤         ⎡0  0  1  0  0  0⎤⎫
+                 ⎢                ⎥           ⎢                ⎥         ⎢                ⎥⎪
+                 ⎢0  0  1  0  0  0⎥           ⎢0  0  0  0  1  0⎥         ⎢0  0  0  1  0  0⎥⎪
+                 ⎢                ⎥           ⎢                ⎥         ⎢                ⎥⎪
+                 ⎢0  0  0  0  1  0⎥           ⎢0  1  0  0  0  0⎥         ⎢1  0  0  0  0  0⎥⎪
+        (0 1 2): ⎢                ⎥, (0 2 1): ⎢                ⎥, (0 2): ⎢                ⎥⎪
+                 ⎢0  0  0  0  0  1⎥           ⎢1  0  0  0  0  0⎥         ⎢0  1  0  0  0  0⎥⎪
+                 ⎢                ⎥           ⎢                ⎥         ⎢                ⎥⎪
+                 ⎢0  1  0  0  0  0⎥           ⎢0  0  1  0  0  0⎥         ⎢0  0  0  0  0  1⎥⎪
+                 ⎢                ⎥           ⎢                ⎥         ⎢                ⎥⎪
+                 ⎣1  0  0  0  0  0⎦           ⎣0  0  0  1  0  0⎦         ⎣0  0  0  0  1  0⎦⎭
+         ..Note: In the first line of the code of this function is used ``G.elements``
+         which is a iterator, i.e every time the function ``regular_representation``
+         is run, the result could change, however the character is the same.
+             
+    """
+    elems = list(G.elements)
+    n = len(elems)
+    mydict = {}
+    for g in elems:
+        mydict[g] = sp.ImmutableMatrix(sp.Matrix(n, n,
+                                                 lambda i, j:
+                                                 _char_f(G, g, i, j)))
+    return MatrixRepresentation(mydict, G, n)
+def MTS(A):
+    """Calcula una matriz triangular superior"""
+    A1=A
+    n=A.shape[0]
+    V=eye(n)
+    for i in range(0,n):
+        C=eye(n)
+        C[i,i]=1/sqrt(A1[i,i])
+        for j in range(i+1,n):
+            C[i,j] = -(1/A1[i,i])*A1[i,j]
+        V=V*C
+        V.simplify()
+        A1=Dagger(C)*A1*C
+        A1.simplify()
+    return V
+
+def unitary_representation(G,d):
+    """Becomes a matrix representation in a unitary matrix representation.
+        
+    Args:
+        d (dict): A dict that must contains the map of a group into the group
+                of nonsingular linear transformations of some finite dimensional
+                vector space.
+        G (sympy.combinatorics.perm_groups.PermutationGroup): The group. 
+        
+    Returns:
+        __main__.MatrixRepresentation: A unitary matrix representation.
+
+    """
+    n=d.degree
+    A=zeros(n,n)
+    for g in d.map:
+        J=(d.map[g].H)*d.map[g]
+        J=expand(J)
+        A=J+A
+    A1=A
+    V=eye(n)
+    for i in range(0,n):
+        C=eye(n)
+        C[i,i]=1/sqrt(A1[i,i])
+        for j in range(i+1,n):
+            C[i,j] = -(1/A1[i,i])*A1[i,j]
+        V=V*C
+        V=expand(V)
+        A1=(C.H)*A1*C
+        A1=expand(A1)
+    V=MTS(A)
+    M = {}
+    for g in list(G.elements):
+        M[g]=sp.ImmutableMatrix((V.inv())*d.map[g]*V)
+    return MatrixRepresentation(M, G, n)
+
+def is_irreducible(G,d):
+    """Determines if a representation is irreducible.
+    
+        Args:
+            d (dict): A dict that must contains the map of a group into the group
+                of nonsingular linear transformations of some finite dimensional
+                vector space.
+                
+            G (sympy.combinatorics.perm_groups.PermutationGroup): The group. 
+        
+        Returns:
+            True if the representation is irreducible, a matrix non 
+            escalar that reduce the matrix representation in otherwise.
+
+        Examples:
+            To see if a representation is irreducible use
+            ``is_irreducible(G,d)``.
+            
+            >>> G=SymmetricGroup(3)
+            >>> rr=regular_representation(G)
+            >>> M=is_irreducible(G,rr)
+    
+
 def _char_f(G, g, i, j):
     elems = list(G.elements)
     if elems[i]*g == elems[j]:
