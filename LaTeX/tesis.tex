@@ -1750,9 +1750,18 @@ $\left\{ f(a_{0}), \ldots, f(a_{n}) \right\} \in \Delta_{2}$.
 
 
 \begin{definition}
-  \label{v_s}
-  
+  \label{v_s} 
+  Sea $\sigma$ un simplejo. Dos ordenamientos de su
+  conjunto de vértices son equivalentes si ellos son diferentes el uno
+  del otro por una permutación par. Si la dimensión de $\sigma$ es
+  mayor que $0$, los ordenamientos de los vértices de $\sigma$ caen en
+  dos clases de equivalencia. Cada una de esas clases es llamada una
+  \textbf{orientación} de $\sigma$. (En el caso donde $\sigma$ es un
+  $0$-simplejo, solamente hay una clase, y por lo tanto una sola
+  orientación de $\sigma$.) Un simplejo orientado es un simplejo
+  $\sigma$ junto con una orientación de $\sigma$.
 \end{definition}
+
 \chapter{Gráficas de clanes}
 \label{cha:Graficas_clanes}
 
@@ -1799,6 +1808,18 @@ completa $K_4$.
   \label{fig:completa}
 \end{figure}
 
+\begin{center}
+  \begin{tikzpicture}
+    \grEmptyCycle[RA=1,rotation=-90]{5}
+    \grEmptyCycle[RA=3,prefix=w,rotation=-90]{5}
+    \grCycle[RA=5,prefix=z,rotation=90]{5}
+    \EdgeInGraphMod{a}{5}{2}
+    \EdgeMod{a}{w}{5}{1}
+    \EdgeMod{a}{w}{5}{-1}
+    \EdgeMod{w}{z}{5}{2}
+    \EdgeMod{w}{z}{5}{-2}    
+  \end{tikzpicture}
+\end{center}
 \begin{definition}
   \label{intersection_graph}
   Sea $S$ un conjunto y $F = \left\{ S_{1}, \ldots, S_{p} \right\}$
