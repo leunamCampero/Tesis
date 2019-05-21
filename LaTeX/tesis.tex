@@ -1802,7 +1802,77 @@ simplejo, entonces podemos escribir $\sigma’ = -\sigma$, pues ésta
 ecuación se mantiene cuando nos referimos a $\sigma$ y $\sigma’$ como
 cadenas elementales.
 
+\begin{lemma}
+  \label{c_basis}
+  Una base para $C_{p}(\Delta)$ se puede obtener tomando una
+  orientación por cada $p$-simplejo y usando las correspondientes
+  cadenas elementales como elementos de la base.
+\end{lemma}
 
+\begin{proof}
+  Una vez que todos los $p$-simplejos de $\Delta$ están orientados
+  (arbitrariamente), cada $p$-cadena puede ser escrita de manera única
+  como una combinación lineal finita
+\begin{equation}
+  \label{eq:81}
+  c = \sum n_{i}\sigma_{i}
+\end{equation}
+de las correspondientes cadenas elementales $\sigma_{i}$. La $c$ cadena
+asigna el valor $n_{i}$ a los $p$-simplejos $\sigma_{i}$, el valor
+($n_{i}$) a la orientación opuesta de $\sigma_{i}$ y el valor $0$ a
+todo $p$-simplejo orientado que no aparece en la suma.
+\end{proof}
+
+\begin{corollary}
+  \label{corf}
+  Cualquier función $f$ de los $p$-simplejos orientados de $\Delta$ en
+  un espacio vectorial $V$, tal que $f(- \sigma) = -f(\sigma)$ para
+  todo $p$-simplejo orientado $\sigma$ puede extenderse de manera
+  única auna transformación lineal de $C_{p}(\Delta) \to V$.
+\end{corollary}
+
+\begin{definition}
+  \label{bo}
+  Se define el homomorfismo
+  \begin{equation}
+    \label{eq:82}
+    \partial_{p} \colon C_{p}(\Delta) \to C_{p-1}(\Delta)
+  \end{equation}
+  llamado el \textbf{operador frontera}. Si
+  $\sigma = [v_{0}, \ldots, v_{p}]$ es un simplejo orientado con
+  $p > 0 $, se define
+  \begin{equation}
+    \label{eq:83}
+    \partial_{p} \sigma = \partial_{p} [v_{0}, \ldots, v_{p}] = \sum_{i=0}^{p} (-1)^{i} [v_{0}, \ldots,\hat{v_{i}},\ldots, v_{p}],
+  \end{equation}
+  donde $\hat{v_{i}}$ significa que el vértice $v_{i}$ es quitado del
+  arreglo. Ya que $C_{p}(K)$ es el grupo trivial para $p < 0$, el
+  operador frontera $\partial_{p}$ es el homomorfismo para $p \leq 0$.
+\end{definition}
+Se mostrará que $\partial_{p}$ está bien definido y que
+$\partial_{p}(-\sigma) = -\partial_{p}\sigma$. Para ello el lado
+derecho de \ref{eq:82} cambia de signo si se cambian dos vértices
+adyacentes en el arreglo $[v_{0}, \ldots,\hat{v_{i}},\ldots,
+v_{p}]$. Entonces se compararán las expresiones:
+\begin{equation}
+  \label{eq:84}
+  \partial_{p}(v_{0}\ldots v_{j} v_{j+1} \ldots v_{p}) \quad \mathrm{y} \quad \partial_{p}(v_{0} \ldots v_{j+1} v_{j} \ldots v_{p}).
+\end{equation}
+Para $i \neq j$, $j + 1$, el $j$-ésimo término en esas dos expresiones
+difieren precisamente por un signo, el termino es identico excepto que
+$v_{j}$ y $v_{j+1}$ aparecen intercambiados. A continuación se
+presenta que sucede para el $i$-ésimo término para $i = j$ y
+$i = j+1$. Para la primera expresión se tiene:
+\begin{equation}
+  \label{eq:85}
+    (-1)^{j} (\ldots,v_{j-1},\hat{v_{j}}, v_{j+1}, v_{j+1},\ldots)  + (-1)^{j+1} (\ldots,v_{j-1},v_{j},\hat{v_{j+1}}, v_{j+1},\ldots).
+  \end{equation}
+Mientras que para la segunda expresión, se tiene:
+  \begin{equation}
+    \label{eq:87}
+    (-1)^{j} (\ldots,v_{j-1},\hat{v_{j+1}}, v_{j}, v_{j+2},\ldots)  + (-1)^{j+1} (\ldots,v_{j-1},v_{j+1},\hat{v_{j}}, v_{j+2},\ldots). 
+  \end{equation}
+Comparando las dos expresiones se observa que difieren por un signo.
 
 \chapter{Gráficas de clanes}
 \label{cha:Graficas_clanes}
