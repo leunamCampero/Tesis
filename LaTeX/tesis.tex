@@ -1762,6 +1762,48 @@ $\left\{ f(a_{0}), \ldots, f(a_{n}) \right\} \in \Delta_{2}$.
   $\sigma$ junto con una orientación de $\sigma$.
 \end{definition}
 
+Según el contexto, $\sigma$ denotará un simplejo, o un simplejo
+orientado.
+
+Frecuentemente una orientación de un $1$-simplejo es representada
+dibujando una flecha sobre él.
+
+\begin{definition}
+  \label{p_chain}
+  Sea $\Delta$ un complejo simplicial. Una \textbf{p-cadena} en
+  $\Delta$ es una función $c$ de el conjunto de $p$-simplejos
+  orientados de $\Delta$ al campo de los números complejos, tal que:
+  $c(\sigma) = -c(\sigma’)$ si $\sigma$ y $\sigma’$ son orientaciones
+  opuestas del mismo simplejo.
+\end{definition}
+Sumamos $p$-cadenas sumando sus valores; el $\mathbb{C}$-espacio
+vectorial resultante es denotado por $C_{p}(\Delta)$ y es llamado el
+\textbf{espacio de p-cadenas}(\textbf{orientadas}) de $\Delta$. Si
+$p > 0$ o $p > $ dim $\Delta$, $C_{p}(\Delta)$ denota el espacio
+trivial.
+\begin{definition}
+  \label{elementary_chain}
+  Si $\sigma$ es un simplejo orientado, la \textbf{cadena elemental}
+  $c$ correspondiente a $\sigma$ es la función definida como:
+  \begin{equation}
+    \label{eq:80}
+     \begin{aligned}
+    c(\sigma) &= 1,\\
+    c(\sigma) &= -1, \\
+    c(\sigma) &= 0.
+  \end{aligned}
+  \end{equation}
+\end{definition}
+Por abuso de notación, $\sigma$ denotará no solo a un simplejo, o a un
+simplejo orientado, también denotamos a la $p$-cadena elemental $c$
+correspondiente al simplejo orientado $\sigma$.  Con esta conveción,
+si $\sigma$ y $\sigma’$ tienen orientaciones opuestas del mismo
+simplejo, entonces podemos escribir $\sigma’ = -\sigma$, pues ésta
+ecuación se mantiene cuando nos referimos a $\sigma$ y $\sigma’$ como
+cadenas elementales.
+
+
+
 \chapter{Gráficas de clanes}
 \label{cha:Graficas_clanes}
 
