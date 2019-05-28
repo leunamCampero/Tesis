@@ -1,6 +1,5 @@
 from sympy import *
-init_printing(use_unicode=True)
-#import sympy 
+import sympy as sp
 from sympy import sympify
 from sympy import solve
 from sympy.abc import x
@@ -30,8 +29,9 @@ class MatrixRepresentation:
     """A class of matricial representation of a group.
 
     ...
+    
     Attributes:
-    ----------
+    
         d (dict): A dict that must contains the map of a group into the group
             of nonsingular linear transformations of some finite dimensional
             vector space.
@@ -68,20 +68,15 @@ class MatrixRepresentation:
             use ``MatrixRepresentation.character()``, in this case
             we will help us of the ``regular representation(G)``.
             
-            >>> G=SymmetricGroup(3)
+            >>> G=SymmetricGroup(2)
             >>> rr=regular_representation(G)
-            >>> rr.character()
-            {Permutation(0, 2, 1): 0, 
-             Permutation(1, 2): 0, 
-             Permutation(0, 1, 2): 0, 
-             Permutation(0, 2): 0, 
-             Permutation(2)(0, 1): 0, 
-             Permutation(2): 6}
+            >>> print(rr.character())
+            {Permutation(1): 2, Permutation(0, 1): 0}
         
         """
         return dict([(g, self.map[g].trace()) for g in self.group.elements])
-
-    def is_unitary(self):
+    
+   def is_unitary(self):
         """Returns if the matrix representation is unitary.
         
         Returns
@@ -94,7 +89,7 @@ class MatrixRepresentation:
             
             >>> G=SymmetricGroup(3)
             >>> rr=regular_representation(G)
-            >>> rr.is_unitary()
+            >>> print(rr.is_unitary())
             True
         
         """
@@ -108,8 +103,8 @@ class P_chains:
     """A class used to do and operate p-chains.
 
     ...
-    Attributes:
-    ----------
+    
+    Attributes:    
         keys (list): A list with the elements of the p-chains
         values (list): A list with the coefficient for every element in the p-chains
 
@@ -131,12 +126,12 @@ class P_chains:
             constructed by providing a list1 of p-simplex and a list2 with 
             their coefficients, i.e.
             
-                >>> P = P_chains([(0,1,2,3)],[1])
-                >>> Q = P_chains([(0,1,2),(0,1,3)],[-1,2])
-                >>> P.dic
-                {(0, 1, 2, 3): 1}
-                >>> Q.dic
-                {(0, 1, 2): -1, (0, 1, 3): 2}
+            >>> P = P_chains([(0,1,2,3)],[1])
+            >>> Q = P_chains([(0,1,2),(0,1,3)],[-1,2])
+            >>> print(P.dic)
+            {(0, 1, 2, 3): 1}
+            >>> print(Q.dic)
+            {(0, 1, 2): -1, (0, 1, 3): 2}
             
             One important thing to note about P_chains is that the p-simplex must be 
             a immutable data types like a tuple, and to see the P-chains, you need 
@@ -163,15 +158,15 @@ class P_chains:
         Examples:
             To sum two p-chains, use ``+``.
             
-                >>> P = P_chains([(0,1,2)],[2])
-                >>> Q = P_chains([(0,1,3)],[5])
-                >>> T = P_chains([(0,1,2)],[-2])
-                >>> R = P + Q
-                >>> L = P + T
-                >>> R.dic
-                {(0, 1, 2): 2, (0, 1, 3): 5}
-                >>> L.dic
-                {(0, 1, 2): 0}
+            >>> P = P_chains([(0,1,2)],[2])
+            >>> Q = P_chains([(0,1,3)],[5])
+            >>> T = P_chains([(0,1,2)],[-2])
+            >>> R = P + Q
+            >>> L = P + T
+            >>> print(R.dic)
+            {(0, 1, 2): 2, (0, 1, 3): 5}
+            >>> print(L.dic)
+            {(0, 1, 2): 0}
             
             Note that the coefficient of L is zero because the P and T have the
             same simplex, then P + T is the sum of their respective coefficients.
@@ -204,15 +199,15 @@ class P_chains:
         Examples:
             To subtract two p-chains, use ``-``.
             
-                >>> P = P_chains([(3,4,5)],[3])
-                >>> Q = P_chains([(1,8,9)],[1])
-                >>> T = P_chains([(0,1,2,3)],[-7])
-                >>> R = P - Q
-                >>> L = P - T
-                >>> R.dic
-                {(3, 4, 5): 3, (1, 8, 9): -1}
-                >>> L.dic
-                {(3, 4, 5): 3, (0, 1, 2, 3): 7}
+            >>> P = P_chains([(3,4,5)],[3])
+            >>> Q = P_chains([(1,8,9)],[1])
+            >>> T = P_chains([(0,1,2,3)],[-7])
+            >>> R = P - Q
+            >>> L = P - T
+            >>> print(R.dic)
+            {(3, 4, 5): 3, (1, 8, 9): -1}
+            >>> print(L.dic)
+            {(3, 4, 5): 3, (0, 1, 2, 3): 7}
            
         """
         D = {}
@@ -242,14 +237,14 @@ class P_chains:
         Examples:
             To know if two P_chains are equal use ``==``.
             
-                >>> P = P_chains([(0,1,2),(3,4,5)],[1,1])
-                >>> Q = P_chains([(3,4,5),(0,1,2)],[1,1])
-                >>> R = P_chains([(0,1,2)],[1])
-                >>> L = P_chains([(1,0,2)],[1])
-                >>> P == Q
-                True
-                >>> R == L
-                False
+            >>> P = P_chains([(0,1,2),(3,4,5)],[1,1])
+            >>> Q = P_chains([(3,4,5),(0,1,2)],[1,1])
+            >>> R = P_chains([(0,1,2)],[1])
+            >>> L = P_chains([(1,0,2)],[1])
+            >>> print(P == Q)
+            True
+            >>> print(R == L)
+            False
                 
             ..Note:: R and L are not equal even though they only are 
             distint in orientation, moreover, in this class the 
@@ -270,14 +265,14 @@ class P_chains:
         Examples:
             To know if two P_chains are equal use ``!=``.
             
-                >>> P = P_chains([(0,1,2,4)],[1])
-                >>> Q = P_chains([(0,1,4,2)],[-2])
-                >>> R = P_chains([(5,6,7)],[1])
-                >>> L = P_chains([(5,6,7)],[1])
-                >>> P != Q
-                True
-                >>> R != L
-                False
+            >>> P = P_chains([(0,1,2,4)],[1])
+            >>> Q = P_chains([(0,1,4,2)],[-2])
+            >>> R = P_chains([(5,6,7)],[1])
+            >>> L = P_chains([(5,6,7)],[1])
+            >>> print(P != Q)
+            True
+            >>> print(R != L)
+            False
             
         '''
         return not self.__eq__(other)
@@ -294,26 +289,25 @@ class P_chains:
         Examples:
             To know if two P_chains are equal use ``!=``.
             
-                >>> P = P_chains([(7,8,9),(10,11,12)],[3,2])
-                >>> Q = P_chains([(0,1,4,2,6)],[-5])
-                >>> P.mul_esc(3).dic
-                {(7, 8, 9): 9, (10, 11, 12): 6}
-                >>> Q.mul_esc(-1).dic
-                {(0, 1, 4, 2, 6): 5}
+            >>> P = P_chains([(7,8,9),(10,11,12)],[3,2])
+            >>> Q = P_chains([(0,1,4,2,6)],[-5])
+            >>> print(P.mul_esc(3).dic)
+            {(7, 8, 9): 9, (10, 11, 12): 6}
+            >>> print(Q.mul_esc(-1).dic)
+            {(0, 1, 4, 2, 6): 5}
         
         '''
         aux = P_chains([],[])
         for x in self.dic:
             aux.dic[x] = esc*self.dic[x]
-        return aux
-    
+        return aux    
     
 class SimplicialComplex:
     """A class to make simplicial complex asociated with a graph.
 
     ...
+
     Attributes:
-    ----------
         G (networkx.classes.graph.Graph): A graph used to build a simplicial complex.
 
     """
@@ -331,12 +325,10 @@ class SimplicialComplex:
             To make a simplicial complex asociated with a graph, 
             use the ``SimplicialComplex`` class. We need a graph G.
             
-                >>> G = nx.complete_graph(5)
-                >>> sc = SimplicialComplex(G)
-                >>> sc.G
-                <networkx.classes.graph.Graph at 0x1859105d400>
-                >>> sc.vertices
-                   [0, 1, 2, 3, 4]
+            >>> G = nx.complete_graph(5)
+            >>> sc = SimplicialComplex(G)
+            >>> print(sc.vertices)
+              [0, 1, 2, 3, 4]
  
         
         '''
@@ -359,14 +351,10 @@ class SimplicialComplex:
             To create the faces of a simplical complex use, 
             ``SimplicialComplex.faces()``.
             
-                >>> G = nx.complete_graph(4)
-                >>> sc = SimplicialComplex(G)
-                >>> sc.faces()
-                [(0,), (1,), (2,), (3,), 
-                 (0, 1), (0, 2), (0, 3), 
-                 (1, 2), (1, 3), (2, 3), 
-                 (0, 1, 2), (0, 1, 3), (0, 2, 3), 
-                 (1, 2, 3), (0, 1, 2, 3)]
+            >>> G = nx.complete_graph(3)
+            >>> sc = SimplicialComplex(G)
+            >>> print(sc.faces())
+            [(0,), (1,), (2,), (0, 1), (0, 2), (1, 2), (0, 1, 2)]
         
             .. Note:: The faces are sorted by their dimension.
             
@@ -390,19 +378,18 @@ class SimplicialComplex:
             The p-simplices are done with 
             "SimplicialComplex.p_simplex(p)".
             
-                >>> G = nx.complete_graph(3)
-                >>> sc = SimplicialComplex(G)
-                >>> sc.faces()
-                [(0,), (1,), (2,), (0, 1), (0, 2), (1, 2), 
-                 (0, 1, 2)]
-                >>> sc.p_simplex(0)
-                [(0,), (1,), (2,)]
-                >>> sc.p_simplex(2)
-                [(0, 1, 2)]
-                >>> sc.p_simplex(1)
-                [(0, 1), (0, 2), (1, 2)]
-                >>> sc.p_simplex(5)
-                []
+            >>> G = nx.complete_graph(3)
+            >>> sc = SimplicialComplex(G)
+            >>> print(sc.faces())
+            [(0,), (1,), (2,), (0, 1), (0, 2), (1, 2), (0, 1, 2)]
+            >>> print(sc.p_simplex(0))
+            [(0,), (1,), (2,)]
+            >>> print(sc.p_simplex(2))
+            [(0, 1, 2)]
+            >>> print(sc.p_simplex(1))
+            [(0, 1), (0, 2), (1, 2)]
+            >>> print(sc.p_simplex(5))
+            []
             
             .. Note:: If there are not faces of dimension p, 
             the method return a empty list like in  
@@ -425,10 +412,10 @@ class SimplicialComplex:
             To use the method dimension write 
             ``SimplicialComplex.dimension()``.
             
-                >>> G = nx.petersen_graph()
-                >>> sc = SimplicialComplex(G)
-                >>> sc.dimension()
-                1
+            >>> G = nx.petersen_graph()
+            >>> sc = SimplicialComplex(G)
+            >>> print(sc.dimension())
+            1
         
         """
         a = 0
@@ -482,26 +469,18 @@ class SimplicialComplex:
             lexicographical order, i.e, this orientation is taken positive.
         
         Raises:
-            If p is lower than zero or bigger than the dimension of the
-            simplicial complex, then the method return ``0``.
+            AttributeError: If p is lower than zero or bigger than the dimension of the
+            simplicial complex dimension.
         
         Examples:
             To create a basis for the group of oriented p-chains, use 
             ``SimplicialComplex.basis_group_oriented_p_chains(p)``.
             
-                >>> G = matching_graph(4)
-                >>> sc.basis_group_oriented_p_chains(0).dic
-                {((0, 1),): 1, 
-                 ((0, 2),): 1, 
-                 ((0, 3),): 1, 
-                 ((1, 2),): 1, 
-                 ((1, 3),): 1, 
-                 ((2, 3),): 1}
-                >>> sc.basis_group_oriented_p_chains(1).dic 
-                {((0, 1), (2, 3)): 1, 
-                 ((0, 2), (1, 3)): 1, 
-                 ((0, 3), (1, 2)): 1}
-             
+            >>> G = matching_graph(3)
+            >>> sc = SimplicialComplex(G)
+            >>> print(sc.basis_group_oriented_p_chains(0).dic)
+            {((0, 1),): 1, ((0, 2),): 1, ((1, 2),): 1}
+                
              .. Note:: We use the function ``matching_graph`` which
              will be explain after.
             
@@ -580,30 +559,12 @@ class SimplicialComplex:
         Examples:
             To compute the matrix associated to the boundary operator, use
             ``SimplicialComplex.matrix_simmetric_representate(p)``.
-            
-            >>> n=5
+                
+            >>> n=3
             >>> G = matching_graph(n)
             >>> sc = SimplicialComplex(G)
-            >>> sc.matrix_simmetric_representate(1)
-            ⎡-1  -1  -1  0   0   0   0   0   0   0   0   0   0   0   0 ⎤
-            ⎢                                                          ⎥
-            ⎢0   0   0   -1  -1  -1  0   0   0   0   0   0   0   0   0 ⎥
-            ⎢                                                          ⎥
-            ⎢0   0   0   0   0   0   -1  -1  -1  0   0   0   0   0   0 ⎥
-            ⎢                                                          ⎥
-            ⎢0   0   0   0   0   0   0   0   0   -1  -1  -1  0   0   0 ⎥
-            ⎢                                                          ⎥
-            ⎢0   0   0   0   0   0   1   0   0   1   0   0   -1  0   0 ⎥
-            ⎢                                                          ⎥
-            ⎢0   0   0   1   0   0   0   0   0   0   1   0   0   -1  0 ⎥
-            ⎢                                                          ⎥
-            ⎢0   0   0   0   1   0   0   1   0   0   0   0   0   0   -1⎥
-            ⎢                                                          ⎥
-            ⎢1   0   0   0   0   0   0   0   0   0   0   1   0   0   1 ⎥
-            ⎢                                                          ⎥
-            ⎢0   1   0   0   0   0   0   0   1   0   0   0   0   1   0 ⎥
-            ⎢                                                          ⎥
-            ⎣0   0   1   0   0   1   0   0   0   0   0   0   1   0   0 ⎦
+            >>> print(sc.matrix_simmetric_representate(0))
+            Matrix([[1, 0, 0], [0, 1, 0], [0, 0, 1]])
             
             .. Note:: This matrix will be so useful to our purposes.
         
@@ -690,13 +651,13 @@ class SimplicialComplex:
             To get the character of a permutation acting on a basis
             of the kernel, use ``SimplicialComplex.character_kernel(p,Permutation)``.
             
-            n=4
-            G1 = matching_graph(n)
-            G = clique_graph(G1)
-            sc = SimplicialComplex(G)
-            >>> sc.character_kernel(1,Permutation(0,1))
+            >>> n=4
+            >>> G1 = matching_graph(n)
+            >>> G = clique_graph(G1)
+            >>> sc = SimplicialComplex(G)
+            >>> print(sc.character_kernel(1,Permutation(0,1)))
             0
-            >>> sc.character_kernel(1,Permutation(0,1,2,3))
+            >>> print(sc.character_kernel(1,Permutation(0,1,2,3)))
             0
             
         """
@@ -771,14 +732,13 @@ class SimplicialComplex:
             To get the character of a permutation acting on a basis
             of the image, use ``SimplicialComplex.character_image(p,Permutation)``.
             
-            n=4
-            G1 = matching_graph(n)
-            G = clique_graph(G1)
-            sc = SimplicialComplex(G)
-            >>> sc.character_kernel(1,Permutation(0,1))
-            0
-            >>> sc.character_kernel(1,Permutation(0,1,2,3))
-            0
+            >>> n=5
+            >>> G = matching_graph(n)
+            >>> sc = SimplicialComplex(G)
+            >>> print(sc.character_image(1,Permutation(0,1)))
+            3
+            >>> print(sc.character_image(1,Permutation()))
+            9
             
         """
         if (p>0 and (p <= self.dimension())):
@@ -839,9 +799,9 @@ class SimplicialComplex:
             >>> G1 = matching_graph(n)
             >>> G = clique_graph(G1)
             >>> sc = SimplicialComplex(G)
-            >>> sc.character_p_homology(1,Permutation(0,1))
+            >>> print(sc.character_p_homology(1,Permutation(0,1)))
             0
-            >>> sc.character_p_homology(1,Permutation())
+            >>> print(sc.character_p_homology(1,Permutation()))
             16
             
             ..Note:: The funcion only is the subtract of the
@@ -866,48 +826,15 @@ class SimplicialComplex:
             To get the reduce homologies of the simplicial complex by a 
             graph, use ``SimplicialComplex.specific_function(n)``.
             
-            >>> n=5
+            >>> n=4
             >>> G1 = matching_graph(n)
             >>> G = clique_graph(G1)
-            >>> sc1 = SimplicialComplex(G)
-            >>> sc1.specific_function(n)
-            {0: {(5,): 1, 
-                 (1, 1, 1, 1, 1): 0, 
-                 (2, 1, 1, 1): 0, 
-                 (2, 2, 1): 0, 
-                 (3, 1, 1): 0, 
-                 (3, 2): 0, 
-                 (4, 1): 0}, 
-             1: {(5,): 0, 
-                 (1, 1, 1, 1, 1): 0, 
-                 (2, 1, 1, 1): 0, 
-                 (2, 2, 1): 0, 
-                 (3, 1, 1): 1, 
-                 (3, 2): 0, 
-                 (4, 1): 0}}
+            >>> sc1 = SimplicialComplex(G1)
+            >>> print(sc1.specific_function(n))
+            {0: {(4,): 1, (1, 1, 1, 1): 0, (2, 1, 1): 0, (2, 2): 1, (3, 1): 0}, 1: {(4,): 0, (1, 1, 1, 1): 0, (2, 1, 1): 0, (2, 2): 0, (3, 1): 0}}
             >>> sc2 = SimplicialComplex(G)
-            >>> sc2.specific_function(n)
-            {0: {(5,): 1, 
-                 (1, 1, 1, 1, 1): 0, 
-                 (2, 1, 1, 1): 0, 
-                 (2, 2, 1): 0, 
-                 (3, 1, 1): 0, 
-                 (3, 2): 0, 
-                 (4, 1): 0}, 
-             1: {(5,): 0, 
-                 (1, 1, 1, 1, 1): 0, 
-                 (2, 1, 1, 1): 0, 
-                 (2, 2, 1): 0, 
-                 (3, 1, 1): 1, 
-                 (3, 2): 0, 
-                 (4, 1): 0}, 
-             2: {(5,): 0, 
-                 (1, 1, 1, 1, 1): 0, 
-                 (2, 1, 1, 1): 0, 
-                 (2, 2, 1): 0, 
-                 (3, 1, 1): 0, 
-                 (3, 2): 0, 
-                 (4, 1): 0}}
+            >>> print(sc2.specific_function(n))
+            {0: {(4,): 1, (1, 1, 1, 1): 0, (2, 1, 1): 0, (2, 2): 1, (3, 1): 0}}
         
         """
         w = partitions_list(n)
@@ -929,13 +856,112 @@ class SimplicialComplex:
                 D[tuple(w[i])]=Ip
             vec_dic[k] = D
         return vec_dic
+    def character_matrix_permutation(self, p, P):
+#        display(1)
+        v = self.basis_group_oriented_p_chains(p)
+#        display(2)
+        v1 = permutation_in_simplex_test(v,P)
+#        display(3)
+        M = zeros(len(v.dic.keys()),len(v.dic.keys()))
+        i = 0
+        for u1 in v.dic.keys():
+#            display(4)
+            j = 0
+            for u2 in v1.dic.keys():
+                if (u1 == u2):
+                    M[i,j] = (v1.dic)[u2]
+                j = j + 1
+            i = i + 1
+        return np.trace(M)
+    def specific_function_1(self, n):
+        w = partitions_list(n)
+        M = form_matrix_yt(w)
+        card = math.factorial(n)
+        vec_dic = {}
+        for k in range(3):
+            D = {}
+            u = []
+            v = []
+            for h in w:
+                u.append(self.character_matrix_permutation(k,make_permutation(h)))
+                v.append(size_conjugacy_class(h,n))
+            for i in range(M.shape[0]):
+                Ip = 0
+                for j in range(M.shape[1]):
+                    Ip = Ip + M[i,j]*u[j]*v[j]
+                Ip = Ip/card
+                D[tuple(w[i])]=Ip
+            vec_dic[k] = D
+        return vec_dic
+    def specific_function_2(self, p, n):
+        w = partitions_list(n)
+        print(1)
+        M = form_matrix_yt(w)
+        card = math.factorial(n)
+        print(2)
+        v = self.basis_group_oriented_p_chains(p)
+        print(3)
+        leng = len(v.dic.keys())
+        print(4)
+        M1 = zeros(leng,leng)
+        print(5)
+        vec_dic = {}
+        D = {}
+        au = []
+        av = []
+        for h in w:
+            print(6)
+            M2 = M1.copy()
+            print(7)
+            v1 = permutation_in_simplex_test(v,make_permutation(h))
+            print(8)
+            i = 0
+            for u1 in v.dic.keys():
+    #            display(4)
+                j = 0
+                for u2 in v1.dic.keys():
+                    if (u1 == u2):
+                        M2[i,j] = (v1.dic)[u2]
+                    j = j + 1
+                i = i + 1
+            traza = np.trace(M2)
+            au.append(traza)
+            av.append(size_conjugacy_class(h,n))
+            print(traza, h)
+        for i in range(M.shape[0]):
+            Ip = 0
+            for j in range(M.shape[1]):
+                Ip = Ip + M[i,j]*au[j]*av[j]
+            Ip = Ip/card
+            D[tuple(w[i])]=Ip
+        vec_dic[p] = D
+        return vec_dic
+    def specific_function_5(self, p, n, valores):
+        w=[[7],[1, 1, 1, 1, 1, 1, 1],[2, 1, 1, 1, 1, 1],[2, 2, 1, 1, 1],[2, 2, 2, 1],[3, 1, 1, 1, 1],[3, 2, 1, 1],[3, 2, 2],[3, 3, 1],[4, 1, 1, 1],[4, 2, 1],[4, 3],[5, 1, 1],[5, 2],[6, 1]]
+#        w = partitions_list(n)
+        M = form_matrix_yt(w)
+        card = math.factorial(n)
+        vec_dic = {}
+        D = {}
+        au = valores
+        av = []
+        for h in w:
+            av.append(size_conjugacy_class(h,n))
+        for i in range(M.shape[0]):
+            Ip = 0
+            for j in range(M.shape[1]):
+                Ip = Ip + M[i,j]*au[j]*av[j]
+            Ip = Ip/card
+            D[tuple(w[i])]=Ip
+        vec_dic[p] = D
+        return vec_dic
 
 class YoungTableaux:
     """A class to compute irreducible character values of a symmetric group.
 
     ...
+    
     Attributes:
-    ----------
         p_lambda (list): A list that represent the first partition.
         p_rho (list): A list that represent the second partition.
 
@@ -967,25 +993,26 @@ class YoungTableaux:
             To see if a list given is a border-strip tableaux, you must 
             use ``YoungTableaux.choose_tableaux(list)``.
             
-                >>> YT = YoungTableaux([2,1],[1,1,1])
-                >>> YT.choose_tableaux([[1,1,1],[1,2]])
-                True
-                >>> YT.choose_tableaux([[1,1,1],[2,1]])
-                False
-                >>> YT.choose_tableaux([[1,1,1],[1,1]])
-                False
+            >>> YT = YoungTableaux([2,1],[1,1,1])
+            >>> print(YT.choose_tableaux([[1,1,1],[1,2]]))
+            True
+            >>> print(YT.choose_tableaux([[1,1,1],[2,1]]))
+            False
+            >>> print(YT.choose_tableaux([[1,1,1],[1,1]]))
+            False
             
             .. Note:: The examples given must be interpreted 
            like:
             Tableaux 1:    
-                        ⎡ 1 ⎡ 1 ⎡ 1 ⎡
-                        ⎡ 1 ⎡ 2 ⎡
+                        | 1 | 1 | 1 |
+                        | 1 | 2 |
             Tableaux 2: 
-                        ⎡ 1 ⎡ 1 ⎡ 1 ⎡
-                        ⎡ 1 ⎡ 2 ⎡
+                        | 1 | 1 | 1 |
+                        | 2 | 1 |
             Tableaux 1: 
-                        ⎡ 1 ⎡ 1 ⎡ 1 ⎡
-                        ⎡ 1 ⎡ 1 ⎡
+                        | 1 | 1 | 1 |
+                        | 1 | 1 |
+                        
             In the two first examples we use two partitions of 3, 
             and the third example is done even though the second partition 
             is a partition of 2, for our purposes that mistake is not done, 
@@ -1040,32 +1067,32 @@ class YoungTableaux:
             To see the border-strip tableauxs, you must 
             use ``YoungTableaux.MNR()``.
             
-            >>> YT1 = YoungTableaux([2,2,2,1],[3,3,1])
-            >>> YT2 = YoungTableaux([4,1],[3,2])
-            >>> YT3 = YoungTableaux([2,2,1,1],[6])
-            >>> YT1.MNR()
-            [[[1, 1], [1, 2], [2, 2], [3]], 
-             [[1, 2], [1, 2], [1, 2], [3]]]
-            >>> YT2.MNR()
+            YT1 = YoungTableaux([2,2,2,1],[3,3,1])
+            YT2 = YoungTableaux([4,1],[3,2])
+            YT3 = YoungTableaux([2,2,1,1],[6])
+            print(YT1.MNR())
+            [[[1, 1], [1, 2], [2, 2], [3]], [[1, 2], [1, 2], [1, 2], [3]]]
+            print(YT2.MNR())
             [[[1, 1, 2, 2], [1]]]
-            >>> YT3.MNR()
+            print(YT3.MNR())
             []
+            
             .. Note:: In the two first example the method found two list 
             that are border-strip tableaux, the which could be interpreted 
             like:   
-            ⎡ 1 ⎡ 1 ⎡
-            ⎡ 1 ⎡ 2 ⎡
-            ⎡ 2 ⎡ 2 ⎡
-            ⎡ 3 ⎡
+            | 1 | 1 |
+            | 1 | 2 |
+            | 2 | 2 
+            | 3 |
             and
-            ⎡ 1 ⎡ 2 ⎡
-            ⎡ 1 ⎡ 2 ⎡
-            ⎡ 1 ⎡ 2 ⎡
-            ⎡ 3 ⎡.
+            | 1 | 2 |
+            | 1 | 2 |
+            | 1 | 2 |
+            | 3 |.
             And for the second example the method only found a list, 
             and his parallel border-strip tableaux looks like:
-            ⎡ 1 ⎡ 1 ⎡ 2 ⎡ 2 ⎡
-            ⎡ 1 ⎡ 
+            | 1 | 1 | 2 | 2 |
+            | 1 | 
              And for the third example there are not any border-strip
             tableaux.
         
@@ -1111,41 +1138,34 @@ class YoungTableaux:
             use ``heights.MNR()``.
             
             >>> YT1 = YoungTableaux([5,2,1],[3,3,1,1])
-            >>> YT1.MNR()
-            [[[1, 1, 1, 3, 4], [2, 2], [2]], 
-             [[1, 1, 2, 2, 2], [1, 3], [4]], 
-             [[1, 1, 2, 2, 2], [1, 4], [3]], 
-             [[1, 2, 2, 2, 3], [1, 4], [1]], 
-             [[1, 2, 2, 2, 4], [1, 3], [1]], 
-             [[1, 2, 2, 3, 4], [1, 2], [1]]]
-            >>> YT1.heights()
+            >>> print(YT1.heights())
             [1, 1, 1, 2, 2, 3]
-            .. Note:: The border-strip tableauxs could be interpreted 
-            like:   
+            .. Note:: The border-strip tableauxs generated by these partitions 
+            are:
             T1:
-                ⎡ 1 ⎡ 1 ⎡ 1 ⎡ 3 ⎡ 4 ⎡
-                ⎡ 2 ⎡ 2 ⎡
-                ⎡ 2 ⎡
+                | 1 | 1 | 1 | 3 | 4 |
+                | 2 | 2 |
+                | 2 |
             T2:
-                ⎡ 1 ⎡ 1 ⎡ 2 ⎡ 2 ⎡ 2 ⎡
-                ⎡ 1 ⎡ 3 ⎡
-                ⎡ 4 ⎡
+                | 1 | 1 | 2 | 2 | 2 |
+                | 1 | 3 |
+                | 4 |
             T3:
-                ⎡ 1 ⎡ 1 ⎡ 2 ⎡ 2 ⎡ 2 ⎡
-                ⎡ 1 ⎡ 4 ⎡
-                ⎡ 3 ⎡
+                | 1 | 1 | 2 | 2 | 2 |
+                | 1 | 4 |
+                | 3 |
             T4:
-                ⎡ 1 ⎡ 2 ⎡ 2 ⎡ 2 ⎡ 3 ⎡
-                ⎡ 1 ⎡ 4 ⎡
-                ⎡ 1 ⎡
+                | 1 | 2 | 2 | 2 | 3 |
+                | 1 | 4 |
+                | 1 |
             T5:
-                ⎡ 1 ⎡ 2 ⎡ 2 ⎡ 2 ⎡ 4 ⎡
-                ⎡ 1 ⎡ 3 ⎡
-                ⎡ 1 ⎡
+                | 1 | 2 | 2 | 2 | 4 |
+                | 1 | 3 |
+                | 1 |
             T6:
-                ⎡ 1 ⎡ 2 ⎡ 2 ⎡ 3 ⎡ 4 ⎡
-                ⎡ 1 ⎡ 2 ⎡
-                ⎡ 1 ⎡.
+                | 1 | 2 | 2 | 3 | 4 |
+                | 1 | 2 |
+                | 1 |.
                 
             And the last list are their respective heights, which can be verified
             like follows:
@@ -1185,10 +1205,11 @@ class YoungTableaux:
             the same example that in the method ``heights``. 
             
             >>> YT1 = YoungTableaux([5,2,1],[3,3,1,1])
-            >>> YT1.heights()
+            >>> print(YT1.heights())
             [1, 1, 1, 2, 2, 3]
-            >>> YT1.CMNR()
+            >>> print(YT1.CMNR())
             -2
+            
             .. Note:: In the method ``heights`` we saw that for the partitions of 6 given
             there are six such border-strip tableaux, and their heights are:
             [1, 1, 1, 2, 2, 3]
@@ -1205,6 +1226,7 @@ class YoungTableaux:
         for j in He:
             s = s + (-1)**(j)
         return s
+    
 def boundary_op(v, G):
     sc = SimplicialComplex(G)
     p = len(list(v.dic.keys())[0]) - 1
@@ -1254,11 +1276,11 @@ def boundary_op_n(v):
         >>> w = P_chains([(0,),(1,),(2,),(3,)],[1,1,1,1])
         >>> v = P_chains([(0,1,2),(0,1,3),(0,2,3),(1,2,3)],[1,1,1,1])
         >>> u = boundary_op_n(v)
-        >>> boundary_op_n(w).dic)
+        >>> print(boundary_op_n(w).dic)
         {}
-        >>> u.dic
+        >>> print(u.dic)
         {(1, 2): 2, (0, 2): 0, (0, 1): 2, (1, 3): 0, (0, 3): -2, (2, 3): 2}
-        >>> boundary_op_n(u).dic
+        >>> print(boundary_op_n(u).dic)
         {(2,): 0, (1,): 0, (0,): 0, (3,): 0}
         
         .. Note:: Above w, v are the 0-simplex, 2-simplex of the tetrahedron respectively,
@@ -1311,12 +1333,12 @@ def partitions_list(n):
         ``list_partitions``.
         
         >>> v = partitions_list(3)
-        >>> u = partitions_list(5)
-        >>> u
-        [[5], [1, 1, 1, 1, 1], [2, 1, 1, 1], 
-         [2, 2, 1], [3, 1, 1], [3, 2], [4, 1]]
-        >>> v
+        >>> u = partitions_list(4)
+        >>> print(v)
         [[3], [1, 1, 1], [2, 1]]
+        >>> print(u)
+        [[4], [1, 1, 1, 1], [2, 1, 1], [2, 2], [3, 1]]
+        
     
     """
     p = IntegerPartition([n])
@@ -1341,35 +1363,8 @@ def form_matrix_yt(w):
         symmetric group, use ``form_matrix_yt``.
         
         >>> v = partitions_list(3)
-        >>> u = partitions_list(6)
-        >>> form_matrix_yt(v)
-        ⎡1   1  1 ⎤
-        ⎢         ⎥
-        ⎢1   1  -1⎥
-        ⎢         ⎥
-        ⎣-1  2  0 ⎦
-        >>> form_matrix_yt(u)
-        ⎡1   1   1   1   1   1   1   1   1   1   1 ⎤
-        ⎢                                          ⎥
-        ⎢-1  1   -1  1   -1  1   -1  1   -1  1   1 ⎥
-        ⎢                                          ⎥
-        ⎢1   5   -3  1   1   2   0   -1  -1  -1  0 ⎥
-        ⎢                                          ⎥
-        ⎢0   9   -3  1   -3  0   0   0   1   1   -1⎥
-        ⎢                                          ⎥
-        ⎢0   5   -1  1   3   -1  -1  2   1   -1  0 ⎥
-        ⎢                                          ⎥
-        ⎢-1  10  -2  -2  2   1   1   1   0   0   0 ⎥
-        ⎢                                          ⎥
-        ⎢0   16  0   0   0   -2  0   -2  0   0   1 ⎥
-        ⎢                                          ⎥
-        ⎢0   5   1   1   -3  -1  1   2   -1  -1  0 ⎥
-        ⎢                                          ⎥
-        ⎢1   10  2   -2  -2  1   -1  1   0   0   0 ⎥
-        ⎢                                          ⎥
-        ⎢0   9   3   1   3   0   0   0   -1  1   -1⎥
-        ⎢                                          ⎥
-        ⎣-1  5   3   1   -1  2   0   -1  1   -1  0 ⎦
+        >>> print(form_matrix_yt(v))
+        Matrix([[1, 1, 1], [1, 1, -1], [-1, 2, 0]])
         
         .. Note:: The function need a list of the partitions for
         ``n``, then is used the function ``partitions_list.``
@@ -1405,9 +1400,9 @@ def eq_elements(a, b):
         >>> b1 = ((0,3),(2,1),(5,6)) 
         >>> a2 = ((0,1),(2,3),(5,6)) 
         >>> b2 = ((6,5),(1,0),(3,2)) 
-        >>> eq_elements(a1,b1)
+        >>> print(eq_elements(a1,b1))
         False
-        >>> eq_elements(a2,b2)
+        >>> print(eq_elements(a2,b2))
         True
 
     """
@@ -1445,9 +1440,9 @@ def orientation_function(a,b,p):
         >>> b1 = (((4,2),(1,0),(5,3)),((2,3),(1,0),(6,4))) 
         >>> a2 = ((0,1),(2,3),(5,6)) 
         >>> b2 = ((6,5),(1,0),(3,2)) 
-        orientation_function(a1,b1,1)
+        >>> print(orientation_function(a1,b1,1))
         False
-        orientation_function(a2,b2,2)
+        >>> print(orientation_function(a2,b2,2))
         True
 
         .. Note:: For ``a1`` and ``b1`` the function receive
@@ -1481,16 +1476,16 @@ def tuple_sorted(a):
         this function can do it, below is showing examples of 
         both functions:
         
-        a1 = ((6,5),(1,0),(3,2)) 
-        a2 = (((4,2),(1,0),(5,3)),((2,3),(1,0),(6,4))) 
-        >>> sorted(a1)
+        >>> a1 = ((6,5),(1,0),(3,2)) 
+        >>> a2 = (((4,2),(1,0),(5,3)),((2,3),(1,0),(6,4))) 
+        >>> print(sorted(a1))
         [(1, 0), (3, 2), (6, 5)]
-        >>> tuple_sorted(a1)
+        >>> print(tuple_sorted(a1))
         ((0, 1), (2, 3), (5, 6))
-        >>> sorted(a2)
+        >>> print(sorted(a2))
         [((2, 3), (1, 0), (6, 4)), ((4, 2), (1, 0), (5, 3))]
-        >>> tuple_sorted(a2)
-        (((0, 1), (2, 3), (4, 6)), ((0, 1), (2, 4), (3, 5))) 
+        >>> print(tuple_sorted(a2)) 
+        (((0, 1), (2, 3), (4, 6)), ((0, 1), (2, 4), (3, 5)))
         
     """
     if (isinstance(a, int) == True):
@@ -1519,11 +1514,11 @@ def tuple_permutation(v,P):
         >>> a1 = (0,1,2,3,4)
         >>> a2 = ((2,4),(1,5),(3,0))
         >>> a3 = (((0,1),(2,4),(3,5)),((0,5),(1,3),(2,4)))
-        >>> tuple_permutation(a1,Permutation(0,1,2))
+        >>> print(tuple_permutation(a1,Permutation(0,1,2)))
         (1, 2, 0, 3, 4)
-        >>> tuple_permutation(a2,Permutation(1,3))
+        >>> print(tuple_permutation(a2,Permutation(1,3)))
         ((2, 4), (3, 5), (1, 0))
-        >>> tuple_permutation(a3,Permutation(0,1)(2,3))
+        >>> print(tuple_permutation(a3,Permutation(0,1)(2,3)))
         (((1, 0), (3, 4), (2, 5)), ((1, 5), (0, 2), (3, 4)))
 
         .. Note:: The function return other tuple that represent
@@ -1557,13 +1552,6 @@ def matching_graph(n):
     
     Raises: 
         NetworkXError: If n is a negative number.
-        
-    Examples:
-        To create a matching graph ``mathing_graph(n)``.
-        >>> n=5
-        >>> G1 = matching_graph(n)
-        >>> nx.draw(G1, with_labels=True)
-        >>> plt.show()
 
     """
     k_n = nx.complete_graph(n)
@@ -1598,14 +1586,6 @@ def clique_graph(g, cmax=math.inf):
     
     Raises: 
         NetworkXError: If n is a negative number.
-        
-    Examples:
-        To create a clique graph ``clique_graph(n)``.
-        >>> n=6
-        >>> G1 = matching_graph(n)
-        >>> G = clique_graph(G1)
-        >>> nx.draw(G, with_labels=True)
-        >>> plt.show()
 
     """
     ite = nx.find_cliques(g)
@@ -1632,6 +1612,54 @@ def clique_graph(g, cmax=math.inf):
             e = tuple_sorted((tuple(sorted(i[1])),tuple(sorted(i[0]))))
             G1.add_edge(*e)
     return G1
+
+#def convert_to_int(v,k):
+#    """From a list return other list where all the entries are integer.
+#
+#    Args:
+#        v (list): The tuple which will under the Permunation ``p``.
+#        k (floar): The reciprocal number to convert all the entries to integer.
+#    
+#    Returns:
+#        w (list): A tuple where all the entries are integers.
+#            
+#    Examples:
+#        To do act the Permutation on the tuple use 
+#        ``tuple_permutation(tuple)``.
+#        
+#        >>> a1 = (0,1,2,3,4)
+#        >>> a2 = ((2,4),(1,5),(3,0))
+#        >>> a3 = (((0,1),(2,4),(3,5)),((0,5),(1,3),(2,4)))
+#        >>> tuple_permutation(a1,Permutation(0,1,2))
+#        (1, 2, 0, 3, 4)
+#        >>> tuple_permutation(a2,Permutation(1,3))
+#        ((2, 4), (3, 5), (1, 0))
+#        >>> tuple_permutation(a3,Permutation(0,1)(2,3))
+#        (((1, 0), (3, 4), (2, 5)), ((1, 5), (0, 2), (3, 4)))
+#
+#        .. Note:: The function return other tuple that represent
+#        how the Permutation is acting in a natural way in the origin 
+#        tuple.
+#    
+#    """
+##    k = int(k)
+#    w=[]
+#    for i in v:
+#        u=[]
+#        for j in i:
+#            u.append(j*k)
+#        w.append(u) 
+#    print(w)
+#    c=1
+#    for i in w:
+#        for j in i:
+#            c=c*j
+#            if (j%1 != 0):
+##                if ((j*k).is_integer() == False):
+##                print(type(j),type(k),type(j*k))
+#                print(j,solve(x*j*c + np.sign(j)*(-1))[0])
+#                return convert_to_int(w,solve(x*j*c + np.sign(j)*(-1))[0])
+#    return w
 def nullspace(A):
     """Returns a  ``list`` of column vectors that span the nullspace of the matrix.
     Args:
@@ -1646,29 +1674,11 @@ def nullspace(A):
         
         >>> M1 = Matrix([[2, 4, 6, 6], [8, 20, 0, 1], [5, 0, 3, 2]])
         >>> M2 = Matrix([[1,0,0],[0,1,0],[0,0,1],[0,0,-1],[0,-1,0],[-1,0,0]])
-        >>> M1
-        ⎡2  4   6  6⎤
-        ⎢           ⎥
-        ⎢8  20  0  1⎥
-        ⎢           ⎥
-        ⎣5  0   3  2⎦
-        >>> nullspace(M1)
+        >>> print(nullspace(M1))
         [[3/16, -1/8, -47/48, 1]]
-        >>> M2
-        ⎡1   0   0 ⎤
-        ⎢          ⎥
-        ⎢0   1   0 ⎥
-        ⎢          ⎥
-        ⎢0   0   1 ⎥
-        ⎢          ⎥
-        ⎢0   0   -1⎥
-        ⎢          ⎥
-        ⎢0   -1  0 ⎥
-        ⎢          ⎥
-        ⎣-1  0   0 ⎦
-        >>> nullspace(M2)
+        >>> print(nullspace(M2))
         [array([0, 0, 0])]
-
+        
         .. Note:: Essentially the function only obtain the nullspace
         with the function ``A.nullspace()`` and returns the trivial kernel
         if ``A.nullspace()`` is a emtpy list.
@@ -1701,31 +1711,13 @@ def columnspace(A):
         
         >>> M1 = Matrix([[0, 0, 0], [0, 0, 0], [0, 0, 0]])
         >>> M2 = Matrix([[1,0,0],[0,1,0],[0,0,1],[0,0,-1],[0,-1,0],[-1,0,0]])
-        >>> M1
-        ⎡0  0  0⎤
-        ⎢       ⎥
-        ⎢0  0  0⎥
-        ⎢       ⎥
-        ⎣0  0  0⎦
-        >>> columnspace(M1)
+        >>> print(columnspace(M1))
         [array([0, 0, 0])]
-        >>> M2
-        ⎡1   0   0 ⎤
-        ⎢          ⎥
-        ⎢0   1   0 ⎥
-        ⎢          ⎥
-        ⎢0   0   1 ⎥
-        ⎢          ⎥
-        ⎢0   0   -1⎥
-        ⎢          ⎥
-        ⎢0   -1  0 ⎥
-        ⎢          ⎥
-        ⎣-1  0   0 ⎦
-        >>> nullspace(M2)
+        >>> print(nullspace(M2))
         [array([0, 0, 0])]
-        >>> columnspace(M2)
+        >>> print(columnspace(M2))
         [[1, 0, 0, 0, 0, -1], [0, 1, 0, 0, -1, 0], [0, 0, 1, -1, 0, 0]]
-
+        
         .. Note:: Essentially the function only obtain the columnspace
         with the function ``A.columnspace()`` and returns the trivial image
         if ``A.columnspace()`` is a emtpy list. In the example ``M2`` is noted
@@ -1778,12 +1770,11 @@ def permutation_in_simplex_test(vec, P):
         >>> u1 = P_chains([(0,1,2,3)],[1])
         >>> u2 = P_chains([(0,2,1,3)],[1])
         ..Note:: The p-simplex in u1 and u2 differ by a sign.
-        
         >>> bu1 = boundary_op_n(u1).dic
         >>> bu2 = boundary_op_n(u2).dic
-        >>> bu1
+        >>> print(bu1)
         {(1, 2, 3): 1, (0, 2, 3): -1, (0, 1, 3): 1, (0, 1, 2): -1}
-        >>> bu2
+        >>> print(bu2)
         {(1, 2, 3): -1, (0, 1, 3): -1, (0, 2, 3): 1, (0, 1, 2): 1}
         ..Note:: We could see that the result changes sign, like is wanted.
         
@@ -1795,27 +1786,18 @@ def permutation_in_simplex_test(vec, P):
         >>> G = nx.complete_graph(n)
         >>> sc = SimplicialComplex(G)
         >>> sigma = sc.basis_group_oriented_p_chains(1)
-        >>> sigma.dic
-        {(0, 1): 1, 
-         (0, 2): 1, 
-         (0, 3): 1, 
-         (0, 4): 1, 
-         (1, 2): 1, 
-         (1, 3): 1, 
-         (1, 4): 1, 
-         (2, 3): 1, 
-         (2, 4): 1, 
-         (3, 4): 1}
+        >>> print(sigma.dic)
+        {(0, 1): 1, (0, 2): 1, (0, 3): 1, (0, 4): 1, (1, 2): 1, (1, 3): 1, (1, 4): 1, (2, 3): 1, (2, 4): 1, (3, 4): 1}
         >>> bo_sigma=boundary_op_n(sigma)
         >>> rho_bo_sigma=permutation_in_simplex_test(bo_sigma,Permutation(0,1))
-        >>> rho_bo_sigma.dic
+        >>> print(rho_bo_sigma.dic)
         {(0,): -2, (1,): -4, (2,): 0, (3,): 2, (4,): 4}
         >>> rho_sigma=permutation_in_simplex_test(sigma,Permutation(0,1))
         >>> bo_rho_sigma=boundary_op_n(rho_sigma)
-        >>> bo_rho_sigma.dic
+        >>> print(bo_rho_sigma.dic)
         {(1,): -4, (0,): -2, (2,): 0, (3,): 2, (4,): 4}
-        >>> rho_bo_sigma == bo_rho_sigma
-        True 
+        >>> print(rho_bo_sigma == bo_rho_sigma)
+        True
         ..Note:: Then for this example the result is the same.
         
         And for the second propertie:
@@ -1825,12 +1807,13 @@ def permutation_in_simplex_test(vec, P):
         ..Note:: The simplices differ by the sign.
         >>> w1 = boundary_op_n(sigma1)
         >>> w2 = boundary_op_n(sigma2)
-        >>> w1.dic
+        >>> print(w1.dic)
         {(1, 2): 1, (0, 2): -1, (0, 1): 1}
-        >>> w2.dic
+        >>> print(w2.dic)
         {(1, 2): -1, (0, 2): 1, (0, 1): -1}
-        >>> w1 == w2.mul_esc(-1) #Multiply by -1.
-        True 
+        >>> print(w1 == w2.mul_esc(-1)) #Multiply by -1.
+        True
+        
         ..Note:: For this example is true that \partial_{p}(-\sigma) = - \partial_{p}(\sigma)
             like is wanted, and for all our cases the previous is true.
         
@@ -1912,15 +1895,15 @@ def size_conjugacy_class(partition,n):
         symmetric group use ``size_conjugacy_class(partition,n)``.
         
         n = 4
-        >>> size_conjugacy_class([4],n)
+        >>> print(size_conjugacy_class([4],n))
         6
-        >>> size_conjugacy_class([1,1,1,1],n)
+        >>> print(size_conjugacy_class([1,1,1,1],n))
         1
-        >>> size_conjugacy_class([2,1,1],n)
+        >>> print(size_conjugacy_class([2,1,1],n))
         6
-        >>> size_conjugacy_class([2,2],n)
+        >>> print(size_conjugacy_class([2,2],n))
         3
-        >>> size_conjugacy_class([3,1],n)
+        >>> print(size_conjugacy_class([3,1],n))
         8
         
         .. Note:: The examples showed are all the partition for the case
@@ -1963,21 +1946,19 @@ def make_permutation(partition):
         For find a representate of a conjugacy class of s simmetric group
         use ``make_permutation(partition)``.
         
-        >>> n=5
-        >>> w = partitions_list(n)
-        >>> make_permutation([5])
+        >>> print(make_permutation([5]))
         (0 1 2 3 4)
-        >>> make_permutation([1,1,1,1,1])
+        >>> print(make_permutation([1,1,1,1,1]))
         ()
-        >>> make_permutation([2,1,1,1])
+        >>> print(make_permutation([2,1,1,1]))
         (4)(0 1)
-        >>> make_permutation([2,2,1])
+        >>> print(make_permutation([2,2,1]))
         (4)(0 1)(2 3)
-        >>> make_permutation([3,1,1])
+        >>> print(make_permutation([3,1,1]))
         (4)(0 1 2)
-        >>> make_permutation([3,2])
+        >>> print(make_permutation([3,2]))
         (0 1 2)(3 4)
-        >>> make_permutation([4,1])
+        >>> print(make_permutation([4,1]))
         (4)(0 1 2 3)
         
     """
@@ -2012,57 +1993,36 @@ def Reduce(N):
         function ``rref`` to verify that the result is right.
         
         >>> M=Matrix([[-1, -1, -1, -1, 0, 0, 0, 0], 
-                  [ 1, 0, 0, 0, -1, -1, 0, 0], 
-                  [ 0, 1, 0, 0, 1, 0, -1, -1],
-                  [ 0, 0, 1, 0, 0, 1, 1, 0],
-                  [ 0, 0, 0, 1, 0, 0, 0, 1]])
-        >>> M
-        ⎡-1  -1  -1  -1  0   0   0   0 ⎤
-        ⎢                              ⎥
-        ⎢1   0   0   0   -1  -1  0   0 ⎥
-        ⎢                              ⎥
-        ⎢0   1   0   0   1   0   -1  -1⎥
-        ⎢                              ⎥
-        ⎢0   0   1   0   0   1   1   0 ⎥
-        ⎢                              ⎥
-        ⎣0   0   0   1   0   0   0   1 ⎦
-        >>> M.rref()
-        ⎛⎡1  0  0  0  -1  -1  0   0 ⎤              ⎞
-        ⎜⎢                          ⎥              ⎟
-        ⎜⎢0  1  0  0  1   0   -1  -1⎥              ⎟
-        ⎜⎢                          ⎥              ⎟
-        ⎜⎢0  0  1  0  0   1   1   0 ⎥, (0, 1, 2, 3)⎟
-        ⎜⎢                          ⎥              ⎟
-        ⎜⎢0  0  0  1  0   0   0   1 ⎥              ⎟
-        ⎜⎢                          ⎥              ⎟
-        ⎝⎣0  0  0  0  0   0   0   0 ⎦              ⎠
-        >>> P=Reduce(M)
-        >>> P    
-        ⎛⎡0   1   0   0   0⎤  ⎡1  0  0  0  -1  -1  0   0 ⎤⎞
-        ⎜⎢                 ⎥  ⎢                          ⎥⎟
-        ⎜⎢0   0   1   0   0⎥  ⎢0  1  0  0  1   0   -1  -1⎥⎟
-        ⎜⎢                 ⎥  ⎢                          ⎥⎟
-        ⎜⎢0   0   0   1   0⎥, ⎢0  0  1  0  0   1   1   0 ⎥⎟
-        ⎜⎢                 ⎥  ⎢                          ⎥⎟
-        ⎜⎢-1  -1  -1  -1  0⎥  ⎢0  0  0  1  0   0   0   1 ⎥⎟
-        ⎜⎢                 ⎥  ⎢                          ⎥⎟
-        ⎝⎣1   1   1   1   1⎦  ⎣0  0  0  0  0   0   0   0 ⎦⎠
+        >>>   [ 1, 0, 0, 0, -1, -1, 0, 0], 
+        >>>   [ 0, 1, 0, 0, 1, 0, -1, -1],
+        >>>   [ 0, 0, 1, 0, 0, 1, 1, 0],
+        >>>   [ 0, 0, 0, 1, 0, 0, 0, 1]])
+        >>> print(M.rref())
+        (Matrix([
+        [1, 0, 0, 0, -1, -1,  0,  0],
+        [0, 1, 0, 0,  1,  0, -1, -1],
+        [0, 0, 1, 0,  0,  1,  1,  0],
+        [0, 0, 0, 1,  0,  0,  0,  1],
+        [0, 0, 0, 0,  0,  0,  0,  0]]), (0, 1, 2, 3))
+        >>> P = Reduce(M)
+        >>> print(P)
+        (Matrix([
+        [ 0,  1,  0,  0, 0],
+        [ 0,  0,  1,  0, 0],
+        [ 0,  0,  0,  1, 0],
+        [-1, -1, -1, -1, 0],
+        [ 1,  1,  1,  1, 1]]), Matrix([
+        [1, 0, 0, 0, -1, -1,  0,  0],
+        [0, 1, 0, 0,  1,  0, -1, -1],
+        [0, 0, 1, 0,  0,  1,  1,  0],
+        [0, 0, 0, 1,  0,  0,  0,  1],
+        [0, 0, 0, 0,  0,  0,  0,  0]]))
+    
         ..Note:: The first matrix is the row reduced form, and the second
             is a matrix which if is multiplied the left size to the 
-            origin matrix, then we obtain the row reduced form.
-        
-        >>> P[0]*M
-        ⎡1  0  0  0  -1  -1  0   0 ⎤
-        ⎢                          ⎥
-        ⎢0  1  0  0  1   0   -1  -1⎥
-        ⎢                          ⎥
-        ⎢0  0  1  0  0   1   1   0 ⎥
-        ⎢                          ⎥
-        ⎢0  0  0  1  0   0   0   1 ⎥
-        ⎢                          ⎥
-        ⎣0  0  0  0  0   0   0   0 ⎦
-        ..Note:: And the result is the same that using the function ``reff``.
-        
+            origin matrix, then we obtain the row reduced form, like below.
+        print(P[0]*M == (M.rref())[0])
+        True
         
     """
     M = N.copy()
@@ -2122,40 +2082,6 @@ def regular_representation(G):
     Returns:
         __main__.MatrixRepresentation: The matrix regular representation.
         
-    Examples:
-        To create the regular representation, you must have a symmetric group
-        and use ``regular representation(G)``.
-        
-        >>> G=SymmetricGroup(3)
-        >>> rr=regular_representation(G)
-        >>> display(rr.map)
-        ⎧     ⎡1  0  0  0  0  0⎤         ⎡0  0  0  0  1  0⎤            ⎡0  1  0  0  0  0⎤ 
-        ⎪     ⎢                ⎥         ⎢                ⎥            ⎢                |
-        ⎪     ⎢0  1  0  0  0  0⎥         ⎢0  0  0  0  0  1⎥            ⎢1  0  0  0  0  0|
-        ⎪     ⎢                ⎥         ⎢                ⎥            ⎢                |
-        ⎪     ⎢0  0  1  0  0  0⎥         ⎢0  0  0  1  0  0⎥            ⎢0  0  0  0  0  1|
-        ⎨(2): ⎢                ⎥, (1 2): ⎢                ⎥, (2)(0 1): ⎢                |,
-        ⎪     ⎢0  0  0  1  0  0⎥         ⎢0  0  1  0  0  0⎥            ⎢0  0  0  0  1  0|
-        ⎪     ⎢                ⎥         ⎢                ⎥            ⎢                |
-        ⎪     ⎢0  0  0  0  1  0⎥         ⎢1  0  0  0  0  0⎥            ⎢0  0  0  1  0  0|
-        ⎪     ⎢                ⎥         ⎢                ⎥            ⎢                |
-        ⎩     ⎣0  0  0  0  0  1⎦         ⎣0  1  0  0  0  0⎦            ⎣0  0  1  0  0  0⎦
-        
-                 ⎡0  0  0  1  0  0⎤           ⎡0  0  0  0  0  1⎤         ⎡0  0  1  0  0  0⎤⎫
-                 ⎢                ⎥           ⎢                ⎥         ⎢                ⎥⎪
-                 ⎢0  0  1  0  0  0⎥           ⎢0  0  0  0  1  0⎥         ⎢0  0  0  1  0  0⎥⎪
-                 ⎢                ⎥           ⎢                ⎥         ⎢                ⎥⎪
-                 ⎢0  0  0  0  1  0⎥           ⎢0  1  0  0  0  0⎥         ⎢1  0  0  0  0  0⎥⎪
-        (0 1 2): ⎢                ⎥, (0 2 1): ⎢                ⎥, (0 2): ⎢                ⎥⎪
-                 ⎢0  0  0  0  0  1⎥           ⎢1  0  0  0  0  0⎥         ⎢0  1  0  0  0  0⎥⎪
-                 ⎢                ⎥           ⎢                ⎥         ⎢                ⎥⎪
-                 ⎢0  1  0  0  0  0⎥           ⎢0  0  1  0  0  0⎥         ⎢0  0  0  0  0  1⎥⎪
-                 ⎢                ⎥           ⎢                ⎥         ⎢                ⎥⎪
-                 ⎣1  0  0  0  0  0⎦           ⎣0  0  0  1  0  0⎦         ⎣0  0  0  0  1  0⎦⎭
-         ..Note: In the first line of the code of this function is used ``G.elements``
-         which is a iterator, i.e every time the function ``regular_representation``
-         is run, the result could change, however the character is the same.
-             
     """
     elems = list(G.elements)
     n = len(elems)
@@ -2166,23 +2092,28 @@ def regular_representation(G):
                                                  _char_f(G, g, i, j)))
     return MatrixRepresentation(mydict, G, n)
 def MTS(A):
-    """Compute a non-singular upper triangular matrix given a positive hermitian matrix
+    """Create a non singular upper triangular matrix V such that V*AV=I. 
     
     Args:
-        A (matrix): A positive hermitian matrix.
+        A (Matrix): A positive definite Hermitian matrix.
         
     Returns:
-        __main__.MatrixRepresentation: The matrix regular representation.
+        V (Matrix): A non singular upper triangular matrix V that
+            V*AV=I.
         
     Examples:
-        To create the regular representation, you must have a symmetric group
-        and use ``regular representation(G)``.
+        To create this matrix use ``MTS(A)``.
+       
+        >>> M = Matrix([[1, 0, 1], [2, -1, 3], [4, 3, 2]])
+        >>> N = Dagger(M)
+        >>> A = N*M
+        ..Note:: A is positive definite Hermitian matrix.
+        >>> V = MTS(N*M) 
+        >>> print(V)
+        Matrix([[sqrt(21)/21, -sqrt(2310)/231, -12*sqrt(110)/11], [0, sqrt(2310)/110, 87*sqrt(110)/110], [0, 0, sqrt(110)]])
+        >>> print(Dagger(V)*(A)*V)
+        Matrix([[1, 0, 0], [0, 1, 0], [0, 0, 1]])
         
-        >>> G=SymmetricGroup(3)
-        >>> rr=regular_representation(G)
-        >>> display(rr.map)
-    
-
     """
     A1=A
     n=A.shape[0]
@@ -2203,8 +2134,8 @@ def unitary_representation(G,d):
         
     Args:
         d (dict): A dict that must contains the map of a group into the group
-                of nonsingular linear transformations of some finite dimensional
-                vector space.
+            of nonsingular linear transformations of some finite dimensional
+            vector space.
         G (sympy.combinatorics.perm_groups.PermutationGroup): The group. 
         
     Returns:
@@ -2237,35 +2168,26 @@ def unitary_representation(G,d):
 def is_irreducible(G,d):
     """Determines if a representation is irreducible.
     
-        Args:
-            d (dict): A dict that must contains the map of a group into the group
-                of nonsingular linear transformations of some finite dimensional
-                vector space.
-                
-            G (sympy.combinatorics.perm_groups.PermutationGroup): The group. 
-        
-        Returns:
-            True if the representation is irreducible, a matrix non 
-            escalar that reduce the matrix representation in otherwise.
-
-        Examples:
-            To see if a representation is irreducible use
-            ``is_irreducible(G,d)``.
+    Args:
+        d (dict): A dict that must contains the map of a group into the group
+            of nonsingular linear transformations of some finite dimensional
+            vector space.
             
-            >>> G=SymmetricGroup(3)
-            >>> rr=regular_representation(G)
-            >>> M=is_irreducible(G,rr)    
-            ⎡ 0    0   1/3   0    0    0 ⎤
-            ⎢                            ⎥
-            ⎢ 0    0    0   1/3   0    0 ⎥
-            ⎢                            ⎥
-            ⎢1/3   0    0    0    0    0 ⎥
-            ⎢                            ⎥
-            ⎢ 0   1/3   0    0    0    0 ⎥
-            ⎢                            ⎥
-            ⎢ 0    0    0    0    0   1/3⎥
-            ⎢                            ⎥
-            ⎣ 0    0    0    0   1/3   0 ⎦
+        G (sympy.combinatorics.perm_groups.PermutationGroup): The group. 
+    
+    Returns:
+        True if the representation is irreducible, a matrix non 
+        escalar that reduce the matrix representation in otherwise.
+
+    Examples:
+        To see if a representation is irreducible use
+        ``is_irreducible(G,d)``.
+        
+        >>> G=SymmetricGroup(3)
+        >>> rr=regular_representation(G)
+        >>> M=is_irreducible(G,rr)
+        >>> print(M)
+        Matrix([[0, 1/3, 0, 0, 0, 0], [1/3, 0, 0, 0, 0, 0], [0, 0, 0, 1/3, 0, 0], [0, 0, 1/3, 0, 0, 0], [0, 0, 0, 0, 0, 1/3], [0, 0, 0, 0, 1/3, 0]])
             
     """
     n=d.degree
@@ -2295,7 +2217,31 @@ def is_irreducible(G,d):
 
 
 def block(M):
-    """A function that return where end the blocks of a matrix."""
+    """A function that return where end the blocks of a matrix.
+   
+    Args:
+        M (Matrix): The matrix which will be find their blocks.
+            
+    Returns:
+        v (list): A list that indicated where end the blocks 
+            of a matrix.
+            
+    Examples:
+        To find the blocks of a matrix use ``block(M)``.
+        
+        >>> M=Matrix([[1, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+        >>>  [0, 1, 1, 0, 0, 0, 0, 0, 0, 0], 
+        >>>  [0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
+        >>>  [0, 1, 0, 1, 0, 0, 0, 0, 0, 0],
+        >>>  [0, 0, 1, 1, 1, 0, 0, 0, 0, 0],
+        >>>  [0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
+        >>>  [0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+        >>>  [0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
+        >>>  [0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+        >>>  [0, 0, 0, 0, 0, 0, 0, 0, 0, 1]])
+        >>> print(block(M))
+        [0, 4, 5, 6, 7, 8, 9]        
+    """   
     v=[]
     c1=0
     i=0
@@ -2326,16 +2272,51 @@ def block(M):
 
 def blockI(M,n,i):
     """A function that given a matrix, put it since the entry (i,i) of a 
-    identity matrix of degree n"""
-    a=M.shape[0]
+    identity matrix of degree n.
+   
+    Args:
+        M (Matrix): The matrix which will be put in the entry (i,i) of
+            a identity matrix of degree n.
+        
+        n (int): Determine the size of the identity matrix.
+        
+        i (int): A integer that will indicated the entry (i,i) of the
+            identity matrix.
+    Returns:
+        N (Matrix): The identity matrix with contains the matrix M
+            in the entry (i,i).
+            
+    Raises:
+        IndexError: If the number of the columns or the raws plus i are bigger
+            to n.
+            
+    Examples:
+        To use this function use ``blockI(M, n, i)``.
+        
+        >>> M=Matrix([[1, 1, 1], 
+        >>>           [1, 1, 1]])
+        >>> print(blockI(M,4,0))
+        Matrix([[1, 1, 1, 0], [1, 1, 1, 0], [0, 0, 1, 0], [0, 0, 0, 1]])
+        
+    """
+#    a=M.shape[0]
     N=eye(n)
-    for j in range(0,a):
-        for k in range(0,a):
+    for j in range(0,M.shape[0]):
+        for k in range(0,M.shape[1]):
             N[j+i,k+i]=M[j,k]
     return N
 
 def reduce(G,d):
-    """This function give a matrix that reduce the matrix representation"""
+    """Descompose a representation into irreudibles
+    
+    Args:
+        G (Group): The group.
+        
+        d (dict): The representation.
+            
+    Returns:
+        U (Matrix): A matrix wich descompose the representation.
+    """
     M=is_irreducible(G,d)
     b=d.degree
     if (M==True):
@@ -2361,23 +2342,7 @@ def reduce(G,d):
             U=U*blockI(reduce(G,MatrixRepresentation(d1,G,(a+1-e))),b,e)
             e=a+1
         return U
-
     
-def delta(G):
-    d={}
-    L=list(G.elements)
-    n=len(L)
-    for g in L:
-        N=Matrix([])
-        M=eye(n)
-        for i in range(0,n):
-            for j in range(0,n):
-                if (L[i]*g==L[j]):
-                        N=Matrix([N,M.row(j)])
-        d[g]=N
-    return MatrixRepresentation(d, G, n)
-
-
 def is_representation(G,d):
     for g in list(G.elements):
 
