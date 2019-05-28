@@ -76,7 +76,7 @@ class MatrixRepresentation:
         """
         return dict([(g, self.map[g].trace()) for g in self.group.elements])
     
-   def is_unitary(self):
+    def is_unitary(self):
         """Returns if the matrix representation is unitary.
         
         Returns
