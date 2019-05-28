@@ -6,7 +6,6 @@ from sympy.abc import x
 import networkx as nx
 import numpy as np
 from itertools import combinations
-from scipy.sparse import dok_matrix
 from operator import add
 import sys
 import matplotlib.pyplot as plt
