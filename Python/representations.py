@@ -22,6 +22,7 @@ from sympy.combinatorics.partitions import IntegerPartition
 import math
 import copy
 import unittest
+import dagger
 
 
 class MatrixRepresentation:
