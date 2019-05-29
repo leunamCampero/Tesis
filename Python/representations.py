@@ -1992,11 +1992,7 @@ def Reduce(N):
         To use this functio use ``Reduce(Matrix)``. We will use the help of the 
         function ``rref`` to verify that the result is right.
         
-        >>> M=Matrix([[-1, -1, -1, -1, 0, 0, 0, 0], 
-        >>>   [ 1, 0, 0, 0, -1, -1, 0, 0], 
-        >>>   [ 0, 1, 0, 0, 1, 0, -1, -1],
-        >>>   [ 0, 0, 1, 0, 0, 1, 1, 0],
-        >>>   [ 0, 0, 0, 1, 0, 0, 0, 1]])
+        >>> M=Matrix([[-1, -1, -1, -1, 0, 0, 0, 0],[ 1, 0, 0, 0, -1, -1, 0, 0],[ 0, 1, 0, 0, 1, 0, -1, -1],[ 0, 0, 1, 0, 0, 1, 1, 0],[ 0, 0, 0, 1, 0, 0, 0, 1]])
         >>> print(M.rref())
         (Matrix([
         [1, 0, 0, 0, -1, -1,  0,  0],
