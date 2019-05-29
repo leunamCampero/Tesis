@@ -328,7 +328,7 @@ class SimplicialComplex:
             >>> G = nx.complete_graph(5)
             >>> sc = SimplicialComplex(G)
             >>> print(sc.vertices)
-              [0, 1, 2, 3, 4]
+            [0, 1, 2, 3, 4]
  
         
         '''
