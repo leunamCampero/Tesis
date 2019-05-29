@@ -22,7 +22,6 @@ from sympy.combinatorics.partitions import IntegerPartition
 import math
 import copy
 import unittest
-import dagger
 
 
 class MatrixRepresentation:
@@ -2102,13 +2101,13 @@ def MTS(A):
         To create this matrix use ``MTS(A)``.
        
         >>> M = Matrix([[1, 0, 1], [2, -1, 3], [4, 3, 2]])
-        >>> N = Dagger(M)
+        >>> N = M.H
         >>> A = N*M
         ..Note:: A is positive definite Hermitian matrix.
         >>> V = MTS(N*M) 
         >>> print(V)
         Matrix([[sqrt(21)/21, -sqrt(2310)/231, -12*sqrt(110)/11], [0, sqrt(2310)/110, 87*sqrt(110)/110], [0, 0, sqrt(110)]])
-        >>> print(Dagger(V)*(A)*V)
+        >>> print((V.H)*(A)*V)
         Matrix([[1, 0, 0], [0, 1, 0], [0, 0, 1]])
         
     """
@@ -2122,7 +2121,7 @@ def MTS(A):
             C[i,j] = -(1/A1[i,i])*A1[i,j]
         V=V*C
         V.simplify()
-        A1=Dagger(C)*A1*C
+        A1=(C.H)*A1*C
         A1.simplify()
     return V
 
