@@ -62,16 +62,6 @@ class MatrixRepresentation:
             dict: A dictionary with the character of the matrix representation
             for every element in the group.
         
-        Examples:
-            To calculate the character of a matrix representation
-            use ``MatrixRepresentation.character()``, in this case
-            we will help us of the ``regular representation(G)``.
-            
-            >>> G=SymmetricGroup(2)
-            >>> rr=regular_representation(G)
-            >>> print(rr.character())
-            {Permutation(1): 2, Permutation(0, 1): 0}
-        
         """
         return dict([(g, self.map[g].trace()) for g in self.group.elements])
     
@@ -2103,7 +2093,9 @@ def MTS(A):
         >>> M = Matrix([[1, 0, 1], [2, -1, 3], [4, 3, 2]])
         >>> N = M.H
         >>> A = N*M
+        
         ..Note:: A is positive definite Hermitian matrix.
+        
         >>> V = MTS(N*M) 
         >>> print(V)
         Matrix([[sqrt(21)/21, -sqrt(2310)/231, -12*sqrt(110)/11], [0, sqrt(2310)/110, 87*sqrt(110)/110], [0, 0, sqrt(110)]])
@@ -2225,7 +2217,7 @@ def block(M):
     Examples:
         To find the blocks of a matrix use ``block(M)``.
         
-        >>> M=Matrix([[1, 0, 0, 0, 0, 0, 0, 0, 0, 0],[0, 1, 1, 0, 0, 0, 0, 0, 0, 0],[0, 0, 1, 0, 0, 0, 0, 0, 0, 0],[0, 1, 0, 1, 0, 0, 0, 0, 0, 0],[0, 0, 1, 1, 1, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 1, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 1, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0, 1, 0, 0],[0, 0, 0, 0, 0, 0, 0, 0, 1, 0],[0, 0, 0, 0, 0, 0, 0,m 0, 0, 1]])
+        >>> M=Matrix([[1, 0, 0, 0, 0, 0, 0, 0, 0, 0],[0, 1, 1, 0, 0, 0, 0, 0, 0, 0],[0, 0, 1, 0, 0, 0, 0, 0, 0, 0],[0, 1, 0, 1, 0, 0, 0, 0, 0, 0],[0, 0, 1, 1, 1, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 1, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0, 1, 0, 0, 0],[0, 0, 0, 0, 0, 0, 0, 1, 0, 0],[0, 0, 0, 0, 0, 0, 0, 0, 1, 0],[0, 0, 0, 0, 0, 0, 0, 0, 0, 1]])
         >>> print(block(M))
         [0, 4, 5, 6, 7, 8, 9]        
     """   
