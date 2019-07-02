@@ -13,6 +13,7 @@
 \usepackage{color}
 \usepackage{tikz}
 \usepackage{tkz-berge}
+\usetikzlibrary{positioning,backgrounds}
 \usepackage{makeidx}
 \usepackage{url}
 \usepackage{xspace}
@@ -1739,6 +1740,70 @@ $A$ es llamado \textbf{cara} de $A$.  La dimensión de $\Delta$
   vértices de $\Delta$, y el $1$-esqueleto $\Delta^{(1)}$ de cualquier
   complejo simplicial es una gráfica.
 \end{definition}
+
+\begin{figure}[h]
+  \centering
+  \begin{minipage}[h]{0.45\linewidth}
+    \centering
+    \begin{tikzpicture}[scale=1.2]
+      \GraphInit[vstyle=Classic] \SetUpVertex[MinSize=1pt]
+      \Vertex[x=0,y=0,Math]{v_{0}} \Vertex[x=1.5,y=1.5,Math]{v_{1}}
+      \Edge[style={->}](v_{0})(v_{1})
+      \AddVertexColor{black}{v_{0},v_{1}}
+    \end{tikzpicture}
+  
+    \caption{1-simplejo}
+    \label{fig:1-simplejo}
+  \end{minipage}
+  \begin{minipage}[h]{0.45\linewidth}
+    \centering
+    \begin{tikzpicture}[scale=0.8]
+      \tikzstyle{circ} = [circle, minimum width=1.2mm, inner
+      sep=0pt,draw,fill] \tikzstyle{num} = [yshift=4mm] \node[circ](a)
+      at (0,0){}; \node[circ] (b) at (2,0){}; \node[circ] (c) at
+      (1,2){};
+      \begin{pgfonlayer}{background}
+        \fill[draw,line width=0.3mm,top color=black!30,bottom
+        color=gray!30] (a.center)node[num]{$v_{0}$} --
+        (b.center)node[num]{$v_{1}$} -- (c.center) node[num]{$v_{2}$}
+        --(a.center);
+      \end{pgfonlayer}
+      \draw[>=latex,->] (0,0) -- (2,0); \draw[>=latex,->] (2,0) --
+      (1,2); \draw[>=latex,->] (1,2) -- (0,0);
+    \end{tikzpicture}
+  
+    \caption{2-simplejo}
+    \label{fig:2-simplejo}
+  \end{minipage}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}[scale=1.1]%[x=0.5 cm,y=1cm]
+    \tikzstyle{circ} = [circle, minimum width=1mm, inner
+    sep=0pt,draw,fill] \tikzstyle{num} = [yshift=4mm] \node[circ]
+    (a) at (0,0) {}; \node[circ] (b) at (2,0) {}; \node[circ] (c) at
+    (1,1.7) {}; \node[circ] (d) at (1,0.5) {};
+    \begin{pgfonlayer}{background}
+      \fill[draw, line width=0.3mm,top color=black!30,bottom
+      color=gray!30] (a.center)node[num]{} -- (b.center) node[num]{}
+      -- (d.center) node[num]{} --(a.center);
+    \end{pgfonlayer}
+    \begin{pgfonlayer}{background}
+      \fill[draw, line width=0.3mm,top color=black!30,bottom
+      color=gray!30] (a.center)node[num]{} -- (d.center) node[num]{}
+      -- (c.center) node[num]{} --(a.center);
+    \end{pgfonlayer}
+    \begin{pgfonlayer}{background}
+      \fill[draw, line width=0.3mm,top color=black!30,bottom
+      color=gray!30](b.center)node[num]{} -- (c.center) node[num]{}
+      -- (d.center) node[num]{} --(b.center);
+    \end{pgfonlayer}
+  \end{tikzpicture}
+  
+  \caption{3-simplejo}
+  \label{fig:3-simplejo}
+\end{figure}
 
 Dos complejos abstractos $\Delta_{1}$ y $\Delta_{2}$ se dicen
 \textbf{isomorfos} si existe una correspondincia biyectiva
