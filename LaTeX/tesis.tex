@@ -1741,6 +1741,71 @@ $A$ es llamado \textbf{cara} de $A$.  La dimensión de $\Delta$
   complejo simplicial es una gráfica.
 \end{definition}
 
+Frecuentemente una orientación de un $1$-simplejo es representada
+dibujando una flecha sobre él.
+
+Dos complejos abstractos $\Delta_{1}$ y $\Delta_{2}$ se dicen
+\textbf{isomorfos} si existe una correspondincia biyectiva
+$f$ mapeando el conjunto de vértices de $\Delta_{1}$ al conjunto de
+vértices de $\Delta_{2}$ tal que
+$\left\{ a_{0}, \ldots, a_{n} \right\} \in \Delta_{1}$ si y sólo si
+$\left\{ f(a_{0}), \ldots, f(a_{n}) \right\} \in \Delta_{2}$.
+
+
+
+\begin{definition}
+  \label{v_s} 
+  Sea $\sigma$ un simplejo. Dos ordenamientos de su
+  conjunto de vértices son equivalentes si ellos son diferentes el uno
+  del otro por una permutación par. Si la dimensión de $\sigma$ es
+  mayor que $0$, los ordenamientos de los vértices de $\sigma$ caen en
+  dos clases de equivalencia. Cada una de esas clases es llamada una
+  \textbf{orientación} de $\sigma$. (En el caso donde $\sigma$ es un
+  $0$-simplejo, solamente hay una clase, y por lo tanto una sola
+  orientación de $\sigma$.) Un simplejo orientado es un simplejo
+  $\sigma$ junto con una orientación de $\sigma$.
+\end{definition}
+
+Si los puntos $v_{0}, \ldots, v_{p}$ son independientes, simplemente
+se escribirá:
+\begin{equation}
+  \label{eq:86} v_{0}, \ldots, v_{p}
+\end{equation}
+y para cuando se hable del simplejo que generan utilizaremos la
+siguiente notación:
+\begin{equation}
+  \left [ \label{eq:86} v_{0}, \ldots, v_{p} \right ]
+\end{equation}
+
+Ahora se presenta una noción básica de un \textit{n-simplejo
+  orientado}. Un \textbf{0-simplejo orientado} es un punto $v$. Un
+\textbf{1-simplejo orientado} $v_0v_{1}$ es ilustrado con una flecha
+dirigida de $v_0$ a $v_{1}$ sobre un segmento de línea que une los
+puntos antes mencionados, como en \ref{fig:1-simplejo}, por ello
+$v_{1}v_{2} \neq v_{2}v_{1}$, pero $v_{1}v_{2} = -v_{2}v_{1}$ (tienen
+orientaciones opuestas). Un \textbf{2-simplejo orientado}
+$v_{0}v_{1}v_{2}$ es representa en la figura \ref{fig:2-simplejo}
+dibujando flechas de $v_{0}$ a $v_{1}$ y de $v_{1}$ a $v_{2}$, se
+puede observar que $v_{0}v_{1}v_{2}$ tiene el mismo orden que
+$v_{1}v_{2}v_{0}$ y $v_{2}v_{0}v_{1}$ y opuesta a $v_{0}v_{2}v_{1}$,
+$v_{2}v_{1}v_{0}$ y $v_{1}v_{0}v_{2}$ .
+Nótese que $v_{i}v_{j}v_{k}$ es igual a $v_{0}v_{1}v_{2}$ si
+\begin{equation}
+  \label{eq:88}
+  \begin{pmatrix}
+    1 & 2 & 3 \\
+    i & j & k
+  \end{pmatrix} 
+\end{equation}
+es una permutación par y es igual a $-v_{0}v_{1}v_{2}$ si la
+permutación es impar. Un \textbf{3-simplejo orientado}
+$v_{0}v_{1}v_{2}v_{3}$ está dada por una secuencia orientada de los
+cuatro vértices de un tetraedro sólido como en la figura
+\ref{fig:3-simplejo} y como antes
+$v_{0}v_{1}v_{2}v_{3} = \pm v_{i}v_{j}v_{r}v_{s}$ dependiendo si la
+permutación es par o impar.
+
+
 \begin{figure}[h]
   \centering
   \begin{minipage}[h]{0.45\linewidth}
@@ -1805,33 +1870,9 @@ $A$ es llamado \textbf{cara} de $A$.  La dimensión de $\Delta$
   \label{fig:3-simplejo}
 \end{figure}
 
-Dos complejos abstractos $\Delta_{1}$ y $\Delta_{2}$ se dicen
-\textbf{isomorfos} si existe una correspondincia biyectiva
-$f$ mapeando el conjunto de vértices de $\Delta_{1}$ al conjunto de
-vértices de $\Delta_{2}$ tal que
-$\left\{ a_{0}, \ldots, a_{n} \right\} \in \Delta_{1}$ si y sólo si
-$\left\{ f(a_{0}), \ldots, f(a_{n}) \right\} \in \Delta_{2}$.
+Según el contexto, $\sigma$ denotará un
+simplejo o un simplejo orientado.
 
-
-
-\begin{definition}
-  \label{v_s} 
-  Sea $\sigma$ un simplejo. Dos ordenamientos de su
-  conjunto de vértices son equivalentes si ellos son diferentes el uno
-  del otro por una permutación par. Si la dimensión de $\sigma$ es
-  mayor que $0$, los ordenamientos de los vértices de $\sigma$ caen en
-  dos clases de equivalencia. Cada una de esas clases es llamada una
-  \textbf{orientación} de $\sigma$. (En el caso donde $\sigma$ es un
-  $0$-simplejo, solamente hay una clase, y por lo tanto una sola
-  orientación de $\sigma$.) Un simplejo orientado es un simplejo
-  $\sigma$ junto con una orientación de $\sigma$.
-\end{definition}
-
-Según el contexto, $\sigma$ denotará un simplejo, o un simplejo
-orientado.
-
-Frecuentemente una orientación de un $1$-simplejo es representada
-dibujando una flecha sobre él.
 
 \begin{definition}
   \label{p_chain}
