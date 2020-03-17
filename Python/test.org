@@ -1,0 +1,86 @@
+#+BEGIN_SRC ipython :session reps
+from representations import *
+#+END_SRC
+
+#+RESULTS:
+: # Out[1]:
+
+#+BEGIN_SRC ipython :session reps
+s = YoungTableaux([2,2,1,1,1],[3,2,2])
+#+END_SRC
+
+#+RESULTS:
+: # Out[5]:
+
+#+BEGIN_SRC ipython :session reps :results raw
+s.MNR()
+#+END_SRC
+
+#+RESULTS:
+# Out[6]:
+[[file:./obipy-resources/UXwWf0.png]]
+
+
+#+BEGIN_SRC ipython :session reps :results raw
+s.CMNR()
+#+END_SRC
+
+#+RESULTS:
+# Out[8]:
+[[file:./obipy-resources/G2XTVl.png]]
+
+#+BEGIN_SRC ipython :session reps
+c1 = Group_p_chains([(1,2,3)],[-3])
+c2 = Group_p_chains([(1,2,3)],[-5])
+c3 = Group_p_chains([(2,3,1)],[7])
+c4 = Group_p_chains([(2,3,4)],[-2])
+#+END_SRC
+
+#+RESULTS:
+: # Out[17]:
+
+#+BEGIN_SRC ipython :session reps :results raw
+c=c1+c2
+c.dic
+#+END_SRC
+
+#+RESULTS:
+# Out[18]:
+[[file:./obipy-resources/Xr8ds2.png]]
+
+
+#+BEGIN_SRC ipython :session reps :results raw
+g=nx.complete_graph(5)
+g5 = grafica_de_emparejamiento(g)
+nx.draw(g5, with_labels='True')
+#+END_SRC
+
+#+RESULTS:
+# Out[4]:
+[[file:./obipy-resources/Me2pmh.png]]
+
+
+
+#+BEGIN_SRC ipython :session reps :results raw
+m5 = SimplicialComplex(g5)
+m5.n_faces(1)
+#+END_SRC
+
+#+RESULTS:
+# Out[6]:
+[[file:./obipy-resources/lQICyw.png]]
+
+
+#+BEGIN_SRC ipython :session reps :results raw
+m5.elementary_chain(((0,1),(2,3))).dic
+#+END_SRC
+
+#+RESULTS:
+# Out[7]:
+[[file:./obipy-resources/r5nOqc.png]]
+
+
+
+# Local Variables:
+# org-confirm-babel-evaluate: nil
+# End:

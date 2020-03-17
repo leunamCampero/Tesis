@@ -9,3 +9,6 @@
 auto/
 /LaTeX/tesis.pdf
 /LaTeX/tesis.synctex.gz
+/Python/__pycache__/
+/Python/obipy-resources/
+/Python/.ipynb_checkpoints/
