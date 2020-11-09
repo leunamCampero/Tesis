@@ -150,7 +150,18 @@
   {\bfseries\Large Resumen}
 \end{flushleft}
 
-En esta tesis se presentan los resultados de una librería realizada en Python que permite calcular la descomposición en irreducibles del $S_n$-módulo $\widetilde H_{k}(\Delta)$, donde $\Delta$ es un complejo simplicial en el cual el grupo simétrico actúa permutando los vértices, en particular este trabajo se interesa por complejos simpliciales que provienen de un gráfica, específicamente de la gráfica de líneas $G_n$ cuyo complejo de emparejamientos o matching complex $M_n$ es bien conocido y del complejo simplicial $K(M_n)$ que denota el complejo simplicial de la gráfica de clanes de $G_n$. Además se busca encontrar una fórmula que descomponga al $S_n$-módulo $\widetilde H_{k}(K(M_n))$ en submódulos irreducibles, así como Bouc \cite{MR756517} lo realizó para $\widetilde H_{k}(M_n)$.
+En esta tesis se presentan los resultados de una librería realizada en
+Python que permite calcular la descomposición en irreducibles del
+$S_n$-módulo $\widetilde H_{k}(\Delta)$, donde $\Delta$ es un complejo
+simplicial en el cual el grupo simétrico actúa permutando los
+vértices, en particular este trabajo se interesa por complejos
+simpliciales que provienen de un gráfica, específicamente de la
+gráfica de líneas $G_n$ cuyo complejo de emparejamientos o matching
+complex $M_n$ es bien conocido y del complejo simplicial $K(M_n)$ que
+denota el complejo simplicial de la gráfica de clanes de $G_n$. Además
+se busca encontrar una fórmula que descomponga al $S_n$-módulo
+$\widetilde H_{k}(K(M_n))$ en submódulos irreducibles, así como Bouc
+\cite{MR756517} lo realizó para $\widetilde H_{k}(M_n)$.
 
 \vspace{2cm}
 
@@ -158,7 +169,18 @@ En esta tesis se presentan los resultados de una librería realizada en Python qu
   {\bfseries\Large Abstract}
 \end{flushleft}
 
-In this thesis are presented the results of a library made in Python that allows to calculate the decomposition into irreducible of the $S_n$-module $\widetilde H_{k}(\Delta)$, where $\Delta$ is a simplicial complex in which the symmetric group acts on the vertices by permutation, In particular this work is interested in simplicial complexes that come from a graph, specifically from the lines graph $G_n$ whose matching complex $M_n$ is well known and from the simplicial complex $K(M_n)$ that denotes the simplicial complex of the clique graph of $G_n$. In addition, it is sought to find a formula that decomposes the $S_n$-module $\widetilde H_{k}(K(M_n))$ into irreducible submodules, as well as Bouc \cite{MR756517} did for $\widetilde H_{k}(M_n)$.
+In this thesis are presented the results of a library made in Python
+that allows to calculate the decomposition into irreducible of the
+$S_n$-module $\widetilde H_{k}(\Delta)$, where $\Delta$ is a
+simplicial complex in which the symmetric group acts on the vertices
+by permutation, In particular this work is interested in simplicial
+complexes that come from a graph, specifically from the lines graph
+$G_n$ whose matching complex $M_n$ is well known and from the
+simplicial complex $K(M_n)$ that denotes the simplicial complex of the
+clique graph of $G_n$. In addition, it is sought to find a formula
+that decomposes the $S_n$-module $\widetilde H_{k}(K(M_n))$ into
+irreducible submodules, as well as Bouc \cite{MR756517} did for
+$\widetilde H_{k}(M_n)$.
 
  \newpage \thispagestyle{empty}
  
@@ -166,7 +188,7 @@ In this thesis are presented the results of a library made in Python that allows
 
  Una idea que generalmente aparece en la ciencia es que las grandes
  estructuras pueden ser comprendidas por medio de sus pedazo más
- pequeñoss. Lo mismo ocurre con la teoría de la
+ pequeños. Lo mismo ocurre con la teoría de la
  representaciones. Algunas representaciones se construyen a partir de
  otras más pequeñas, mientras que otras son indivisibles. Esta es la
  distinción entre las representaciones reducibles y representaciones
@@ -175,29 +197,114 @@ In this thesis are presented the results of a library made in Python that allows
  determinar con precisión lo que significan estas piezas o
  sub-objetos.
 
- En la primera sección se presenta la acción de un grupo $G$ en un
- $\mathbb{C}$-espacio vectorial $V$, lo cual conduce definir un
- $G$-módulo. Mientras que una representación del grupo $G$ en el
- espacio vectorial $V$, es un homomorfismo de grupos $G \to GL(V)$,
- donde $GL(V)$ es el grupo de transformaciones lineales invertibles
- $V \to V$. Si el homomorfismo $G \to GL(V)$ es inyectivo, tenemos que
- $G$ es isomorfo a un subgrupo de $GL(V)$, es decir, hemos hallado una
- ``representación'' de los elementos $G$ como transformaciones
- lineales $V \to V$. Y las propidades del homomorfismo aún nos dan
- información de $G$ a pesar de que el homomorfismo $G \to GL(V)$ no
- sea inyectivo.
+En la primera sección se presenta la acción de un grupo $G$ en un
+$\mathbb{C}$-espacio vectorial $V$, lo cual conduce definir un
+$G$-módulo. Mientras que una representación del grupo $G$ en el
+espacio vectorial $V$, es un homomorfismo de grupos $G \to GL(V)$,
+donde $GL(V)$ es el grupo de transformaciones lineales invertibles
+$V \to V$. Si el homomorfismo $G \to GL(V)$ es inyectivo, tenemos que
+$G$ es isomorfo a un subgrupo de $GL(V)$, es decir, hemos hallado una
+``representación'' de los elementos $G$ como transformaciones lineales
+$V \to V$. Y las propiedades del homomorfismo aún nos dan información
+de $G$ a pesar de que el homomorfismo $G \to GL(V)$ no sea inyectivo.
+Se sabe que un $G$-módulo $V$ es equivalente a una representación
+$\phi \colon G \to GL(V)$.
 
- Se sabe que un $G$-módulo $V$ es equivalente a una representación
- $\phi \colon G \to GL(V)$, y uno se utilizará en vez de otro cuando
- así se piense conveniente.
+ En el resto del primer capítulo diremos que una representación
+ matricial $A$ es irreducible si existe una matriz $P$ no singular tal
+ que: $P^{-1}A(a)P$ es una matriz triangular superior con ciertas
+ características para todo $a \in G$. De ahí se formulan teoremas
+ conocidos como el teorema de Maschke y Schur, cuyo análogos para
+ $G$-módulos se escriben encerrados en cuadros, esto es porque en
+ ocasiones nos será útil la representación matricial y en otras
+ ocasiones hablar en términos de $G$-módulos será más provechoso. Por
+ último ser termina el capítulo introduciendo a los módulos de Specht
+ $S^{\lambda}$, los cuales forman una lista completa de $S_n$-módulos
+ irreducibles para $\lambda$ una partición de $n$ y las tablas de
+ caracteres, las cuales no son útiles para saber la multiplicidad de
+ las representaciones irreducibles en un $G$-módulo.
 
+En el capítulo 2 sección \ref{hsc} se definen conceptos conceptos como
+complejo simplicial abstracto $\Delta$, espacio de cadenas
+$C_{p}(\Delta)$ y el operador frontera $\partial_{p}$, y por medio de
+ellos se introduce homología y homología reducida de un complejo
+simplicial. En la sección \ref{hom_simpl} se presentan los conceptos
+de ciclos, fronteras y la función aumento que nos servirán para
+definir homología y homología reducida. Finalmente a un complejo
+simplicial $\Delta$ a se le asocia con topología por medio por medio
+de su realización geométrica $|\Delta|$.
+
+En el capítulo $3$ se presentan conceptos básicos de gráficas, así
+como gráfica de líneas $G_n$ que surge a partir de gráficas completas
+de $n$ vértices $K_n$ y gráfica de clanes $K(G_n)$ que se construyen
+por medio de las gráficas $G_n$, cuyas homologías de sus complejo
+simpliciales asociados y su descomposición en $S_n$-módulos
+irreducibles es la principal inspiración de este trabajo. $K_n$, $G_n$
+y $K(G_n)$ para $n = 5$ se presentan a continuación:
+
+\begin{center}
+  \begin{minipage}{0.3\linewidth}
+    \centering
+    \begin{tikzpicture}[rotate=90,scale=.7]
+      \GraphInit[vstyle=Classic] 
+      \SetUpVertex[MinSize=1pt]
+      \SetVertexNoLabel 
+      \grComplete[RA=2.3]{5}
+    \end{tikzpicture}
+  
+    $K_{5}$
+  \end{minipage}
+  \bigskip
+
+\begin{minipage}{0.33\linewidth}
+  \centering
+  \begin{tikzpicture}[rotate=90,scale=0.75]
+    \newcommand{\aset}[2]{$\{#1,#2\}$} \GraphInit[vstyle=Classic]
+    \SetUpVertex[MinSize=1pt] \SetVertexNoLabel
+    \grPetersen[RA=2.8,RB=1.3]
+  \end{tikzpicture}
+
+  $G_{5}$
+\end{minipage}\quad
+\begin{minipage}{0.33\linewidth}
+  \centering
+  \begin{tikzpicture}[scale=.75]
+    \newcommand{\aset}[2]{$\{#1,#2\}$} \GraphInit[vstyle=Classic]
+    \SetUpVertex[MinSize=1pt] \SetVertexNoLabel
+    \grEmptyCycle[RA=1,rotation=-90]{5}
+    \grEmptyCycle[RA=1.8,prefix=w,rotation=-90]{5}
+    \grCycle[RA=2.8,prefix=z,rotation=90]{5} \EdgeInGraphMod{a}{5}{2}
+    \EdgeMod{a}{w}{5}{1} \EdgeMod{a}{w}{5}{-1} \EdgeMod{w}{z}{5}{2}
+    \EdgeMod{w}{z}{5}{-2}
+  \end{tikzpicture}
+ 
+  $K(G_{5})$
+\end{minipage}
+\end{center} 
+
+
+El capítulo $4$ se dan los conceptos de complejo de emparejamientos y
+complejos simpliciales asociados a ciertas gráficas $K(G_n)$, se
+enuncia el teorema de Bouc \cite{dong2002combinatorial}, y se exhiben
+descomposiciones en $S_n$-módulos irreducibles de
+$H_k(\Delta(K(G_7)))$ y $H_k(\Delta(K(G_7)))$ para algunos $k \geq 0$,
+los cuales son los resultados obtenidos en el programa hecho en Python
+que se puede ser hallado en...
+
+
+El capítulo $6$ presenta la demostración del teorema de Bouc que puede
+ser hallada en \cite{wachs2006poset}, y se específica el camino que se
+tiene planeado seguir para hallar una fórmula que permita la
+descomposición en $S_n$-submódulos irreducibles de $H_k(K(M_n))$ para
+todo $k \geq 0$.
 
 
 \chapter{Representaciones de grupos}
 \label{cha:Representaciones de grupos}
 
 En este capítulo veremos las definiciones básicas de representaciones
-de grupos. Nos basaremos principalmente en \cite{MR882540} y \cite{sagan2001symmetric}.
+de grupos. Nos basaremos principalmente en \cite{MR882540} y
+\cite{sagan2001symmetric}.
 
 \section{Definiciones básicas}
 \label{sec:basicas}
@@ -403,8 +510,8 @@ similarmente con los vectores $(0,1,0)$ y $(0,0,1)$, por ello:
     .
   \end{equation}
 
-  La \textbf{representación regular izquierda} de $G$ se define análogamente
-  usando el siguiente homomorfismo:
+  La \textbf{representación regular izquierda} de $G$ se define
+  análogamente usando el siguiente homomorfismo:
   \begin{equation*}
     a \mapsto
     \begin{pmatrix}
@@ -484,7 +591,7 @@ grado~$r$,~$s$, respectivamente.
   que $W$ es un $G$-módulo en sí mismo bajo la acción de $G$. Se
   escribirá $W \leq V$ si $W$ es un submódulo de $V$. Se dirá que $V$
   un $G$-módulo no trivial es \textbf{irreducible} si sus únicos submódulos son
-  el submódulo trivial $0$ y $V$ mismo.
+  el submódulo trivial $0$ y $V$ mismo. 
  
 \end{mdframed}
  
@@ -693,8 +800,9 @@ $A$ veces.
 \end{proof}
 
 \begin{mdframed}
-  Sea $G$ un grupo finito y $V$ un $G$-módulo. Enonces $V$ es
-  \textbf{completamente reducible}, es decir:
+  (\textit{Teorema de Maschke}) Sea $G$ un grupo finito y $V$ un
+  $G$-módulo. Entonces $V$ es \textbf{completamente reducible}, es
+  decir:
   \begin{equation}
     \label{eq:95}
     V \cong m_1W^{(1)} \oplus m_2W^{(2)} \oplus  \cdots \oplus m_kW^{(k)}, 
@@ -1289,9 +1397,13 @@ todos los caracteres irreducibles $\chi_{i}$ de $G$.
   igual que el de las clases de conjugación de $G$.
 \end{theorem}
 \begin{proof}
-  Se tiene que si $A_{m\times n}$ y $B_{n\times m}$ son matrices , entonces si el
-  determinante de la matriz $AB_{m\times m}$ es distinto de cero, se sigue que $m \leq n$.
-  Sean $\chi_{1}, \chi_{2},...,\chi_{l}$ los distintos caracteres irreducibles de $G$ y sean $a_{1},...,a_{k}$ los representantes de las clases de conjugación de $G$. Entonces por el Teorema \ref{t4_4p}.
+  Se tiene que si $A_{m\times n}$ y $B_{n\times m}$ son matrices ,
+  entonces si el determinante de la matriz $AB_{m\times m}$ es
+  distinto de cero, se sigue que $m \leq n$.  Sean
+  $\chi_{1}, \chi_{2},...,\chi_{l}$ los distintos caracteres
+  irreducibles de $G$ y sean $a_{1},...,a_{k}$ los representantes de
+  las clases de conjugación de $G$. Entonces por el Teorema
+  \ref{t4_4p}.
   \begin{equation}
     \label{eq:56}
     \begin{pmatrix}
@@ -1657,7 +1769,9 @@ si y sólo si
 \label{rsf}
 En esta sección se construirán representaciones del grupo simétrico
 $S_n$, los cuales son llamados módulos de Specht y son denotados por
-$S^{\lambda}$ con $\lambda$ una partición de $n$. Las demostraciones de los resultados de esta sección son duales a los de \cite{sagan2001symmetri}.
+$S^{\lambda}$ con $\lambda$ una partición de $n$. Las demostraciones
+de los resultados de esta sección son duales a los de
+\cite{sagan2001symmetric}.
 
 Sea $\lambda$ una partición de $n$, es decir, una sucesión no
 creciente de números enteros
@@ -1668,7 +1782,7 @@ $\lambda = 1^{m_1}2^{m_2} \cdots n^{m_n}$, si $\lambda$ tiene $m_i$
 partes de tamaño $i$ para cada $i$. Cada partición $\lambda$ es
 identificada con un diagrama de Young cuyo $i$-ésimo renglón tiene
 $\lambda_{i}$ cajas. Por ejemplo, la partición $(4,2,2,1) \vdash 9$
-está idenficado con el diagrama de Young.
+está identificado con el diagrama de Young.
 \begin{center}
   \ytableausetup{mathmode,notabloids,boxsize=1.2em}
   \begin{minipage}[h]{0.3\linewidth}
@@ -1677,12 +1791,37 @@ está idenficado con el diagrama de Young.
   \end{minipage} 
 \end{center}
 
+\begin{definition}
+  Sea $\lambda\vdash n$. El \textbf{conjugado} de $\lambda$ es la
+  partición $\lambda^{'}$ cuyo diagrama es el transpuesto del diagrama
+  $\lambda$, es decir, es el diagrama que se obtiene reflejando sobre
+  la diagonal principal.. Se dice que~$\lambda$ es
+  \textbf{autoconjugada} si $\lambda=\lambda^{'}$ .
+\end{definition}
+
+\begin{definition}
+  Sea $\lambda\vdash n$, se dirá que $\lambda$ tiene un
+  \textbf{cuadrado de Durfee} de lado $s$ si $s$ es la longitud del
+  cuadrado más grande contenido en el diagrama de Young asociado a
+  $\lambda$, y se denotará $d(\lambda) = s$.
+\end{definition}
+
+\begin{example}
+  Sea $\lambda=(5,4,4,1)$, así que $\lambda^{'}=(4,3,3,3,1)$
+  \begin{equation*}
+    \ytableausetup{notabloids,boxsize=1.2em} 
+    \lambda=\ydiagram{5,4,4,1} \qquad
+    \lambda^{'}=\ydiagram{4,3,3,3,1}
+  \end{equation*}
+  En este caso $d(\lambda)=d(\lambda^{'})=3$.
+\end{example}
+
 Un tablero de Young de forma $\lambda \vdash n$ es un diagrama de
 Young de $\lambda$ cuyas cajas están llenadas con los enteros
 $1, \ldots, n$ sin repetición. Un tablero de Young se dirá estándar si
 las entradas son crecientes por renglones y columnas. Por ejemplo, el
 tablero de Young de la izquierda no es estándar, mientras que el
-talblero de la derecha sí lo es.
+tablero de la derecha sí lo es.
 
 \begin{center}
   \ytableausetup{mathmode,notabloids,boxsize=1.2em}
@@ -1835,10 +1974,10 @@ un tablero que cumple lo siguiente:
 \item El $k$-ésimo renglón de $T$ tiene $\lambda_{k}$ cajas.
 \item Las cajas de $T$ están llenadas con enteros, con el entero $i$
   apareciendo $\rho_i$ veces.
-\item Los enteros en cada renglón y columna son crescientes
+\item Los enteros en cada renglón y columna son crecientes
   débilmente.
 \item $T$ debe ser conexo y no contener bloques cuadrados de $2x2$ en
-  los que se hayen el mismo entero.
+  los que se hallen el mismo entero.
 \end{itemize}
 
 Y $ht(T)$ es la suma de los pesos de los border strip en $T$. El peso
@@ -1887,8 +2026,8 @@ análogamente se forma:
 
 Todas las tablas de caracteres del grupo simétrico $S_n$ que se
 utilizaron para encontrar los resultados del presente trabajo fueron
-creadas en python por el comando:
-\begin{algorithm}
+creadas en Python por el comando:
+\begin{algorithm}[H]
 \caption{Tabla de caracteres de $S_n$}
 \begin{algorithmic}
 \REQUIRE $n \geq 0$
@@ -2135,7 +2274,16 @@ creadas en python por el comando:
 
 \chapter{Homología de complejos simpliciales}
 \label{hsc}
-En este capítulo ...
+
+En este capítulo se definen conceptos conceptos como
+complejo simplicial abstracto $\Delta$, espacio de cadenas
+$C_{p}(\Delta)$ y el operador frontera $\partial_{p}$, y por medio de
+ellos se introduce homología y homología reducida de un complejo
+simplicial. En la sección \ref{hom_simpl} se presentan los conceptos
+de ciclos, fronteras y la función aumento que nos serivirán para
+definir homología y homología reducida. Finalmente a un complejo
+simplicial $\Delta$ a se le asocia con topología por medio por medio
+de su realización geométrica $|\Delta|$.
 
 \section{Complejos simpliciales abstractos}
 \label{asc}
@@ -2175,7 +2323,7 @@ Frecuentemente una orientación de un $1$-simplejo es representada
 dibujando una flecha sobre él.
 
 Dos complejos abstractos $\Delta_{1}$ y $\Delta_{2}$ se dicen
-\textbf{isomorfos} si existe una correspondincia biyectiva
+\textbf{isomorfos} si existe una correspondencia biyectiva
 $f$ mapeando el conjunto de vértices de $\Delta_{1}$ al conjunto de
 vértices de $\Delta_{2}$ tal que
 $\left\{ a_{0}, \ldots, a_{n} \right\} \in \Delta_{1}$ si y sólo si
@@ -2332,7 +2480,7 @@ trivial.
 \end{definition}
 Por abuso de notación, $\sigma$ denotará no solo a un simplejo, o a un
 simplejo orientado, también denotamos a la $p$-cadena elemental $c$
-correspondiente al simplejo orientado $\sigma$.  Con esta conveción,
+correspondiente al simplejo orientado $\sigma$.  Con esta convención,
 si $\sigma$ y $\sigma?$ tienen orientaciones opuestas del mismo
 simplejo, entonces podemos escribir $\sigma? = -\sigma$, pues ésta
 ecuación se mantiene cuando nos referimos a $\sigma$ y $\sigma?$ como
@@ -2395,7 +2543,7 @@ v_{p}]$. Entonces se compararán las expresiones:
   \partial_{p}(v_{0}\ldots v_{j} v_{j+1} \ldots v_{p}) \quad \mathrm{y} \quad \partial_{p}(v_{0} \ldots v_{j+1} v_{j} \ldots v_{p}).
 \end{equation}
 Para $i \neq j$, $j + 1$, el $j$-ésimo término en esas dos expresiones
-difieren precisamente por un signo, el termino es identico excepto que
+difieren precisamente por un signo, el termino es idéntico excepto que
 $v_{j}$ y $v_{j+1}$ aparecen intercambiados. A continuación se
 presenta que sucede para el $i$-ésimo término para $i = j$ y
 $i = j+1$. Para la primera expresión se tiene:
@@ -2420,10 +2568,8 @@ Mientras que para la segunda expresión, se tiene:
   \end{enumerate}
 \end{example}
 
-\chapter{Homología simplicial}
+\section{Homología simplicial}
 \label{hom_simpl}
-
-
 \begin{definition}
   Sea $\varepsilon:C_{0}\rightarrow \mathbb{C}$ la transformación
   lineal suprayectiva definida por $\varepsilon(v)=1$ para cada
@@ -2583,7 +2729,7 @@ Lo anterior puede ser deducido de la clase, de la siguiente manera:
 \begin{algorithm}[H]
 \caption{Calcular la dimensión $H_{i}(\Delta)$, con $\Delta$ el tetraedro}
 \begin{algorithmic}
-\STATE sc $=$ sc.complex$(\left [ \left [ v_0,v_1,v_2,v_3 \right ],\left [ v_0,v_1,v_3 \right ],\left [  v_1,v_2,v_3 \right ],\left [ v_0,v_2,v_3 \right ],\left [ v_0,v_1,v_2 \right ] \right ])$
+\STATE sc $=$ sc.complex$(\left [ \left [ v_0,v_1,v_2,v_3 \right ] \right ])$
 \FOR{$i = 0$ \TO dim$\Delta$ } 
 \STATE dim = sc.dimension$_{-}$homology$(i)$
 \PRINT dim
@@ -2597,8 +2743,8 @@ enfrente es la correspondiente dimensión.
 $$ \left \{0: 1  \right \}, \left \{1: 0  \right \}, \left \{2: 0  \right \}, \left \{3: 0  \right \}$$
 
 
-A cada complejo simplicial $\Delta$ se le puede asociar la asociación
-geomética de $\Delta$, y es denotado por $|\Delta|$, el cual
+A cada complejo simplicial $\Delta$ se le puede asociar su realización
+geométrica de $\Delta$, y es denotado por $|\Delta|$, el cual
 es:
 \begin{equation}
   \label{eq:112}
@@ -2672,7 +2818,7 @@ $E(V) = E$ se les llama aristas de $G$. Si
 $e = \left\{ u,v \right\} \in E$, se dice que $\left\{ u,v \right\}$
 son vértices adyacentes o vecinos y se escribirá $u \sim u$.  Sea
 $u \in V$ y $e \in E$, si $u \in e$ se dirá que $u$ y $e$ son
-indicentes.
+incidentes.
 
 \begin{definition}
   \label{sub_graph}
@@ -2787,18 +2933,6 @@ indicentes.
     \end{minipage}
   \end{center}
 \end{example}
-En la figura~\ref{fig:completa} se muestra un dibujo de la gráfica
-completa $K_4$.
-
-\begin{figure}[hbtp]
-  \centering
-  \begin{tikzpicture}
-    \SetVertexNoLabel
-    \grComplete[RA=2,rotation=45]{4}
-  \end{tikzpicture}
-  \caption{Gráfica $K_4$}
-  \label{fig:completa}
-\end{figure}
 
 
 \begin{definition}
@@ -2813,7 +2947,7 @@ completa $K_4$.
 \begin{definition}
   \label{clique}
   Un \textbf{clan} de una gráfica es una subgráfica completa maximal,
-  lo cual significa que no está contenida en ningua otra subgráfica
+  lo cual significa que no está contenida en ninguna otra subgráfica
   completa.
 \end{definition}
 
@@ -2821,7 +2955,7 @@ completa $K_4$.
 \begin{definition}
   \label{clique_graph}
   La \textbf{gráfica de clanes} de $G$, es la gráfica de intersección
-  de la familia de clanes de $G$. Y se donotará como $K(G)$.
+  de la familia de clanes de $G$. Y se denotará como $K(G)$.
 \end{definition}
 
 A cada gráfica $G$ finita se le asocia un espacio topológico por medio
@@ -2836,9 +2970,9 @@ representaciones de $S_{n}$.
 \chapter{Complejos de emparejamientos, $\Delta(K(M_7))$ y $\Delta(K(M_8))$}
 \label{hom_ce_cc}
 En este capítulo se presentará el teorema de Bouc
-\cite{dong2002combinatorial}, y los resutlados obtenidos en la libería
-hecha en Python, libería cuyas cualidades y limitaciones se comentarán
-más adelante. Las definiciones pueden ser halladas
+\cite{dong2002combinatorial}, y los resutlados obtenidos en la librería
+hecha en Python, librería cuyas cualidades y limitaciones se comentarán
+más adelante. Las definiciones pueden ser halladas en \cite{larrion2008equivariant}.
 
 \section{Complejos de emparejamientos}
 \label{c_em}
@@ -2925,7 +3059,11 @@ $
 \end{center}
 \end{example}
 
-Luego, el grupo simétrico $S_n$ actúa en $M_n$ permutando los vértices de la gráfica. Lo cual induce una representación sobre la homología simplicial reducida $\widetilde H_{k}(M_{n})$. Bouc \cite{MR756517} dio la descomposición en irreducibles de donde surge el siguiente resultado que es la principal inspiración del presente trabajo.
+Luego, el grupo simétrico $S_n$ actúa en $M_n$ permutando los vértices
+de la gráfica. Lo cual induce una representación sobre la homología
+simplicial reducida $\widetilde H_{k}(M_{n})$. Bouc \cite{MR756517}
+dio la descomposición en irreducibles de donde surge el siguiente
+resultado que es la principal inspiración del presente trabajo.
 
 \begin{theorem}[Teorema de Bouc]{\normalfont(\cite{MR756517}, proposición 4, p.172)}.
   Para todos~$n,k\geq1$:
@@ -2977,9 +3115,10 @@ $\Delta(K(G_n))$ de $G_n$.
 \end{algorithm}
 
 
-Lo cual imprimie el siguiente diccionario de diccionarios que
+Lo cual imprime el siguiente diccionario de diccionarios que
 corresponde a las $p$-ésimas homologías que no son automáticamente
 triviales:
+
 $ \left \{0: \left \{(3,): 1.0,(1,1,1): 0.0,(2,1): 1.0 \right \}
 \right \}$.
 
@@ -3006,8 +3145,8 @@ siguientes líneas de comandos.
 \ENDFOR
 \end{algorithmic}
 \end{algorithm}
-De donde se obtiene que los módulos de homología reducida distintos de cero son los siguientes:
-\ytableausetup{boxsize=0.2em}
+De donde se obtiene que los módulos de homología reducida distintos de
+cero son los siguientes: \ytableausetup{boxsize=0.2em}
 \begin{equation}
   \widetilde H_{0}(M_{4})\cong\widetilde H_{0}(K(M_{4}))\cong_{S_{4}} S^{(2,2)}= S^{\,\ydiagram{2,2}}.
 \end{equation}
@@ -3018,7 +3157,7 @@ De donde se obtiene que los módulos de homología reducida distintos de cero son 
   \widetilde H_{1}(M_{6})\cong\widetilde H_{1}(K(M_{6}))\cong_{S_{6}} S^{(3,2,1)}=S^{\,\ydiagram{3,2,1}}.
 \end{equation}
 
-Similarmente el programa permitó observar que $\widetilde H_{k}(M_{7})\cong_{S_7} \widetilde H_{k}(K(M_{7}))$ para $k\geq0$, donde la única homología no trivial es:
+Similarmente el programa permitió observar que $\widetilde H_{k}(M_{7})\cong_{S_7} \widetilde H_{k}(K(M_{7}))$ para $k\geq0$, donde la única homología no trivial es:
 
 \ytableausetup{boxsize=0.2em}
 \begin{equation}
@@ -3029,8 +3168,8 @@ Se sabe que $K(M_{7})$ y $K(M_{8})$ son ``similares'' tanto en
 dimensión como en respectiva cantidad de $p$-simplejos, sin embargo,
 computacionalmente no fue posible determinar la descomposición en
 irreducibles de $\widetilde H_{2}(K(M_{8}))$, ya que la memoria de la
-computadora fue insuficiente gracias a la cantidad de los $2'$s y $3'$s-simplejos, por ello sólo fue factible verificar
-que:
+computadora fue insuficiente gracias a la cantidad de los $2'$s y
+$3'$s-simplejos, por ello sólo fue factible verificar que:
 \begin{equation}
 \widetilde H_{k}(M_{8})\cong_{S_{8}} \widetilde H_{k}(K(M_{8})) = 0, 
 \end{equation}
@@ -3039,7 +3178,12 @@ para $k \leq 1.$
 
 \chapter{Demostración del Teorema de Bouc}
 \label{summ}
-En este capítulo se presentarán resultados cuyas pruebas o bosquejos de las mimas pueden ser hallados en \normalfont(\cite{wachs2006poset}, Lectura 2, p.23-39), las cuales llevan a demostrar \ref{bouc} y se piensa que servirán como punto de partida para encontra una fórmula análoga para la descomposición en irreducibles de $\widetilde H_k(K(M_n))$ como $S_n$-módulos. 
+En este capítulo se presentarán resultados cuyas pruebas o bosquejos
+de las mimas pueden ser hallados en \normalfont(\cite{wachs2006poset},
+Lectura 2, p.23-39), las cuales llevan a demostrar \ref{bouc} y se
+piensa que servirán como punto de partida para encontrar una fórmula
+análoga para la descomposición en irreducibles de
+$\widetilde H_k(K(M_n))$ como $S_n$-módulos.
 
 
 
@@ -3064,7 +3208,7 @@ $g(x) \in \Lambda^{n}$.
 
 
 
-Acontinuación se presentan dos bases para el espacio vectorial
+A continuación se presentan dos bases para el espacio vectorial
 $\Lambda^{n}$. La primera es la base de las \textbf{funciones de
   Schur}. Para $n \geq 1$, sea
 \begin{equation}
@@ -3076,7 +3220,7 @@ y $p_0 = 1$.
 
 
 
-El \textbf{suma de potencias de funciones simétricas} idexadas por
+El \textbf{suma de potencias de funciones simétricas} indexadas por
 $\lambda = (\lambda_1 \geq \lambda_2 \geq \cdots \geq \lambda_k)$ está
 definido por
 \begin{equation}
@@ -3084,11 +3228,11 @@ definido por
   p_{\lambda} := p_{\lambda_1}p_{\lambda_2} \cdots p_{\lambda_k}.
 \end{equation}
 
-Dado un diagrama de Young $\lambda$, un tablero semiestándar de forma
+Dado un diagrama de Young $\lambda$, un tablero semi estándar de forma
 $\lambda$ es un diagrama cuyas cajas están llenadas de forma
-débilmentecreciente por renglones y estrictamente por columnas. Sea
-$SS_{\lambda}$ el conjunto de tableros semiestándar de forma
-$\lambda$. Dado un semiestándar tablero $T$, se define
+débilmente creciente por renglones y estrictamente por columnas. Sea
+$SS_{\lambda}$ el conjunto de tableros semi estándar de forma
+$\lambda$. Dado un semi estándar tablero $T$, se define
 $w(T) := x_{1}^{m_1}x_{2}^{m_2} \cdots$, donde para cada $i$, $m_i$ es
 el número de veces que $i$ aparece en $T$. Ahora, se define la función
 de Schur indexada por $\lambda$ es
@@ -3142,7 +3286,7 @@ donde $h_0 = e_0 = 1$.
 
 
 La \textbf{La característica de Frobenius} $ch(V)$ de una
-represetación $V$ de un $S_n$ módulo es la función simétrica dada por
+representación $V$ de un $S_n$ módulo es la función simétrica dada por
 \begin{equation}
   \label{eq:104}
   \textup{ch}(V) := \sum_{u \vdash n}  \frac{1}{z_{\mu}} \chi^{V}(u) p_{\mu},
@@ -3178,7 +3322,7 @@ donde $z_{\mu} := 1^{m_1} m_{1}! 2^{m_2} m_{2}! \cdots n^{m_n} m_{n}!$
 Rellena la secuencia de monomios con ceros si $g$ tiene un número
 finito de términos. Se define el \textbf{Pletismo} de $f$ y $g$,
 denotado $f \left [ g \right ]$, como la serie de potencias formal
-obtenida de $f$ reemplazando las incognitas $x_{i}$ con el $i$ ésimo
+obtenida de $f$ reemplazando las incógnitas $x_{i}$ con el $i$ ésimo
 monomio de $g$ para cada $i$. Como $f$ es una función simétrica, el
 orden los monomios escogidos no importa. Por ejemplo, si
 $f = \sum_{n \geq 0}e_n = \prod_{i \geq 1}(1 + x_{i})$ y $g$ es como
@@ -3197,7 +3341,7 @@ arriba, entonces,
 \begin{itemize}
 \item Si $f$ tiene coeficientes enteros positivos, entonces
   $f \left [ p_{n} \right ] = p_{n} \left [ f \right ]$ es obtenido
-  reemplazando cada incognita $x_{i}$ de $f$ por $x_{i}^{n}.$
+  reemplazando cada incógnita $x_{i}$ de $f$ por $x_{i}^{n}.$
 \item $(af + bg) \left [ h \right ] = af \left [ h \right ] + bg \left [ h \right ]$, con $a,b \in \mathbb{Q}.$
 \item $fg \left [ h \right ] = f \left [ h \right ] g \left [ h \right ]$
 \end{itemize} 
@@ -3237,7 +3381,7 @@ $W^{\otimes m}$ con $S_m \left [ G \right ] .$ actuando como
   \end{equation}
 
 
-  y $\hat{V}$ es la apliación regrediente de $S_m$ en $V$ hacia
+  y $\hat{V}$ es la aplicación regrediente de $S_m$ en $V$ hacia
   $S_m \left [ G \right ]$ a través del homomorfismo dado
   \ref{pr_or_t1}. Es decir, $\hat{V}$ es la representación
   $S_m \left [ G \right ]$ en $V$ definido por
@@ -3248,7 +3392,7 @@ $W^{\otimes m}$ con $S_m \left [ G \right ] .$ actuando como
 
 Dado un conjunto finito
 $A = \left \{ a_1 < a_2< \cdots < a_n \right \}$ de enteros positivos,
-sea $S_A$ el conjuto de permutación del conjunto $A$. Una permutación
+sea $S_A$ el conjunto de permutación del conjunto $A$. Una permutación
 en $S_A$ puede ser vista como una palabra cuyas letras vienen de
 $A$. Para $\sigma \in S_n$, la palabra
 $a_{\sigma(1)}a_{\sigma(2)} \cdots a_{\sigma(n)}$. Un elemento del
@@ -3285,7 +3429,8 @@ composición.
   \end{equation}
 \end{theorem}
 
-Wachs y Dongs \normalfont(\cite{munkres1984elements}, Proposición 3.1, p.4) observan que para todo $r \geq 1$ y $n \geq 2$ se tiene el
+Wachs y Dongs \normalfont(\cite{munkres1984elements}, Proposición 3.1,
+p.4) observan que para todo $r \geq 1$ y $n \geq 2$ se tiene el
 siguiente isomorfismo como $S_n$-módulos:
 \begin{equation}
   \label{eq:93}
@@ -3306,7 +3451,8 @@ siguiente isomorfismo como $S_n$-módulos:
     \bigoplus_{k = -1}^{\textup{dim} \Delta}(-1)^{k}C_{k}(\Delta) \widetilde{H}_k(M_n) \cong_{S_{n}} \bigoplus_{k = -1}^{\textup{dim} \Delta}(-1)^{k}\widetilde{H}_k(\Delta)
   \end{equation}
 \end{theorem}
-y por medio del teorema anterior y la identidad de Littlewood se llega a que:
+y por medio del teorema anterior y la identidad de Littlewood se llega
+a que:
 \begin{equation}
   \label{eq:90}
 \sum_{n \geq 0} \sum_{k \geq -1}(-1)^{k-1}ch(\widetilde{H}_k(M_n)) = \sum_{\lambda = {\lambda}'}(-1)^{\frac{\mid \lambda \mid - r(\lambda)}{2}}s_{\lambda}  
@@ -3339,7 +3485,7 @@ es decir:
   \textup{ch}(C_{0}(M_n)) = e_{0}\left [ h_{2} \right ]h_{n-2}
 \end{equation}
 
-que se sigue de \ref{eq:92} y \ref{93} sabiendo que
+que se sigue de \ref{eq:92} y \ref{eq:93} sabiendo que
 $C_{d}(M_n) = C_{0}(K(M_n))$ donde
 $d = \left \lfloor \frac{n}{2} \right \rfloor$, es decir, $d$ la
 dimensión de $M_n$. Mientras que se sigue trabajando para encontrar
