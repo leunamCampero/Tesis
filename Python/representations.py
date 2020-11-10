@@ -2963,6 +2963,9 @@ def set_A(v):
     return True
 
 def set_6_d_Mc(v, r):
+    '''
+    Set use in Example 6, Section 8, pg 137. From MACDONALD "Symmetric Functions and Hall Polynomials".
+    '''
     fv = Frobenius_notation(v)
     print(fv)
     if (len(fv[0]) < 1):
@@ -2982,6 +2985,9 @@ def set_6_d_Mc(v, r):
 
 
 def Prop_6_d_Mc(r, n):
+    '''
+    Implements Example 6, Section 8, pg 137. From MACDONALD "Symmetric Functions and Hall Polynomials".
+    '''
     w =  partitions_list(n)
     D = {}
     for i in w:
@@ -3110,7 +3116,7 @@ def hook_product(lamb, lambconj, i, j):
         
 def product_hook_product(lamb):
     '''
-    Implements Section 1 Example 1. From MACDONALD "Symmetric Functions and Hall Polynomials".
+    Implements Example 1, Section 1. From MACDONALD "Symmetric Functions and Hall Polynomials".
     '''
     miu = conjugate(lamb)
     lamb, miu = same_lenght(lamb, miu)
