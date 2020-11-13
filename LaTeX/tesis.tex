@@ -188,53 +188,52 @@ $\widetilde H_{k}(M_n)$.
 
  Una idea que generalmente aparece en la ciencia es que las grandes
  estructuras pueden ser comprendidas por medio de sus pedazo más
- pequeños. Lo mismo ocurre con la teoría de la
+ pequeños. Lo mismo ocurre con la teoría de las
  representaciones. Algunas representaciones se construyen a partir de
  otras más pequeñas, mientras que otras son indivisibles. Esta es la
  distinción entre las representaciones reducibles y representaciones
- irreductibles, algunas de las cuales estudiaremos en este
+ irreduccibles, algunas de las cuales estudiaremos en este
  trabajo. Sin embargo en este escenario, primero es necesario
  determinar con precisión lo que significan estas piezas o
  sub-objetos.
 
-En la primera sección se presenta la acción de un grupo $G$ en un
-$\mathbb{C}$-espacio vectorial $V$, lo cual conduce definir un
-$G$-módulo. Mientras que una representación del grupo $G$ en el
-espacio vectorial $V$, es un homomorfismo de grupos $G \to GL(V)$,
-donde $GL(V)$ es el grupo de transformaciones lineales invertibles
-$V \to V$. Si el homomorfismo $G \to GL(V)$ es inyectivo, tenemos que
-$G$ es isomorfo a un subgrupo de $GL(V)$, es decir, hemos hallado una
-``representación'' de los elementos $G$ como transformaciones lineales
-$V \to V$. Y las propiedades del homomorfismo aún nos dan información
-de $G$ a pesar de que el homomorfismo $G \to GL(V)$ no sea inyectivo.
-Se sabe que un $G$-módulo $V$ es equivalente a una representación
-$\phi \colon G \to GL(V)$.
+ En la primera sección se presenta la acción de un grupo $G$ en un
+ $\mathbb{C}$-espacio vectorial $V$, lo cual conduce definir un
+ $G$-módulo. Mientras que una representación del grupo $G$ en el
+ espacio vectorial $V$, es un homomorfismo de grupos $G \to GL(V)$,
+ donde $GL(V)$ es el grupo de transformaciones lineales invertibles
+ $V \to V$. Si el homomorfismo $G \to GL(V)$ es inyectivo, tenemos que
+ $G$ es isomorfo a un subgrupo de $GL(V)$, es decir, hemos hallado una
+ ``representación'' de los elementos $G$ como transformaciones
+ lineales $V \to V$. Sin embargo las propiedades del homomorfismo
+ $G \to GL(V)$ aún nos dan información de $G$ sin importar que no sea
+ inyectivo. Se sabe que un $G$-módulo $V$ es equivalente a una
+ representación $\phi \colon G \to GL(V)$.
 
  En el resto del primer capítulo diremos que una representación
- matricial $A$ es irreducible si existe una matriz $P$ no singular tal
- que: $P^{-1}A(a)P$ es una matriz triangular superior con ciertas
+ matricial $A$ es irreducible si no existe una matriz $P$ no singular tal
+ que: $P^{-1}A(a)P$ es una matriz triangular inferior con ciertas
  características para todo $a \in G$. De ahí se formulan teoremas
- conocidos como el teorema de Maschke y Schur, cuyo análogos para
- $G$-módulos se escriben encerrados en cuadros, esto es porque en
+ conocidos como el teorema de Maschke, Schur, entre otros cuyo análogos para
+ $G$-módulos se escriben \textbf{encerrados en cuadros}, ya que en
  ocasiones nos será útil la representación matricial y en otras
  ocasiones hablar en términos de $G$-módulos será más provechoso. Por
  último ser termina el capítulo introduciendo a los módulos de Specht
  $S^{\lambda}$, los cuales forman una lista completa de $S_n$-módulos
  irreducibles para $\lambda$ una partición de $n$ y las tablas de
- caracteres, las cuales no son útiles para saber la multiplicidad de
+ caracteres que son útiles para saber la multiplicidad de
  las representaciones irreducibles en un $G$-módulo.
 
-En el capítulo 2 sección \ref{hsc} se definen conceptos conceptos como
-complejo simplicial abstracto $\Delta$, espacio de cadenas
-$C_{p}(\Delta)$ y el operador frontera $\partial_{p}$, y por medio de
-ellos se introduce homología y homología reducida de un complejo
-simplicial. En la sección \ref{hom_simpl} se presentan los conceptos
-de ciclos, fronteras y la función aumento que nos servirán para
-definir homología y homología reducida. Finalmente a un complejo
-simplicial $\Delta$ a se le asocia con topología por medio por medio
-de su realización geométrica $|\Delta|$.
+ En el capítulo 2 sección \ref{asc} se definen conceptos como complejo
+ simplicial abstracto $\Delta$, espacio de cadenas $C_{p}(\Delta)$ y
+ el operador frontera $\partial_{p}$. En la sección \ref{hom_simpl} se
+ presentan los conceptos de ciclos, fronteras y la función aumento que
+ nos servirán para definir homología y homología reducida de un
+ complejo simplicial. Finalmente la topología se asocia con un
+ complejo simplicial $\Delta$ por medio de su realización geométrica
+ $|\Delta|$.
 
-En el capítulo $3$ se presentan conceptos básicos de gráficas, así
+En el capítulo $3$ se presentan conceptos básicos de gráficas así
 como gráfica de líneas $G_n$ que surge a partir de gráficas completas
 de $n$ vértices $K_n$ y gráfica de clanes $K(G_n)$ que se construyen
 por medio de las gráficas $G_n$, cuyas homologías de sus complejo
@@ -289,14 +288,17 @@ enuncia el teorema de Bouc \cite{dong2002combinatorial}, y se exhiben
 descomposiciones en $S_n$-módulos irreducibles de
 $H_k(\Delta(K(G_7)))$ y $H_k(\Delta(K(G_8)))$ para algunos $k \geq 0$,
 los cuales son los resultados obtenidos en la librería hecha en Python
-que se puede ser hallado en \url{https://github.com/leunamCampero/Tesis/tree/master/Python} en el archivo \textbf{representations} y que es una extensión de \textbf{Sympy}.
+que puede ser hallada en
+\url{https://github.com/leunamCampero/Tesis/tree/master/Python} en el
+archivo \textbf{representations.py} y que es una extensión de
+\textbf{Sympy}.
 
 
 El capítulo $6$ presenta la demostración del teorema de Bouc que puede
-ser hallada en \cite{wachs2006poset}, y se específica el camino que se
+ser hallada en \cite{wachs2006poset}, y se especifica el camino que se
 tiene planeado seguir para hallar una fórmula que permita la
 descomposición en $S_n$-submódulos irreducibles de $H_k(K(M_n))$ para
-todo $k \geq 0$.
+todo $k,n \geq 0$.
 
 
 \chapter{Representaciones de grupos}
@@ -341,7 +343,9 @@ escribimos $gx$ en vez de $g \ast x$.
   grupo $G$ en un $\mathbb{C}$-espacio vectorial $V$ y el conjunto de
   homomorfismos de $G$ en $GL(V)$.
 \end{theorem}
-
+\begin{proof}
+Véase \cite{liebeck} teorema $4.4$, pg $40$.
+\end{proof}
 \begin{definition}
   \label{representation}
   Si $G$ es un grupo y $V$ un $\mathbb{C}$-espacio vectorial, una
@@ -350,10 +354,10 @@ escribimos $gx$ en vez de $g \ast x$.
   La \textbf{dimensión} de la representación es
   definida como la dimensión del espacio vectorial $V$.
 \end{definition}
-Gracias al teorema \ref{acc_lin}, analizar las representaciones de
+Gracias al teorema \ref{acc_lin} analizar las representaciones de
   $G$ en un $\mathbb{C}$-espacio vectorial $V$ es equivalente a
-  analizar $G$-módulos. 
-  
+  analizar $G$-módulos $V$. 
+\begin{definition}
 Sea $ \mathrm{GL}(n,\mathbb{C})$ el grupo de todas las matrices no
 singulares $n\times n$ sobre el campo de los números complejos
 $\mathbb{C}$ y sea $G$ un grupo. Una \textbf{representación (matricial)}
@@ -372,6 +376,7 @@ $n \times n$ invertible con entradas en $\mathbb{C}$ asociada a
 $\phi(a)$ que se obtiene fijando una base de $V$. El número $n$ se
 llama \textbf{el grado} de la representación. Se dice que la
 representación es \textbf{fiel} si $A$ es inyectiva.
+\end{definition} 
 
 \begin{example}
   \label{Ej6}
@@ -381,9 +386,12 @@ representación es \textbf{fiel} si $A$ es inyectiva.
 \end{example}
 \begin{example}
 \label{ex_mod_per}
-Sean $G$ un grupo, y $X$ el conjunto $\{x_{1},x_{2},\ldots,x_{n}\}$. Luego consideremos $\mathbb{C} X = \left \{ \lambda_1 x_{1} +\lambda_2 x_{2} +  \cdots \lambda_n x_{n} : \lambda_{i} \in \mathbb{C} \right \}$, es decir, el espacio vectorial generado por $X$ sobre $\mathbb{C}$.  
-  La suma y la multiplicación por escalar
-  en $\mathbb{C} X$ está definida por:
+Sean $G$ un grupo, y $X$ el conjunto
+$\{x_{1},x_{2},\ldots,x_{n}\}$. Luego consideremos
+$\mathbb{C} X = \left \{ \lambda_1 x_{1} +\lambda_2 x_{2} + \cdots
+  \lambda_n x_{n} : \lambda_{i} \in \mathbb{C} \right \}$, es decir,
+el espacio vectorial generado por $X$ sobre $\mathbb{C}$.  La suma y
+la multiplicación por escalar en $\mathbb{C} X$ está definida por:
   \begin{eqnarray*}
     (\lambda_{1}x_{1}+\lambda_{2}x_{2}+\cdots
     +\lambda_{n}x_{n})+(\lambda^{'}_{1}x_{1}+\lambda^{'}_{2}x_{2}+\cdots +\lambda^{'}_{n}x_{n})\\
@@ -401,7 +409,11 @@ Sean $G$ un grupo, y $X$ el conjunto $\{x_{1},x_{2},\ldots,x_{n}\}$. Luego consi
 \end{equation*}
 Luego $\mathbb{C}X$ es un $G$-módulo de dimensión $|X|$. 
 
-Tomemos $G = S_3$ el grupo simétrico de $3$ elementos y $X = \left \{ 1, 2, 3 \right \}$ y consideremos la base estándar $\left \{ 1, 2, 3 \right \}$, entonces ya que para $\pi = (123) \in S_3$, se tiene que $123(1) = 2$, $(123)2 = 3$ y $123(3) = 1$ se sigue la matriz asociada a la base estándar es:
+Tomemos $G = S_3$ el grupo simétrico de $3$ elementos y
+$X = \left \{ 1, 2, 3 \right \}$ y consideremos la base estándar
+$\left \{ 1, 2, 3 \right \}$, entonces ya que para
+$\pi = (123) \in S_3$, se tiene que $123(1) = 2$, $(123)2 = 3$ y
+$123(3) = 1$ se sigue la matriz asociada a la base estándar es:
 \begin{center}  
      $A(123)=\begin{pmatrix}
        0 & 0 & 1 \\
@@ -426,7 +438,9 @@ y
       \end{pmatrix}.$
 \end{center}
 \end{example}
- Más adelante se explicará porqué para nuestros fines no es necesario calcular $A(g)$ para $g = \left \{ (13),(23),(132) \right \}$ una vez que se tiene lo anterior.
+Más adelante se explicará porqué para nuestros fines no es necesario
+calcular $A(g)$ para $g \in \left \{ (13),(23),(132) \right \}$ una
+vez que se tiene lo anterior.
 \begin{example}
   \label{Ej5}
   Dadas una representación $A$ y una matriz no singular $P$, la regla:
@@ -642,7 +656,7 @@ $P$, tal que
    F_{1}(a) & & & 0\\
    & F_{2}(a) & & \\
    & & \ddots & \\
-   0 & & & F_{r}(a)
+   0 & & & F_{r}(a),
  \end{pmatrix}
 \end{equation*}
 donde cada $F_{i}\left(a\right)$ con $i=1,2,...,r$ es una
@@ -656,14 +670,14 @@ representación irreducible de $G$.
   \begin{equation}
     \label{eq:94}
     \begin{split}
-(u,v)+(u_1+v_1) & = (u+u_1,v+v_1) \\
- & k(u,v) = (ku,kv)
+(u,v)+(u_1+v_1) & = (u+u_1,v+v_1), \\
+ & k(u,v) = (ku,kv),
 \end{split}
   \end{equation}
   con $u, u_1 \in U$ y$k \in \mathbb{C}$. Con estas operaciones
   $U \times V$ es un espacio vectorial que se denotará por
   $U \otimes V$.  Por lo cual, dados $U$ y $W$ $G$-módulos, se tiene
-  que $U \times W$ también es un $G$-módulo, con acción
+  que $U \times W$ también es un $G$-módulo con acción
   $a(v,w) = (av,aw)$ para $a \in G$. Lo anterior puede ser extendido a
   una cantidad finita de $G$-módulos.
 \end{mdframed}
@@ -707,7 +721,7 @@ $C^{*}AC=\mathrm{I}$.
      A=
      \begin{pmatrix}
     \alpha & a \\ 
-    a^{*} & \mathrm{B}
+    a^{*} & \mathrm{B},
   \end{pmatrix}
   \end{equation} 
 
@@ -748,7 +762,7 @@ $A$ veces.
 \begin{proof}
   Sea
   \begin{equation*}
-    A=\sum_{b \in G} F \left(b\right)^{*}F\left(b\right)
+    A=\sum_{b \in G} F \left(b\right)^{*}F\left(b\right).
   \end{equation*}
   Entonces $A$ es una matriz hermitiana definida positiva por el Lema
   2.1. Entonces existe una matriz triangular no singular $C$, tal que
@@ -796,16 +810,16 @@ $A$ veces.
   Por el teorema anterior, existe una matriz triangular no superior
   $C$ tal que $C^{-1}A(a)C$ es una matriz unitaria. Sea
   $U(a)=C^{-1}A(a)C$. Como $C$ es una matriz triangular superior,
-  $U(a)$ se descompone como
+  $U(a)$ se descompone como:
   \begin{equation}
     \label{eq:14}
     U(a)=
     \begin{pmatrix}
       U_{1}(a) & V(a) \\ 
-      0 & U_{2}(a)
+      0 & U_{2}(a).
     \end{pmatrix}
   \end{equation}  
-  Como $U(a)^{*}=U(a)^{-1}=U(a^{-1})$, se obtiene
+  Y ya que $U(a)^{*}=U(a)^{-1}=U(a^{-1})$, se obtiene
   \begin{equation}
     \label{eq:15}
     \begin{pmatrix}
@@ -815,10 +829,10 @@ $A$ veces.
     =
     \begin{pmatrix}
       U_{1}(a^{-1}) & V(a^{-1}) \\ 
-      0 & U_{2}(a^{-1})
+      0 & U_{2}(a^{-1}),
     \end{pmatrix}
   \end{equation}
-  y por ello $V(a)=0$.
+  luego $V(a)=0$.
 \end{proof}
 
 \begin{mdframed}
@@ -836,7 +850,7 @@ $A$ veces.
 \section{Lema de Schur}
 \label{sec:schur}
 
-\begin{lemma}[Lema de Schur]
+\begin{lemma}[\textit{Lema de Schur}]
   \label{l3_1}
   Sean $A$ y $B$ representaciones
   irreducibles de un grupo $G$ con grados $m$ y $n$ respectivamente. Sea
@@ -858,7 +872,7 @@ $A$ veces.
     QPR=
     \begin{pmatrix}
       I_{r} & 0 \\ 
-      0 & 0
+      0 & 0,
     \end{pmatrix} 
   \end{equation}
   donde $I_{r}$ es la matriz identidad de grado $r$. con
@@ -891,7 +905,7 @@ $A$ veces.
     R^{-1}B(a)R=
     \begin{pmatrix}
       B_{11} & B_{12} \\ 
-      B_{21} & B_{22}
+      B_{21} & B_{22},
     \end{pmatrix}
   \end{equation}
   con $B_{11}$ una matriz cuadrada de grado $r$. Por lo tanto
@@ -907,10 +921,9 @@ $A$ veces.
 \end{mdframed}
 \begin{theorem}
   \label{t3_2}
-  Sea $A$ una representación irreducible de un
-  grupo $G$. Sea $P$ una matriz con la propiedad $A(a)P=PA(a)$ para todo
-  $a \in G$. Entonces $P=\lambda I$, para algún
-  $\lambda \in \mathbb{C}$.
+  Sea $A$ una representación irreducible de un grupo $G$. Sea $P$ una
+  matriz con la propiedad $A(a)P=PA(a)$ para todo $a \in G$. Entonces
+  $P=\lambda I$, para algún $\lambda \in \mathbb{C}$.
 \end{theorem}
 \begin{proof}
   Sea $\lambda$ un valor propio de $P$. Entonces
@@ -934,14 +947,14 @@ representación irreducible de $G$ es de grado 1.
 
 \begin{proof}
   Sea $A$ una representación irreducible de $G$. Como $A(a)$ conmuta
-  con $A(b)$, el teorema \ref{t3_2} nos dice que $A(a)=\lambda(a) I$ para
-  algún $\lambda(a) \in \mathbb{C}$. Entonces $A$ es irreducible, y su
-  grado debe ser $1$.
+  con $A(b)$, el teorema \ref{t3_2} nos dice que $A(a)=\lambda(a) I$
+  para algún $\lambda(a) \in \mathbb{C}$. Entonces $A$ es irreducible,
+  y su grado debe ser $1$.
 \end{proof}
 
 \section{Relación ortogonal de caracteres}
 \label{sec:roc}
-Desde aquí en adelante, se asumirá que estamos trabajando con grupos
+Desde aquí en adelante se asumirá que estamos trabajando con grupos
 finitos.
 
 \textbf{Caracteres}\\
@@ -961,12 +974,12 @@ Cálculos directos muestran el siguiente lema
   \end{enumerate}
 \end{lemma}
 
-Para una representación $A$ de un grupo $G$, sea
-$\tr A(a)=\chi(a)$. Entonces~$\chi(a)$ es una función que toma valores
-en $\mathbb{C}$ y es llamada el \textbf{carácter} de~$A$. Obviamente, $\chi(1)$
-es igual al grado de $A$. Caracteres de representaciones irreducibles
-son llamados \textbf{caracteres irreducibles}. Y por el lema \ref{l4_1}(2), se tiene
-lo siguiente:
+Para una representación $A$ de un grupo $G$, sea $\tr
+A(a)=\chi(a)$. Entonces~$\chi(a)$ es una función que toma valores en
+$\mathbb{C}$ y es llamada el \textbf{carácter} de~$A$. Obviamente,
+$\chi(1)$ es igual al grado de $A$. Caracteres de representaciones
+irreducibles son llamados \textbf{caracteres irreducibles}. Y por el
+lema \ref{l4_1}(2), se tiene lo siguiente:
 
 \begin{lemma}
   \label{l4_2}
@@ -1027,26 +1040,24 @@ entrada $(i,j)$ de $V$ es:
 donde $\delta_{ii}=1$, $\delta_{ij}=0$ ($i \neq j$). Tomando la traza de
 \begin{equation}
   \label{eq:28}
-  \sum_{x \in G} A(x)UA(x^{-1}) = \lambda I
+  \sum_{x \in G} A(x)UA(x^{-1}) = \lambda I,
 \end{equation}
 y se obtiene
 \begin{equation}
   \label{eq:29}
-  g(\gamma_{11}+\gamma_{22}+ \cdots +\gamma_{nn})=n \lambda
+  g(\gamma_{11}+\gamma_{22}+ \cdots +\gamma_{nn})=n \lambda,
 \end{equation}
 donde $n$ es el grado de $A$, y $g$ es la cardinalidad de $G$, de lo cual se sigue:
 \begin{equation}
   \label{eq:30}
   \lambda=\frac{g}{n}(\gamma_{11}+\gamma_{22}+ \cdots + \gamma_{nn}).
 \end{equation}
-
 Ahora, para algún par de $u$,$v$ sea $\gamma_{uv}=1$ y en otro caso~$\gamma_{\rho \sigma}=0$. Entonces
 \begin{equation}
   \label{eq:31}
   \sum_{x \in G} \alpha_{iu}(x) \alpha_{vj}(x^{-1}) = \delta_{ij} \delta_{uv}\frac{g}{n}.
 \end{equation}
 Lo cual nos conduce al siguiente teorema.
-
 \begin{theorem}
   \label{t4_3}
   Sea $G$ un grupo de orden $g$.
@@ -1067,7 +1078,6 @@ Lo cual nos conduce al siguiente teorema.
 Sean $\chi$, $\chi^{'}$ los caracteres de $A$, $B$. Por el teorema
 anterior, poniendo a~$u=i$, $v=j$ y tomando la suma sobre $i$,$j$, se
 obtiene lo siguiente:
-
 \begin{theorem}[La primera relación de ortogonalidad de caracteres]
   \label{t4_4}
   Sea $G$ un grupo de orden $g$.
@@ -1098,8 +1108,6 @@ clases de conjugación de $G$ con~$|C_{\alpha}|=h_{\alpha}$
 para $\alpha=1, 2, 3,...,k$ y sean $a_{1}$, $a_{2}$,\ldots,$a_{k}$ los
 representantes de las clases de conjugación. Como los caracteres son
 funciones de clases, el teorema \ref{t4_4} se reescribe como sigue
-
-
 \begin{theorem}
   \label{t4_4p}
   \begin{equation}
@@ -1111,7 +1119,7 @@ Para funciones $\varphi$, $\psi$ que toman valores en $\mathbb{C}$ en
 un grupo $G$ de orden $g$, se define el \textbf{producto interno}
 $(\varphi,\psi)_{G}$ de la siguiente manera
 \begin{equation*}
-(\varphi,\psi)_{G} = \frac{1}{g} \sum_{x \in G} \varphi(x) \psi(x^{-1})
+(\varphi,\psi)_{G} = \frac{1}{g} \sum_{x \in G} \varphi(x) \psi(x^{-1}).
 \end{equation*}
 Cuando sea claro que se está hablando del grupo $G$, se escribirá
 $(\varphi,\psi)$ en lugar de $(\varphi,\psi)_{G}$. Claramente el
@@ -1133,7 +1141,7 @@ es expresada como sigue:
   Sean $\chi_{1}$, $\chi_{2}$,... los caracteres de caracteres de
   representaciones no equivalentes de un grupo $G$. Entonces
   \begin{equation*}
-    (\chi_{i},\chi_{j})=\delta_{ij}
+    (\chi_{i},\chi_{j})=\delta_{ij}.
   \end{equation*} 
 \end{theorem}
 \subsection{Multiplicidad de representaciones irreducibles.}
@@ -1160,14 +1168,13 @@ conoce como la \textbf{multiplicidad} de $F_{i}$ en $A$, y además si $m_{i}=0$
 entonces $F_{i}$ no aparece, y se escribe
 \begin{equation}
   \label{eq:36}
-  A \sim m_{1} F_{1}+ m_{2} F_{2}+ \cdots
+  A \sim m_{1} F_{1}+ m_{2} F_{2}+ \cdots .
 \end{equation}
 Sea $\chi$ el carácter de $A$ y $\chi_{i}$ el carácter de $F_{i}$
 para $i = 1, 2, ...$. Entonces
-
 \begin{equation}
   \label{eq:37}
-  \chi =m_{1} \chi_{1}+ m_{2} \chi_{2}+ \cdots
+  \chi =m_{1} \chi_{1}+ m_{2} \chi_{2}+ \cdots .
 \end{equation}
 Si $m_{i} \neq 0$, $F_{i}$ y $\chi_{i}$ son llamados \textbf{componentes
 irreducibles} de $A$ y $\chi$ respectivamente.
@@ -1208,7 +1215,6 @@ irreducibles} de $A$ y $\chi$ respectivamente.
 
 Sea $\pi$ el carácter de la representación regular derecha de un grupo
 $G$ de orden $g$. Se observa que
-
 \begin{equation}
   \label{eq:39}
    \pi(a) = \left\{
@@ -1218,7 +1224,6 @@ $G$ de orden $g$. Se observa que
      \end{array}
    \right.
 \end{equation}
-
 Para el carácter $\chi_{i}$ de cada representación irreducible
 $F_{i}$, se sigue que
 \begin{equation}
@@ -1226,10 +1231,9 @@ $F_{i}$, se sigue que
   \begin{aligned}
     (\pi,\chi_{i}) & =\frac{1}{g} \sum_{x \in G} \pi(x) \overline{\chi_{i}(x)} \\
     &=\frac{1}{g} \pi(1) \chi_{i}(1) \\
-    &=\chi_{i}(1) 
+    &=\chi_{i}(1),
   \end{aligned}
 \end{equation}
-
 donde $\chi_{i}(1)$ es el grado de $F_{i}$. Y por lo tanto se llega al
 siguiente Teorema.
 \begin{theorem}
@@ -1242,11 +1246,9 @@ siguiente Teorema.
   \end{equation*}
   donde la suma es sobre todos los caracteres irreducible $\chi_{i}$ de $G$.
 \end{theorem}
-
 La representación regular derecha e izquierda son equivalentes, ya que
 el carácter $\pi^{'}$ de la representación regular satisface lo mimo
 que $\pi$ y por ello se tiene que $\pi = \pi^{'}$.
-
 \begin{theorem}
   \label{t4_8}
   Sean $\chi_{1}, \chi_{2},...,\chi_{l} $ todos
@@ -1275,18 +1277,15 @@ Sea $G$ un grupo y sean $C_{1}=\left\{1 \right\},C_{2},...,C_{k}$ las
 clases de conjugación de $G$. Para una clase de conjugación
 $C_{\alpha}$, y sea $h_{\alpha}=|C_{\alpha}|$, entonces se define la
 suma de los elementos de $C_{\alpha}$ como:
-
 \begin{equation}
   \label{eq:42}
   \mathbb{C}_{\alpha}=a_{1}+a_{2}+ \cdots + a_{h_{\alpha}}.
 \end{equation}
-
 Y se define el producto de $\mathbb{C}_{\alpha}$ y $\mathbb{C}_{\beta}$ por
 \begin{equation}
   \label{eq:43}
   \mathbb{C}_{\alpha} \mathbb{C}_{\beta} = \sum_{i,j} a_{i} b_{j},
 \end{equation}
-
 donde $\mathbb{C}_{\beta}=b_1+b_{2}+ \cdots + b_{h_{\beta}}$ y la suma es sobre
 $1 \leq i \leq h_{\alpha}$, $1 \leq j \leq h_{\beta}$. Para un
 elemento $c \in C_{\gamma}$, sea $t$ el número de parejas
@@ -1303,7 +1302,6 @@ número de veces en el lado derecho de \ref{eq:43}, es decir
 El conjunto de todos los elementos $a^{-1}$ con $a \in C_{\alpha}$ se
 convierte en una clase de conjugación. Denotamos esta clase de
 conjugación por $C_{\alpha '}$.
-
 \begin{equation}
   \label{eq:46}
    t_{\alpha \beta 1} = \left\{
@@ -1313,11 +1311,9 @@ conjugación por $C_{\alpha '}$.
      \end{array}
    \right.
 \end{equation}
-
 Sea $F$ una representación irreducible
 de $G$ y sea $f$ el grado de $F$. Se define
 $F (\mathbb{C}_{\alpha})$ por
-
 \begin{equation}
   \label{eq:45}
   F (\mathbb{C}_{\alpha}) = \sum_{a \in C_{\alpha}} F(a).
@@ -1327,7 +1323,6 @@ Entonces
   \label{eq:47}
   F(x)^{-1}F(\mathbb{C}_{\alpha})F(x)=\sum_{a \in C_{\alpha}}F(x^{-1}ax)=F(\mathbb{C}_{\alpha}),
 \end{equation}
-
 ya que $x^{-1}ax$ varia sobre $C_{\alpha}$ mientras $a$ lo
 hace. Entonces se tiene que la matriz $F (\mathbb{C}_{\alpha})$ conmuta con cada $F(x)$, y
 por el Teorema \ref{t3_2}, y tenemos que,
@@ -1335,7 +1330,6 @@ por el Teorema \ref{t3_2}, y tenemos que,
   \label{eq:48}
    \mathbb{F} (\mathbb{C}_{\alpha})=w_{\alpha}\mathrm{I}.
 \end{equation}
-
 Y tomando la traza de la expresión anterior, se tiene
 \begin{equation}
   \label{eq:49}
@@ -1345,7 +1339,6 @@ Y tomando la traza de la expresión anterior, se tiene
   \label{eq:50}
   w_{\alpha}=h_{\alpha}\chi(a_{\alpha})/f,
 \end{equation}
-
 donde $\chi$ es el carácter de $F$ y
 $a_{\alpha} \in C_{\alpha}$, y por \ref{eq:44}, se sigue que:
 \begin{equation}
@@ -1356,17 +1349,14 @@ $a_{\alpha} \in C_{\alpha}$, y por \ref{eq:44}, se sigue que:
   \label{eq:52}
   w_{\alpha}w_{\beta} = \sum_{\gamma} t_{\alpha \beta \gamma} w_{\gamma}.
 \end{equation}
-
 Sustituyendo \ref{eq:49} en la expresión de arriba se llega a
 \begin{equation*}
   \frac{h_{\alpha} \chi(a_{\alpha})}{f} \frac{h_{\beta} \chi(a_{\beta})}{f} = \sum_{\gamma} t_{\alpha \beta \gamma} \frac{h_{\gamma} \chi(a_{\gamma})}{f},
 \end{equation*}
-
 \begin{equation}
   \label{eq:53}
    \chi(a_{\alpha}) \chi(a_{\beta}) = \sum_{\gamma} t_{\alpha \beta \gamma} \frac{h_{\gamma}}{h_{\beta} h_{\alpha}} f \chi(a_{\gamma}).
 \end{equation}
-
 Sean $\chi_{1}, \chi_{1},..., \chi_{l}$ caracteres distintos e
 irreducibles de $G$, y sea $f_{i}$ el grado de $\chi_{i}$. Y además
 \ref{eq:53} es válida para cada $\chi_{i}$, y tomando la suma sobre
@@ -1384,35 +1374,27 @@ $i$, se llega a que
 	     \right.
     \end{aligned}
 \end{equation}
-
 Y al igual tenemos lo siguiente:
-
 \begin{equation}
   \label{eq:55}
    \sum_{i=1}^{l} \chi_{i}(a_{\alpha}) \chi_{i}(a_{\beta}^{'})=\delta_{\alpha \beta} \frac{g}{h_{\alpha}}.
 \end{equation}
-
 El número $g/h_{\alpha}$ es el orden de $N(a_{\alpha})$, que es el
 centralizador de $a_{\alpha}$ en $G$. Ya que
 $\chi_{i}(a_{\beta^{'}})=\overline{\chi_{i} (a_{\beta})}$ por
 \ref{eq:34}, se obtiene lo siguiente:
-
 \begin{theorem}[Segunda relación de ortogonalidad]
   \label{t4_9}
   Sean $\left\{\chi_{i} \right\}$ el conjunto de los distintos
   caracteres irreducibles de $G$ y sea $\left\{a_{\alpha} \right\}$ el
   conjunto de los representantes de las clases de conjugación de
   $G$. Entonces
-
 \begin{equation*}
   \sum_{i} \chi_{i}(a_{\alpha}) \overline{\chi_{i} (a_{\beta})} = \delta_{\alpha \beta} n_{\alpha},
 \end{equation*}
-
 donde $n_{\alpha}$ es el orden de $N(a_{\alpha})$ y la suma es sobre
 todos los caracteres irreducibles $\chi_{i}$ de $G$.
 \end{theorem}
-
-
 \begin{theorem}
   \label{t4_10}
   El número de caracteres distintos e irreducibles de $G$ es
@@ -1468,42 +1450,41 @@ todos los caracteres irreducibles $\chi_{i}$ de $G$.
    \end{pmatrix}
    .
   \end{equation}
-
 Por ello, $k \leq l$. Así que $k=l$.
 \end{proof}
-
 \section{Representaciones inducidas}
 \label{sec:ri}
-
 Sea $G$ un grupo de orden $g$ y $H$ un subgrupo de $G$ de orden
-$h$. Para una función $\psi$ en $G$, $\psi\downarrow^{G}_{H}$ denota la \textbf{restricción} 
-\textbf{de} $\psi$ \textbf{a} $H$. Si $\psi$ es una función de clase en $G$, entonces
-$\psi\downarrow^{G}_{H}$ también es una función de clase en $H$. Si $\psi$ es el
-carácter de una representación de $G$ a $A$, se sigue que $\psi\downarrow^{G}_{H}$ es
-el carácter de~$A\downarrow^{G}_{H}$, la restricción de $A$ a $H$.
-
-
+$h$. Para una función $\psi$ en $G$, $\psi\downarrow^{G}_{H}$ denota
+la \textbf{restricción} \textbf{de} $\psi$ \textbf{a} $H$. Si $\psi$
+es una función de clase en $G$, entonces $\psi\downarrow^{G}_{H}$
+también es una función de clase en $H$. Si $\psi$ es el carácter de
+una representación de $G$ a $A$, se sigue que $\psi\downarrow^{G}_{H}$
+es el carácter de~$A\downarrow^{G}_{H}$, la restricción de $A$ a $H$.
 Para una función $\theta$ en $H$, y $\theta(x^{-1}ax)=0$ si $x^{-1}ax$
-no está en H, se define la función $\theta \uparrow^{H}_{G}$ de la siguiente manera
-
+no está en H, se define la función $\theta \uparrow^{H}_{G}$ de la
+siguiente manera
 \begin{equation}
   \label{eq:112}
   \theta\uparrow^{G}_{H}(a)=\frac{1}{h} \sum_{x \in G} \theta(x^{-1}ax),
 \end{equation}
-tenemos que $\theta\uparrow^{G}_{H}$ es una función de clase en $G$, aun si
-$\theta$ no es una función de clase en $H$. Si $a$ no es el conjugado
-de ningún elemento de $H$, entonces~$\theta\uparrow^{G}_{H}(a)=0$.
+tenemos que $\theta\uparrow^{G}_{H}$ es una función de clase en $G$,
+aun si $\theta$ no es una función de clase en $H$. Si $a$ no es el
+conjugado de ningún elemento de $H$,
+entonces~$\theta\uparrow^{G}_{H}(a)=0$.
 
-Observemos que si $H\leq G$, y $x,g\in G$ son tales que $x^{-1}gx\in
-H$, entonces para todo $h\in H$ se tiene que
-$(xh)^{-1}g(xh)=h^{-1}(x^{-1}gx)h\in H$. Si $\theta$ es una función de clase
-entonces también se tiene que $\theta(h^{-1}(x^{-1}gx)h)=\theta(x^{-1}gx)$ Recíprocamente, si
-$(xh)^{-1}g(xh)\in H$. Si $T$ es una transversal izquierda de $H$ en $G$ y $\theta:H\rightarrow\mathbb{C}$ es una función de clase, entonces
+Observemos que si $H\leq G$, y $x,g\in G$ son tales que
+$x^{-1}gx\in H$, entonces para todo $h\in H$ se tiene que
+$(xh)^{-1}g(xh)=h^{-1}(x^{-1}gx)h\in H$. Si $\theta$ es una función de
+clase entonces también se tiene que
+$\theta(h^{-1}(x^{-1}gx)h)=\theta(x^{-1}gx)$ Recíprocamente, si
+$(xh)^{-1}g(xh)\in H$. Si $T$ es una transversal izquierda de $H$ en
+$G$ y $\theta:H\rightarrow\mathbb{C}$ es una función de clase,
+entonces
 \begin{equation}
   \label{fun-ind-trans}
   \theta\uparrow^{G}_{H}(g)=\sum_{\substack{x\in T,\\x^{-1}gx\in H}}\theta(x^{-1}gx).
 \end{equation}
-
 \begin{proposition}
   Si $H\leq G$ y $\theta$ es una función de
   clase, entonces $\theta\uparrow^{G}_{H}$ es
@@ -1525,7 +1506,6 @@ $(xh)^{-1}g(xh)\in H$. Si $T$ es una transversal izquierda de $H$ en $G$ y $\the
 en donde se hizo el cambio de variable $u=a^{-1}x$ (esto es $x=au$), y notamos
 que $au\in G$ si y solo si $u\in G$.
 \end{proof}
-
 \begin{lemma}
   \label{l5_1}
   Sea $\psi$ una función de clase de $G$, y sea $\theta$ una función
@@ -1534,7 +1514,6 @@ que $au\in G$ si y solo si $u\in G$.
     (\theta \uparrow^{G}_{H},\psi)_{G}= (\theta,\psi\downarrow^{G}_{H})_{H} .
   \end{equation*}
 \end{lemma} 
-
 \begin{proof}
   \begin{equation}
     \label{eq:59}
@@ -1556,20 +1535,18 @@ que $au\in G$ si y solo si $u\in G$.
     \end{aligned}
   \end{equation}
 \end{proof}
-
 Si $\theta$ es el carácter de una representación de $H$, se dirá que
-$\theta\uparrow^{G}_{H}$ es el \textbf{carácter inducido de} $G$ y que $\theta\uparrow^{G}_{H}$ es
-inducido por $\theta$. Procederemos a demostrar que el carácter
-inducido es el carácter de alguna representación de $G$.
+$\theta\uparrow^{G}_{H}$ es el \textbf{carácter inducido de} $G$ y que
+$\theta\uparrow^{G}_{H}$ es inducido por $\theta$. Procederemos a
+demostrar que el carácter inducido es el carácter de alguna
+representación de $G$.
 
 Sea $\left\{ a_{1}, a_{2},\ldots,a_{r}\right\}$ el conjunto de los
 representantes de las clases laterales izquierdas de $H$ en $G$:
-
 \begin{equation}
   \label{eq:61}
   G = Ha_{1} \cup Ha_{2} \cup \cdots \cup Ha_{r}.
 \end{equation}
-
 Para una representación $A(\tilde{a})$ de $H$ con $\tilde{a} \in H$, la matriz $A\uparrow^{G}_{H}(a)$ se define como:
 \begin{equation}
   \label{eq:62}
@@ -1581,7 +1558,6 @@ Para una representación $A(\tilde{a})$ de $H$ con $\tilde{a} \in H$, la matriz $
   \end{pmatrix}
   ,
 \end{equation}
-
 donde $A(x)=0$ si $x$ no está en H. Lo anterior es una generalización
 de la representación regular derecha de $G$. Se desea mostrar que la
 regla de correspondencia $a \mapsto A\uparrow^{G}_{H}(a)$ para $a \in G$ es una
@@ -1602,7 +1578,6 @@ $(i,k)$ de la matriz $A\uparrow^{G}_{H}(a)A\uparrow^{G}_{H}(b)$. Por lo tanto
   \label{eq:63}
   C_{ik} = \sum_{j=1}^{r} A(a_{i} a a_{j}^{-1}) A(a_{j} b a_{k}^{-1}).
 \end{equation}
-
 El objetivo es demostrar que $C_{ik}= A(a_{i} ab
 a_{k}^{-1})$. Solamente existe un elemento
 $s \in \left\{1, 2, \ldots, r \right\}$ tal que
@@ -1618,7 +1593,6 @@ $C_{ik} = A(a_{i} ab a_{k}^{-1})$, y ello implica que
 $A\uparrow^{G}_{H}(a)A\uparrow^{G}_{H}(b)=A\uparrow^{G}_{H}(ab)$. Y ya que
 $A\uparrow^{G}_{H}(a)A\uparrow^{G}_{H}(a^{-1})=A\uparrow^{G}_{H}(1)=\mathrm{I}$, se sigue que $A\uparrow^{G}_{H}(a)$
 es invertible. Entonces es una representación de G.
-
 Sea $\theta$ el carácter de $A$ y sea $\chi$ el carácter de
 $A\uparrow^{G}_{H}$. Entonces
 \begin{equation}
@@ -1627,14 +1601,12 @@ $A\uparrow^{G}_{H}$. Entonces
     \chi(a) &= \sum_{i=1}^{r} \theta(a_{i} a a_{i}^{-1}) \\
     & = \sum_{i=1}^{r} \frac{1}{h} \sum_{\tilde{b} \in H} \theta(\tilde{b} a_{i} a a_{i}^{-1} \tilde{b}^{-1})\\
     &= \frac{1}{h} \sum_{x \in G} \theta(x a x^{-1}) \qquad (x=\tilde{b}a_{i})\\
-    &= \theta\uparrow^{G}_{H}(a)
+    &= \theta\uparrow^{G}_{H}(a).
   \end{aligned}
 \end{equation}
-
 Entonces se obtiene que $\chi=\theta\uparrow^{G}_{H}$. Se dirá que $A\uparrow^{G}_{H}$ es una
 \textbf{representación inducida} de $G$, y diremos que $A\uparrow^{G}_{H}$ es inducida por
 $A$. Lo anterior nos lleva al siguiente resultado:
-
 \begin{theorem}
   \label{t5_2}
   Sea $G$ un grupo y $H$ un subgrupo de $G$. Sea $A$ una
@@ -1646,14 +1618,12 @@ $A$. Lo anterior nos lleva al siguiente resultado:
   \end{equation*}
   donde $h= |H|$.
 \end{theorem}
-
-\begin{theorem}[Reciprocidad de Frobenius]
+\begin{theorem}[\textit{Reciprocidad de Frobenius}]
   \label{t5_3}
   Sea $H$ un subgrupo
   de $G$. Y sean $x_{1}, x_{2},\ldots,x_{r}$ lo caracteres irreducibles
   de $G$, y sean $\theta_{1},\theta_{2},\ldots,\theta_{s}$ los
   caracteres irreducibles de $H$. Entonces
-
   \begin{equation*}
     (\chi_{i})\downarrow^{G}_{H} = \sum_{j} r_{ij} \theta_{j} 
   \end{equation*}
@@ -1661,7 +1631,6 @@ $A$. Lo anterior nos lleva al siguiente resultado:
   \begin{equation*}
     \theta_{j}\uparrow^{G}_{H} = \sum_{i} r_{ij} \chi_{j}.
   \end{equation*}
-
   Es decir, dadas representaciones irreducibles $A$ y $B$ de $G$ y $H$
   respectivamente, $B$ es una componente irreducible de $A\downarrow^{G}_{H}$ con
   multiplicidad $r$ si y sólo si $A$ es un componente irreducible de
@@ -1680,10 +1649,7 @@ $A$. Lo anterior nos lleva al siguiente resultado:
     \end{aligned}
   \end{equation}
 \end{proof}
-
-
 \begin{mdframed}
-
 \begin{definition}
   Sean $G$ grupo y $H$ subgrupo de $G$ y sea $V$ un $G$-módulo. 
   Si para $h\in H$, $v\in V$ se define $hv$ a través de la estructura de
@@ -1691,14 +1657,18 @@ $A$. Lo anterior nos lleva al siguiente resultado:
   $H$-módulo obtenido se denota con $V\downarrow^{G}_{H}$ y se le
   llama \textbf{restricción} de $V$ de $G$ a $H$.
 \end{definition}
-Observe que $\chi_{V\downarrow^{G}_{H}}=\chi_{V}\!\downarrow^{G}_{H}$. Supongamos que $T=\{t_{1},t_{2},\ldots,t_{s}\}$ una transversal izquierda de $H$ en $G$ fija, donde $t_{1}=1$.
+Observe que
+$\chi_{V\downarrow^{G}_{H}}=\chi_{V}\!\downarrow^{G}_{H}$. Supongamos
+que $T=\{t_{1},t_{2},\ldots,t_{s}\}$ una transversal izquierda de $H$
+en $G$ fija, donde $t_{1}=1$.
 \begin{definition}
   Sea $V$ un $G$-módulo, y $W$ un subespacio de $V$ tal que $\{g\in
   G\mid gW=W\}=H$, es decir, $W$ tiene estructura de $H$-módulo. Entonces el
   $G$-módulo $V$ es \textbf{inducido} por el $H$-módulo $W$ si
   $V=\bigoplus^{s}_{i=1}t_{i}W$ como espacio vectorial.
 \end{definition}
-La definición no depende de la transversal escogida, ya que si~$t=t^{'}h$ con $h\in H$, entonces $tW=t^{'}hW=t^{'}W$. 
+La definición no depende de la transversal escogida, ya que
+si~$t=t^{'}h$ con $h\in H$, entonces $tW=t^{'}hW=t^{'}W$.
 \begin{proposition}
   \label{car-ind-W-V}
   Si el $G$-módulo $V$ es inducido por el $H$-módulo $W$, entonces
@@ -1706,11 +1676,16 @@ La definición no depende de la transversal escogida, ya que si~$t=t^{'}h$ con $h
 \end{proposition}
 \end{mdframed}
 
-
 \begin{example}
-Sea $G = S_4$ , con su acción natural en $X = \left \{ 1, 2, 3, 4 \right \}$. Sea $H = \textup{Stab}_{G}(4)  \cong S_3$. Como el carácter $\theta$ es una función de clase, basta determinar $\theta\uparrow^{G}_{H}$ en representantes de las clases de conjugación de $G: (1), (12), (12)(34), (123), (1234)$.
-Usaremos la fórmula \ref{eq:112}, notando que podemos usar la transversal $T = \left \{ (1), (14), (24), (34) \right \}$.
-Por ejemplo \ref{ex_mod_per} tenemos que:
+  Sea $G = S_4$ , con su acción natural en
+  $X = \left \{ 1, 2, 3, 4 \right \}$. Sea
+  $H = \textup{Stab}_{G}(4) \cong S_3$. Como el carácter $\theta$ es
+  una función de clase, basta determinar $\theta\uparrow^{G}_{H}$ en
+  representantes de las clases de conjugación de
+  $G: (1), (12), (12)(34), (123), (1234)$.  Usaremos la fórmula
+  \ref{eq:112}, notando que podemos usar la transversal
+  $T = \left \{ (1), (14), (24), (34) \right \}$.  Por ejemplo
+  \ref{ex_mod_per} tenemos que:
 \begin{center}
      $\theta(1)=3; \qquad  \theta(12) = \theta(13) = \theta(23) = 1; \qquad \theta(123) = \theta(132) = 0.$
    \end{center}
@@ -1726,9 +1701,9 @@ Para $g = (12)(24)$, no existe $x \in T$ tal que $x^{-1}gx \in H$, por lo que, $
 \end{example}
 \section{Producto de representaciones}
 \label{sec:pr}
-
 Supongamos que $A$ y $B$ son matrices cuadradas de grado $n$, $m$
-respectivamente, y sea $A=(\alpha_{ik})$. Se define el \textbf{producto de Kronecker} $A \otimes B$ de $A$ y~$B$ por
+respectivamente, y sea $A=(\alpha_{ik})$. Se define el
+\textbf{producto de Kronecker} $A \otimes B$ de $A$ y~$B$ por
 \begin{equation}
   \label{eq:65}
     \begin{pmatrix}
@@ -1737,7 +1712,6 @@ respectivamente, y sea $A=(\alpha_{ik})$. Se define el \textbf{producto de Krone
     \alpha_{n1}B & \cdots & \alpha_{nn}B
   \end{pmatrix}.
 \end{equation}
-
 Se obtiene que $A \otimes B$ es una matriz cuadrada de grado $mn$, y se
 puede demostrar lo siguiente:
 \begin{lemma}
@@ -1749,11 +1723,10 @@ puede demostrar lo siguiente:
   \item $(A \otimes B)(A^{'} \otimes B^{'}) = (AA^{'})(BB^{'})$. \qed
   \end{enumerate}
 \end{lemma}
-
 Sean $A_{1}(a)$ y $A_{2}(a)$ representaciones de un grupo $G$. Por el lema
 \ref{l6_1}(2), la regla de correspondencia
 \begin{equation*}
-  a \mapsto A_{1}(a) \otimes A_{2}(a)
+  a \mapsto A_{1}(a) \otimes A_{2}(a),
 \end{equation*}
 se transforma en una representación de $G$. A esta representación se
 le llama el \textbf{producto tensorial} de $A_{1}$ y $A_{2}$, y es denotado por
@@ -1761,23 +1734,20 @@ $A_{1} \otimes A_{2}$. Sean $\chi_{1}, \chi_2, \chi$ los caracteres de
 $A_{1}$, $A_{2}$, $A_{1} \otimes A_{2}$ respectivamente. Por el lema
 \ref{l6_1}(1),
 \begin{equation*}
-  \chi(a)=\chi_{1}(a) \chi_{2}(a)
+  \chi(a)=\chi_{1}(a) \chi_{2}(a),
 \end{equation*}
 \begin{equation}
   \label{eq:67}
-  \chi = \chi_{1} \chi_{2}
+  \chi = \chi_{1} \chi_{2}.
 \end{equation}
-
 Sea $F_{1}, F_{2}, \ldots, F_{r}$ las representaciones irreducibles de
 $G$ y sea $\chi_{i}$ por el carácter de $F_{i}$. EL mapeo
 $a \mapsto \overline{F_{i}(a)}$ también es una representación
 irreducible y su carácter es $\overline{\chi_{i}}$, donde
 $\overline{\chi_{i}}(a) = \overline{\chi_{i}(a)}$. Y lo denotaremos
 $\overline{\chi_{i}}=\chi_{i'}$
-
 \begin{theorem}
   \label{t6_2}
-  
 \begin{equation*}
   \chi_{i} \chi_{j} = \sum_{\upsilon} r_{ij \upsilon} \chi_{\upsilon}
 \end{equation*}
@@ -1792,7 +1762,7 @@ si y sólo si
     \begin{aligned}
       (\chi_{i} \chi_{j}, \chi_{\upsilon}) &= \frac{1}{g} \sum_{a \in G} \overline{\chi_{i}(a) \chi_{j}(a)} \chi_{\upsilon}(a) \\
       & = \frac{1}{g} \sum_{a \in G} \chi_{i^{'}}(a) \chi_{\upsilon}(a) \overline{\chi_{j}(a)} \\
-      & = (\chi_{i^{'}} \chi_{\upsilon},\chi_{j})
+      & = (\chi_{i^{'}} \chi_{\upsilon},\chi_{j}).
     \end{aligned}
   \end{equation}
   Es por ello que la multiplicidad de $\chi_{\upsilon}$ en
@@ -1803,7 +1773,8 @@ si y sólo si
   \label{t6_3}
   Sea $A$ una representación fiel de un grupo $G$ y sea $\chi$ el
   carácter de $A$. Sea $m$ el número de los distintos valores de
-  $\chi$ en $G$, es decir,~$m = |\left\{ \chi(a) \arrowvert a \in G \right\}
+  $\chi$ en $G$, es
+  decir,~$m = |\left\{ \chi(a) \arrowvert a \in G \right\}
   |$. Entonces cualquier representación irreducible de $G$ aparece en:
 
   \begin{equation*}
@@ -1826,7 +1797,7 @@ si y sólo si
   $\phi_{\alpha}= \sum_{a \in M_{\alpha}} \overline{\chi_{i}(a)}$. Y por \ref{eq:68}:
   \begin{equation}
     \label{eq:70}
-    \sum_{\alpha=1}^{m} \lambda_{\alpha}^{r} \phi_{\alpha} =0,
+    \sum_{\alpha=1}^{m} \lambda_{\alpha}^{r} \phi_{\alpha} =0
   \end{equation}
   para $r=0,1, \ldots,m-1$. Viendo a \ref{eq:70} como un sistema de
   ecuaciones lineales para $\phi_{1}, \ldots, \phi_{m}$. Ya que
@@ -1859,10 +1830,10 @@ si y sólo si
   $M_{1}=\left\{ 1 \right\}$ y $\phi_{1}= \chi_{i}(1) \neq 0$, lo cual
   es una contradicción.
 \end{proof}
-
 \begin{mdframed}
 \begin{definition}
-Sean $V$ y $W$ espacios vectoriales, entonces su \textbf{producto tensorial} es el conjunto
+  Sean $V$ y $W$ espacios vectoriales, entonces su \textbf{producto
+    tensorial} es el conjunto
 \begin{equation}
 V \otimes W = \left \{ \sum_{i,j} c_{i,j} v_{i} \otimes w_{j} \in \mathbb{C}, v_{i} \in V, w_{j} \in W \right \}
 \end{equation}
@@ -1875,20 +1846,36 @@ y
 v \otimes (d_1w_1+d_2w_2)= d_1(v \otimes w_1) + _2(v \otimes w_2)
 \end{equation}
 \end{definition}
-Se puede demostrar que $V \otimes W$ es un espacio vectorial, más aún, si $B = \left \{ v_1, v_2, \ldots, v_d \right \}$ y $C = \left \{ w_1, w_2, \ldots, w_f \right \}$ son bases de $V$ y $W$ respectivamente, entonces el conjunto:
+Se puede demostrar que $V \otimes W$ es un espacio vectorial, más aún,
+si $B = \left \{ v_1, v_2, \ldots, v_d \right \}$ y
+$C = \left \{ w_1, w_2, \ldots, w_f \right \}$ son bases de $V$ y $W$
+respectivamente, entonces el conjunto:
 \begin{equation}
 \left \{ v_i \otimes w_j: 1 \leq d, 1 \leq f \right \}
 \end{equation}
 es una base para $V \otimes W$.
 %\begin{definition}
-%Sean $V,W$y $Z$ espacios vectoriales sobre $\mathbb{C}$. Una función $f \colon V \times W \to Z$ es \textbf{bilineal} si cumple que $f(\lambda v + v_0, w) = \lambda f(v, w) + f(v_0 , w)$ y $f(v, \lambda w + w_0) = \lambda f(v, w) + f(v, w_0)$ para todos $\lambda \in \mathbb{C}$, $v,v_0 \in V$, $w,w_0 \in W$.
+%  Sean $V,W$y $Z$ espacios vectoriales sobre $\mathbb{C}$. Una
+%  función $f \colon V \times W \to Z$ es \textbf{bilineal} si cumple
+%  que $f(\lambda v + v_0, w) = \lambda f(v, w) + f(v_0 , w)$ y
+%  $f(v, \lambda w + w_0) = \lambda f(v, w) + f(v, w_0)$ para todos
+%  $\lambda \in \mathbb{C}$, $v,v_0 \in V$, $w,w_0 \in W$.
 %\end{definition}
 %\begin{definition}
-%Sean $V$ y $W$ espacios vectoriales sobre $\mathbb{C}$. Un producto tensorial de $V$ y $W$ es un $\mathbb{C}$-espacio vectorial $T$ junto con una función bilineal $t \colon V \times W \to T$ , tal que, si $t_0 \colon V \times W \to T_0$ es cualquier función bilineal, existe una única transformación lineal $l \colon T \to T_0$ tal que $l \circ t = t_0$. 
+%  Sean $V$ y $W$ espacios vectoriales sobre $\mathbb{C}$. Un producto
+%  tensorial de $V$ y $W$ es un $\mathbb{C}$-espacio vectorial $T$
+%  junto con una función bilineal $t \colon V \times W \to T$ , tal
+%  que, si $t_0 \colon V \times W \to T_0$ es cualquier función
+%  bilineal, existe una única transformación lineal
+%  $l \colon T \to T_0$ tal que $l \circ t = t_0$.
 %\end{definition}
-%Se sabe que si $V$ y $W$ son espacios vectoriales sobre $\mathbb{C}$, existe su producto tensorial y es único salvo isomorfismos el cual es denotado por $V \otimes W$.
+%Se sabe que si $V$ y $W$ son espacios vectoriales sobre $\mathbb{C}$,
+% existe su producto tensorial y es único salvo isomorfismos el cual
+% es denotado por $V \otimes W$.
 %
-%Si $t \colon V \times W \to V \otimes W$ es la función bilineal de la definición, entonces se denota $t(v,w) = v \otimes w$. Ya que $t$ es bilineal se tienen lo siguiente:
+% Si $t \colon V \times W \to V \otimes W$ es la función bilineal de
+% la definición, entonces se denota $t(v,w) = v \otimes w$. Ya que $t$
+% es bilineal se tienen lo siguiente:
 %\begin{equation}
 %    \label{eq:113}
 %     \begin{aligned}
@@ -1924,7 +1911,6 @@ está identificado con el diagrama de Young.
     \ydiagram{4,2,2,1}
   \end{minipage} 
 \end{center}
-
 \begin{definition}
   Sea $\lambda\vdash n$. El \textbf{conjugado} de $\lambda$ es la
   partición $\lambda^{'}$ cuyo diagrama es el transpuesto del diagrama
@@ -1932,7 +1918,6 @@ está identificado con el diagrama de Young.
   la diagonal principal.. Se dice que~$\lambda$ es
   \textbf{autoconjugada} si $\lambda=\lambda^{'}$ .
 \end{definition}
-
 \begin{definition}
   Sea $\lambda\vdash n$, se dirá que $\lambda$ tiene un
   \textbf{cuadrado de Durfee} de lado $s$ si $s$ es la longitud del
@@ -1949,14 +1934,12 @@ está identificado con el diagrama de Young.
   \end{equation*}
   En este caso $d(\lambda)=d(\lambda^{'})=3$.
 \end{example}
-
 Un tablero de Young de forma $\lambda \vdash n$ es un diagrama de
 Young de $\lambda$ cuyas cajas están llenadas con los enteros
 $1, \ldots, n$ sin repetición. Un tablero de Young se dirá estándar si
 las entradas son crecientes por renglones y columnas. Por ejemplo, el
 tablero de Young de la izquierda no es estándar, mientras que el
 tablero de la derecha sí lo es.
-
 \begin{center}
   \ytableausetup{mathmode,notabloids,boxsize=1.2em}
   \begin{ytableau}
@@ -1972,7 +1955,6 @@ tablero de la derecha sí lo es.
     9
   \end{ytableau}
 \end{center}
-
 Sea $\mathcal{T}_{\lambda}$ el conjunto de tableros de Young de forma
 $\lambda$ y sea $M^{\lambda}$ el espacio vectorial complejo generado
 por los elementos de $\mathcal{T}_{\lambda}$. El grupo simétrico $S_n$
@@ -2058,7 +2040,7 @@ Si por ejemplo
 Se puede demostrar que
 \begin{equation}
   \label{eq:96}
-  \pi e_T = e_T \pi ,
+  \pi e_T = e_{\pi T} ,
 \end{equation}
 para todo $T \in \mathcal{T}_\lambda$ y $\pi \in S_n$. Luego el
 \textbf{módulo de Specht} $S^{\lambda}$ es el subespacio de
@@ -2090,8 +2072,6 @@ que el de las clases de conjugación. \textbf{La tabla de caracteres} de $G$ es
 una tabla cuyos renglones están indexados por los distintos caracteres
 irreducibles de $G$ y las columnas indexadas por las clases de
 conjugación
-
-
 \begin{example}
 \label{caracteres-S4}
 Sea $G = S_4$, a continuación se muestra la tabla de caracteres de $G$
@@ -2117,13 +2097,12 @@ de un entero $i$ en un border strip es el número de renglones en los
 que $i$ aparece menos uno. De lo anterior se sigue que todos los
 valores de los caracteres irreducibles del grupo simétrico son
 enteros. Observe que $\chi_{\rho}^{\lambda} = 0$ cuando no existen
-tableros que cumplan lo anterior para $\lambda$ y $\rho$ dados.
-Si $\lambda = (2,2)$ y $\rho = (3,1)$, entonces la forma de la
-partición $\lambda$ indica que el tablero debe tener dos renglones con
-dos cajas en cada uno. Mientras que el tipo de partición $\rho$
-especifica que el tablero debe estar llenado con $3$'s unos y $1$
-dos. En este caso sólo hay un tablero border strip que cumple las
-hipótesis:
+tableros que cumplan lo anterior para $\lambda$ y $\rho$ dados.  Si
+$\lambda = (2,2)$ y $\rho = (3,1)$, entonces la forma de la partición
+$\lambda$ indica que el tablero debe tener dos renglones con dos cajas
+en cada uno. Mientras que el tipo de partición $\rho$ especifica que
+el tablero debe estar llenado con $3$'s unos y $1$ dos. En este caso
+sólo hay un tablero border strip que cumple las hipótesis:
 \begin{center}  
   \ytableausetup{mathmode,notabloids,boxsize=1.2em}
   $T_1=$
@@ -2458,9 +2437,6 @@ $f$ mapeando el conjunto de vértices de $\Delta_{1}$ al conjunto de
 vértices de $\Delta_{2}$ tal que
 $\left\{ a_{0}, \ldots, a_{n} \right\} \in \Delta_{1}$ si y sólo si
 $\left\{ f(a_{0}), \ldots, f(a_{n}) \right\} \in \Delta_{2}$.
-
-
-
 \begin{definition}
   \label{v_s} 
   Sea $\sigma$ un simplejo. Dos ordenamientos de su
@@ -2493,7 +2469,7 @@ puntos antes mencionados, como en \ref{fig:1-simplejo}, por ello
 $v_{1}v_{2} \neq v_{2}v_{1}$, pero $v_{1}v_{2} = -v_{2}v_{1}$ (tienen
 orientaciones opuestas). Un \textbf{2-simplejo orientado}
 $v_{0}v_{1}v_{2}$ es representa en la figura \ref{fig:2-simplejo}
-dibujando flechas de $v_{0}$ a $v_{1}$ y de $v_{1}$ a $v_{2}$, se
+dibujando flechas de $v_{0}$ a $v_{1}$, de $v_{1}$ a $v_{2}$ y de $v_{2}$ a $v_{0}$, se
 puede observar que $v_{0}v_{1}v_{2}$ tiene el mismo orden que
 $v_{1}v_{2}v_{0}$ y $v_{2}v_{0}v_{1}$ y opuesta a $v_{0}v_{2}v_{1}$,
 $v_{2}v_{1}v_{0}$ y $v_{1}v_{0}v_{2}$ .
@@ -2584,14 +2560,14 @@ simplejo o un simplejo orientado.
 
 \begin{definition}
   \label{p_chain}
-  Sea $\Delta$ un complejo simplicial. Una \textbf{p-cadena} en
+  Si $\Delta$ es un complejo simplicial, una \textbf{p-cadena} en
   $\Delta$ es una función $c$ de el conjunto de $p$-simplejos
   orientados de $\Delta$ al campo de los números complejos, tal que:
   $c(\sigma) = -c(\sigma^{'})$ si $\sigma$ y $\sigma^{'}$ son orientaciones
   opuestas del mismo simplejo.
 \end{definition}
-Sumamos $p$-cadenas sumando sus valores; el $\mathbb{C}$-espacio
-vectorial resultante es denotado por $C_{p}(\Delta)$ y es llamado el
+Las $p$-cadenas son sumadas sumando sus valores, el $\mathbb{C}$-espacio
+vectorial que  se obtine es denotado por $C_{p}(\Delta)$ y es llamado el
 \textbf{espacio de p-cadenas}(\textbf{orientadas}) de $\Delta$. Si
 $p > 0$ o $p > $ dim $\Delta$, $C_{p}(\Delta)$ denota el espacio
 trivial.
@@ -2608,13 +2584,13 @@ trivial.
   \end{aligned}
   \end{equation}
 \end{definition}
-Por abuso de notación, $\sigma$ denotará no solo a un simplejo, o a un
-simplejo orientado, también denotamos a la $p$-cadena elemental $c$
-correspondiente al simplejo orientado $\sigma$.  Con esta convención,
+Por abuso de notación, $\sigma$ denotará a un simplejo, un simplejo
+orientado y la $p$-cadena elemental $c$ correspondiente al simplejo
+orientado $\sigma$ dependiendo del contexto.  Acordando lo anterior,
 si $\sigma$ y $\sigma^{'}$ tienen orientaciones opuestas del mismo
 simplejo, entonces podemos escribir $\sigma^{'} = -\sigma$, pues ésta
-ecuación se mantiene cuando nos referimos a $\sigma$ y $\sigma^{'}$ como
-cadenas elementales.
+ecuación se mantiene cuando nos referimos a $\sigma$ y $\sigma^{'}$
+como cadenas elementales.
 
 \begin{lemma}
   \label{c_basis}
@@ -2767,8 +2743,7 @@ Mientras que para la segunda expresión, se tiene:
   \begin{equation*}
     \widetilde H_{0}(\Delta)=\ker\varepsilon/ \im \partial_{1}.
   \end{equation*}
-  (Si $p>0$, $\widetilde H_{p}(\Delta)$ denota el espacio usual
-  $H_{p}(\Delta)$.)
+  (Si $p>0$, $\widetilde H_{p}(\Delta) = H_{p}(\Delta)$.)
 \end{definition}
 
 \begin{theorem}.
@@ -2814,7 +2789,7 @@ Puede consular la demostración en \cite{munkres1984elements}, teorema 7.2.
       v_{1}v_{2}v_{3}  &  1 \cr
     }$.
 \end{center}
-Donde $M_1, M_2$ y $ M_3$ son las representaciones matriciales de
+Donde $M_1, M_2$ y $ M_3$ son las matriciales asociadas a
 $\partial_1, \partial_2$ y $\partial_3$ respectivamente obtenidas de
 la librería creada, así mismo se obtiene lo siguiente que puede ser
 verificado por métodos elementales:
@@ -2833,42 +2808,40 @@ verificado por métodos elementales:
 \end{center}
 y ya que $C_{-1}(\Delta)=0$, entonces
 $\boldsymbol{Z_{0}(\Delta)}=C_{0}(\Delta)$, es decir,
-$\dim(Z_{0}(\Delta))=0$, y como los simplejos de más alta dimensión
-son los $3-simplejos$, entonces $C_4(\Delta) = 0$, por lo cual,
-$$\boldsymbol{B_{3}(\Delta)}=\partial_{4}[C_{4}(\Delta)]=0.$$
-y por ello  $\dim(B_{3}(\Delta))=0$, con lo cual se concluye que:
+$\dim(Z_{0}(\Delta))=4$, y como los simplejos de más alta dimensión
+son los $3$-simplejos, entonces $C_4(\Delta) = 0$, por lo cual
+$\dim(B_{3}(\Delta))=0$, y por ello se concluye que:
 \begin{center}
- $\dim(H_{0}(\Delta))=4-3=1$
+ $\dim(H_{0}(\Delta))=4-3=1.$
 
- $\dim(H_{1}(\Delta))=3-3=0$
+ $\dim(H_{1}(\Delta))=3-3=0.$
 
- $\dim(H_{2}(\Delta))=1-1=0$
+ $\dim(H_{2}(\Delta))=1-1=0.$
 
- $\dim(H_{3}(\Delta))=0-0=0$
+ $\dim(H_{3}(\Delta))=0-0=0.$
 \end{center}
 De lo cual se tiene que
 $$\boldsymbol{H_{0}(\Delta)} \cong \mathbb{C},$$
 $$\boldsymbol{H_{1}(\Delta)}=\boldsymbol{H_{2}(\Delta)}=\boldsymbol{H_{3}(\Delta)}=0.$$
 \end{example}
-Lo anterior puede ser deducido de la librería hecha en Python, de la siguiente manera:
+Lo anterior puede ser deducido de la librería hecha en Python, de la
+siguiente manera:
 \begin{algorithm}[H]
 \caption{Calcular la dimensión $H_{i}(\Delta)$, con $\Delta$ el tetraedro}
 \begin{algorithmic}
-\STATE sc $=$ sc.complex$(\left [ \left [ v_0,v_1,v_2,v_3 \right ] \right ])$
-\FOR{$i = 0$ \TO dim$\Delta$ } 
-\STATE dim = sc.dimension$_{-}$homology$(i)$
+\STATE sc $=$ SCFromFacets$(\left [ \left [ v_0,v_1,v_2,v_3 \right ] \right ])$
+\STATE dim = sc.dimension$_{-}$homology$_{-}$sc()
 \PRINT dim
-\ENDFOR
 \end{algorithmic}
 \end{algorithm}
-Cuya impresión muestra los siguientes diccionarios, dónde la $i$-ésima
+Cuya impresión muestra el siguiente diccionario, dónde la $i$-ésima
 llave del diccionario se refiere a la $i$-ésima homología y número
 enfrente es la correspondiente dimensión.
-$$ \left \{0: 1  \right \}, \left \{1: 0  \right \}, \left \{2: 0  \right \}, \left \{3: 0  \right \}.$$
+$$ \left \{0: 1, 1: 0, 2: 0, 3: 0  \right \}.$$
 
-Ahora, a cada complejo simplicial $\Delta$ se le puede asociar su realización
-geométrica de $\Delta$, y es denotado por $|\Delta|$, el cual
-es:
+Ahora, a cada complejo simplicial $\Delta$ se le puede asociar su
+realización geométrica de $\Delta$, y es denotado por $|\Delta|$, el
+cual es:
 \begin{equation}
   \label{eq:112}
 |\Delta|=\{\alpha:V(\Delta)\rightarrow I\mid\alpha^{-1}(0,1]\in
@@ -2890,9 +2863,9 @@ dicen homeomorfos si las realizaciones geométricas los son.
   $t$ varía de $0$ a $1$.
 \end{definition}
 
-Si dos espacios son homeomorfos, puede demostrarse que tienen homologías isomorfas. Una
-condición más débil que homeomorfismo que implica el mismo resultado,
-es el de homotópicamente equivalentes.
+Si dos espacios son homeomorfos, puede demostrarse que tienen
+homologías isomorfas. Una condición más débil que homeomorfismo que
+implica el mismo resultado, es el de homotópicamente equivalentes.
  
 \begin{definition}
   Dos espacios topológicos $X$ y $Y$ se dicen \textbf{homotópicamente
@@ -2905,10 +2878,11 @@ es el de homotópicamente equivalentes.
 Si $X$ es homotópico a un punto, se dice que $X$ es
 \textbf{contraíble}.
 
-\begin{theorem}{\normalfont(\cite{munkres1984elements}, teorema 19.5, p.108)}.
-  Sean $X$, $Y$ espacios topológicos, si $X$ y $Y$ son homotópicos, entonces $\widetilde H_{n}(X)\cong \widetilde
-  H_{n}(Y)$ para $n>0$. En particular, si $X$ es contraíble, entonces $\widetilde
-  H_{n}(X)=0$ para $n>0$.
+\begin{theorem}{\normalfont(\cite{munkres1984elements}, teorema 19.5,
+    p.108)}.  Sean $X$, $Y$ espacios topológicos, si $X$ y $Y$ son
+  homotópicos, entonces $\widetilde H_{n}(X)\cong \widetilde H_{n}(Y)$
+  para $n>0$. En particular, si $X$ es contraíble, entonces
+  $\widetilde H_{n}(X)=0$ para $n>0$.
   \label{esp-homotopicos-homologias-iso}
 \end{theorem}
 
@@ -3091,9 +3065,10 @@ representaciones de $S_{n}$.
 \chapter{Complejos de emparejamientos, $\Delta(K(M_7))$ y $\Delta(K(M_8))$}
 \label{hom_ce_cc}
 En este capítulo se presentará el teorema de Bouc
-\cite{dong2002combinatorial}, y los resutlados obtenidos en la librería
-hecha en Python, librería cuyas cualidades y limitaciones se comentarán
-más adelante. Las definiciones pueden ser halladas en \cite{larrion2008equivariant}.
+\cite{dong2002combinatorial}, y los resutlados obtenidos en la
+librería hecha en Python, librería cuyas cualidades y limitaciones se
+comentarán más adelante. Las definiciones pueden ser halladas en
+\cite{larrion2008equivariant}.
 
 \section{Complejos de emparejamientos}
 \label{c_em}
@@ -3106,7 +3081,7 @@ Recordemos que denotamos como $G_{n}$ a la gráfica de
 emparejamientos de orden $n$ (ver definición \ref{graf-emparejamientos}).
 
 
-Puesto que $S_{n}$ actúa de manera
+Gracias a que $S_{n}$ actúa de manera
 natural en $G_{n}$, los espacios $C_{p}(M_{n})$, $Z_{p}(M_{n})$,
 $B_{p}(M_{n})$ y por tanto $\widetilde H_{p}(M_{n})$ se convierten en
 $S_{n}$-módulos sobre~$\mathbb{C}$. En este capítulo consideramos
@@ -3196,24 +3171,47 @@ resultado que es la principal inspiración del presente trabajo.
 \end{theorem}
 
 \begin{example}
+  A continuación se presenta el código utilizado para no hacer los
+  cálculos a mano así como las correspondientes descomposiciones:
   \quad
-
+\begin{algorithm}[H]
+\caption{Calcular la descomposición en irreducibles de $\widetilde H_{0}(M_3)$ como $S_n$-módulo.}
+\begin{algorithmic}
+\STATE $n = 3, r = 0$
+\STATE bo = Bouc$_{-}$theorem$(r,n)$
+\PRINT bo
+\end{algorithmic}
+\end{algorithm}  
   Sea $n=3$ y $k=1$, \ytableausetup{boxsize=0.2em,aligntableaux=bottom}
   \begin{equation*}
     \widetilde H_{0}(M_{3})\cong_{S_{3}}\bigoplus_{\substack{\lambda:\lambda\vdash 3\\
-        \lambda=\lambda^{'}\\d(\lambda)=3-2(1)=1}} S^{\lambda}=S^{(2,1)}=S^{\,\ydiagram{2,1}}.
+        \lambda=\lambda^{'}\\d(\lambda)=3-2(1)=1}} S^{\lambda}=S^{(2,1)} = S^{\,\ydiagram{2,1}}.
   \end{equation*}
-          
-  Sea $n=5$ y $k=1$,
+\begin{algorithm}[H]
+\caption{Calcular la descomposición en irreducibles de $\widetilde H_{1}(M_5)$ como $S_n$-módulo.}
+\begin{algorithmic}
+\STATE $n = 5, r = 1$
+\STATE bo = Bouc$_{-}$theorem$(r,n)$
+\PRINT bo
+\end{algorithmic}
+\end{algorithm}           
+  Sea $n=5$ y $k=2$,
   \begin{equation*}
     \widetilde H_{1}(M_{5})\cong_{S_{5}}\bigoplus_{\substack{\lambda:\lambda\vdash 5\\
-        \lambda=\lambda^{'}\\d(\lambda)=5-2(1)=3}} S^{\lambda}=S^{(4,1)} \oplus S^{(3,1,1)}\oplus S^{(3,2)} = S^{\,\ydiagram{4,1}}\oplus S^{\,\ydiagram{3,1,1}}\oplus S^{\,\ydiagram{3,2}}.
+        \lambda=\lambda^{'}\\d(\lambda)=5-2(2)=1}} S^{\lambda}= S^{(3,1,1)} = S^{\,\ydiagram{3,1,1}}.
   \end{equation*}
-        
-  Sea $n=6$ y $k=2$,
+\begin{algorithm}[H]
+\caption{Calcular la descomposición en irreducibles de $\widetilde H_{7}(M_2)$ como $S_n$-módulo.}
+\begin{algorithmic}
+\STATE $n = 7, r = 2$
+\STATE bo = Bouc$_{-}$theorem$(r,n)$
+\PRINT bo
+\end{algorithmic}
+\end{algorithm}  
+  Sea $n=7$ y $k=3$,
   \begin{equation*}
     \widetilde H_{2}(M_{6})\cong_{S_{6}}\bigoplus_{\substack{\lambda:\lambda\vdash 4\\
-        \lambda=\lambda^{'}\\d(\lambda)=6-2(2)=4}} S^{\lambda}=S^{(4,1,1)} \oplus S^{(3,3)} = S^{\,\ydiagram{4,1,1}} \oplus S^{\,\ydiagram{3,3}}.
+        \lambda=\lambda^{'}\\d(\lambda)=7-2(3)=1}} S^{\lambda}=S^{(4,1,1,1)} = S^{\,\ydiagram{4,1,1,1}}.
   \end{equation*}
 \end{example}
 La librería creada permite encontrar
@@ -3228,8 +3226,8 @@ $\Delta(K(G_n))$ de $G_n$.
 \begin{algorithmic}
 \STATE $n = 3$
 \STATE mg$_{-}n$ = matching$_{-}$graph$(n)$
-\STATE scmg = SCG(mg$_{-}n$).descomposition$_{-}$into$_{-}$irre$_{-}$sub$(n)$
-\PRINT scmg
+\STATE scmg = SCG(mg$_{-}n$).descomposition$_{-}$into$_{-}$s$_{-}$n$_{-}$irreducibles$(n)$
+\PRINT scmg 
 \end{algorithmic}
 \end{algorithm}
 
@@ -3257,8 +3255,8 @@ siguientes líneas de comandos.
 \FOR{$n = 4$ \TO $7$} 
 \STATE mg$_{-}n$ = matching$_{-}$graph$(n)$
 \STATE cg$_{-}n$ = clique$_{-}$graph(MG$_{-}n$)
-\STATE scmg = SCG(mg$_{-}n$).descomposition$_{-}$into$_{-}$irre$_{-}$sub$(n)$
-\STATE sccg = SCG(cg$_{-}n$).descomposition$_{-}$into$_{-}$irre$_{-}$sub$(n)$
+\STATE scmg = SCG(mg$_{-}n$).descomposition$_{-}$into$_{-}$s$_{-}$n$_{-}$irreducibles$(n)$
+\STATE sccg = SCG(cg$_{-}n$).descomposition$_{-}$into$_{-}$s$_{-}$n$_{-}$irreducibles$(n)$
 \PRINT scmg
 \PRINT sccg
 \ENDFOR
@@ -3280,15 +3278,27 @@ Similarmente el programa permitió observar que $\widetilde H_{k}(M_{7})\cong_{S_
 
 \ytableausetup{boxsize=0.2em}
 \begin{equation}
+  \widetilde H_{0}(M_{7})\cong\widetilde H_{0}(K(M_{7}))\cong_{S_{7}} \mathbb{C}
+\end{equation}
+\begin{equation}
+  \widetilde H_{1}(M_{7})\cong\widetilde H_{2}(K(M_{7}))\cong_{S_{7}} 0
+\end{equation}
+\begin{equation}
   \widetilde H_{2}(M_{7})\cong\widetilde H_{2}(K(M_{7}))\cong_{S_{7}} S^{(4,1,1,1)} = S^{\,\ydiagram{4,1,1,1}}.
 \end{equation}
+\begin{equation}
+\label{eq:114}
+  \widetilde H_{k}(M_{7})\cong\widetilde H_{k}(K(M_{7}))\cong_{S_{7}} 0.
+\end{equation}
+Se tiene que \ref{eq:114} es cierta para $k \geq 3$, pues $\textup{dim}(M_n) = 2$.
 
 Se sabe que $K(M_{7})$ y $K(M_{8})$ son ``similares'' tanto en
 dimensión como en respectiva cantidad de $p$-simplejos, sin embargo,
 computacionalmente no fue posible determinar la descomposición en
-irreducibles de $\widetilde H_{2}(K(M_{8}))$, ya que la memoria de la
-computadora fue insuficiente debido a la cantidad de los $2$, $3$ y
-$4$-simplejos, por ello sólo fue factible verificar que:
+irreducibles de $\widetilde H_{2}(K(M_{8}))$ y
+$\widetilde H_{7}(K(M_{8}))$, ya que la memoria de la computadora fue
+insuficiente debido a la cantidad de los $2$, $3$ y $4$-simplejos, por
+ello sólo fue factible verificar que:
 \begin{equation}
 \widetilde H_{k}(M_{8})\cong_{S_{8}} \widetilde H_{k}(K(M_{8})) = 0, 
 \end{equation}
@@ -3314,7 +3324,7 @@ potencias formal
 $f(x) \in \mathbb{Q}\left [ \left [ x \right ] \right ]$ en la cual
 cada término tiene grado $n$ y
 $f(x_{\sigma(1)},x_{\sigma(2)}, \ldots) = f(x_1, x_2, \ldots)$ para
-todas las permutaciones $\sigma$ de $\mathbb{Z}^{+}$
+todas las permutaciones $\sigma$ de $\mathbb{Z}^{+}$.
 
 Sea $\Lambda^{n}$ el conjunto de funciones simétricas de grado $n$ y
 sea $\Lambda = \bigoplus_{n \geq 0} \Lambda^{n}$. Entonces $\Lambda$
@@ -3338,10 +3348,10 @@ definido por
   \label{eq:100}
   p_{\lambda} := p_{\lambda_1}p_{\lambda_2} \cdots p_{\lambda_k}.
 \end{equation}
-Dado un diagrama de Young $\lambda$, un tablero semi estándar de forma
+Dado un diagrama de Young $\lambda$, un tablero semi-estándar de forma
 $\lambda$ es un diagrama cuyas cajas están llenadas de forma
 débilmente creciente por renglones y estrictamente por columnas. Sea
-$SS_{\lambda}$ el conjunto de tableros semi estándar de forma
+$SS_{\lambda}$ el conjunto de tableros semi-estándar de forma
 $\lambda$. Dado un semi estándar tablero $T$, se define
 $w(T) := x_{1}^{m_1}x_{2}^{m_2} \cdots$, donde para cada $i$, $m_i$ es
 el número de veces que $i$ aparece en $T$. Ahora, se define la función
@@ -3356,7 +3366,7 @@ de Schur indexada por $\lambda$ es
   $\left \{ s_{\lambda} : \lambda \vdash n \right \}$ forma bases para
   $\Lambda^{n}$. Además,
   $\left \{ s_{\lambda} : \lambda \vdash n \right \}$ es una base de
-  enteros, es decir, una base para los $\mathbb{Z}$ módulo
+  enteros, es decir, una base para los $\mathbb{Z}$-módulo
   $\Lambda_{\mathbb{Z}}^{n}$ de funciones simétricas homogéneas de
   grado $n$ con coeficientes enteros.
 \end{theorem}
@@ -3365,7 +3375,7 @@ homogénea de grado $n$ y es denotada por $h_n$. La función de Schur
 $s_{(1^{n})}$ es conocida como la función simétrica elemental de grado
 $n$ y es denotado por $e_n$. Luego sea
 $w \colon \Lambda_{n}\to \Lambda_{n}$ la involución tal que
-$$w(s_{\lambda}) = S_{{\lambda}'},$$
+$$w(s_{\lambda}) = s_{{\lambda}'},$$
 donde ${\lambda}'$ es el conjugado de $\lambda$, por ello se sigue que:
 \begin{equation}
   \label{eq:102}
@@ -3388,13 +3398,16 @@ y
   $$\sum_{n \geq 0} e_n = \prod_{i \geq 1} (1-x_{i}),$$
 \end{example}
 donde $h_0 = e_0 = 1$.
-La \textbf{La característica de Frobenius} $ch(V)$ de una
-representación $V$ de un $S_n$ módulo es la función simétrica dada por
+La \textbf{La característica de Frobenius} $\textup{ch}(V)$ de una
+representación $V$ de un $S_n$-módulo es la función simétrica dada por
 \begin{equation}
   \label{eq:104}
   \textup{ch}(V) := \sum_{u \vdash n}  \frac{1}{z_{\mu}} \chi^{V}(u) p_{\mu},
 \end{equation}
-donde $z_{\mu} := 1^{m_1} m_{1}! 2^{m_2} m_{2}! \cdots n^{m_n} m_{n}!.$
+donde $z_{\mu} := 1^{m_1} m_{1}! 2^{m_2} m_{2}! \cdots n^{m_n} m_{n}!$
+para $\mu = 1^{m_1} ! 2^{m_2}! \cdots n^{m_n}$ y $\chi^{V}(\mu)$ es el
+carácter de $\chi^{V}(\sigma)$ donde $\sigma \in S_n$ y pertenece a la
+misma clase de conjugación que $\mu$.
 \begin{definition}
 \textbf{El producto inducido} de un $S_j$-módulo $U$ y un $S_k$-módulo $V$ es
 el $S_{j+k}$-módulo
@@ -3419,11 +3432,11 @@ $$U \bullet V := (U \otimes V) \uparrow^{S_{j+k}}_{S_j \times S_k}.$$
   Sea $f \in \Lambda$ y $g$ una serie de potencias formal cuyos
   coeficientes son enteros positivos. Escogiendo cualquier orden para
   los monomios de $g$, donde. Por ejemplo, si
-  $g=3y_{1}y_{2}^{2}2y_{2}y_{3}+\cdots$, entonces el monomio puede ser
+  $g=3y_{1}y_{2}^{2}+2y_{2}y_{3}+\cdots$, entonces el monomio puede ser
   ordenado como
-  $$(y_{1}y_{2}^{2},y_{1}y_{2}^{2},y_{1}y_{2}^{2},y_{2}y_{3},y_{2}y_{3})$$
+  $$(y_{1}y_{2}^{2},y_{1}y_{2}^{2},y_{1}y_{2}^{2},y_{2}y_{3},y_{2}y_{3}).$$
 \end{definition}
-Rellena la secuencia de monomios con ceros si $g$ tiene un número
+Rellenando la secuencia de monomios con ceros si $g$ tiene un número
 finito de términos. Se define el \textbf{Pletismo} de $f$ y $g$,
 denotado $f \left [ g \right ]$, como la serie de potencias formal
 obtenida de $f$ reemplazando las incógnitas $x_{i}$ con el $i$ ésimo
@@ -3433,7 +3446,7 @@ $f = \sum_{n \geq 0}e_n = \prod_{i \geq 1}(1 + x_{i})$ y $g$ es como
 arriba, entonces,
 \begin{equation}
   \label{eq:105}
-  f \left [ g \right ] = (1 +y_{1}y_{2}^{2}) (1 +y_{1}y_{2}^{2}) (1 +y_{1}y_{2}^{2}) (1 +y_{2}y_{3}) (1 +y_{2}y_{3}) \cdots
+  f \left [ g \right ] = (1 +y_{1}y_{2}^{2}) (1 +y_{1}y_{2}^{2}) (1 +y_{1}y_{2}^{2}) (1 +y_{2}y_{3}) (1 +y_{2}y_{3}) \cdots .
 \end{equation}
 \begin{theorem}
   \label{ple_pr}
@@ -3444,15 +3457,20 @@ arriba, entonces,
   $f \left [ p_{n} \right ] = p_{n} \left [ f \right ]$ es obtenido
   reemplazando cada incógnita $x_{i}$ de $f$ por $x_{i}^{n}.$
 \item $(af + bg) \left [ h \right ] = af \left [ h \right ] + bg \left [ h \right ]$, con $a,b \in \mathbb{Q}.$
-\item $fg \left [ h \right ] = f \left [ h \right ] g \left [ h \right ]$
+\item $fg \left [ h \right ] = f \left [ h \right ] g \left [ h \right ].$
 \end{itemize} 
 \end{theorem}
 \section{El producto composición y el producto orlado}
 \label{pr_or}
-Sea $G$ un grupo finito. EL producto orlado de $S_m$ y $G$, denotado
+Sea $G$ un grupo finito. El producto orlado de $S_m$ y $G$, denotado
 por $S_m\left [ G \right ]$, está definido como el conjunto de las
-$(m+1)$ tuplas $(g_1,g_2, \ldots, g_m ; \tau)$
-Se tiene lo siguiente:
+$(m+1)$ tuplas $(g_1,g_2, \ldots, g_m ; \tau)$ con $g_i \in G$ y
+$\tau \in S_m$, cuya multiplicación está dada por: Se tiene lo
+siguiente:
+\begin{equation*}
+(g_1,g_2, \ldots, g_m ; \tau)(h_1,h_2, \ldots, h_m ; \gamma) = (g_{1} h_{\tau^{-1}(1)}, \ldots, g_{m} h_{\tau^{-1}(m)}; \tau \gamma).
+\end{equation*}
+
 \begin{theorem}
   \label{pr_or_t1}
   El mapeo
@@ -3463,7 +3481,7 @@ Se tiene lo siguiente:
   \label{wre_pro}
   Sea $V$ un $S_n$ módulo y $W$ un $G$ módulo. Entonces el
   \textbf{producto orlado} de $V$ con $W$, denotado
-  $V\left [ W \right ]$, es el producto tensorial interno de $2$
+  $V\left [ W \right ]$, es el producto tensorial interno de dos
   $S_m\left [ G \right ]$ módulos:
   $$V \left [ W \right ] = \widetilde{W^{\otimes m}} \otimes \hat{V},$$
 \end{definition}
@@ -3471,7 +3489,7 @@ donde $ \widetilde{W^{\otimes m}}$ es el espacio vectorial
 $W^{\otimes m}$ con $S_m \left [ G \right ] .$ actuando como
   \begin{equation}
     \label{eq:w_p_1}
-    (\alpha_{1},\ldots,\alpha_{m}; \tau)(w_{1} \otimes \ldots \otimes w_{m}; \tau) = \alpha_{1}w_{\tau^{-1}(1)} \otimes \cdots \otimes \alpha_{m}w_{\tau^{-1}(m)} 
+    (\alpha_{1},\ldots,\alpha_{m}; \tau)(w_{1} \otimes \ldots \otimes w_{m}) = \alpha_{1}w_{\tau^{-1}(1)} \otimes \cdots \otimes \alpha_{m}w_{\tau^{-1}(m)} 
   \end{equation}
   y $\hat{V}$ es la aplicación regrediente de $S_m$ en $V$ hacia
   $S_m \left [ G \right ]$ a través del homomorfismo dado
@@ -3499,7 +3517,7 @@ $S_{mn}$. El isomorfismo está dado por
 \end{equation}
 donde $A_{i} = \left [ in \right ] \setminus  \left [ (i-1)n \right ]$
 \begin{definition}
-  El producto composición de un $S_{m}-$módulo $V$ y un $S_{n}-$módulo
+  El producto composición de un $S_{m}$-módulo $V$ y un $S_{n}$-módulo
   $W$ por
   \begin{equation}
     \label{eq:108}
@@ -3528,6 +3546,7 @@ siguiente isomorfismo como $S_n$-módulos:
   \label{eq:92}
   \textup{ch}(C_{k-1}(M_n)) = e_{k}\left [ h_{2} \right ]h_{n-2k}.
 \end{equation}
+Ademas:
 \begin{theorem}
   \label{hopf}
   Para cualquier complejo simplicial $\Delta$ donde $G$ actúa en sus
@@ -3537,8 +3556,10 @@ siguiente isomorfismo como $S_n$-módulos:
     \bigoplus_{k = -1}^{\textup{dim} \Delta}(-1)^{k}C_{k}(\Delta)\cong_{S_{n}} \bigoplus_{k = -1}^{\textup{dim} \Delta}(-1)^{k}\widetilde{H}_k(\Delta),
   \end{equation}
 \end{theorem}
-y por medio del teorema anterior y la identidad de Littlewood se llega
-a que:
+lo anterior se válido en el anillo de representacions virtuales y por
+medio de éste y la identidad de Littlewood
+\normalfont(\cite{macdonald1998symmetric}, 11, I 5 Ex. 9b) se llega a
+que:
 \begin{equation}
   \label{eq:90}
 \sum_{n \geq 0} \sum_{k \geq -1}(-1)^{k-1}\textup{ch}(\widetilde{H}_k(M_n)) = \sum_{\lambda = {\lambda}'}(-1)^{\frac{\mid \lambda \mid - r(\lambda)}{2}}s_{\lambda},  
@@ -3551,12 +3572,12 @@ alternante:
   \bigoplus_{k \geq -1}(-1)^{k-1}\widetilde{H}_k(M_n) \cong_{S_{n}} \bigoplus_{\substack{\lambda:\lambda\vdash n\\
       \lambda=\lambda^{'}}} (-1)^{\frac{\mid \lambda \mid - r(\lambda)}{2}}S^{\lambda}.
 \end{equation}
-  A partir de lo anterior Bouc demostró \ref{bouc}. Por lo
+  A partir de lo anterior se sigue \ref{bouc}. Por lo
   cual se piensa que si encontramos un isomorfismo para los espacios
   de cadenas $C_k(K(M_n))$ como $S_n$-módulos, entonces podríamos
   descomponerlos en submódulos irreducibles e intentar encontrar un
   análogo al teorema de Bouc por medio de una fórmula alternante
-  utilizando \ref{hopf}, sin embargo, la descomposición en
+  utilizando el teorema \ref{hopf}, sin embargo, la descomposición en
   irreducibles no es trivial por inspección, y hasta el momento
   solamente se ha notado lo siguiente:
 \begin{equation}
