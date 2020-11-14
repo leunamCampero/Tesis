@@ -193,14 +193,14 @@ $\widetilde H_{k}(M_n)$.
  otras más pequeñas, mientras que otras son indivisibles. Esta es la
  distinción entre las representaciones reducibles y representaciones
  irreduccibles, algunas de las cuales estudiaremos en este
- trabajo. Sin embargo en este escenario, primero es necesario
+ trabajo. Sin embargo en este escenario primero es necesario
  determinar con precisión lo que significan estas piezas o
  sub-objetos.
 
  En la primera sección se presenta la acción de un grupo $G$ en un
  $\mathbb{C}$-espacio vectorial $V$, lo cual conduce definir un
  $G$-módulo. Mientras que una representación del grupo $G$ en el
- espacio vectorial $V$, es un homomorfismo de grupos $G \to GL(V)$,
+ espacio vectorial $V$ es un homomorfismo de grupos $G \to GL(V)$,
  donde $GL(V)$ es el grupo de transformaciones lineales invertibles
  $V \to V$. Si el homomorfismo $G \to GL(V)$ es inyectivo, tenemos que
  $G$ es isomorfo a un subgrupo de $GL(V)$, es decir, hemos hallado una
@@ -215,7 +215,7 @@ $\widetilde H_{k}(M_n)$.
  que: $P^{-1}A(a)P$ es una matriz triangular inferior con ciertas
  características para todo $a \in G$. De ahí se formulan teoremas
  conocidos como el teorema de Maschke, Schur, entre otros cuyo análogos para
- $G$-módulos se escriben \textbf{encerrados en cuadros}, ya que en
+ $G$-módulos se escriben \textbf{encerrados en rectángulos}, ya que en
  ocasiones nos será útil la representación matricial y en otras
  ocasiones hablar en términos de $G$-módulos será más provechoso. Por
  último ser termina el capítulo introduciendo a los módulos de Specht
@@ -3177,40 +3177,36 @@ resultado que es la principal inspiración del presente trabajo.
 \begin{algorithm}[H]
 \caption{Calcular la descomposición en irreducibles de $\widetilde H_{0}(M_3)$ como $S_n$-módulo.}
 \begin{algorithmic}
-\STATE $n = 3, r = 0$
-\STATE bo = Bouc$_{-}$theorem$(r,n)$
+\STATE $n = 3, k = 0$
+\STATE bo = Bouc$_{-}$theorem$(k,n)$
 \PRINT bo
 \end{algorithmic}
 \end{algorithm}  
-  Sea $n=3$ y $k=1$, \ytableausetup{boxsize=0.2em,aligntableaux=bottom}
+Lo cual imprime el siguiente vector de vectores
+\begin{center}
+$\left [ \left [ 2,1 \right ] \right ]$ 
+\end{center}
+que significa lo siguiente:
+\ytableausetup{boxsize=0.2em,aligntableaux=bottom}
   \begin{equation*}
     \widetilde H_{0}(M_{3})\cong_{S_{3}}\bigoplus_{\substack{\lambda:\lambda\vdash 3\\
         \lambda=\lambda^{'}\\d(\lambda)=3-2(1)=1}} S^{\lambda}=S^{(2,1)} = S^{\,\ydiagram{2,1}}.
   \end{equation*}
 \begin{algorithm}[H]
-\caption{Calcular la descomposición en irreducibles de $\widetilde H_{1}(M_5)$ como $S_n$-módulo.}
-\begin{algorithmic}
-\STATE $n = 5, r = 1$
-\STATE bo = Bouc$_{-}$theorem$(r,n)$
-\PRINT bo
-\end{algorithmic}
-\end{algorithm}           
-  Sea $n=5$ y $k=2$,
-  \begin{equation*}
-    \widetilde H_{1}(M_{5})\cong_{S_{5}}\bigoplus_{\substack{\lambda:\lambda\vdash 5\\
-        \lambda=\lambda^{'}\\d(\lambda)=5-2(2)=1}} S^{\lambda}= S^{(3,1,1)} = S^{\,\ydiagram{3,1,1}}.
-  \end{equation*}
-\begin{algorithm}[H]
 \caption{Calcular la descomposición en irreducibles de $\widetilde H_{7}(M_2)$ como $S_n$-módulo.}
 \begin{algorithmic}
-\STATE $n = 7, r = 2$
-\STATE bo = Bouc$_{-}$theorem$(r,n)$
+\STATE $n = 7, k = 2$
+\STATE bo = Bouc$_{-}$theorem$(k,n)$
 \PRINT bo
 \end{algorithmic}
 \end{algorithm}  
-  Sea $n=7$ y $k=3$,
+Lo cual imprime el siguiente vector de vectores
+\begin{center}
+$\left [ \left [ 4,1,1,1 \right ] \right ]$ 
+\end{center}
+que significa lo siguiente:
   \begin{equation*}
-    \widetilde H_{2}(M_{6})\cong_{S_{6}}\bigoplus_{\substack{\lambda:\lambda\vdash 4\\
+    \widetilde H_{2}(M_{7})\cong_{S_{7}}\bigoplus_{\substack{\lambda:\lambda\vdash 4\\
         \lambda=\lambda^{'}\\d(\lambda)=7-2(3)=1}} S^{\lambda}=S^{(4,1,1,1)} = S^{\,\ydiagram{4,1,1,1}}.
   \end{equation*}
 \end{example}
@@ -3242,8 +3238,9 @@ $ \left \{0: \left \{(3,): 1.0,(1,1,1): 0.0,(2,1): 1.0 \right \}
 El cual significa que:
 \begin{align*}
 & H_{0}(K(M_{3}))=\mathbb{C} \oplus S^{(2,1)}\\
-& H_{k}(K(M_{3})) = 0, k \neq 0
+& H_{k}(K(M_{3})) = 0, k \neq 0,
 \end{align*}
+donde $\mathbb{C} \cong S^{(3)}$.
 
 Trabajos posteriores han demostrado que
 $\widetilde H_{k}(M_{n})\cong_{S_n} \widetilde H_{k}(K(M_{n}))$ para
@@ -3307,7 +3304,7 @@ para $k \leq 1.$
 \chapter{Demostración del Teorema de Bouc}
 \label{summ}
 En este capítulo se presentarán resultados cuyas pruebas o bosquejos
-de las mimas pueden ser hallados en \normalfont(\cite{wachs2006poset},
+de las mismas pueden ser hallados en \normalfont(\cite{wachs2006poset},
 Lectura 2, p.23-39), las cuales llevan a demostrar \ref{bouc} y se
 piensa que servirán como punto de partida para encontrar una fórmula
 análoga para la descomposición en irreducibles de
@@ -3319,7 +3316,7 @@ $\widetilde H_k(K(M_n))$ como $S_n$-módulos.
 \label{sim_fun}
 
 Sea $x = (x_1, x_2, \ldots)$ una sucesión infinita de incógnitas. Una
-\textbf{función simétrica homogénea de grado n} es una serie de
+\textbf{función simétrica homogénea de grado} $n$ es una serie de
 potencias formal
 $f(x) \in \mathbb{Q}\left [ \left [ x \right ] \right ]$ en la cual
 cada término tiene grado $n$ y
@@ -3334,14 +3331,15 @@ $f(x), g(x) \in \Lambda^{n}$ y $\alpha, \beta \in \mathbb{Q}$, y
 $f(x)g(x) \in \Lambda^{m+n}$ si $f(x) \in \Lambda^{m}$ y
 $g(x) \in \Lambda^{n}$.
 A continuación se presentan dos bases para el espacio vectorial
-$\Lambda^{n}$. La primera es la base de las \textbf{funciones de
-  Schur}. Para $n \geq 1$, sea
+$\Lambda^{n}$.  
+
+Para $n \geq 1$, sea
 \begin{equation}
   \label{eq:99}
   p_n = \sum_{i \geq 1} x_{i}^{n}
 \end{equation}
 y $p_0 = 1$.
-El \textbf{suma de potencias de funciones simétricas} indexadas por
+La \textbf{suma de potencias de funciones simétricas} indexadas por
 $\lambda = (\lambda_1 \geq \lambda_2 \geq \cdots \geq \lambda_k)$ está
 definido por
 \begin{equation}
@@ -3352,10 +3350,10 @@ Dado un diagrama de Young $\lambda$, un tablero semi-estándar de forma
 $\lambda$ es un diagrama cuyas cajas están llenadas de forma
 débilmente creciente por renglones y estrictamente por columnas. Sea
 $SS_{\lambda}$ el conjunto de tableros semi-estándar de forma
-$\lambda$. Dado un semi estándar tablero $T$, se define
+$\lambda$. Dado un semi-estándar tablero $T$, se define
 $w(T) := x_{1}^{m_1}x_{2}^{m_2} \cdots$, donde para cada $i$, $m_i$ es
-el número de veces que $i$ aparece en $T$. Ahora, se define la función
-de Schur indexada por $\lambda$ es
+el número de veces que $i$ aparece en $T$. Ahora, \textbf{la función
+de Schur} indexada por $\lambda$ es
 \begin{equation}
   \label{eq:101}
   s_{\lambda} := \sum_{T \in SS_{\lambda}}w(T). 
@@ -3365,27 +3363,27 @@ de Schur indexada por $\lambda$ es
   Los conjuntos $\left \{ p_{\lambda} : \lambda \vdash n \right \}$ y
   $\left \{ s_{\lambda} : \lambda \vdash n \right \}$ forma bases para
   $\Lambda^{n}$. Además,
-  $\left \{ s_{\lambda} : \lambda \vdash n \right \}$ es una base de
-  enteros, es decir, una base para los $\mathbb{Z}$-módulo
+  $\left \{ s_{\lambda} : \lambda \vdash n \right \}$ es una base entera, es decir, una base para el $\mathbb{Z}$-módulo
   $\Lambda_{\mathbb{Z}}^{n}$ de funciones simétricas homogéneas de
   grado $n$ con coeficientes enteros.
 \end{theorem}
 La función de Schur $s_{(n)}$ es conocida como la función simétrica
 homogénea de grado $n$ y es denotada por $h_n$. La función de Schur
 $s_{(1^{n})}$ es conocida como la función simétrica elemental de grado
-$n$ y es denotado por $e_n$. Luego sea
-$w \colon \Lambda_{n}\to \Lambda_{n}$ la involución tal que
-$$w(s_{\lambda}) = s_{{\lambda}'},$$
-donde ${\lambda}'$ es el conjugado de $\lambda$, por ello se sigue que:
-\begin{equation}
-  \label{eq:102}
-  w(h_n)=e_n.  
-\end{equation}
-Por la suma de potencias de funciones simétricas se tiene
-\begin{equation}
-  \label{eq:103}
-  w(p_{\lambda}) = (-1)^{\mid \lambda \mid - l(\lambda)}p_{\lambda}.
-\end{equation}
+$n$ y es denotado por $e_n$. 
+%Luego sea
+%$w \colon \Lambda_{n}\to \Lambda_{n}$ la involución tal que
+%$$w(s_{\lambda}) = s_{{\lambda}'},$$
+%donde ${\lambda}'$ es el conjugado de $\lambda$, por ello se sigue que:
+%\begin{equation}
+%  \label{eq:102}
+%  w(h_n)=e_n.  
+%\end{equation}
+%Por la suma de potencias de funciones simétricas se tiene
+%\begin{equation}
+%  \label{eq:103}
+%  w(p_{\lambda}) = (-1)^{\mid \lambda \mid - l(\lambda)}p_{\lambda}.
+%\end{equation}
 \begin{example}
   \label{Ej_s1}
   Se puede demostrar que
@@ -3395,11 +3393,11 @@ y
 \begin{example}
   \label{Ej_s1}
   Se puede demostrar que
-  $$\sum_{n \geq 0} e_n = \prod_{i \geq 1} (1-x_{i}),$$
+  $$\sum_{n \geq 0} e_n = \prod_{i \geq 1} (1+x_{i}),$$
 \end{example}
 donde $h_0 = e_0 = 1$.
-La \textbf{La característica de Frobenius} $\textup{ch}(V)$ de una
-representación $V$ de un $S_n$-módulo es la función simétrica dada por
+
+Dado un $S_n$-módulo $V$ la \textbf{característica de Frobenius} es la función simétrica dada por
 \begin{equation}
   \label{eq:104}
   \textup{ch}(V) := \sum_{u \vdash n}  \frac{1}{z_{\mu}} \chi^{V}(u) p_{\mu},
@@ -3417,13 +3415,13 @@ $$U \bullet V := (U \otimes V) \uparrow^{S_{j+k}}_{S_j \times S_k}.$$
   \label{ch_f_pr}
   La característica de Frobenius cumple lo siguiente:
   \begin{enumerate}
-  \item Para toda forma $\lambda$,
+  \item Para toda partición $\lambda$,
     $$\textup{ch}(S^{\lambda}) = s_{\lambda}.$$
-  \item Para toda representación $V$ de $S_n$,
+  \item Para todo $S_n$-módulo $V$,
     $$ \omega(\textup{ch}(V)) = \textup{ch}(V \otimes sgn_n).$$
-  \item Para toda representaciones $U, V$ de $S_n$,
+  \item Para todos $S_n$-módulos $U$ y $V$,
     $$\textup{ch}(U \oplus V) = \textup{ch}(U) + \textup{ch}(v).$$
-  \item Para toda representaciones $U$ de $S_m$ y $V$ de $S_n$,
+  \item Para todo $S_n$-módulo $V$ y $S_m$-módulo $U$,
     $$\textup{ch}(U \bullet V) = \textup{ch}(U)\textup{ch}(V).$$
   \end{enumerate}
 \end{theorem}
@@ -3437,7 +3435,7 @@ $$U \bullet V := (U \otimes V) \uparrow^{S_{j+k}}_{S_j \times S_k}.$$
   $$(y_{1}y_{2}^{2},y_{1}y_{2}^{2},y_{1}y_{2}^{2},y_{2}y_{3},y_{2}y_{3}).$$
 \end{definition}
 Rellenando la secuencia de monomios con ceros si $g$ tiene un número
-finito de términos. Se define el \textbf{Pletismo} de $f$ y $g$,
+finito de términos. Se define el \textbf{pletismo} de $f$ y $g$,
 denotado $f \left [ g \right ]$, como la serie de potencias formal
 obtenida de $f$ reemplazando las incógnitas $x_{i}$ con el $i$ ésimo
 monomio de $g$ para cada $i$. Como $f$ es una función simétrica, el
@@ -3465,8 +3463,7 @@ arriba, entonces,
 Sea $G$ un grupo finito. El producto orlado de $S_m$ y $G$, denotado
 por $S_m\left [ G \right ]$, está definido como el conjunto de las
 $(m+1)$ tuplas $(g_1,g_2, \ldots, g_m ; \tau)$ con $g_i \in G$ y
-$\tau \in S_m$, cuya multiplicación está dada por: Se tiene lo
-siguiente:
+$\tau \in S_m$, cuya multiplicación está dada por: 
 \begin{equation*}
 (g_1,g_2, \ldots, g_m ; \tau)(h_1,h_2, \ldots, h_m ; \gamma) = (g_{1} h_{\tau^{-1}(1)}, \ldots, g_{m} h_{\tau^{-1}(m)}; \tau \gamma).
 \end{equation*}
@@ -3489,15 +3486,13 @@ donde $ \widetilde{W^{\otimes m}}$ es el espacio vectorial
 $W^{\otimes m}$ con $S_m \left [ G \right ] .$ actuando como
   \begin{equation}
     \label{eq:w_p_1}
-    (\alpha_{1},\ldots,\alpha_{m}; \tau)(w_{1} \otimes \ldots \otimes w_{m}) = \alpha_{1}w_{\tau^{-1}(1)} \otimes \cdots \otimes \alpha_{m}w_{\tau^{-1}(m)} 
+    (\alpha_{1},\ldots,\alpha_{m}; \tau)(w_{1} \otimes \ldots \otimes w_{m}) = \alpha_{1}w_{\tau^{-1}(1)} \otimes \cdots \otimes \alpha_{m}w_{\tau^{-1}(m)}, 
   \end{equation}
-  y $\hat{V}$ es la aplicación regrediente de $S_m$ en $V$ hacia
-  $S_m \left [ G \right ]$ a través del homomorfismo dado
-  \ref{pr_or_t1}. Es decir, $\hat{V}$ es la representación
+y $\hat{V}$ es la representación
   $S_m \left [ G \right ]$ en $V$ definido por
   \begin{equation}
     \label{eq:106}
-    (\alpha_{1},\alpha_{2},\ldots,\alpha_{m}; \tau)v = \tau v 
+    (\alpha_{1},\alpha_{2},\ldots,\alpha_{m}; \tau)v = \tau v .
   \end{equation}
 Dado un conjunto finito
 $A = \left \{ a_1 < a_2< \cdots < a_n \right \}$ de enteros positivos,
@@ -3578,23 +3573,7 @@ alternante:
   descomponerlos en submódulos irreducibles e intentar encontrar un
   análogo al teorema de Bouc por medio de una fórmula alternante
   utilizando el teorema \ref{hopf}, sin embargo, la descomposición en
-  irreducibles no es trivial por inspección, y hasta el momento
-  solamente se ha notado lo siguiente:
-\begin{equation}
-  \label{eq:89}
-  C_{0}(K(M_n)) \cong_{S_{n}} (S^{1^{1}} \circ S^{2}) \bullet S^{n-2},
-\end{equation}
-es decir:
-\begin{equation}
-  \label{eq:91}
-  \textup{ch}(C_{0}(M_n)) = e_{0}\left [ h_{2} \right ]h_{n-2},
-\end{equation}
-que se sigue de \ref{eq:92} y \ref{eq:93} sabiendo que
-$C_{d}(M_n) = C_{0}(K(M_n))$ donde
-$d = \left \lfloor \frac{n}{2} \right \rfloor$, es decir, $d$ es la
-dimensión de $M_n$. Mientras que se sigue trabajando para encontrar
-algo similar para $C_{k}(K(M_n))$ con $k \geq 1$.
-
+  irreducibles no es trivial por inspección.
 
 \backmatter
 
