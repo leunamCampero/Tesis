@@ -1,0 +1,173 @@
+
+from sympy.combinatorics.partitions import IntegerPartition
+import math
+
+def partitions_list(n):
+    p = IntegerPartition([n])
+    w = []
+    while list(p.args[1]) not in w:
+        w.append(list(p.args[1]))
+        p = p.next_lex()
+    return w
+
+def size_conjugacy_class(partition,n):
+    aux1=1
+    c=0
+    aux=partition[0]
+    flag = 1
+    for j in range(len(partition)):
+        if (aux == partition[j]):
+            c = c + 1
+            flag = 1
+        else:
+            aux1 = aux1*(partition[j-1]**c)*(math.factorial(c))
+            aux = partition[j]
+            c = 1
+            flag = 0
+    if (flag == 1):
+        aux1 = aux1*(partition[j-1]**c)*(math.factorial(c))
+    else: 
+        aux1 = aux1*(partition[j]**c)*(math.factorial(c))
+    card = (math.factorial(n))/aux1
+    return int(card)
+
+def same_lenght(lamb,miu):
+    if (len(lamb) > len(miu)):
+        for i in range(len(miu), len(lamb)):
+            miu.append(0)
+    if (len(miu) > len(lamb)):
+        for i in range(len(lamb), len(miu)):
+            lamb.append(0)
+    return lamb, miu
+
+def conjugate(v):
+    vc = []
+    c = 1
+    j = 1
+    while (c != 0):
+        c = 0
+        for i in v:
+            if (i >= j):
+                c = c + 1
+        if (c != 0):
+            vc.append(c)
+        j = j + 1
+    return vc
+
+def skew_diagram(lamb,miu):
+    lamb, miu = same_lenght(lamb, miu)
+    for i in range(len(lamb)):
+        if (lamb[i] < miu[i]):
+            return False
+    return True
+
+def hook_product(lamb, lambconj, i, j):
+    return lamb[i-1] + lambconj[j-1] - i - j + 1
+        
+def product_hook_product(lamb):
+    miu = conjugate(lamb)
+    lamb, miu = same_lenght(lamb, miu)
+    p = 1
+    for i in range(1,len(lamb)+1):
+        for j in range(1,lamb[i-1]+1):
+            p=p*hook_product(lamb, miu, i, j)
+    return p
+
+def dim_lamb(lamb):
+    return math.factorial(sum(lamb))/product_hook_product(lamb)
+
+def rim_hook(lamb, miu):
+    if (skew_diagram(lamb,miu) == True):
+        lamb, miu = same_lenght(lamb, miu)
+        Nz = 0
+        for i in range(len(lamb)):
+            if ((lamb[i]-miu[i]) > 0):
+                Nz = Nz + 1
+        c = 0
+        for i in range(len(lamb) - 1):
+            if  ((lamb[i] - miu[i]) != 0):
+                c = c + 1
+                if ((lamb[i + 1] - miu[i + 1]) != 0):
+                    if ((miu[i] + 1) > lamb[i + 1]):
+                        return False
+                else:
+                    if (c < Nz):
+                        return False
+                if ((lamb[i] - miu[i]) >= 2):
+                    if ((lamb[i + 1] - miu[i + 1]) >= 2):
+                        if ((miu[i] + 2) <= lamb[i + 1]):
+                            return False
+        return True
+    else: 
+        return False
+    
+def m_l_m1(miu):
+    miu_1 = []
+    for i in range(1, len(miu)):
+        if (miu[i] != 0):
+            miu_1.append(miu[i])
+    return miu_1
+
+def leg_l(lamb, miu):
+    lamb, miu = same_lenght(lamb, miu)
+    Nz = 0
+    for i in range(len(lamb)):
+        if ((lamb[i]-miu[i]) > 0):
+            Nz = Nz + 1
+    return (Nz - 1)
+
+def rMnr1(lamb, miu):
+    n = sum(lamb)
+    c = 0
+    if (n == 1):
+        return 1
+    if ((n - miu[0]) != 0):
+        for i in partitions_list(n - miu[0]):
+            if (rim_hook(lamb, i) == True):
+                c = c + ((-1)**(leg_l(lamb, i)))*rMnr1(i, m_l_m1(miu))
+    else:
+        if (rim_hook(lamb, [0]) == True):
+            c = c + ((-1)**(leg_l(lamb, [0])))
+    return c
+
+def v_w_z(v):
+    v1 = []
+    for i in v:
+        if (i != 0):
+            v1.append(i)
+    return v1
+
+def induction_product(lamb,miu):
+    n1 = sum(lamb)
+    n2 = sum(miu)
+    w1 = partitions_list(n1)
+    w2 = partitions_list(n2)
+    v = []
+    v1 = []
+    v2 = []
+    for i in w1:
+        for j in w2:
+            v.append(rMnr1(lamb,i)*rMnr1(miu,j))
+            v1.append((i,j))
+            v2.append(size_conjugacy_class(i,n1)*size_conjugacy_class(j,n2))
+    D = {}
+    triv = []
+    for i in range(n1 + n2):
+        triv.append(1)
+    for i in partitions_list(n1+n2):
+        s = 0
+        pr = []
+        for j in range(len(v1)):
+            cl = v1[j][0] + v1[j][1]
+            cl = sorted(cl)
+            cl = cl[::-1]
+            s = s + rMnr1(i,cl)*v2[j]*v[j]
+            pr.append(rMnr1(i,cl)*v2[j]*v[j])
+        val = s/(math.factorial(n1)*math.factorial(n2))
+        if (val != 0):
+            D[tuple(v_w_z(i))] = val
+    return D
+lamb = [4]
+miu = [3,1,1]
+D2 = induction_product(lamb,miu)
+print(D2)
