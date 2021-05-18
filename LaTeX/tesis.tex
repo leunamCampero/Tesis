@@ -28,6 +28,7 @@
 \usepackage{young}
 \usepackage{ytableau}
 \usepackage{mathtools}
+\usepackage[all]{xy}
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
 % ver http://gilmation.com/articles/latex-margins-for-book-binding/
@@ -113,8 +114,7 @@
 
     \vspace*{\elespacio}
 
-    {\Huge\bfseries Un enfoque computacional de representaciones de
-      grupos en homologías\par}
+    {\Huge\bfseries Un enfoque computacional a la representación del grupo simétrico en homologías\par}
 
     \vspace*{\elespacio}
 
@@ -3607,6 +3607,51 @@ alternante:
 \label{Des_esp_cad}
 En esta última parte se dan los resultados obtenidos en la busqueda de de inducir $C_{k}(K(M_{n}))$ desde distintas operaciones de $S_{n}$-módulos de dimensión $1$ así como en la ecuación \ref{eq:93} se hizo para $C_{k}(M_{n})$, de la misma manera se hablará sobre las limitaciones encontradas en este proceso.
 
+\begin{lemma}
+Sean $p_{1}$ y $p_{2}$ dos $p$-simplejos de $K(M_{n})$ y sean $\left \langle p_{1} \right \rangle$ y $\left \langle p_{2} \right \rangle$ los subespacios generados por $p_{1}$ y $p_{2}$ respectivamente. Luego si $G_{p_{1}}$ y $G_{p_{2}}$ son las multigráficas asociadas a las colecciones de clanes maximales de $G_{n}$ que forman $p_{1}$ y $p_{2}$ respectivamente, entonces:
+\begin{itemize}
+\item Si $G_{p_{1}} \cong G_{p_{2}}$, entonces:
+$$\bigoplus_{i=0}^{s_{1}} t_{i1}  \left \langle p_{1} \right \rangle \cong \bigoplus_{i=0}^{s_{2}} t_{i2} \left \langle p_{2} \right \rangle,$$
+donde $T_{1} = \left \{ t_{11}, \ldots, t_{s_{1}1} \right \}$ y $T_{2} = \left \{ t_{12}, \ldots, t_{s_{2}2} \right \}$ son las transversales izquierdas de los estabilizadores de $\left \langle p_{1} \right \rangle$ y $\left \langle p_{2} \right \rangle$ en $S_{n}$ respectivamente y $s_{1} = s_{2}$.
+\end{itemize} 
+\end{lemma}
+\textit{Proof:}
+Sea $\alpha \in S_{n}$ tal que $\alpha G_{p_{1}} = G_{p_{2}}$, por lo cual $\alpha \left \langle p_{1} \right \rangle = \left \langle p_{2} \right \rangle$.
+Luego sea $\sigma \in \textup{Stab}_{S_{n}}  \left \langle p_{1} \right \rangle$, es decir $\sigma  \left \langle p_{1} \right \rangle =  \left \langle p_{1} \right \rangle$, entonces $\alpha \sigma \alpha^{-1} \in ( \textup{Stab}_{S_{n}}  \left \langle p_{1} \right \rangle^{\alpha}$, entonces:
+\begin{equation*}
+\begin{aligned}
+\alpha \sigma \alpha^{-1}  \left \langle p_{2} \right \rangle &= \alpha \sigma  \left \langle p_{1} \right \rangle \\
+& = \alpha (\sigma  \left \langle p_{1} \right \rangle) \\
+& = \alpha  \left \langle p_{1} \right \rangle \\
+& =  \left \langle p_{2} \right \rangle,
+\end{aligned}
+\end{equation*}
+por lo cual $\alpha \sigma \alpha^{-1} \in \textup{Stab}_{S_{n}}  \left \langle p_{2} \right \rangle$. Análogamente si $\sigma' \in \textup{Stab}_{S_{n}}  \left \langle p_{2} \right \rangle$, es decir $\sigma'  \left \langle p_{2} \right \rangle =  \left \langle p_{2} \right \rangle$, consideremos a $\alpha^{-1} \sigma' \alpha$, entonces:
+\begin{equation*}
+\begin{aligned}
+\alpha^{-1} \sigma' \alpha  \left \langle p_{1} \right \rangle & = \alpha^{-1} (\sigma'  \left \langle p_{2} \right \rangle) \\
+& = \alpha^{-1}  \left \langle p_{2} \right \rangle \\
+& =  \left \langle p_{1} \right \rangle,
+\end{aligned}
+\end{equation*}
+por ello $\alpha^{-1} \sigma' \alpha  \left \langle p_{1} \right \rangle \in \textup{Stab}_{S_{n}}  \left \langle p_{1} \right \rangle$, luego $\sigma' \in (\textup{Stab}_{S_{n}}  \left \langle p_{1} \right \rangle)^{\alpha}$, es decir:
+$$(\textup{Stab}_{S_{n}}  \left \langle p_{1} \right \rangle)^{\alpha} = \textup{Stab}_{S_{n}}  \left \langle p_{2} \right \rangle,$$
+por ello $\left \{ \alpha^{-1} (t_{11}) \alpha,\ldots, \alpha^{-1} (t_{s_{1}}) \alpha \right \}$ es una transversal izquierda de $\textup{Stab}_{S_{n}}  \left \langle p_{1} \right \rangle$ en $S_{n}$, entonces:
+\begin{equation*}
+\begin{aligned}
+\bigoplus_{i=0}^{s_{2}} t_{i2} \left \langle p_{2} \right \rangle & = \bigoplus_{i=0}^{s_{2}} t_{i2} \alpha  \left \langle p_{1} \right \rangle \\
+& = \bigoplus_{i=0}^{s_{1}} \alpha (t_{i1})  \left \langle p_{1} \right \rangle \\
+& = \alpha \left [ \bigoplus_{i=0}^{s_{1}} t_{i1} \left \langle p_{1} \right \rangle \right ],
+\end{aligned}
+\end{equation*}
+y como $\alpha \in S_{n}$ se tiene que el espacio inducido por $\left \langle p_{1} \right \rangle$ es isomorfo al inducido por $ \left \langle p_{2} \right \rangle$ como se quería demostrar. $\square$
+
+Ahora sea $C = \left \{ \left \langle p_{1} \right \rangle,\ldots, \left \langle p_{m} \right \rangle \right \}$ la colección exhaustiva de todos los espacios generadores de $p$-simplejos en $K(M_{n})$ tal que $\forall i,j \in \left \{ 1,\ldots,m \right \}$:
+$$G_{p_{i}} \ncong G_{p_{j}},$$
+con $i \neq j$, entonces se tiene que:
+$$C_{p}(K(M_{n})) \cong \left [ \bigoplus_{i=0}^{s_{1}} t_{i1} \left \langle p_{1} \right \rangle \oplus \cdots \oplus \bigoplus_{i=0}^{s_{n}} t_{im} \left \langle p_{m} \right \rangle \right ],$$
+donde $\left \{ t_{1i}, \ldots, t_{s_{1}i} \right \}$ es una transversal izquierda de $\textup{Stab}_{S_{n}}  \left \langle p_{i} \right \rangle$ en $S_{n}$ para todo $i \in \left \{ 1,\ldots,m \right \}.$
+
 
 \section{Descomposición de $C_{0}(K(M_n))$ a partir de inducir estabilizadores de sus generadores}
 
@@ -3615,33 +3660,67 @@ En esta última parte se dan los resultados obtenidos en la busqueda de de induc
   G\mid gW=W\}=H$, entonces $V$ es el $G$-módulo inducido por el $H$-módulo $W$ si
   $V=\bigoplus^{s}_{i=1}t_{i}W$ como espacio vectorial. Ahora $V = C_{k}(K(M_n))$ y la dificultad es encontrar al adecuado $W$ que cumpla lo anterior, comenzaremos buscando para $k,n$ pequeños.
   
-  Primeramente consideremos $V = C_{0}(K(M_n))$ para $k=0$ y $n \geq 0$ y par, entonces
-  $$W = \langle (\overline{12},\overline{34},\ldots,\overline{(n-3)(n-2)}, \overline{(n-1)n)} \rangle,$$
-luego el estabilizador de $W$ ($\textup{Stab}_{S_{n}} W$) es $S_{\frac{n}{2}} \left [ S_{2} \right ]$ y la representación trivial de $S_{\frac{n}{2}} \left [ S_{2} \right ]$ es $S^{(\frac{n}{2})} \left [ S^{(2)} \right ]$, luego:
-\begin{equation}
-C_{0}(K(M_{n})) \cong_{S_{n}} (S^{(\frac{n}{2})} \left [ S^{(2)} \right ])\uparrow_{S_{\frac{n}{2}} \left [ S_{2} \right ]}^{S_{n}},
-\end{equation}
-y por \ref{eq:108} se tiene:
-\begin{equation}
-C_{0}(K(M_{n})) \cong_{S_{n}} (S^{(\frac{n}{2})} \circ S^{(2)}),
-\end{equation}
-entonces por \cite{macdonald1998symmetric} [I 8 Ex. 6a] se sigue que para $n \geq 0$ y par:
-\begin{equation}
-  \label{eq:97}
-   C_{0}(K(M_n)) \cong_{S_{n}} \bigoplus_{\mu \vdash n} S^{\mu},
-\end{equation}
-sumado sobre todas las particiones $\mu$ pares (donde cada $\mu_{i}$ es par).
-
-Ahora para $V = C_{0}(K(M_n))$ con $k=0$ y $n \geq 0$ e impar tomamos a
+  Primeramente consideremos $V = C_{0}(K(M_n))$ con $k=0$ y $n \geq 4$ e impar tomamos a
   $$W = \langle (\overline{12},\overline{34},\ldots,\overline{(n-4)(n-3)}, \overline{(n-2)(n-1))} \rangle,$$
-y se tiene que $\textup{Stab}_{S_{n}} W = S_{\frac{n}{2}} \left [ S_{2} \right ] \times S_{1}$, y su representación es $S^{(\frac{n}{2})} \left [ S^{(2)} \right ] \times S^{(1)}$, por ello:
+  observe que toda gráfica asociada a un clan máximal de $G_{n}$ para $n$ impar será isomorfa a la siguiente gráfica asociada a al $0$-simplejo que genera a $W$:
+   \begin{center}
+\begin{tikzpicture}[scale=1.3]
+\draw (-0.5,2.41) node[left] {1};
+\draw (0.5,2.41) node[right] {2};
+\draw (1.21,1.51) node[above] {3};
+\draw (1.21,0.91) node[below] {4};
+\draw (0.5,0) node[right] {5};
+\draw (-0.5,0) node[left] {6};
+\draw (-1.21,0.91) node[left] {n-2};
+\draw (-1.21,1.51) node[above] {n-1};
+\draw [line width = 1pt] (-0.5,2.41) -- (0.5,2.41) ;
+\draw [line width = 1pt] (1.21,1.51) -- (1.21,0.91) ;
+\draw [line width = 1pt] (0.5,0) -- (-0.5,0) ;
+\draw [line width = 1pt] (-1.21,0.91) -- (-1.21,1.51) ;
+\draw [dashed] (-0.5,0) -- (-1.21,0.91);
+\draw (-0.5,2.41) node {$\bullet$};
+\draw (0.5,2.41) node {$\bullet$};
+\draw (1.21,1.51) node {$\bullet$};
+\draw (1.21,0.91) node {$\bullet$};
+\draw (0.5,0) node {$\bullet$};
+\draw (-0.5,0) node {$\bullet$};
+\draw (-1.21,0.91) node {$\bullet$};
+\draw (-1.21,1.51) node {$\bullet$};
+\end{tikzpicture}
+\end{center}
+%  \begin{center}
+%\begin{tikzpicture}[scale=1.3]
+%\draw (-0.5,2.41) node[right] {$1$};
+%\node[draw,circle] (1) at (-0.5,2.41) {1};
+%\node[draw,circle] (2) at (0.5,2.41) {2};
+%\node[draw,circle] (3) at (1.21,1.71) {3};
+%\node[draw,circle] (4) at (1.21,0.71) {4};
+%\node[draw,circle] (5) at (0.5,0) {5};
+%\node[draw,circle] (6) at (-0.5,0) {6};
+%\node[draw,circle] (7) at (-1.21,0.71) {};
+%\node[draw,circle] (8) at (-1.21,1.71) {n-1};
+%%
+%\Edge(1)(2)
+%\Edge(3)(4) 
+%\Edge(5)(6)
+%\Edge(7)(8)
+%\draw[-, dashed] (6) to (7);
+%\end{tikzpicture}
+%\end{center}
+%\begin{equation*}
+%\xymatrix{1 \ar@^{-}[r] & 2 \\
+% 3 \ar@^{-}[r] & 4 \\
+%  & \vdots \\
+%  (n-2) \ar@^{-}[r] & (n-1)}
+%\end{equation*}
+y se tiene que $\textup{Stab}_{S_{n}} W = S_{\frac{n-1}{2}} \left [ S_{2} \right ] \times S_{1}$, y su representación es $S^{(\frac{n-1}{2})} \left [ S^{(2)} \right ] \times S^{(1)}$, por ello:
 \begin{equation}
 \begin{aligned}
-C_{0}(K(M_{n})) & \cong_{S_{n}} (S^{(\frac{n}{2})} \left [ S^{(2)} \right ] \times S^{(1)})\uparrow_{S_{\frac{n}{2}} \left [ S_{2} \right ] \times S_{1}}^{S_{n}} \\
-& \cong_{S_{n}} \left [ (S^{(\frac{n}{2})} \left [ S^{(2)} \right ])\uparrow_{S_{\frac{n}{2}} \left [ S_{2} \right ]}^{S_{n-1}} \times (S^{(1)})\uparrow_{S_{1}}^{S_{1}} \right ] \uparrow_{S_{n-1} \times S_{1}}^{S_{1}},
+C_{0}(K(M_{n})) & \cong_{S_{n}} (S^{(\frac{n-1}{2})} \left [ S^{(2)} \right ] \times S^{(1)})\uparrow_{S_{\frac{n-1}{2}} \left [ S_{2} \right ] \times S_{1}}^{S_{n}} \\
+& \cong_{S_{n}} \left [ (S^{(\frac{n-1}{2})} \left [ S^{(2)} \right ])\uparrow_{S_{\frac{n-1}{2}} \left [ S_{2} \right ]}^{S_{n-1}} \times (S^{(1)})\uparrow_{S_{1}}^{S_{1}} \right ] \uparrow_{S_{n-1} \times S_{1}}^{S_{1}},
 \end{aligned}
 \end{equation} 
-nuevamente por \ref{eq:108} y la definición del producto inducido \ref{ind_prod} se tiene que:
+por \ref{eq:108} y la definición del producto inducido \ref{ind_prod} se tiene que:
 \begin{equation}
 C_{0}(K(M_{n})) \cong_{S_{n}} (S^{(\frac{n}{2})} \circ S^{(2)} ) \bullet S^{(1)},
 \end{equation} 
@@ -3652,12 +3731,57 @@ y por la regla de Pieri \cite{wachs2006poset} y \cite{macdonald1998symmetric} [I
 \end{equation}
 tal que $\mu^{-}$ es par y $\mu^{-} / \mu$ es un border strip.
 
+  Ahora para $V = C_{0}(K(M_n))$ para $k=0$ y $n \geq 4$ y par, entonces
+  $$W = \langle (\overline{12},\overline{34},\ldots,\overline{(n-3)(n-2)}, \overline{(n-1)n)} \rangle,$$
+    observe que toda gráfica asociada a un clan máximal de $G_{n}$ para $n$ par será isomorfa a la siguiente gráfica asociada a al $0$-simplejo que genera a $W$:
+   \begin{center}
+\begin{tikzpicture}[scale=1.3]
+\draw (-0.5,2.41) node[left] {1};
+\draw (0.5,2.41) node[right] {2};
+\draw (1.21,1.51) node[above] {3};
+\draw (1.21,0.91) node[below] {4};
+\draw (0.5,0) node[right] {5};
+\draw (-0.5,0) node[left] {6};
+\draw (-1.21,0.91) node[left] {n-1};
+\draw (-1.21,1.51) node[above] {n};
+\draw [line width = 1pt] (-0.5,2.41) -- (0.5,2.41) ;
+\draw [line width = 1pt] (1.21,1.51) -- (1.21,0.91) ;
+\draw [line width = 1pt] (0.5,0) -- (-0.5,0) ;
+\draw [line width = 1pt] (-1.21,0.91) -- (-1.21,1.51) ;
+\draw [dashed] (-0.5,0) -- (-1.21,0.91);
+\draw (-0.5,2.41) node {$\bullet$};
+\draw (0.5,2.41) node {$\bullet$};
+\draw (1.21,1.51) node {$\bullet$};
+\draw (1.21,0.91) node {$\bullet$};
+\draw (0.5,0) node {$\bullet$};
+\draw (-0.5,0) node {$\bullet$};
+\draw (-1.21,0.91) node {$\bullet$};
+\draw (-1.21,1.51) node {$\bullet$};
+\end{tikzpicture}
+\end{center}
+luego el estabilizador de $W$ ($\textup{Stab}_{S_{n}} W$) es $S_{\frac{n}{2}} \left [ S_{2} \right ]$ y la representación trivial de $S_{\frac{n}{2}} \left [ S_{2} \right ]$ es $S^{(\frac{n}{2})} \left [ S^{(2)} \right ]$, luego:
+\begin{equation}
+C_{0}(K(M_{n})) \cong_{S_{n}} (S^{(\frac{n}{2})} \left [ S^{(2)} \right ])\uparrow_{S_{\frac{n}{2}} \left [ S_{2} \right ]}^{S_{n}},
+\end{equation}
+y por \ref{eq:108} se tiene:
+\begin{equation}
+C_{0}(K(M_{n})) \cong_{S_{n}} (S^{(\frac{n}{2})} \circ S^{(2)}),
+\end{equation}
+entonces por \cite{macdonald1998symmetric} [I 8 Ex. 6a] se sigue que para $n \geq 4$ y par:
+\begin{equation}
+  \label{eq:97}
+   C_{0}(K(M_n)) \cong_{S_{n}} \bigoplus_{\mu \vdash n} S^{\mu},
+\end{equation}
+sumado sobre todas las particiones $\mu$ pares (donde cada $\mu_{i}$ es par).
+
+
+
 Por lo anterior se tiene que para $k \geq 0$ and $n \geq 4$:
 \begin{equation}
   \label{eq:113}
   C_{0}(K(M_n)) \cong_{S_{n}} (S^{\floor*{\frac{n}{2}}} \circ S^{2}) \bullet S^{n-2(\floor*{\frac{n}{2}})},
 \end{equation}
-es decir, es la fórmula para generar $C_{0}(K(M_n))$ que se divide en los casos par e impar de arriba.
+es decir, es la fórmula para general $C_{0}(K(M_n))$ que se divide en los casos par e impar de arriba.
 
 Observe que $\textup{dim } C_{0}(K(M_n)) = \frac{|S_{n}|}{|\textup{Stab}_{S_{n}} W|}$ ya que las gráficas asociadas a cualquier clan maximal de $G_{n}$ que se interseca con sí mismo son isomorfas, es decir en estos casos $W$ es el adecuado para inducir a $C_{0}(K(M_n))$. 
 
@@ -3675,28 +3799,47 @@ C_{0}(K(M_{8})) \cong_{S_{8}}  S^{(8)} \oplus S^{(2,2,2,2)} \oplus S^{(4,2,2)} \
 \end{example}
 Los resultados de los dos ejemplos anteriores pueden ser verificados con las Tabla D y Tabla E respectivamente en el Apéndice A.
 
-\section{Descomposición de $C_{1}(K(M_5))$ y $C_{1}(K(M_6))$ a partir de inducir estabilizadores de sus generadores}
-
-\label{Ind_est_o}
+\section{Descomposición de $C_{k}(K(M_5))$ y $C_{k}(K(M_6))$ para $0 \leq k \leq 2$}
+\subsection{Descomposición de $C_{1}(K(M_5))$ y $C_{1}(K(M_6))$ a partir de inducir estabilizadores de sus generadores}
+\label{Ind_est_o_1}
 
 A diferencia de $C_{0}(K(M_n))$ tratar de generalizar $C_{1}(K(M_n))$ presenta diversas dificultades que más adelante se discutiran, sin embargo para $n = 5, 6$ aún es posible obtener $C_{1}(K(M_n))$ a través de inducir estabilizadores de algunos de sus generadores.
 
 Primeramente consideremos a $V = C_{1}(K(M_5))$, entonces un módulo útil para inducir es el siguiente:
 
  $$W = \langle (\overline{12},\overline{34}) \wedge  (\overline{12},\overline{35}) \rangle,$$
-ya que las gráficas asociadas a cualesquieras dos clanes maximales distintos de $G_{5}$ que se intersecan en una arista de $K_{5}$, es decir cualquier gráfica asociada a otro $1$-simplejo distinto de $K(M_{5})$ es un automorfismo de:
+ya que las gráficas asociadas a cualesquieras dos clanes maximales distintos de $G_{5}$ que se intersecan en una arista de $K_{5}$, es decir cualquier multigráfica asociada a otro $1$-simplejo distinto de $K(M_{5})$ es un automorfismo de:
+%\begin{center}
+%\begin{tikzpicture}[scale=1.3]
+%\node[draw,circle] (1) at (-1,1) {1};
+%\node[draw,circle] (2) at (1,1) {2};
+%\node[draw,circle] (4) at (1.6,0) {4};
+%\node[draw,circle] (3) at (0,-.8) {3};
+%\node[draw,circle] (5) at (-1.6,0) {5};
+%
+%\Edge(1)(2)
+%\Edge(3)(4) 
+%\Edge(3)(5)
+%\draw[-,>=latex] (1) to[bend right] (2);
+%\end{tikzpicture}
+%\end{center}
 \begin{center}
 \begin{tikzpicture}[scale=1.3]
-\node[draw,circle] (1) at (-2,2) {1};
-\node[draw,circle] (2) at (-2,0) {2};
-\node[draw,circle] (3) at (-1,0) {3};
-\node[draw,circle] (4) at (-1,2) {4};
-\node[draw,circle] (5) at (0,2) {5};
-%
-\Edge(1)(2)
-\Edge(3)(4) 
-\Edge(3)(5)
-\draw[-,>=latex] (1) to[bend right] (2);
+\draw (-1,1) node[left] {1};
+\draw (1,1)  node[right] {2};
+\draw (1.6,0) node[above] {4};
+\draw (0,-0.8) node[below] {3};
+\draw (-1.6,0) node[right] {5};
+\draw [line width = 1pt] (-1,1) -- (1,1) ;
+\draw [line width = 1pt] (0,-0.8) -- (1.6,0) ;
+\draw [line width = 1pt] (0,-0.8) -- (-1.6,0) ;
+%\draw (-1,1) arc (1,1);
+\draw[-,>=latex] (-1,1) to[bend right] (1,1);
+\draw (-1,1) node {$\bullet$};
+\draw (1,1)  node {$\bullet$};
+\draw (1.6,0) node {$\bullet$};
+\draw (0,-0.8) node {$\bullet$};
+\draw (-1.6,0) node {$\bullet$};
 \end{tikzpicture}
 \end{center}
 luego $\textup{Stab}_{S_{5}} W$ es $(S_{2} \times S_{2}) \times S_{1}$ y su representación es $(S^{(2)} \times S^{(1^{2})}) \times S^{(1)}$ observe que estamos utilizando $S^{(1^{2})}$ ya que el orden de la parejas de números determinará el signo del $1$-simplejo, entonces tenemos que:
@@ -3735,32 +3878,55 @@ y si
       D' =\{(1),(36),(45),(34)(56),(35)(46),(36)(45),(3564),(3465)\},
 \end{equation*}
 entonces se puede verificar que $D' = S_{2} \left [ S_{2} \right ]$, por lo cual: $\textup{Stab}(V) \cong S_{2} \times D_{4}$.
-Y se puede observar que $W$ es adecuado, ya que toda mulit-gráfica asociada a dos clanes maximales que se intersecan en $G_{6}$ es isomorfa a:
+Y se puede observar que $W$ es adecuado, ya que toda multigráfica asociada a dos clanes maximales que se intersecan en $G_{6}$ es isomorfa a:
+%\begin{center}
+%\begin{tikzpicture}[scale=1.3]
+%\node[draw,circle] (1) at (-0.5,0.866) {1};
+%\node[draw,circle] (2) at (0.5,0.866) {2};
+%\node[draw,circle] (3) at (1,0) {3};
+%\node[draw,circle] (4) at (0.5,-0.866) {4};
+%\node[draw,circle] (5) at (-0.5,-0.866) {5};
+%\node[draw,circle] (6) at (-1,0) {6};
+%%
+%\Edge(1)(2)
+%\Edge(3)(4) 
+%\Edge(5)(6)
+%\Edge(3)(5)
+%\Edge(4)(6)
+%\draw[-,>=latex] (1) to[bend right] (2);
+%\end{tikzpicture}
+%\end{center}
 \begin{center}
 \begin{tikzpicture}[scale=1.3]
-\node[draw,circle] (1) at (-0.5,0.866) {1};
-\node[draw,circle] (2) at (0.5,0.866) {2};
-\node[draw,circle] (3) at (1,0) {3};
-\node[draw,circle] (4) at (0.5,-0.866) {4};
-\node[draw,circle] (5) at (-0.5,-0.866) {5};
-\node[draw,circle] (6) at (-1,0) {6};
-%
-\Edge(1)(2)
-\Edge(3)(4) 
-\Edge(5)(6)
-\Edge(3)(5)
-\Edge(4)(6)
-\draw[-,>=latex] (1) to[bend right] (2);
+\draw (-0.5,0.866) node[left] {1};
+\draw (0.5,0.866)  node[right] {2};
+\draw (1,0) node[above] {3};
+\draw (0.5,-0.866) node[below] {4};
+\draw (-0.5,-0.866) node[below] {5};
+\draw (-1,0) node[above] {6};
+\draw [line width = 1pt] (-0.5,0.866) -- (0.5,0.866) ;
+\draw [line width = 1pt] (1,0) -- (0.5,-0.866) ;
+\draw [line width = 1pt] (1,0) -- (-0.5,-0.866) ;
+\draw [line width = 1pt] (0.5,-0.866) -- (-1,0) ;
+\draw [line width = 1pt] (-0.5,-0.866) -- (-1,0) ;
+%\draw (-1,1) arc (1,1);
+\draw[-,>=latex] (-0.5,0.866) to[bend right] (0.5,0.866);
+\draw (-0.5,0.866) node {$\bullet$};
+\draw (0.5,0.866)  node {$\bullet$};
+\draw (1,0) node {$\bullet$};
+\draw (0.5,-0.866) node {$\bullet$};
+\draw (-0.5,-0.866) node {$\bullet$};
+\draw (-1,0) node {$\bullet$};
 \end{tikzpicture}
 \end{center}
 Luego:
 \begin{equation}
 \begin{aligned}
-C_{1}(K(M_{6})) & \cong_{S_{6}} ((S^{2} \left [ S^{1^{2}} \right ]) \times S^{2}) \uparrow_{S_{2} \left [ S_{2} \right ] \times S_{2}}^{S_{6}} \\
-& \cong_{S_{6}} \left [ (S^{2} \left [ S^{1^{2}} \right ]) \uparrow_{S_{2} \left [ S_{2} \right ]}^{S_{4}} \times (S^{2}) \uparrow_{S_{2}}^{S_{2}} \right ] \uparrow_{S_{2} \left [ S_{2} \right ] \times S_{2}}^{S_{6}},
+C_{1}(K(M_{6})) & \cong_{S_{6}} ((S^{(2)} \left [ S^{(1^{2})} \right ]) \times S^{(2)}) \uparrow_{S_{2} \left [ S_{2} \right ] \times S_{2}}^{S_{6}} \\
+& \cong_{S_{6}} \left [ (S^{(2)} \left [ S^{(1^{2})} \right ]) \uparrow_{S_{2} \left [ S_{2} \right ]}^{S_{4}} \times (S^{(2)}) \uparrow_{S_{2}}^{S_{2}} \right ] \uparrow_{S_{4} \times S_{2}}^{S_{6}},
 \end{aligned}
 \end{equation}
-y por definición del producto inducido \ref{ind_prod} y la inducción del producto composición \ref{eq:108}se tiene:
+y por definición del producto inducido \ref{ind_prod} y producto composición \ref{eq:108} se tiene:
 \begin{equation}
 C_{1}(K(M_{6})) \cong_{S_{6}} (S^{2}  \circ S^{1^{2}}) \bullet (S^{2}), 
 \end{equation}
@@ -3772,7 +3938,138 @@ donde $\mu \vdash 6$ tal que para $\lambda \vdash 4$, $\lambda \subset \mu$ y ad
 \begin{equation*}
 C_{1}(K(M_{6})) \cong_{S_{6}}  S^{(2,1,1,1,1)} \oplus S^{(2,2,2)} \oplus S^{(3,1,1,1)} \oplus S^{(3,2,1)} \oplus S^{(4,2)},
 \end{equation*}
-lo cual se verifica con la Tabla B en el Apéndice A.
+lo cual se verifica con la Tabla C en el Apéndice A.
+
+\subsection{Descomposición de $C_{2}(K(M_5))$ y $C_{2}(K(M_6))$ a partir de inducir estabilizadores de sus generadores}
+\label{Ind_est_o_2}
+
+Ahora al considerar $V = C_{1}(K(M_{6}))$ y:
+$$W = \langle \{(12,34) \wedge (12,35) \wedge (12,45) \} \rangle,$$
+\begin{equation*}
+    \begin{aligned}
+      \textup{Stab}_{S_{5}} W &=\{g\in S_{5}\mid gW=W\}\\
+      &=\{(1),(12)(345), (34), (45), (12)(35), (345), (354),\\
+      &\qquad{}(12)(354), (35), (12), (12)(45), (12)(34)\}.
+    \end{aligned}
+\end{equation*}
+Nuevamente cualquier multigráfica asociada a un conjunto de $3$ clanes maximales de $G_{5}$ que se intesercan entre sí es isomoforma a:
+%\begin{center}
+%\begin{tikzpicture}[scale=1.3]
+%\node[draw,circle] (1) at (-1,1) {1};
+%\node[draw,circle] (2) at (1,1) {2};
+%\node[draw,circle] (3) at (1.6,0) {3};
+%\node[draw,circle] (4) at (0,-.8) {4};
+%\node[draw,circle] (5) at (-1.6,0) {5};
+%%
+%\Edge(1)(2)
+%\Edge(3)(4) 
+%\Edge(3)(5)
+%\Edge(4)(5)
+%\draw[-,>=latex] (1) to[bend right] (2);
+%\draw[-,>=latex] (1) to[bend left] (2);
+%\end{tikzpicture}
+%\end{center}
+\begin{center}
+\begin{tikzpicture}[scale=1.3]
+\draw (-1,1) node[left] {1};
+\draw (1,1)  node[right] {2};
+\draw (1.6,0) node[above] {4};
+\draw (0,-0.8) node[below] {3};
+\draw (-1.6,0) node[right] {5};
+\draw [line width = 1pt] (-1,1) -- (1,1) ;
+\draw [line width = 1pt] (0,-0.8) -- (1.6,0) ;
+\draw [line width = 1pt] (0,-0.8) -- (-1.6,0) ;
+\draw [line width = 1pt] (1.6,0) -- (-1.6,0) ;
+%\draw (-1,1) arc (1,1);
+\draw[-,>=latex] (-1,1) to[bend right] (1,1);
+\draw[-,>=latex] (-1,1) to[bend left] (1,1);
+\draw (-1,1) node {$\bullet$};
+\draw (1,1)  node {$\bullet$};
+\draw (1.6,0) node {$\bullet$};
+\draw (0,-0.8) node {$\bullet$};
+\draw (-1.6,0) node {$\bullet$};
+\end{tikzpicture}
+\end{center}
+y si
+\begin{equation*}
+      D =\{(1), (34), (45), (345), (354), (35)\},
+\end{equation*}
+entonces se puede verificar que $D \cong S_{3}$, entonces $\textup{Stab}_{S_{5}} W = S_{2} \times S_{3}$,
+y ya que el orden de las parejas de las aristas de $K_{5}$ determinarán la orientación de $W$ tenemos que la representación asociada es $S^{(2)} \times S^{(1^{3})}$, luego:
+\begin{equation}
+C_{2}(K(M_{5})) \cong_{S_{5}} (S^{(2)} \times S^{^{(1^{3})}}) \uparrow_{S_{2} \times S_{3}}^{S_{5}}
+\end{equation}
+luego, por la definición del producto inducido \ref{ind_prod} se tiene que:
+\begin{equation*}
+C_{2}(K(M_{5})) \cong_{S_{5}} S^{(2)} \bullet S^{^{(1^{3})}}
+\end{equation*}
+y por la regla de Pieri \cite{wachs2006poset}:
+\begin{equation*}
+C_{2}(K(M_{5})) \cong_{S_{5}} \bigoplus_{\mu} S^{\mu}
+\end{equation*}
+donde $\mu \vdash 5$ tal que $\mu$ contiene $(2)$ y $\mu / \lambda$ es un vertical strip, es decir:
+\begin{equation*}
+C_{2}(K(M_{5})) \cong_{S_{5}} S^{(2,1,1,1)} \oplus S^{(3,1,1)},
+\end{equation*}
+lo cual también coincide con la Tabla B en el Apéndice A 
+
+
+Ahora al considerar $V = C_{2}(K(M_{6}))$ y:
+$$W = \langle \{(12,34,56) \wedge (12,35,46) \wedge (12,36,45) \} \rangle,$$
+entonces resulta que $\textup{Stab}_{S_{6}} W \cong S_{4}$, pero ya que $12$ está en la primer entrada de todas las tuplas, se tiene que las permutaciones de las siguientes $2$ parejas pueden cambiar la orientación del $2$-simplejo, es por ello que:
+\begin{equation}
+C_{2}(K(M_{6}))  \cong_{S_{6}} (S^{2} \times S^{(1^{4})}) \uparrow_{S_{2} \times S_{4}}^{S_{6}},
+\end{equation}
+luego por definición de producto composición \ref{eq:108}:
+\begin{equation}
+C_{2}(K(M_{6}))  \cong_{S_{6}} (S^{2} \bullet S^{(1^{4})}),
+\end{equation}
+y por la regla de Pieri \cite{wachs2006poset} nuevamente se tiene:
+\begin{equation*}
+C_{2}(K(M_{6})) \cong_{S_{6}} \bigoplus_{u} S^{\mu}, 
+\end{equation*}
+para $\mu \vdash 6$ tal que $(2) \subset $, $\mu / \lambda$ es un vertical strip. Es decir:
+\begin{equation*}
+C_{2}(K(M_{6})) \cong_{S_{6}} S^{(2,1,1,1,1)} \oplus S^{(3,1,1,1)},
+\end{equation*}
+lo cual también coincide con la Tabla C en el Apéndice A 
+
+
+\subsection{Limitaciones al descomponer $C_{p}(K(M_n))$ en $S_{n}$ módulos irreducibles}
+\label{Lim}
+Los resultados anteriores son interesantes y a primera vista se puede pensar que de manera análoga se puden generalizar, sin embargo, en está sección se presentan los inconvenientes que nos impidieron hacerlo, al menos hasta el momento.
+
+
+Entonces consideremos $V = C_{2}(K(M_{8}))$, ahora como en los casos anteriores deseamos encontrar $W$ subespacio de $V$ y por medio de su estabilizador inducir a $V$, sin embargo en este caso $W$ no es un solo $2$-simplejo porque hay distintas manera de que clanes maximales de $G_{8}$ se intersequen y formen un $2$-simplejo en $K(M_{8})$. Para lo anterior sean $\sigma_{1}, \sigma_{2}$ y $\sigma_{3}$ los tres simplejos en $K(M_{8})$ cuya intersección no es nula entre ellos, es decir, que forman un $2$-simplejo $W$, para ello introducimos la siguiente notación:
+$$W^{I} := \left [ (\sigma_{1} \sim  \sigma_{2}; n_{\sigma_{12}}), (\sigma_{2} \sim \sigma_{3}; n_{\sigma_{23}}), (\sigma_{1} \sim \sigma_{3}; n_{\sigma_{13}})\right ],$$
+lo cual significa que en $W$ $\sigma_{1}$ y $\sigma_{2}$ se intersecan en $n_{\sigma_{12}}$ cantidad de aristas de $K_{8}$, $\sigma_{1}$ y $\sigma_{3}$ se intersecan en $n_{\sigma_{13}}$ cantidad de aristas de $K_{8}$ y $\sigma_{2}$ y $\sigma_{3}$ se intersecan en $n_{\sigma_{23}}$ cantidad de aristas de $K_{8}$.
+Luego, observe que un $2$-simplejo en $K(M_{8})$ sólo puede ser formado con las siguientes intersecciones de $\sigma_{1}, \sigma_{2}$ y $\sigma_{3}$:
+\begin{itemize}
+\item $W_{1}^{I} := \left [ (\sigma_{1} \sim  \sigma_{2}; 1), (\sigma_{2} \sim \sigma_{3}; 1), (\sigma_{1} \sim \sigma_{3}; 1)\right ].$
+\item $W_{2}^{I} := \left [ (\sigma_{1} \sim  \sigma_{2}; 1), (\sigma_{2} \sim \sigma_{3}; 2), (\sigma_{1} \sim \sigma_{3}; 1)\right ].$
+\item $W_{3}^{I} := \left [ (\sigma_{1} \sim  \sigma_{2}; 2), (\sigma_{2} \sim \sigma_{3}; 2), (\sigma_{1} \sim \sigma_{3}; 1)\right ].$
+\item $W_{4}^{I} := \left [ (\sigma_{1} \sim  \sigma_{2}; 2), (\sigma_{2} \sim \sigma_{3}; 2), (\sigma_{1} \sim \sigma_{3}; 2)\right ].$
+\end{itemize}
+Para lo anterior consideraremos lo siguientes $W's$:
+\begin{itemize}
+\item $W_{1} = \langle \{12,34,56,78\} \wedge \{12,35,48,67\} \wedge \{12,36,47,58\} \rangle$
+\item $W_{2} = \langle \{12,34,56,78\} \wedge \{12,35,47,68\} \wedge \{12,35,48,67\} \rangle$
+\item $W_{3} = \langle \{12,34,56,78\} \wedge \{12,34,57,68\} \wedge \{12,36,48,57\} \rangle$
+\item $W_{4} = \langle \{12,34,56,78\} \wedge \{12,34,57,68\} \wedge \{12,34,58,67\} \rangle$
+\end{itemize}
+
+Sin embargo, observe que para $W_{1}^{I}$ exiten otros dos espacios diferentes de $W_{1}$:
+\begin{itemize}
+\item $W_{1'} = \langle \{12,34,56,78\} \wedge \{12,35,47,68\} \wedge \{17,25,34,68\} \rangle$ (Los 3 clanes no se intersecan en la misma pareja).
+\item $W_{1''} = \langle \{12,34,56,78\} \wedge \{12,35,48,67\} \wedge \{12,37,46,58\} \rangle$ (Los 3 clanes se intersecan en 12 que está en otra órbita).
+\end{itemize}
+
+
+
+
+
+
+
 
 
 
@@ -3898,33 +4195,6 @@ $14$ & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0
 \end{tabular}
 \end{turn}
 \end{table}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 \backmatter
