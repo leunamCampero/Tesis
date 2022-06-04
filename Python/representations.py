@@ -1,57 +1,24 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Nov 10 12:54:13 2020
-
-@author: Hp
-"""
-
 
 from sympy import *
-init_printing(use_unicode=True)
-#import sympy 
-from sympy import sympify
-from sympy import solve
-from sympy.abc import x
 import networkx as nx
 import numpy.matlib 
 import numpy as np
 from itertools import combinations
-from scipy.sparse import dok_matrix
-from operator import add
-import sys
-import matplotlib.pyplot as plt
 #from sympy import Matrix
 from sympy.matrices import Matrix, zeros
 from sympy.solvers.solveset import linsolve
-from sympy.combinatorics.named_groups import SymmetricGroup
 from sympy.combinatorics import Permutation
 import itertools as itert 
-from itertools import permutations 
-from sympy import Identity, eye
-from itertools import combinations_with_replacement
 from sympy.combinatorics.partitions import IntegerPartition
 import math
-import copy
-import unittest
-import timeit
-from sympy.matrices import Matrix
 from sympy.polys.domains import ZZ
 from sympy.matrices.normalforms import smith_normal_form
-from scipy.sparse import csc_matrix
-from scipy.sparse.linalg import spsolve
 from scipy.linalg import null_space
 from scipy.linalg import orth
-from scipy.linalg import lu
-from scipy import linalg
 from numpy.linalg import matrix_rank
 import numpy
-from numpy import asarray_chkfinite, zeros, r_, diag
-import numpy as np
 from scipy.sparse import csr_matrix
-from numpy import genfromtxt
 
-
-__all__ = ['svd', 'svdvals', 'diagsvd', 'orth']
 
 
 class P_chains:
@@ -83,7 +50,7 @@ class P_chains:
         Raises:
         ------
         IndexError: 
-            If the number of p-simplexs is not equal to the number of coefficients. 
+            If the number of p-simplicies is not equal to the number of coefficients. 
         TypeError: 
             If the p-simplex given is not immutable data types like a tuple.
         
@@ -308,13 +275,13 @@ class P_chains:
     
 class SCFromFacets:
     """
-    A class used to do and operate p-chains.
+    A class used to create and operate p-chains.
     
     ----------
     Attributes    
     ----------
     v: list
-        A list of the maximum faces of the simplicial complex.
+        A list of the maximal faces of the simplicial complex.
     """
     def __init__(self, v):
         '''
@@ -324,7 +291,7 @@ class SCFromFacets:
         Attributes
         ----------
         v: list
-            A list of the maximum faces of the simplicial complex.
+            A list of the maximal faces of the simplicial complex.
             
         -------    
         Raises
@@ -335,7 +302,7 @@ class SCFromFacets:
         ---------
         Examples:
         ---------
-        To make a simplicial complex asociated with a graph, 
+        To make a simplicial complex associated with a graph, 
         use the ``SimplicialComplex`` class. We need a graph G.
             >>> sc = SCFromFacets([[0,1,2,3],[3,4,5]])
             >>> print(sc.SCnodes)
@@ -355,7 +322,7 @@ class SCFromFacets:
         """
         Makes the faces of a simplicial complex. 
         
-           A simplicial complex SC is uniquely determined by its maximum faces,
+           A simplicial complex SC is uniquely determined by its maximal faces,
            and it must contains every face of a simplex, also the intersection 
            of any two simplexes of SC is a face of each of them.
            
@@ -427,7 +394,6 @@ class SCFromFacets:
     def dimension(self):
         """
         Gives the dimension of a simplicial complex.
-
         ----------
         Parameters
         ----------
@@ -509,8 +475,7 @@ class SCFromFacets:
             return c_p
     def matrix_simmetric_representate(self, p):
         """
-        Give the matrix associated to the boundary operator.
-
+        Gives the matrix associated to the boundary operator.
         ----------
         Parameters
         ----------
@@ -534,7 +499,7 @@ class SCFromFacets:
              [ 1]
              [ 1]
              [-1]]
-            .. Note:: The previous is right becuase there is only 1 
+            .. Note:: The previous is right because there is only 1 
             3-simplex and 4 2-simplex.
         """
         if (p >0 and (p <= self.dimension()) ):
@@ -563,22 +528,22 @@ class SCFromFacets:
     def decomposition_into_s_n_irreducibles(self, n):
         """
         Returns a dictionary showing the descomposition into irreducibles
-        of the ith reduced homology S_n module of a simplicial complex.
+        of the i-th homology like a S_n module of a simplicial complex.
         
         -----
         Args:
         -----
         n: int 
-            It indicates which is the symmetrical group that acts in the homology.
+            It indicates which is the symmetric group that acts in the homology.
         
         --------
         Returns:
         --------
         dict: 
             A dictionary that shows the decomposition into irreducible 
-            submodules of the ith homology, where the number that 
+            submodules of the i-th homology, where the number that 
             appears in front of each partition of n is the multiplicity
-            of the irreducible representation in the homology.
+            of the irreducible representation in the decomposition.
         
         Examples:
             To get that, use 
@@ -732,28 +697,30 @@ class SCFromFacets:
                 for j in range(M5.shape[1]):
                     Ip = Ip + M5[i,j]*uu[j]*vv[j]
                 Ip = Ip/card
-                D[tuple(w5[i])]=abs(round(Ip))
+                D[tuple(w5[i])] = abs(round(Ip))
+                '''Note that I am using round, only because the results obtained are 
+                not esthetics'''
             vec_dic[k] = D
         return vec_dic 
     def decomposition_into_s_n_irreducibles_chain_sp(self, n):
         """
         Returns a dictionary showing the descomposition into irreducibles
-        of the ith chain space like a S_n module of a simplicial complex.
+        of the i-th chain space like a S_n module of a simplicial complex.
         
         -----
         Args:
         -----
         n: int 
-            It indicates which is the symmetrical group that acts in the chain space.
+            It indicates which is the symmetric group that acts in the chain space.
         
         --------
         Returns:
         --------
         dict: 
             A dictionary that shows the decomposition into irreducible 
-            submodules of the ith chain space, where the number that 
+            submodules of the i-th chain space, where the number that 
             appears in front of each partition of n is the multiplicity
-            of the irreducible representation in the space.
+            of the irreducible representation in the decomposition.
         
         Examples:
             To get that, use 
@@ -806,7 +773,6 @@ class SCFromFacets:
         """
         Returns a dictionary showing the dimension of the simplicial complex who
         are not trivially zeros
-
         --------
         Returns:
         --------
@@ -851,7 +817,6 @@ class SCFromFacets:
 class YoungTableaux:
     """
     A class to compute irreducible character values of a symmetric group.
-
         ----------
         Parameters
         ----------
@@ -1055,7 +1020,7 @@ class YoungTableaux:
     
     def heights(self):
         """
-        A method to calculate the heights i.e the sum of the heights of the border strips.
+        A method to compute the heights i.e the sum of the heights of the border strips.
         
         --------
         Returns:
@@ -1124,7 +1089,7 @@ class YoungTableaux:
     
     def CMNR(self):
         """
-        A method to calculate irreducible character values ​​through the Murnaghan-Nakayama rule.
+        A method to compute irreducible character values ​​through the Murnaghan-Nakayama rule.
         
         --------
         Returns:
@@ -1135,7 +1100,7 @@ class YoungTableaux:
         ---------
         Examples:
         ---------
-        Here are the last method of the class ``YoungTableaux``. To 
+        Here is the last method of the class ``YoungTableaux``. To 
         get the irreducible character value of a symmetric group according
         to the given partition use ``YoungTableaux.CMNR`` (We will use
         the same example that in the method ``heights``. 
@@ -1206,7 +1171,6 @@ def boundary_op_n(v):
         said that \partial_{p-1}(\partial_{p}(v)) = 0, that was checked in 
         the ``boundary_op_n(u)``. In the case when you use 0-simplex, the result is 
         a empty dictionary like in ``boundary_op_n(w)``. 
-
     """
     h = list(v.dic.keys())[0]
     p = len(h) - 1
@@ -1286,7 +1250,6 @@ def boundary_op_n(v):
 def partitions_list(n):
     """
     Returns a list of the partitions of n.
-
     ----------
     Parameters
     ----------
@@ -1400,7 +1363,6 @@ def eq_elements(a, b):
         False
         >>> print(eq_elements(a2,b2))
         True
-
     """
     if ((isinstance(a, int) == True) or (isinstance(a, str) == True)):
         return a == b
@@ -1450,7 +1412,6 @@ def orientation_function(a,b,p):
         False
         >>> print(orientation_function(a2,b2,2))
         True
-
     .. Note:: For ``a1`` and ``b1`` the function receive
     the integer ``1``, and in the case of ``a2`` and ``b2`` 
     receive ``2`` to indentify the dimension of the
@@ -1515,7 +1476,6 @@ def tuple_sorted(a):
 def tuple_permutation(v,P):
     """
     Determines the orientation of ``b`` taken the orientation of ``a`` positive.
-
     ----------
     Parameters
     ----------
@@ -1544,7 +1504,6 @@ def tuple_permutation(v,P):
         ((2, 4), (3, 5), (1, 0))
         >>> print(tuple_permutation(a3,Permutation(0,1)(2,3)))
         (((1, 0), (3, 4), (2, 5)), ((1, 5), (0, 2), (3, 4)))
-
     .. Note:: The function return other tuple that represent
     how the Permutation is acting in a natural way in the origin 
     tuple.
@@ -1571,7 +1530,6 @@ def matching_graph(n):
     ----------
     n: int
         A integer that to do the complete graph.
-
     --------
     Returns:
     --------
@@ -1581,7 +1539,6 @@ def matching_graph(n):
     Raises:
     -------
         NetworkXError: If n is a negative number.
-
     """
     k_n = nx.complete_graph(n)
     G = nx.Graph()
@@ -1603,7 +1560,6 @@ def clique_graph(g, cmax=float('inf')):
     ----------
     n: int
         A integer that to do the matching graph.
-
     --------
     Returns:
     --------
@@ -1615,7 +1571,6 @@ def clique_graph(g, cmax=float('inf')):
     -------
     NetworkXError: 
         If n is a negative number.
-
     """
     ite = nx.find_cliques(g)
     cliques = []
@@ -1725,7 +1680,7 @@ def columnspace(M):
         return v
 def permutation_in_simplex_test(vec, P):
     """
-    Returns a simplex under a permutation.
+    Returns a P-chain under a permutation.
     
     ----------
     Parameters
@@ -1745,12 +1700,12 @@ def permutation_in_simplex_test(vec, P):
     ---------
     Examples:
     ---------
-    To see how a permutation act on a p-simplex, use 
+    To see how a permutation acts on a p-simplex, use 
     ``permutation_in_simplex_test(SimplicialComplex, Permuation)``.
     Also we must check that the boundary operator on a p-simplex
     (\partial_{p}) is well-defined and that (if ``p-simplex`` := \sigma)
     \partial_{p}(-\sigma) = - \partial_{p}(\sigma). For this purpose, it
-    suffices to show that the right-hand side of:          
+    is enough to show that the right-hand side of:          
     \partial_{p}(\sigma) = 
                          = \partial_{p}([v_{0},...,v_{p}]) =
                          = \sum_{i=0}^{p}(-1)^{i}[v_{0},...,v_{i},...v_{p}].
@@ -1795,7 +1750,7 @@ def permutation_in_simplex_test(vec, P):
         True
     ..Note:: Then for this example the result is the same.
     
-    And for the second propertie:
+    And for the second property:
         
         >>> sigma1 = P_chains([(0,1,2)],[1])
         >>> sigma2 = P_chains([(0,1,2)],[-1])
@@ -1852,7 +1807,6 @@ def is_int(v):
         return aux
 def size_conjugacy_class(partition,n):
     """Returns the number of elements of a conjugacy class.
-
     ----------
     Parameters
     ----------
@@ -1893,7 +1847,6 @@ def size_conjugacy_class(partition,n):
     c=0
     aux=partition[0]
     flag = 1
-    c2 = 0
     for j in range(len(partition)):
         if (aux == partition[j]):
             c = c + 1
@@ -1903,7 +1856,6 @@ def size_conjugacy_class(partition,n):
             aux = partition[j]
             c = 1
             flag = 0
-            c2 = j
     if (flag == 1):
         aux1 = aux1*(partition[j-1]**c)*(math.factorial(c))
     else: 
@@ -1914,7 +1866,6 @@ def size_conjugacy_class(partition,n):
 def make_permutation(partition):
     """
     Given a partition returns the a representate of a conjugacy class.
-
     ----------
     Parameters
     ----------
@@ -1965,7 +1916,6 @@ def make_permutation(partition):
 def Reduce(N):
     """
     Returns a row reduced form of a matrix and a matrix that save the operations.
-
     ----------
     Parameters
     ----------
@@ -2613,7 +2563,6 @@ def set_6_d_Mc(v, r):
     Set use in Example 6, Section 8, pg 137. From MACDONALD "Symmetric Functions and Hall Polynomials".
     '''
     fv = Frobenius_notation(v)
-    print(fv)
     if (len(fv[0]) < 1):
         return False
     if (sum(fv[1]) != r):
